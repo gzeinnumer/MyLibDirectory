@@ -58,11 +58,11 @@ public class FunctionGlobalFile {
         if (!path.substring(0,1).equals("/")){
             path = "/"+path;
         }
-        if (!FunctionGlobalDir.isFileExists(path)){
+        if (!FunctionGlobalDir.isFileExists(FunctionGlobalDir.appFolder+path)){
             return list;
         }
 
-        File file = new File(FunctionGlobalDir.getStorageCard+ path);
+        File file = new File(FunctionGlobalDir.getStorageCard+ FunctionGlobalDir.appFolder+ path);
         Scanner input;
 
         try {
