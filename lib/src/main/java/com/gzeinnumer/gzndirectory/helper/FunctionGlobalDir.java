@@ -10,21 +10,24 @@ public class FunctionGlobalDir {
     public final static String getStorageCard = Environment.getExternalStorageDirectory().toString();
     public static String appFolder = "";
 
-    private static final String TAG = "FunctionGlobalDir_";
+    public static void logSystemFunctionGlobal(String function, String msg) {
+        Log.d("MyLibDirectory_Debug", function + "_" + msg);
+    }
 
-    public static void myLogD(String tag,String msg){
+    public static void myLogD(String tag, String msg) {
         Log.d(tag, msg);
     }
 
-    public static void initExternalDirectoryName(String appFolder){
-        if (!appFolder.substring(0,1).equals("/")){
-            appFolder = "/"+appFolder;
+    public static void initExternalDirectoryName(String appFolder) {
+        if (!appFolder.substring(0, 1).equals("/")) {
+            appFolder = "/" + appFolder;
         }
         FunctionGlobalDir.appFolder = appFolder;
     }
 
     public static boolean initFolder(String... folderName) {
         if (appFolder.length()==0){
+            FunctionGlobalDir.logSystemFunctionGlobal("initFolder", "Folder External untuk aplikasi belum di deklarasi");
             return false;
         }
         File folder;
@@ -33,6 +36,7 @@ public class FunctionGlobalDir {
         folder = new File(getStorageCard + appFolder);
         if (!folder.exists()) {
             if (!creatingFolder(folder)){
+                FunctionGlobalDir.logSystemFunctionGlobal("initFolder", "Gagal membuat direktory External untuk aplikasi");
                 return false;
             }
         }
@@ -43,6 +47,7 @@ public class FunctionGlobalDir {
             folder = new File(getStorageCard + appFolder + s);
             if (!folder.exists()) {
                 if (!creatingFolder(folder)){
+                    FunctionGlobalDir.logSystemFunctionGlobal("initFolder", "Gagal membuat direktory " + s);
                     return false;
                 }
             }
@@ -53,10 +58,10 @@ public class FunctionGlobalDir {
     private static boolean creatingFolder(File folder){
         try{
             if (folder.mkdirs()){
-                myLogD(TAG, "Folder created");
+                FunctionGlobalDir.logSystemFunctionGlobal("creatingFolder", "Success menjalankan mkdirs direktory External untuk aplikasi ");
             }
         } catch (Exception e){
-            myLogD(TAG, "Folder not created");
+            FunctionGlobalDir.logSystemFunctionGlobal("creatingFolder", "Gagal menjalankan mkdirs direktory External untuk aplikasi " + e.getMessage());
             return false;
         }
         return true;

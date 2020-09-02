@@ -14,15 +14,18 @@ public class FunctionGlobalFile {
     //create file
     public static boolean initFile(String fileName,String... text) {
         if (FunctionGlobalDir.appFolder.length()==0){
+            FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External untuk aplikasi belum di deklarasi");
             return false;
         }
         if (fileName.length()==0){
+            FunctionGlobalDir.logSystemFunctionGlobal("initFile", "FileName tidak boleh kosong");
             return false;
         }
         if (!fileName.substring(0,1).equals("/")){
             fileName = "/"+fileName;
         }
         if (text.length==0){
+            FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Tidak ada text yang akan dikirim");
             return false;
         }
         File file = new File(FunctionGlobalDir.getStorageCard + FunctionGlobalDir.appFolder + fileName);
@@ -43,6 +46,7 @@ public class FunctionGlobalFile {
             return true;
         }catch (IOException e){
             e.printStackTrace();
+            FunctionGlobalDir.logSystemFunctionGlobal("processFile", "Gagal membuat file " + e.getMessage());
             return false;
         }
     }
@@ -50,15 +54,18 @@ public class FunctionGlobalFile {
     public static List<String> readFile(String path){
         List<String> list = new ArrayList<String>();
         if (FunctionGlobalDir.appFolder.length()==0){
+            FunctionGlobalDir.logSystemFunctionGlobal("readFile", "Folder External untuk aplikasi belum dideklarasi");
             return list;
         }
         if (path.length()==0){
+            FunctionGlobalDir.logSystemFunctionGlobal("readFile", "Path tidak boleh kosong");
             return list;
         }
         if (!path.substring(0,1).equals("/")){
             path = "/"+path;
         }
         if (!FunctionGlobalDir.isFileExists(FunctionGlobalDir.appFolder+path)){
+            FunctionGlobalDir.logSystemFunctionGlobal("readFile", "Folder External untuk aplikasi belum dideklarasi");
             return list;
         }
 
@@ -69,6 +76,7 @@ public class FunctionGlobalFile {
             input = new Scanner(file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            FunctionGlobalDir.logSystemFunctionGlobal("readFile", "Gagal membaca file");
             return list;
         }
 
