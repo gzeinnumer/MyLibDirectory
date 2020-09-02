@@ -10,17 +10,17 @@ public class FunctionGlobalDir {
     public final static String getStorageCard = Environment.getExternalStorageDirectory().toString();
     public static String appFolder = "";
 
-    public FunctionGlobalDir(String appFolder) {
-        if (!appFolder.substring(0,1).equals("/")){
-            appFolder = "/"+appFolder;
-        }
-        FunctionGlobalDir.appFolder = appFolder;
-    }
-
     private static final String TAG = "FunctionGlobalDir_";
 
     public static void myLogD(String tag,String msg){
         Log.d(tag, msg);
+    }
+
+    public static void initExternalDirectoryName(String appFolder){
+        if (!appFolder.substring(0,1).equals("/")){
+            appFolder = "/"+appFolder;
+        }
+        FunctionGlobalDir.appFolder = appFolder;
     }
 
     public static boolean initFolder(String... folderName) {
