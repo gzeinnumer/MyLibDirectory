@@ -1,4 +1,4 @@
-package com.gzeinnumer.gzndirectory;
+package com.gzeinnumer.gzndirectory.helper;
 
 import java.io.File;
 import java.io.FileNotFoundException;

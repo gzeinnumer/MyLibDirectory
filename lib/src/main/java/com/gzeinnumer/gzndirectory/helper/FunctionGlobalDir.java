@@ -1,4 +1,4 @@
-package com.gzeinnumer.gzndirectory;
+package com.gzeinnumer.gzndirectory.helper;
 
 import android.os.Environment;
 import android.util.Log;
