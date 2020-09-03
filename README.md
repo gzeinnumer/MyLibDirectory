@@ -49,7 +49,24 @@ dependencies {
 
 ---
 
+#### Function Global Directory
+**Contoh Multi Check Permissions.** Request permition secara bersamaan, saya sarankan untuk requestnya dijalankan di activity yang pertama aktif, disini saya masukan ke SplashScreen :
 
+## Manifest
+Tambahkan permition ke file manifest
+```xml
+<manifest >
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:requestLegacyExternalStorage="true">
+
+    </application>
+
+</manifest>
+```
 
 ---
 
