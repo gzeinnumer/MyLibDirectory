@@ -325,8 +325,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**Step 7.** Jika sukses maka akan tampil seperti ini :
-|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.png)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.png)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.png)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.png)|
+
+**Step 8.** Jika sukses maka akan tampil seperti ini :
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
 |--|--|--|--|
 |Request Permition |Folder MyLibsTesting sudah dibuat|'folder1' dan 'folder2' sudah terbuat|'folder1_1' yang berada didalam 'folder1' sudah dibuat|
 ---
