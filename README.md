@@ -6,7 +6,7 @@
     <a><img src="https://img.shields.io/badge/Version-0.0.9-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a href="https://github.com/gzeinnumer"><img src="https://img.shields.io/github/followers/gzeinnumer?label=follow&style=social"></a>
-    <p>Kumpulan function untuk membuat folder dan file yang sering dipakai dalam development program android, dokumen ini dibuat berdasarkan pengalaman saya, kasih masukan kalau ada yang kurang. terimakasih karna sudah berkunjung</p>
+    <p>Kumpulan function untuk membuat folder dan file yang sering dipakai dalam development program android, dokumen ini dibuat berdasarkan pengalaman Zein, kasih masukan kalau ada yang kurang. terimakasih karna sudah berkunjung</p>
 </div>
 
 ---
@@ -50,7 +50,7 @@ dependencies {
 ---
 
 ## Function Global Directory
-**Contoh Multi Check Permissions.** Request permition secara bersamaan, saya sarankan untuk requestnya dijalankan di activity yang pertama aktif, disini saya masukan ke SplashScreen :
+**Contoh Multi Check Permissions.** Request permition secara bersamaan, Zein sarankan untuk requestnya dijalankan di activity yang pertama aktif, disini Zein masukan ke MainActivity :
 
 **Manifest** Tambahkan permition ke file manifest. Zein sarankan untuk menambahkan requestLegacyExternalStorage=true jika android kamu sudah android 10.
 ```xml
@@ -67,8 +67,8 @@ dependencies {
 </manifest>
 ```
 
-**First Activity** letakan permition pada saat awal activity dimulai, disini zein meletakannya di MainActivity.
-
+**First Activity** letakan permition pada saat awal activity dimulai, disini Zein meletakannya di MainActivity.
+__
 **Step 1.** Kamu harus mendeklarasi dulu folder name yang akan kamu pakai di external :
 **notes** Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di onCreate activity yang pertama kali dipanggil contohnya "SplashScreenActivity atau MainActivity"  :
 ```java
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
-
+__
 **Step 2.** tambahkan array permition yang dibutuhkan :
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
-
+__
 **Step 3.** tambahkan function untuk mengecek permition apps apakah semua permition sudah diberikan izinkan :
 ```java
 
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
-
+__
 **Step 4.** jika belum diberikan izin maka akan keluar popup :
 ```java
 
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
-
+__
 **Step 5.** Jika permition sudah diizinkan, buat dan panggil function "onSuccessCheckPermitions" untuk membuat folder :
 ```java
 
@@ -185,10 +185,10 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
-
-**Next** Jika sudah Mendeklarasi Folder Name yang kamu mau, maka eksekusi function seperti di bawah:
-**notes** Jika kamu mau membuat folder dalam folder, pastikan value variable "folders" di awali dengan folder parent nya dulu.
-**example** kamu mau membuat folder "folder1" yang di isi folder "folder1_1", pastikan kamu menulis dulu "folder1" baru setelahnya "folder1_1". seperti di bawah
+__
+**Next** Jika sudah Mendeklarasi Folder Name yang kamu mau, maka eksekusi function seperti di bawah:__
+**notes** Jika kamu mau membuat folder dalam folder, pastikan value variable "folders" di awali dengan folder parent nya dulu.__
+**example** kamu mau membuat folder "folder1" yang di isi folder "folder1_1", pastikan kamu menulis dulu "folder1" baru setelahnya "folder1_1". seperti di bawah__
 ```java
 public class MainActivity extends AppCompatActivity {
     
@@ -228,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-
+__
 **Step 6.** tambahkan function di onCreate agar setiap activity dijalankan maka akan selalu mengecek apakah izin sudah diberikan :
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
-
+__
 **Step 7.** Fullcode akan tampak seperti ini :
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -325,7 +325,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-
+__
 **Step 8.** Jika sukses maka akan tampil seperti ini :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
 |--|--|--|--|
