@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
 **notes.** pada tutorial ini, variable 'externalFolderName' akan berisi 'MyLibsTesting', semua file dan folder yang akan kita buat di bawah akan ada didalam direktory atau path '/storage/emulated/0/MyLibsTesting'
 
-\
+#
 **Step 2.** 
 \
 Tambahkan array permition yang dibutuhkan : \
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-\
+#
 **Step 3.** 
 \
 Tambahkan function untuk mengecek permition apps apakah semua permition sudah diberikan izinkan :
@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-\
+#
 **Step 4.**
 \
 Jika belum diberikan izin maka akan keluar popup :
@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-\
+#
 **Step 5.** 
 \
 Jika permition sudah diizinkan, buat dan panggil function "onSuccessCheckPermitions" untuk membuat folder :
@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-\
+#
 **Step 6.**
 \
 Jika onRequestPermissionsResult sudah mendapat permition yang dibutuhkan, maka kita akan membuat function "onSuccessCheckPermitions":\
@@ -268,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
 
 **notes.** ada 3 cara penulisan yang bisa kamu pilih.
 
-\
+#
 **Step 7.**
 \
 Tambahkan function di onCreate agar setiap activity dijalankan maka akan selalu mengecek apakah izin sudah diberikan :
@@ -298,7 +298,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-\
+#
 **Step 8.**
 \
 Fullcode akan tampak seperti ini :
@@ -374,7 +374,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-\
+#
 **Step 9.**
 \
 Jika sukses maka akan tampil seperti ini :
@@ -387,7 +387,7 @@ Jika sukses maka akan tampil seperti ini :
 ## Function Global File
 **CRUD File.** Lanjutan pada step 9 sebelumnya, disini kita akan mencoba membuat file dengan lebih simple dan cepat :
 
-\
+#
 **Step 10.**
 \
 Pada function "onSuccessCheckPermitions" kita bisa membuat file dengan memastikan kalau permition sudah di berikan, ikuti Step 1 - Step 8 :
@@ -426,7 +426,7 @@ String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Cre
 //String[] data = {"Hallo GZeinNumer Again", "File Creating","File Created"};
 ```
 
-\
+#
 **Step 11.**
 \
 Fullcode akan tampak seperti ini :
@@ -502,7 +502,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-\
+#
 **Step 12.** 
 \
 Jika sukses maka akan tampil seperti ini :
@@ -511,7 +511,7 @@ Jika sukses maka akan tampil seperti ini :
 |--|--|--|
 |Folder MyLibsTesting sudah dibuat|'MyFile.txt' yang berada didalam MyLibsTesting sudah dibuat|Isi dari 'MyFile.txt'|
 
-\
+#
 **Step 13.**
 \
 Setelah file dibuat, kita bisa membaca file dengan code sebagai berikut :
@@ -534,8 +534,7 @@ public class MainActivity extends AppCompatActivity {
 
 **notes.** hasil akan barupa "List<String>", dan kamu bisa ambil datanya sesuai index.
 
-
-\
+#
 **Step 14.**
 \
 Code akan tampak seperti ini :
@@ -573,7 +572,7 @@ public class MainActivity extends AppCompatActivity {
 ## Function Global Zip
 **String BASE64 ke ZIP.** Lanjutan pada step 9 sebelumnya, disini kita akan mencoba membuat file zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
 
-\
+#
 **Step 15.**
 \
 Pada function "onSuccessCheckPermitions" kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
@@ -621,7 +620,7 @@ public class MainActivity extends AppCompatActivity {
 
 **notes.** pastikan pada fileName adalah nama asli dari file yang sudah diencode dengan base64 dan md5, jika berbeda maka akan dapat lemparan error.
 
-\
+#
 **Step 16.**
 \
 Code akan tampak seperti ini :
@@ -655,7 +654,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-\
+#
 **Step 17.**
 \
 Jika sukses maka akan tampil seperti ini :
