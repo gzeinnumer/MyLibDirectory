@@ -76,8 +76,6 @@ dependencies {
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/debug.jpg)|
 |--|
 
-\
-
 
 **Step 1.** Kamu harus mendeklarasi dulu folder name yang akan kamu pakai di external :
 **notes** Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di onCreate activity yang pertama kali dipanggil contohnya "SplashScreenActivity atau MainActivity"  :
