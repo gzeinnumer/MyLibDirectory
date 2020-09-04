@@ -69,7 +69,6 @@ dependencies {
 
 \
 **First Activity** letakan permition pada saat awal activity dimulai, disini Zein meletakannya di MainActivity.
-\
 
 
 **DEBUG** Jika kamu menemukan masalah pada sistem, kamu bisa debug dengan cara sperti ini.
@@ -338,6 +337,38 @@ public class MainActivity extends AppCompatActivity {
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
 |--|--|--|--|
 |Request Permition |Folder MyLibsTesting sudah dibuat|'folder1' dan 'folder2' sudah terbuat|'folder1_1' yang berada didalam 'folder1' sudah dibuat|
+
+---
+
+## Function Global File
+**CRUD File.** Lanjutan pada step 8 sebelumnya, disini kita akan mencoba membuat file dengan lebih simple dan cepat :
+
+\
+**Step 9.** pada function onSuccessCheckPermitions kita bisa membuat file dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 7 :
+```java
+public class MainActivity extends AppCompatActivity {
+
+    ...
+
+    private void onSuccessCheckPermitions() {
+        //buat file dalam folder App
+        String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
+    
+        if(FunctionGlobalFile.initFile("/MyFile.txt",data)){
+            Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
+    
+            List<String> list = FunctionGlobalFile.readFile("/MyFile.txt");
+    
+            Toast.makeText(this, "Jumlah baris : "+list.size() , Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "File gagal dibuat", Toast.LENGTH_SHORT).show();
+        }
+    }
+    
+    ...
+
+}
+```
 ---
 
 ```
