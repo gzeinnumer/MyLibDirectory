@@ -71,6 +71,8 @@ dependencies {
 **First Activity** letakan permition pada saat awal activity dimulai, disini Zein meletakannya di MainActivity.
 \
 **DEBUG** letakan permition pada saat awal activity dimulai, disini Zein meletakannya di MainActivity.
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/debug.jpg)|
+|--|
 \
 \
 **Step 1.** Kamu harus mendeklarasi dulu folder name yang akan kamu pakai di external :
