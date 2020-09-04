@@ -341,7 +341,7 @@ public class MainActivity extends AppCompatActivity {
 ---
 
 ## Function Global File
-**CRUD File.** Lanjutan pada step 8 sebelumnya, disini kita akan mencoba membuat file dengan lebih simple dan cepat :
+**CRUD File.** Lanjutan pada step 9 sebelumnya, disini kita akan mencoba membuat file dengan lebih simple dan cepat :
 
 \
 **Step 10.** pada function "onSuccessCheckPermitions" kita bisa membuat file dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 :
@@ -451,8 +451,9 @@ public class MainActivity extends AppCompatActivity {
 
 \
 **Step 12.** Jika sukses maka akan tampil seperti ini :
+
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|
-|--|--|--|--|
+|--|--|--|
 |Folder MyLibsTesting sudah dibuat|'MyFile.txt' yang berada didalam MyLibsTesting sudah dibuat|Isi dari 'MyFile.txt'|
 
 
