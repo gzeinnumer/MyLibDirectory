@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 \
-**Step 4.**  
+**Step 4.**
 \
 Jika belum diberikan izin maka akan keluar popup :
 ```java
