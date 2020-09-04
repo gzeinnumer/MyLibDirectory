@@ -72,7 +72,7 @@ dependencies {
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/debug.jpg)|
 |--|
 
-
+\
 **Step 1.** 
 \
 Kamu harus mendeklarasi dulu folder name yang akan kamu pakai di external :
@@ -99,7 +99,9 @@ public class MainActivity extends AppCompatActivity {
 **notes.** pada tutorial ini, variable 'externalFolderName' akan berisi 'MyLibsTesting', semua file dan folder yang akan kita buat di bawah akan ada didalam direktory atau path '/storage/emulated/0/MyLibsTesting'
 
 \
-**Step 2.** tambahkan array permition yang dibutuhkan : \
+**Step 2.** 
+\
+Tambahkan array permition yang dibutuhkan : \
 **First Activity.** letakan permition pada saat awal activity dimulai, disini Zein meletakannya di MainActivity.
 
 ```java
@@ -115,7 +117,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 \
-**Step 3.** tambahkan function untuk mengecek permition apps apakah semua permition sudah diberikan izinkan :
+**Step 3.** 
+\
+Tambahkan function untuk mengecek permition apps apakah semua permition sudah diberikan izinkan :
 ```java
 
 public class MainActivity extends AppCompatActivity {
@@ -145,7 +149,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 \
-**Step 4.** jika belum diberikan izin maka akan keluar popup :
+**Step 4.**  
+\
+Jika belum diberikan izin maka akan keluar popup :
 ```java
 
 public class MainActivity extends AppCompatActivity {
@@ -171,7 +177,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 \
-**Step 5.** Jika permition sudah diizinkan, buat dan panggil function "onSuccessCheckPermitions" untuk membuat folder :
+**Step 5.** 
+\
+Jika permition sudah diizinkan, buat dan panggil function "onSuccessCheckPermitions" untuk membuat folder :
 ```java
 
 public class MainActivity extends AppCompatActivity {
@@ -197,7 +205,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 \
-**Step 6.** Jika onRequestPermissionsResult sudah mendapat permition yang dibutuhkan, maka kita akan membuat function "onSuccessCheckPermitions":\
+**Step 6.**  
+\
+Jika onRequestPermissionsResult sudah mendapat permition yang dibutuhkan, maka kita akan membuat function "onSuccessCheckPermitions":\
 **notes.** Jika kamu mau membuat folder dalam folder, pastikan value variable "folders" di awali dengan folder parent nya dulu.\
 **example.** kamu mau membuat folder "folder1" yang di isi folder "folder1_1", pastikan kamu menulis dulu "folder1" baru setelahnya "folder1_1". seperti di bawah
 ```java
@@ -248,7 +258,9 @@ public class MainActivity extends AppCompatActivity {
 **notes.** ada 3 cara penulisan yang bisa kamu pilih.
 
 \
-**Step 7.** tambahkan function di onCreate agar setiap activity dijalankan maka akan selalu mengecek apakah izin sudah diberikan :
+**Step 7.**  
+\
+Tambahkan function di onCreate agar setiap activity dijalankan maka akan selalu mengecek apakah izin sudah diberikan :
 ```java
 public class MainActivity extends AppCompatActivity {
 
@@ -274,7 +286,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 \
-**Step 8.** Fullcode akan tampak seperti ini :
+**Step 8.**  
+\
+Fullcode akan tampak seperti ini :
 ```java
 public class MainActivity extends AppCompatActivity {
 
@@ -347,7 +361,9 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 \
-**Step 9.** Jika sukses maka akan tampil seperti ini :
+**Step 9.**  
+\
+Jika sukses maka akan tampil seperti ini :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
 |--|--|--|--|
 |Request Permition |Folder MyLibsTesting sudah dibuat|'folder1' dan 'folder2' sudah terbuat|'folder1_1' yang berada didalam 'folder1' sudah dibuat|
@@ -358,7 +374,9 @@ public class MainActivity extends AppCompatActivity {
 **CRUD File.** Lanjutan pada step 9 sebelumnya, disini kita akan mencoba membuat file dengan lebih simple dan cepat :
 
 \
-**Step 10.** pada function "onSuccessCheckPermitions" kita bisa membuat file dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 :
+**Step 10.**  
+\
+Pada function "onSuccessCheckPermitions" kita bisa membuat file dengan memastikan kalau permition sudah di berikan, ikuti Step 1 - Step 8 :
 ```java
 public class MainActivity extends AppCompatActivity {
 
@@ -393,7 +411,9 @@ String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Cre
 ```
 
 \
-**Step 11.** Fullcode akan tampak seperti ini :
+**Step 11.** 
+\
+Fullcode akan tampak seperti ini :
 ```java
 public class MainActivity extends AppCompatActivity {
 
@@ -466,14 +486,18 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 \
-**Step 12.** Jika sukses maka akan tampil seperti ini :
+**Step 12.** 
+\
+Jika sukses maka akan tampil seperti ini :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|
 |--|--|--|
 |Folder MyLibsTesting sudah dibuat|'MyFile.txt' yang berada didalam MyLibsTesting sudah dibuat|Isi dari 'MyFile.txt'|
 
 \
-**Step 13.** Setelah file dibuat, kita bisa membaca file dengan code sebagai berikut :
+**Step 13.**  
+\
+Setelah file dibuat, kita bisa membaca file dengan code sebagai berikut :
 ```java
 public class MainActivity extends AppCompatActivity {
 
@@ -493,7 +517,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 \
-**Step 14.** Code akan tampak seperti ini :
+**Step 14.**  
+\
+Code akan tampak seperti ini :
 ```java
 public class MainActivity extends AppCompatActivity {
     
@@ -519,7 +545,6 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-
 **notes.** Pastikan File sudah dibuat.
 
 ---
@@ -528,7 +553,9 @@ public class MainActivity extends AppCompatActivity {
 **String BASE64 ke ZIP.** Lanjutan pada step 9 sebelumnya, disini kita akan mencoba membuat file zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
 
 \
-**Step 15.** Pada function "onSuccessCheckPermitions" kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
+**Step 15.**  
+\
+Pada function "onSuccessCheckPermitions" kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
 disini kita akan mendeklarasikan
 \ 
 1. 'fileName' untuk nama file sebelum diencode dengan Base64. 
@@ -573,7 +600,9 @@ public class MainActivity extends AppCompatActivity {
 **notes.** pastikan pada fileName adalah nama asli dari file yang sudah diencode dengan base64 dan md5, jika berbeda maka akan dapat lemparan error.
 
 \
-**Step 16.** Code akan tampak seperti ini :
+**Step 16.**  
+\
+Code akan tampak seperti ini :
 ```java
 public class MainActivity extends AppCompatActivity {
     
@@ -604,7 +633,9 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 \
-**Step 17.** Jika sukses maka akan tampil seperti ini :
+**Step 17.**  
+\
+Jika sukses maka akan tampil seperti ini :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example7.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example8.jpg)|
 |--|--|--|
