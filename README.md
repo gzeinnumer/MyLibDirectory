@@ -52,7 +52,7 @@ dependencies {
 ## Function Global Directory
 **Contoh Multi Check Permissions.** Request permition secara bersamaan, saya sarankan untuk requestnya dijalankan di activity yang pertama aktif, disini saya masukan ke SplashScreen :
 
-**Manifest** Tambahkan permition ke file manifest
+**Manifest** Tambahkan permition ke file manifest. Zein sarankan untuk menambahkan requestLegacyExternalStorage=true jika android kamu sudah android 10.
 ```xml
 <manifest >
 
@@ -67,6 +67,268 @@ dependencies {
 </manifest>
 ```
 
+**First Activity** letakan permition pada saat awal activity dimulai, disini zein meletakannya di MainActivity.
+
+**Step 1.** Kamu harus mendeklarasi dulu folder name yang akan kamu pakai di external :
+**notes** Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di onCreate activity yang pertama kali dipanggil contohnya "SplashScreenActivity atau MainActivity"  :
+```java
+public class MainActivity extends AppCompatActivity {
+    
+    ...
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        //gunakan function ini cukup satu kali saja pada awal activity
+        String externalFolderName = getApplication().getString(R.string.app_name);
+        FunctionGlobalDir.initExternalDirectoryName(externalFolderName);
+    }
+
+    ...
+
+}
+```
+
+**Step 2.** tambahkan array permition yang dibutuhkan :
+```java
+public class MainActivity extends AppCompatActivity {
+
+    String[] permissions = new String[]{
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
+    
+    ...
+
+}
+```
+
+**Step 3.** tambahkan function untuk mengecek permition apps apakah semua permition sudah diberikan izinkan :
+```java
+
+public class MainActivity extends AppCompatActivity {
+    
+    ...
+
+    int MULTIPLE_PERMISSIONS = 1;
+    private boolean checkPermissions() {
+        int result;
+        List<String> listPermissionsNeeded = new ArrayList<>();
+
+        for (String p : permissions) {
+            result = ContextCompat.checkSelfPermission(getApplicationContext(), p);
+            if (result != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(p);
+            }
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[0]), MULTIPLE_PERMISSIONS);
+            return false;
+        }
+        return true;
+    }
+    
+    ...
+
+}
+```
+
+**Step 4.** jika belum diberikan izin maka akan keluar popup :
+```java
+
+public class MainActivity extends AppCompatActivity {
+    
+    ...
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MULTIPLE_PERMISSIONS) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                //aksi setealh semua permition diberikan
+            } else {
+                StringBuilder perStr = new StringBuilder();
+                for (String per : permissions) {
+                    perStr.append("\n").append(per);
+                }
+            }
+        }
+    }
+    
+    ...
+
+}
+```
+
+**Step 5.** Jika permition sudah diizinkan, buat dan panggil function "onSuccessCheckPermitions" untuk membuat folder :
+```java
+
+public class MainActivity extends AppCompatActivity {
+    
+    ...
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MULTIPLE_PERMISSIONS) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                onSuccessCheckPermitions();
+            } else {
+                StringBuilder perStr = new StringBuilder();
+                for (String per : permissions) {
+                    perStr.append("\n").append(per);
+                }
+            }
+        }
+    }
+    
+    ...
+
+}
+```
+
+**Next** Jika sudah Mendeklarasi Folder Name yang kamu mau, maka eksekusi function seperti di bawah:
+**notes** Jika kamu mau membuat folder dalam folder, pastikan value variable "folders" di awali dengan folder parent nya dulu.
+**example** kamu mau membuat folder "folder1" yang di isi folder "folder1_1", pastikan kamu menulis dulu "folder1" baru setelahnya "folder1_1". seperti di bawah
+```java
+public class MainActivity extends AppCompatActivity {
+    
+    ...
+
+    //cara penulisan 1
+    private void onSuccessCheckPermitions() {
+        String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
+        if (FunctionGlobalDir.initFolder(folders)){
+            Toast.makeText(this, "Folder sudah dibuat dan ditemukan sudah bisa lanjut", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(this, "Permition Required", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //cara penulisan 2
+    private void onSuccessCheckPermitions() {
+        String[] folders = new String[]{"/folder1","/folder1/folder1_1","/folder2"};
+        if (FunctionGlobalDir.initFolder(folders)){
+            Toast.makeText(this, "Folder sudah dibuat dan ditemukan sudah bisa lanjut", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(this, "Permition Required", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //cara penulisan 3
+    private void onSuccessCheckPermitions() {
+        String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
+        if (FunctionGlobalDir.initFolder(folders)){
+            Toast.makeText(this, "Folder sudah dibuat dan ditemukan sudah bisa lanjut", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(this, "Permition Required", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
+```
+
+**Step 6.** tambahkan function di onCreate agar setiap activity dijalankan maka akan selalu mengecek apakah izin sudah diberikan :
+```java
+public class MainActivity extends AppCompatActivity {
+
+    ...
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        ...
+
+        if (checkPermissions()) {
+            Toast.makeText(this, "Izin sudah diberikan", Toast.LENGTH_SHORT).show();
+            onSuccessCheckPermitions();
+        } else {
+            Toast.makeText(this, "Berikan izin untuk membuat folder terlebih dahulu", Toast.LENGTH_SHORT).show();
+        }
+    }
+    
+    ...
+
+}
+```
+
+**Step 7.** Fullcode akan tampak seperti ini :
+```java
+public class MainActivity extends AppCompatActivity {
+
+    String[] permissions = new String[]{
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        //gunakan function ini cukup satu kali saja pada awal activity
+        String externalFolderName = getApplication().getString(R.string.app_name);
+        FunctionGlobalDir.initExternalDirectoryName(externalFolderName);
+
+        if (checkPermissions()) {
+            Toast.makeText(this, "Izin sudah diberikan", Toast.LENGTH_SHORT).show();
+            onSuccessCheckPermitions();
+        } else {
+            Toast.makeText(this, "Berikan izin untuk membuat folder terlebih dahulu", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    int MULTIPLE_PERMISSIONS = 1;
+    private boolean checkPermissions() {
+        int result;
+        List<String> listPermissionsNeeded = new ArrayList<>();
+
+        for (String p : permissions) {
+            result = ContextCompat.checkSelfPermission(getApplicationContext(), p);
+            if (result != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(p);
+            }
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[0]), MULTIPLE_PERMISSIONS);
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MULTIPLE_PERMISSIONS) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                onSuccessCheckPermitions();
+            } else {
+                StringBuilder perStr = new StringBuilder();
+                for (String per : permissions) {
+                    perStr.append("\n").append(per);
+                }
+            }
+        }
+    }
+
+    private void onSuccessCheckPermitions() {
+        String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
+        if (FunctionGlobalDir.initFolder(folders)){
+            Toast.makeText(this, "Folder sudah dibuat dan ditemukan sudah bisa lanjut", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(this, "Permition Required", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
+```
+
+**Step 7.** Jika sukses maka akan tampil seperti ini :
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.png)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.png)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.png)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.png)|
+|--|--|--|--|
+|Request Permition |Folder MyLibsTesting sudah dibuat|'folder1' dan 'folder2' sudah terbuat|'folder1_1' yang berada didalam 'folder1' sudah dibuat|
 ---
 
 ```
