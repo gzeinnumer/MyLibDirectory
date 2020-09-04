@@ -70,11 +70,15 @@ dependencies {
 \
 **First Activity** letakan permition pada saat awal activity dimulai, disini Zein meletakannya di MainActivity.
 \
-**DEBUG** letakan permition pada saat awal activity dimulai, disini Zein meletakannya di MainActivity.
+\
+
+**DEBUG** Jika kamu menemukan masalah pada sistem, kamu bisa debug dengan cara sperti ini.
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/debug.jpg)|
 |--|
+
 \
 \
+
 **Step 1.** Kamu harus mendeklarasi dulu folder name yang akan kamu pakai di external :
 **notes** Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di onCreate activity yang pertama kali dipanggil contohnya "SplashScreenActivity atau MainActivity"  :
 ```java
