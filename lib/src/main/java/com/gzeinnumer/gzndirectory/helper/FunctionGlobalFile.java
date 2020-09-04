@@ -65,7 +65,7 @@ public class FunctionGlobalFile {
             path = "/"+path;
         }
         if (!FunctionGlobalDir.isFileExists(FunctionGlobalDir.appFolder+path)){
-            FunctionGlobalDir.logSystemFunctionGlobal("readFile", "Folder External untuk aplikasi belum dideklarasi");
+            FunctionGlobalDir.logSystemFunctionGlobal("readFile", "File tidak ditemukan");
             return list;
         }
 

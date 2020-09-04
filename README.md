@@ -456,7 +456,130 @@ public class MainActivity extends AppCompatActivity {
 |--|--|--|
 |Folder MyLibsTesting sudah dibuat|'MyFile.txt' yang berada didalam MyLibsTesting sudah dibuat|Isi dari 'MyFile.txt'|
 
+\
+**Step 13.** Setelah file dibuat, kita bisa membaca file dengan code sebagai berikut :
+```java
+public class MainActivity extends AppCompatActivity {
 
+    private void onSuccessCheckPermitions() {
+        
+        ...
+            List<String> list = FunctionGlobalFile.readFile("/MyFile.txt");
+            String value_0 = list.get(0);
+            Toast.makeText(this, "Jumlah baris : "+list.size() , Toast.LENGTH_SHORT).show();
+        ...
+
+    }
+}
+```
+**Notes.** hasil akan barupa "List<String>", dan kamu bisa ambil datanya sesuai index.
+
+
+\
+**Step 14.** Code akan tampak seperti ini :
+```java
+public class MainActivity extends AppCompatActivity {
+    
+    //sama seperti STEP 11.
+    ... 
+
+    private void onSuccessCheckPermitions() {
+        String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
+
+        if(FunctionGlobalFile.initFile("/MyFile.txt",data)){
+            Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
+           
+            //READ MyFile.txt
+            List<String> list = FunctionGlobalFile.readFile("/MyFile.txt");
+            String value_0 = list.get(0);
+            Toast.makeText(this, "Jumlah baris : "+list.size() , Toast.LENGTH_SHORT).show();
+
+        } else {
+            Toast.makeText(this, "File gagal dibuat", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
+```
+
+**Notes.** Pastikan File sudah dibuat.
+
+---
+
+## Function Global Zip
+**String BASE64 ke ZIP.** Lanjutan pada step 9 sebelumnya, disini kita akan mencoba membuat file zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
+
+\
+**Step 15.** Pada function "onSuccessCheckPermitions" kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
+disini kita akan mendeklarasikan\ 
+1. 'fileName' untuk nama file sebelum diencode dengan Base64. 
+2. 'base64EncodeFromFile' file zip yang sudah diencode jadi Base64, \
+3. 'md5EncodeFromFile' file zip yang sudah diencode jadi Md5 untuk memastikan Base64 tidak corrupt
+\
+jika 3 hal tersebut sudah di deklarasi, maka silakan gunakan function seperti dibawah :
+
+```java
+public class MainActivity extends AppCompatActivity {
+
+    ...
+
+    private void onSuccessCheckPermitions() {
+        String fileName = "/ExternalBase64Md5ToZip.zip";
+
+        //dari file zip diubah jadi base64
+        //https://base64.guru/converter/encode/file
+        String base64EncodeFromFile = "UEsDBBQAAAAIAJK6+FDfGqHQdAEAAABAAAAZAAAARXh0ZXJuYWxCYXNlNjRNZDVUb1ppcC5kYu3aQU7CQBQG4BlKgJJgWZh042JsQgIBTNQLiKYhRCgIJYqbZqRj0tgWgXIAbuQJvIk3MC516xRMhLowLiX/l2nmvXnpm25f0sFV24sEu5/MAh6xU1IklJIzxgghqnzS5Fs6kVPyO5UcHTwVZKDsPRPN03S5AQAAAAAAAPzRtZLR63U6jvidL3joziae6wQi4i6PeDJPX/TNhm0yu3HeNlmyysr+ZMx9wWzzxq70Uhm9WqWjVeP51JczsjMX04UIx8lU2WqbKJZDHoiazCrLfZrVSyW6fFj35MGjL5wfcWqrm7FZMlg5rxqea6gtyzabZp9ZXZtZw3a7Js/jiww1/vjN416/1Wn0R+zSHJXjV1ljaHdblrykY1p2JV9ZzebaC9HetVe5AQAAAAAAAMB/U1AUcti8FV5oLQIxy6UUosfZSY5+Rcfx/E+1NyIXAAAAAAAAAOyEIlVKdPOfAmU9/38QuQAAAAAAAABgt2RpShehMxx8AlBLAQI/ABQAAAAIAJK6+FDfGqHQdAEAAABAAAAZACQAAAAAAAAAgAAAAAAAAABFeHRlcm5hbEJhc2U2NE1kNVRvWmlwLmRiCgAgAAAAAAABABgAgEsYXNZh1gH+eSEy1mHWASKHEDLWYdYBUEsFBgAAAAABAAEAawAAAKsBAAAAAA==";
+
+        //dari file zip diubah jadi md5
+        //https://emn178.github.io/online-tools/md5_checksum.html
+        String md5EncodeFromFile = "966af03a49f85b0df0afd3d9a42d0264";
+
+        if (FunctionGlobalZip.initFileFromStringToZipToFile(fileName, "/zipLocation",base64EncodeFromFile,md5EncodeFromFile, true)){
+            Toast.makeText(this, "Success load data", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Gagal load data", Toast.LENGTH_SHORT).show();
+        }
+    }
+    
+    ...
+
+}
+```
+
+\
+**Step 16.** Code akan tampak seperti ini :
+```java
+public class MainActivity extends AppCompatActivity {
+    
+    //sama seperti STEP 11.
+    ... 
+
+    private void onSuccessCheckPermitions() {
+        String fileName = "/ExternalBase64Md5ToZip.zip";
+
+        //dari file zip diubah jadi base64
+        //https://base64.guru/converter/encode/file
+        String base64EncodeFromFile = "UEsDBBQAAAAIAJK6+FDfGqHQdAEAAABAAAAZAAAARXh0ZXJuYWxCYXNlNjRNZDVUb1ppcC5kYu3aQU7CQBQG4BlKgJJgWZh042JsQgIBTNQLiKYhRCgIJYqbZqRj0tgWgXIAbuQJvIk3MC516xRMhLowLiX/l2nmvXnpm25f0sFV24sEu5/MAh6xU1IklJIzxgghqnzS5Fs6kVPyO5UcHTwVZKDsPRPN03S5AQAAAAAAAPzRtZLR63U6jvidL3joziae6wQi4i6PeDJPX/TNhm0yu3HeNlmyysr+ZMx9wWzzxq70Uhm9WqWjVeP51JczsjMX04UIx8lU2WqbKJZDHoiazCrLfZrVSyW6fFj35MGjL5wfcWqrm7FZMlg5rxqea6gtyzabZp9ZXZtZw3a7Js/jiww1/vjN416/1Wn0R+zSHJXjV1ljaHdblrykY1p2JV9ZzebaC9HetVe5AQAAAAAAAMB/U1AUcti8FV5oLQIxy6UUosfZSY5+Rcfx/E+1NyIXAAAAAAAAAOyEIlVKdPOfAmU9/38QuQAAAAAAAABgt2RpShehMxx8AlBLAQI/ABQAAAAIAJK6+FDfGqHQdAEAAABAAAAZACQAAAAAAAAAgAAAAAAAAABFeHRlcm5hbEJhc2U2NE1kNVRvWmlwLmRiCgAgAAAAAAABABgAgEsYXNZh1gH+eSEy1mHWASKHEDLWYdYBUEsFBgAAAAABAAEAawAAAKsBAAAAAA==";
+
+        //dari file zip diubah jadi md5
+        //https://emn178.github.io/online-tools/md5_checksum.html
+        String md5EncodeFromFile = "966af03a49f85b0df0afd3d9a42d0264";
+
+        if (FunctionGlobalZip.initFileFromStringToZipToFile(fileName, "/zipLocation",base64EncodeFromFile,md5EncodeFromFile, true)){
+            Toast.makeText(this, "Success load data", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Gagal load data", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
+```
+**notes.** pastikan pada fileName adalah nama asli dari file yang sudah diencode dengan base64 dan md5, jika berbeda maka akan dapat lemparan error.
+
+\
+**Step 17.** Jika sukses maka akan tampil seperti ini :
+
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example7.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example8.jpg)|
+|--|--|--|
+|Folder MyLibsTesting sudah dibuat|'ExternalBase64Md5ToZip.zip' yang berada didalam MyLibsTesting sudah dibuat dari string base64, '/zipLocation' adalah folder yang akan dibuat untuk file hasil extract dari Zip|'ExernalBase64Md5ToZip.db' adalah file hasil extract dari file 'ExternalBase64Md5ToZip.zip'|
 
 ---
 
