@@ -73,7 +73,8 @@ dependencies {
 |--|
 
 
-**Step 1.** Kamu harus mendeklarasi dulu folder name yang akan kamu pakai di external :
+**Step 1.** 
+Kamu harus mendeklarasi dulu folder name yang akan kamu pakai di external :
 \
 **notes.** Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di onCreate activity yang pertama kali dipanggil contohnya "SplashScreenActivity atau MainActivity"  :
 ```java
@@ -487,7 +488,7 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-**Notes.** hasil akan barupa "List<String>", dan kamu bisa ambil datanya sesuai index.
+**notes.** hasil akan barupa "List<String>", dan kamu bisa ambil datanya sesuai index.
 
 
 \
@@ -518,7 +519,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**Notes.** Pastikan File sudah dibuat.
+**notes.** Pastikan File sudah dibuat.
 
 ---
 
