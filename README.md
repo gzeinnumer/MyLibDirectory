@@ -52,7 +52,7 @@ dependencies {
 ## Function Global Directory
 **Contoh Multi Check Permissions.** Request permition secara bersamaan, Zein sarankan untuk requestnya dijalankan di activity yang pertama aktif, disini Zein masukan ke MainActivity :
 
-**Manifest** Tambahkan permition ke file manifest. Zein sarankan untuk menambahkan requestLegacyExternalStorage=true jika android kamu sudah android 10.
+**Manifest.** Tambahkan permition ke file manifest. Zein sarankan untuk menambahkan requestLegacyExternalStorage=true jika android kamu sudah android 10.
 ```xml
 <manifest >
 
@@ -68,16 +68,14 @@ dependencies {
 ```
 
 \
-**First Activity** letakan permition pada saat awal activity dimulai, disini Zein meletakannya di MainActivity.
-
-
-**DEBUG** Jika kamu menemukan masalah pada sistem, kamu bisa debug dengan cara sperti ini.
+**DEBUG.** Jika kamu menemukan masalah pada sistem, kamu bisa debug dengan cara sperti ini.
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/debug.jpg)|
 |--|
 
 
 **Step 1.** Kamu harus mendeklarasi dulu folder name yang akan kamu pakai di external :
-**notes** Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di onCreate activity yang pertama kali dipanggil contohnya "SplashScreenActivity atau MainActivity"  :
+\
+**notes.** Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di onCreate activity yang pertama kali dipanggil contohnya "SplashScreenActivity atau MainActivity"  :
 ```java
 public class MainActivity extends AppCompatActivity {
     
@@ -88,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         
         //gunakan function ini cukup satu kali saja pada awal activity
-        String externalFolderName = getApplication().getString(R.string.app_name);
+        String externalFolderName = getApplication().getString(R.string.app_name); //   /storage/emulated/0/MyLibsTesting
         FunctionGlobalDir.initExternalDirectoryName(externalFolderName);
     }
 
@@ -96,8 +94,12 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
+**notes.** pada tutorial ini, variable 'externalFolderName' akan berisi 'MyLibsTesting', semua file dan folder yang akan kita buat di bawah akan ada didalam direktory atau path '/storage/emulated/0/MyLibsTesting'
+
 \
-**Step 2.** tambahkan array permition yang dibutuhkan :
+**Step 2.** tambahkan array permition yang dibutuhkan : \
+**First Activity.** letakan permition pada saat awal activity dimulai, disini Zein meletakannya di MainActivity.
+
 ```java
 public class MainActivity extends AppCompatActivity {
 
@@ -194,8 +196,8 @@ public class MainActivity extends AppCompatActivity {
 ```
 \
 **Step 6.** Jika onRequestPermissionsResult sudah mendapat permition yang dibutuhkan, maka kita akan membuat function "onSuccessCheckPermitions":\
-**notes** Jika kamu mau membuat folder dalam folder, pastikan value variable "folders" di awali dengan folder parent nya dulu.\
-**example** kamu mau membuat folder "folder1" yang di isi folder "folder1_1", pastikan kamu menulis dulu "folder1" baru setelahnya "folder1_1". seperti di bawah\
+**notes.** Jika kamu mau membuat folder dalam folder, pastikan value variable "folders" di awali dengan folder parent nya dulu.\
+**example.** kamu mau membuat folder "folder1" yang di isi folder "folder1_1", pastikan kamu menulis dulu "folder1" baru setelahnya "folder1_1". seperti di bawah
 ```java
 public class MainActivity extends AppCompatActivity {
     
@@ -203,6 +205,8 @@ public class MainActivity extends AppCompatActivity {
 
     //cara penulisan 1
     private void onSuccessCheckPermitions() {
+        //   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
+        //   /storage/emulated/0/MyLibsTesting/folder2
         String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
         if (FunctionGlobalDir.initFolder(folders)){
             Toast.makeText(this, "Folder sudah dibuat dan ditemukan sudah bisa lanjut", Toast.LENGTH_SHORT).show();
@@ -214,6 +218,8 @@ public class MainActivity extends AppCompatActivity {
 
     //cara penulisan 2
     private void onSuccessCheckPermitions() {
+        //   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
+        //   /storage/emulated/0/MyLibsTesting/folder2
         String[] folders = new String[]{"/folder1","/folder1/folder1_1","/folder2"};
         if (FunctionGlobalDir.initFolder(folders)){
             Toast.makeText(this, "Folder sudah dibuat dan ditemukan sudah bisa lanjut", Toast.LENGTH_SHORT).show();
@@ -225,6 +231,8 @@ public class MainActivity extends AppCompatActivity {
 
     //cara penulisan 3
     private void onSuccessCheckPermitions() {
+        //   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
+        //   /storage/emulated/0/MyLibsTesting/folder2
         String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
         if (FunctionGlobalDir.initFolder(folders)){
             Toast.makeText(this, "Folder sudah dibuat dan ditemukan sudah bisa lanjut", Toast.LENGTH_SHORT).show();
@@ -235,6 +243,8 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
+**notes.** ada 3 cara penulisan yang bisa kamu pilih.
+
 \
 **Step 7.** tambahkan function di onCreate agar setiap activity dijalankan maka akan selalu mengecek apakah izin sudah diberikan :
 ```java
@@ -277,7 +287,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         
         //gunakan function ini cukup satu kali saja pada awal activity
-        String externalFolderName = getApplication().getString(R.string.app_name);
+        String externalFolderName = getApplication().getString(R.string.app_name); //   /storage/emulated/0/MyLibsTesting
         FunctionGlobalDir.initExternalDirectoryName(externalFolderName);
 
         if (checkPermissions()) {
@@ -321,6 +331,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onSuccessCheckPermitions() {
+        //   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
+        //   /storage/emulated/0/MyLibsTesting/folder2
         String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
         if (FunctionGlobalDir.initFolder(folders)){
             Toast.makeText(this, "Folder sudah dibuat dan ditemukan sudah bisa lanjut", Toast.LENGTH_SHORT).show();
@@ -357,6 +369,7 @@ public class MainActivity extends AppCompatActivity {
         //cara 2
         //String[] data = {"Hallo GZeinNumer Again", "File Creating","File Created"};
     
+        //   /storage/emulated/0/MyLibsTesting/MyFile.txt
         if(FunctionGlobalFile.initFile("/MyFile.txt",data)){
             Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
         } else {
@@ -369,7 +382,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**notes** pada code dibawah, kamu bisa membuat file baru dengan value yang sudah kamu set, file akan dibuat dan text akan dimasukan ke file dengan urutan sesuai index array di bawah.
+**notes.** pada code dibawah, kamu bisa membuat file baru dengan value yang sudah kamu set, file akan dibuat dan text akan dimasukan ke file dengan urutan sesuai index array di bawah.
 ```java
 //cara 1
 String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
@@ -393,7 +406,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         
         //gunakan function ini cukup satu kali saja pada awal activity
-        String externalFolderName = getApplication().getString(R.string.app_name);
+        String externalFolderName = getApplication().getString(R.string.app_name); //   /storage/emulated/0/MyLibsTesting
         FunctionGlobalDir.initExternalDirectoryName(externalFolderName);
 
         if (checkPermissions()) {
@@ -439,6 +452,7 @@ public class MainActivity extends AppCompatActivity {
     private void onSuccessCheckPermitions() {
         String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
 
+        //   /storage/emulated/0/MyLibsTesting/MyFile.txt
         if(FunctionGlobalFile.initFile("/MyFile.txt",data)){
             Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
 
@@ -464,6 +478,7 @@ public class MainActivity extends AppCompatActivity {
     private void onSuccessCheckPermitions() {
         
         ...
+            //   /storage/emulated/0/MyLibsTesting/MyFile.txt
             List<String> list = FunctionGlobalFile.readFile("/MyFile.txt");
             String value_0 = list.get(0);
             Toast.makeText(this, "Jumlah baris : "+list.size() , Toast.LENGTH_SHORT).show();
@@ -486,10 +501,12 @@ public class MainActivity extends AppCompatActivity {
     private void onSuccessCheckPermitions() {
         String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
 
+        //   /storage/emulated/0/MyLibsTesting/MyFile.txt
         if(FunctionGlobalFile.initFile("/MyFile.txt",data)){
             Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
            
             //READ MyFile.txt
+            //   /storage/emulated/0/MyLibsTesting/MyFile.txt
             List<String> list = FunctionGlobalFile.readFile("/MyFile.txt");
             String value_0 = list.get(0);
             Toast.makeText(this, "Jumlah baris : "+list.size() , Toast.LENGTH_SHORT).show();
@@ -510,12 +527,14 @@ public class MainActivity extends AppCompatActivity {
 
 \
 **Step 15.** Pada function "onSuccessCheckPermitions" kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
-disini kita akan mendeklarasikan\ 
+disini kita akan mendeklarasikan
+\ 
 1. 'fileName' untuk nama file sebelum diencode dengan Base64. 
-2. 'base64EncodeFromFile' file zip yang sudah diencode jadi Base64, \
+2. 'base64EncodeFromFile' file zip yang sudah diencode jadi Base64,
 3. 'md5EncodeFromFile' file zip yang sudah diencode jadi Md5 untuk memastikan Base64 tidak corrupt
+4. 'zipLocation' file zip yang diextract akan meletakan semua filenya ke direcotry yang dibuat disini
 \
-jika 3 hal tersebut sudah di deklarasi, maka silakan gunakan function seperti dibawah :
+jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -523,6 +542,7 @@ public class MainActivity extends AppCompatActivity {
     ...
 
     private void onSuccessCheckPermitions() {
+        //   /storage/emulated/0/MyLibsTesting/ExternalBase64Md5ToZip.zip
         String fileName = "/ExternalBase64Md5ToZip.zip";
 
         //dari file zip diubah jadi base64
@@ -532,8 +552,12 @@ public class MainActivity extends AppCompatActivity {
         //dari file zip diubah jadi md5
         //https://emn178.github.io/online-tools/md5_checksum.html
         String md5EncodeFromFile = "966af03a49f85b0df0afd3d9a42d0264";
+        
+        //   /storage/emulated/0/MyLibsTesting/zipLocation
+        String zipLocation = "/zipLocation";
 
-        if (FunctionGlobalZip.initFileFromStringToZipToFile(fileName, "/zipLocation",base64EncodeFromFile,md5EncodeFromFile, true)){
+        //   /storage/emulated/0/MyLibsTesting/zipLocation
+        if (FunctionGlobalZip.initFileFromStringToZipToFile(fileName, zipLocation ,base64EncodeFromFile,md5EncodeFromFile, true)){
             Toast.makeText(this, "Success load data", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Gagal load data", Toast.LENGTH_SHORT).show();
@@ -544,6 +568,7 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
+**notes.** pastikan pada fileName adalah nama asli dari file yang sudah diencode dengan base64 dan md5, jika berbeda maka akan dapat lemparan error.
 
 \
 **Step 16.** Code akan tampak seperti ini :
@@ -563,8 +588,11 @@ public class MainActivity extends AppCompatActivity {
         //dari file zip diubah jadi md5
         //https://emn178.github.io/online-tools/md5_checksum.html
         String md5EncodeFromFile = "966af03a49f85b0df0afd3d9a42d0264";
+        
+        //   /storage/emulated/0/MyLibsTesting/zipLocation
+        String zipLocation = "/zipLocation";
 
-        if (FunctionGlobalZip.initFileFromStringToZipToFile(fileName, "/zipLocation",base64EncodeFromFile,md5EncodeFromFile, true)){
+        if (FunctionGlobalZip.initFileFromStringToZipToFile(fileName, zipLocation,base64EncodeFromFile,md5EncodeFromFile, true)){
             Toast.makeText(this, "Success load data", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Gagal load data", Toast.LENGTH_SHORT).show();
@@ -572,14 +600,13 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-**notes.** pastikan pada fileName adalah nama asli dari file yang sudah diencode dengan base64 dan md5, jika berbeda maka akan dapat lemparan error.
 
 \
 **Step 17.** Jika sukses maka akan tampil seperti ini :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example7.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example8.jpg)|
 |--|--|--|
-|Folder MyLibsTesting sudah dibuat|'ExternalBase64Md5ToZip.zip' yang berada didalam MyLibsTesting sudah dibuat dari string base64, '/zipLocation' adalah folder yang akan dibuat untuk file hasil extract dari Zip|'ExernalBase64Md5ToZip.db' adalah file hasil extract dari file 'ExternalBase64Md5ToZip.zip'|
+|Folder MyLibsTesting sudah dibuat|'ExternalBase64Md5ToZip.zip' yang berada didalam MyLibsTesting sudah dibuat dari string base64, '/zipLocation' adalah folder yang dibuat untuk file hasil extract dari Zip|'ExernalBase64Md5ToZip.db' adalah file hasil extract dari file 'ExternalBase64Md5ToZip.zip'|
 
 ---
 
