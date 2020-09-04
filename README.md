@@ -68,7 +68,7 @@ dependencies {
 ```
 
 **First Activity** letakan permition pada saat awal activity dimulai, disini Zein meletakannya di MainActivity.
-__
+\
 **Step 1.** Kamu harus mendeklarasi dulu folder name yang akan kamu pakai di external :
 **notes** Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di onCreate activity yang pertama kali dipanggil contohnya "SplashScreenActivity atau MainActivity"  :
 ```java
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
-__
+\
 **Step 2.** tambahkan array permition yang dibutuhkan :
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
-__
+\
 **Step 3.** tambahkan function untuk mengecek permition apps apakah semua permition sudah diberikan izinkan :
 ```java
 
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
-__
+\
 **Step 4.** jika belum diberikan izin maka akan keluar popup :
 ```java
 
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
-__
+\
 **Step 5.** Jika permition sudah diizinkan, buat dan panggil function "onSuccessCheckPermitions" untuk membuat folder :
 ```java
 
@@ -185,10 +185,10 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
-__
-**Next** Jika sudah Mendeklarasi Folder Name yang kamu mau, maka eksekusi function seperti di bawah:__
-**notes** Jika kamu mau membuat folder dalam folder, pastikan value variable "folders" di awali dengan folder parent nya dulu.__
-**example** kamu mau membuat folder "folder1" yang di isi folder "folder1_1", pastikan kamu menulis dulu "folder1" baru setelahnya "folder1_1". seperti di bawah__
+\
+**Next** Jika sudah Mendeklarasi Folder Name yang kamu mau, maka eksekusi function seperti di bawah:\
+**notes** Jika kamu mau membuat folder dalam folder, pastikan value variable "folders" di awali dengan folder parent nya dulu.\
+**example** kamu mau membuat folder "folder1" yang di isi folder "folder1_1", pastikan kamu menulis dulu "folder1" baru setelahnya "folder1_1". seperti di bawah\
 ```java
 public class MainActivity extends AppCompatActivity {
     
@@ -228,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-__
+\
 **Step 6.** tambahkan function di onCreate agar setiap activity dijalankan maka akan selalu mengecek apakah izin sudah diberikan :
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
-__
+\
 **Step 7.** Fullcode akan tampak seperti ini :
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -325,7 +325,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-__
+\
 **Step 8.** Jika sukses maka akan tampil seperti ini :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
 |--|--|--|--|
