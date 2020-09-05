@@ -109,7 +109,7 @@ public class FunctionGlobalFile {
         }
         FileWriter fw;
         try {
-            fw = new FileWriter(FunctionGlobalDir.getStorageCard + FunctionGlobalDir.appFolder + path, true);
+            fw = new FileWriter(FunctionGlobalDir.getStorageCard + path, true);
             fw.write(msg + "\n");
             fw.close();
             return true;
