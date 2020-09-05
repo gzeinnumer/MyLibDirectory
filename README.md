@@ -825,7 +825,7 @@ lalu didalam application tambahkan tag provider untuk memberikan izin pada siste
 
 **MainActivity** pada function 'onSuccessCheckPermitions' tambahkan kode berikut :
 
-tambahakn permition CAMERA ke array :
+tambahkan permition CAMERA ke array :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -840,6 +840,8 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
+
+Tambahkan kode seperti berikut :
 
 ```java
 public class MainActivity extends AppCompatActivity {
