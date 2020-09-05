@@ -25,10 +25,6 @@ public class FunctionGlobalFile {
         if (!fileName.substring(0, 1).equals("/")) {
             fileName = "/" + fileName;
         }
-//        if (text.length==0){
-//            FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Tidak ada text yang akan dikirim");
-//            return false;
-//        }
         File file = new File(FunctionGlobalDir.getStorageCard + FunctionGlobalDir.appFolder + fileName);
 
         return processFile(file, text);
@@ -38,9 +34,13 @@ public class FunctionGlobalFile {
         try{
             FileOutputStream f = new FileOutputStream(file);
             PrintWriter writer = new PrintWriter(f);
-            for (String d: text){
-                writer.println(d);
+
+            if (text.length > 0) {
+                for (String d : text) {
+                    writer.println(d);
+                }
             }
+
             writer.flush();
             writer.close();
             f.close();

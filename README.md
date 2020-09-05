@@ -725,8 +725,6 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**notes.** pastikan pada fileName adalah nama asli dari file yang sudah diencode dengan base64 dan md5, jika berbeda maka akan dapat lemparan error.
-
 #
 **Step 20.**
 \
