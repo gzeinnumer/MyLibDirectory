@@ -735,7 +735,7 @@ Jika sukses maka akan tampil seperti ini :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example9.jpg)|
 |--|--|--|--|
-|Folder MyLibsTesting sudah dibuat|'MyFile.txt' yang berada didalam MyLibsTesting sudah dibuat|'MyFile.txt' file dibuat|'MyFile.txt' text sudah diappent|
+|Folder MyLibsTesting sudah dibuat|'MyFile.txt' yang berada didalam MyLibsTesting sudah dibuat|'MyFile.txt' file dibuat dengan text yang sudah diset pertama kali|'MyFile.txt' new line ditambah ke file|
 
 ---
 
