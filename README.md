@@ -672,7 +672,7 @@ disini kita akan mendeklarasikan
 1. 'onSuccessCheckPermitions' itu adalah function yang sama dengan yang ada di Step 14, tambahkan function 'onAppentText' untuk menambahkan jumlah text dalam file. 
 2. 'onAppentText'->'path' adalah path dari lokasi file sebelumnya yang sudah kita buat pada point NO 1,
 3. 'messages' pada variable ini kamu bisa masukan text yang mau kamu kirim ke file, text akan ditambahkan sesuai index
-\
+
 jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
 
 ```java
