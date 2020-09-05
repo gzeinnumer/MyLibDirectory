@@ -62,10 +62,10 @@ public class FunctionGlobalFile {
             FunctionGlobalDir.logSystemFunctionGlobal("readFile", "Path tidak boleh kosong");
             return list;
         }
-        if (!path.substring(0,1).equals("/")){
-            path = "/"+path;
+        if (!path.substring(0, 1).equals("/")) {
+            path = "/" + path;
         }
-        if (!FunctionGlobalDir.isFileExists(FunctionGlobalDir.appFolder+path)){
+        if (!FunctionGlobalDir.isFileExists(path)) {
             FunctionGlobalDir.logSystemFunctionGlobal("readFile", "File tidak ditemukan");
             return list;
         }
@@ -99,7 +99,6 @@ public class FunctionGlobalFile {
         if (!path.substring(0, 1).equals("/")) {
             path = "/" + path;
         }
-        FunctionGlobalDir.myLogD("appentText", FunctionGlobalDir.getStorageCard + path);
         if (!FunctionGlobalDir.isFileExists(path)) {
             FunctionGlobalDir.logSystemFunctionGlobal("appentText", "File tidak ditemukan");
             return false;
@@ -110,7 +109,7 @@ public class FunctionGlobalFile {
         }
         FileWriter fw;
         try {
-            fw = new FileWriter(FunctionGlobalDir.getStorageCard + path, true);
+            fw = new FileWriter(FunctionGlobalDir.getStorageCard + FunctionGlobalDir.appFolder + path, true);
             for (String d : msg) {
                 fw.write(d + "\n");
             }

@@ -68,7 +68,7 @@ public class FunctionGlobalDir {
     }
 
     public static boolean isFileExists(String path){
-        File file = new File(getStorageCard + path);
+        File file = new File(getStorageCard + FunctionGlobalDir.appFolder + path);
         return file.exists();
     }
 }

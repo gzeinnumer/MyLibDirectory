@@ -43,7 +43,7 @@ public class FunctionGlobalZip {
             FunctionGlobalDir.logSystemFunctionGlobal("initFileFromStringToZipToFile", "Md5EncodeFromFile tidak boleh kosong");
             return false;
         }
-        if (FunctionGlobalDir.isFileExists(FunctionGlobalDir.appFolder + fileName) && !isNew) {
+        if (FunctionGlobalDir.isFileExists(fileName) && !isNew) {
             FunctionGlobalDir.logSystemFunctionGlobal("initFileFromStringToZipToFile", "File sudah dibuat");
             return true;
         } else {

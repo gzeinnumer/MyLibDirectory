@@ -663,6 +663,80 @@ Jika sukses maka akan tampil seperti ini :
 |--|--|--|
 |Folder MyLibsTesting sudah dibuat|'ExternalBase64Md5ToZip.zip' yang berada didalam MyLibsTesting sudah dibuat dari string base64, '/zipLocation' adalah folder yang dibuat untuk file hasil extract dari Zip|'ExernalBase64Md5ToZip.db' adalah file hasil extract dari file 'ExternalBase64Md5ToZip.zip'|
 
+#
+**Step 18.**
+\
+Pada function "onSuccessCheckPermitions" kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText, dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
+disini kita akan mendeklarasikan
+\ 
+1. 'onSuccessCheckPermitions' itu adalah function yang sama dengan yang ada di Step 14, tambahkan function 'onAppentText' untuk menambahkan jumlah text dalam file. 
+2. 'onAppentText'->'path' adalah path dari lokasi file sebelumnya yang sudah kita buat pada point NO 1,
+3. 'messages' pada variable ini kamu bisa masukan text yang mau kamu kirim ke file, text akan ditambahkan sesuai index,
+4. 'zipLocation' file zip yang diextract akan meletakan semua filenya ke direcotry yang dibuat disini
+\
+jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
+
+```java
+public class MainActivity extends AppCompatActivity {
+
+    //sama seperti STEP 11.
+    ...
+
+    private void onSuccessCheckPermitions() {
+        //buat file dalam folder App
+        String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
+
+        if(FunctionGlobalFile.initFile("/MyFile.txt",data)){
+            Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
+
+            List<String> list = FunctionGlobalFile.readFile("/MyFile.txt");
+
+            Toast.makeText(this, "Jumlah baris sebelum ditambahkan: "+list.size() , Toast.LENGTH_SHORT).show();
+            
+            //tambahkan fuction ini untuk menambahkan text pada file yang sudah dibuat
+            onAppentText();
+
+        } else {
+            Toast.makeText(this, "File gagal dibuat", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void onAppentText() {
+        //   /storage/emulated/0/MyLibsTesting/MyFile.txt
+        String path = "/MyFile.txt";
+        if (FunctionGlobalDir.isFileExists(path)){
+            String[] messages = {"Pesan ini akan ditambahkan ke file di line baru 1","Pesan ini akan ditambahkan ke file di line baru 2"};
+            //function untuk menambah text ke file yang sudah dibuat sebelumnya
+            if(FunctionGlobalFile.appentText(path, messages)){
+                Toast.makeText(this, "Line baru ditambah ke file", Toast.LENGTH_SHORT).show();
+
+                List<String> list = FunctionGlobalFile.readFile("/MyFile.txt");
+
+                Toast.makeText(this, "Jumlah baris setelah ditambahkan: "+list.size() , Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Ada error ketika add pesan", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(this, "File tidak ditemukan", Toast.LENGTH_SHORT).show();
+        }
+    }
+    
+    ...
+
+}
+```
+
+**notes.** pastikan pada fileName adalah nama asli dari file yang sudah diencode dengan base64 dan md5, jika berbeda maka akan dapat lemparan error.
+
+#
+**Step 20.**
+\
+Jika sukses maka akan tampil seperti ini :
+
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example9.jpg)|
+|--|--|--|--|
+|Folder MyLibsTesting sudah dibuat|'MyFile.txt' yang berada didalam MyLibsTesting sudah dibuat|'MyFile.txt' file dibuat|'MyFile.txt' text sudah diappent|
+
 ---
 
 ```
