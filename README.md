@@ -668,11 +668,10 @@ Jika sukses maka akan tampil seperti ini :
 \
 Pada function "onSuccessCheckPermitions" kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText, dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
 disini kita akan mendeklarasikan
-\ 
+
 1. 'onSuccessCheckPermitions' itu adalah function yang sama dengan yang ada di Step 14, tambahkan function 'onAppentText' untuk menambahkan jumlah text dalam file. 
 2. 'onAppentText'->'path' adalah path dari lokasi file sebelumnya yang sudah kita buat pada point NO 1,
-3. 'messages' pada variable ini kamu bisa masukan text yang mau kamu kirim ke file, text akan ditambahkan sesuai index,
-4. 'zipLocation' file zip yang diextract akan meletakan semua filenya ke direcotry yang dibuat disini
+3. 'messages' pada variable ini kamu bisa masukan text yang mau kamu kirim ke file, text akan ditambahkan sesuai index
 \
 jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
 
