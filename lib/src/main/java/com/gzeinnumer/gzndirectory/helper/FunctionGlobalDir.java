@@ -27,7 +27,7 @@ public class FunctionGlobalDir {
 
     public static boolean initFolder(String... folderName) {
         if (appFolder.length()==0){
-            FunctionGlobalDir.logSystemFunctionGlobal("initFolder", "Folder External untuk aplikasi belum di deklarasi");
+            logSystemFunctionGlobal("initFolder", "Folder External untuk aplikasi belum di deklarasi");
             return false;
         }
         File folder;
@@ -36,7 +36,7 @@ public class FunctionGlobalDir {
         folder = new File(getStorageCard + appFolder);
         if (!folder.exists()) {
             if (!creatingFolder(folder)){
-                FunctionGlobalDir.logSystemFunctionGlobal("initFolder", "Gagal membuat direktory External untuk aplikasi");
+                logSystemFunctionGlobal("initFolder", "Gagal membuat direktory External untuk aplikasi");
                 return false;
             }
         }
@@ -47,7 +47,7 @@ public class FunctionGlobalDir {
             folder = new File(getStorageCard + appFolder + s);
             if (!folder.exists()) {
                 if (!creatingFolder(folder)){
-                    FunctionGlobalDir.logSystemFunctionGlobal("initFolder", "Gagal membuat direktory " + s);
+                    logSystemFunctionGlobal("initFolder", "Gagal membuat direktory " + s);
                     return false;
                 }
             }
@@ -58,17 +58,17 @@ public class FunctionGlobalDir {
     private static boolean creatingFolder(File folder){
         try{
             if (folder.mkdirs()){
-                FunctionGlobalDir.logSystemFunctionGlobal("creatingFolder", "Success menjalankan mkdirs direktory External untuk aplikasi ");
+                logSystemFunctionGlobal("creatingFolder", "Success menjalankan mkdirs direktory External untuk aplikasi ");
             }
         } catch (Exception e){
-            FunctionGlobalDir.logSystemFunctionGlobal("creatingFolder", "Gagal menjalankan mkdirs direktory External untuk aplikasi " + e.getMessage());
+            logSystemFunctionGlobal("creatingFolder", "Gagal menjalankan mkdirs direktory External untuk aplikasi " + e.getMessage());
             return false;
         }
         return true;
     }
 
     public static boolean isFileExists(String path){
-        File file = new File(getStorageCard + FunctionGlobalDir.appFolder + path);
+        File file = new File(getStorageCard + appFolder + path);
         return file.exists();
     }
 }
