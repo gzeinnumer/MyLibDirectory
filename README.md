@@ -1075,13 +1075,13 @@ Jika sukses maka akan tampil seperti ini :
 |folder 'Foto' otomatis terbuat|
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example14.jpg)
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example15.jpg)
-|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example16.jpg)|
-|--|--|--|
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example16.jpg)
+|-|
+|--|--|--|--|
 |File sudah tersimpan pada folder 'Foto'
 |Detail pada galery
-|Ukuran foto kecil, tapi resolusi dipertahankan tetap besar|
-
----
+|Ukuran foto kecil, tapi resolusi dipertahankan tetap besar
+|-|
 
 
 ---
