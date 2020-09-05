@@ -736,6 +736,342 @@ Jika sukses maka akan tampil seperti ini :
 
 ---
 
+## Function Global Image
+**Mengambil foto dengan camera.** Lanjutan pada step 9 sebelumnya, disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
+
+#
+**Step 21.**
+\
+Pada function "onSuccessCheckPermitions" kita bisa mengatifkan fitur ini agar bisa mengambil gambar dengan jernih, pastikan dulu kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
+
+jika Step 1- Step 8 sudah diselesaikan :
+
+**activity_main.xml** tambahkan kode berikut:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Take Foto From Camera" />
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/ic_launcher" />
+</LinearLayout>
+```
+
+**manifest.xml** tambahkan uses-permission CAMERA lalu uses-feature camera, autofocus, flash pada file manifest, 
+\
+lalu didalam application tambahkan tag provider untuk memberikan izin pada sistem menyimpan image secara temporary untuk proses compress image:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gzeinnumer.mylibstesting">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera.flash" />
+
+    <application>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
+
+    </application>
+
+</manifest>
+```
+
+**file_provider_paths.xml** pada directory res buat folder xml dan buat file dengan nama file_provider_paths.xml.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path
+        name="my_images"
+        path="Android/data/com.gzeinnumer.mylibstesting/files/DCIM" />
+    
+        <!-- ganti com.gzeinnumer.mylibstesting dengan package name project kamu-->
+</paths>
+```
+
+**MainActivity** pada function 'onSuccessCheckPermitions' tambahkan kode berikut :
+
+tambahakn permition CAMERA ke array :
+
+```java
+public class MainActivity extends AppCompatActivity {
+
+    String[] permissions = new String[]{
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.CAMERA
+    };
+    
+    ...
+
+}
+```
+
+```java
+public class MainActivity extends AppCompatActivity {
+
+    //sama seperti STEP 11.
+    ...
+
+    static final int REQUEST_TAKE_PHOTO = 2;
+    File mPhotoFile;
+    FileCompressor mCompressor;
+    Button btnCamera;
+    ImageView imageView;
+
+    private void onSuccessCheckPermitions() {
+        btnCamera = findViewById(R.id.btn_camera);
+
+        imageView = findViewById(R.id.img);
+
+        mCompressor = new FileCompressor(this);
+        //   /storage/emulated/0/MyLibsTesting/Foto
+        mCompressor.setDestinationDirectoryPath("/Foto");
+        //diretori yang dibutuhkan akan lansung dibuatkan oleh fitur ini 
+
+        btnCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dispatchTakePictureIntent();
+            }
+        });
+    }
+
+    //jalankan intent untuk membuka kamera
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID + ".provider", photoFile);
+
+                mPhotoFile = photoFile;
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+            }
+        }
+    }
+
+    //simpan data di dalam root folder sebagai temporary
+    private File createImageFile() throws IOException {
+        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        String mFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_DCIM);
+        File mFile = File.createTempFile(mFileName, ".jpg", storageDir);
+        return mFile;
+    }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == REQUEST_TAKE_PHOTO) {
+                try {
+                    //setelah foto diambil, dan tampil di preview maka akan lansung disimpan ke folder yang di sudah diset sebelumnya
+                    mPhotoFile = mCompressor.compressToFile(mPhotoFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Glide.with(MainActivity.this).load(mPhotoFile).into(imageView);
+                Log.d(TAG, "onActivityResult: " + mPhotoFile.toString());
+                Toast.makeText(this, "Image Path : "+mPhotoFile.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+    
+    ...
+
+}
+```
+
+#
+**Step 22.**
+\
+Fullcode akan tampak seperti ini :
+
+```java
+public class MainActivity extends AppCompatActivity {
+
+    String[] permissions = new String[]{
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.CAMERA
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        //gunakan function ini cukup satu kali saja pada awal activity
+        String externalFolderName = getApplication().getString(R.string.app_name); //   /storage/emulated/0/MyLibsTesting
+        FunctionGlobalDir.initExternalDirectoryName(externalFolderName);
+
+        if (checkPermissions()) {
+            Toast.makeText(this, "Izin sudah diberikan", Toast.LENGTH_SHORT).show();
+            onSuccessCheckPermitions();
+        } else {
+            Toast.makeText(this, "Berikan izin untuk membuat folder terlebih dahulu", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    int MULTIPLE_PERMISSIONS = 1;
+    private boolean checkPermissions() {
+        int result;
+        List<String> listPermissionsNeeded = new ArrayList<>();
+
+        for (String p : permissions) {
+            result = ContextCompat.checkSelfPermission(getApplicationContext(), p);
+            if (result != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(p);
+            }
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[0]), MULTIPLE_PERMISSIONS);
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MULTIPLE_PERMISSIONS) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                onSuccessCheckPermitions();
+            } else {
+                StringBuilder perStr = new StringBuilder();
+                for (String per : permissions) {
+                    perStr.append("\n").append(per);
+                }
+            }
+        }
+    }
+
+    static final int REQUEST_TAKE_PHOTO = 2;
+    File mPhotoFile;
+    FileCompressor mCompressor;
+    Button btnCamera;
+    ImageView imageView;
+
+    private void onSuccessCheckPermitions() {
+        btnCamera = findViewById(R.id.btn_camera);
+
+        imageView = findViewById(R.id.img);
+
+        mCompressor = new FileCompressor(this);
+        //   /storage/emulated/0/MyLibsTesting/Foto
+        mCompressor.setDestinationDirectoryPath("/Foto");
+        //diretori yang dibutuhkan akan lansung dibuatkan oleh fitur ini 
+
+        btnCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dispatchTakePictureIntent();
+            }
+        });
+    }
+
+    //jalankan intent untuk membuka kamera
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID + ".provider", photoFile);
+
+                mPhotoFile = photoFile;
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+            }
+        }
+    }
+
+    //simpan data di dalam root folder sebagai temporary
+    private File createImageFile() throws IOException {
+        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        String mFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_DCIM);
+        File mFile = File.createTempFile(mFileName, ".jpg", storageDir);
+        return mFile;
+    }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == REQUEST_TAKE_PHOTO) {
+                try {
+                    //setelah foto diambil, dan tampil di preview maka akan lansung disimpan ke folder yang di sudah diset sebelumnya
+                    mPhotoFile = mCompressor.compressToFile(mPhotoFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Glide.with(MainActivity.this).load(mPhotoFile).into(imageView);
+                Log.d(TAG, "onActivityResult: " + mPhotoFile.toString());
+                Toast.makeText(this, "Image Path : "+mPhotoFile.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+}
+```
+
+#
+**Step 23.**
+\
+Jika sukses maka akan tampil seperti ini :
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
+|--|--|--|--|
+|Request Permition |Folder MyLibsTesting sudah dibuat|'folder1' dan 'folder2' sudah terbuat|'folder1_1' yang berada didalam 'folder1' sudah dibuat|
+
+---
+
+
+---
+
 ```
 Copyright 2020 M. Fadli Zein
 ```
