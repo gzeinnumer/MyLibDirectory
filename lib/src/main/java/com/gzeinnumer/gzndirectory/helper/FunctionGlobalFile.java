@@ -99,6 +99,7 @@ public class FunctionGlobalFile {
         if (!path.substring(0, 1).equals("/")) {
             path = "/" + path;
         }
+        FunctionGlobalDir.myLogD("appentText", FunctionGlobalDir.getStorageCard + path);
         if (!FunctionGlobalDir.isFileExists(path)) {
             FunctionGlobalDir.logSystemFunctionGlobal("appentText", "File tidak ditemukan");
             return false;
