@@ -1063,9 +1063,23 @@ public class MainActivity extends AppCompatActivity {
 **Step 23.**
 \
 Jika sukses maka akan tampil seperti ini :
-|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
+
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example10.jpg)
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example11.jpg)
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example12.jpg)
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example13.jpg)|
 |--|--|--|--|
-|Request Permition |Folder MyLibsTesting sudah dibuat|'folder1' dan 'folder2' sudah terbuat|'folder1_1' yang berada didalam 'folder1' sudah dibuat|
+|Tampilan awal, tekan Button untuk membuka kamera
+|Hasil foto yang diambil, tekan oke untuk lanjutkan
+|Akan muncul Toast untuk memberitahu lokasi foto disimpan
+|folder 'Foto' otomatis terbuat|
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example14.jpg)
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example15.jpg)
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example16.jpg)|
+|--|--|--|
+|File sudah tersimpan pada folder 'Foto'
+|Detail pada galery
+|Ukuran foto kecil, tapi resolusi dipertahankan tetap besar|
 
 ---
 
