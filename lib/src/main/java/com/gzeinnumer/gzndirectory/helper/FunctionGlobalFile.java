@@ -87,7 +87,7 @@ public class FunctionGlobalFile {
         return list;
     }
 
-    public static boolean appentText(String path, String msg) {
+    public static boolean appentText(String path, String... msg) {
         if (FunctionGlobalDir.appFolder.length() == 0) {
             FunctionGlobalDir.logSystemFunctionGlobal("appentText", "Folder External untuk aplikasi belum dideklarasi");
             return false;
@@ -104,14 +104,16 @@ public class FunctionGlobalFile {
             FunctionGlobalDir.logSystemFunctionGlobal("appentText", "File tidak ditemukan");
             return false;
         }
-        if (msg.length() == 0) {
+        if (msg.length == 0) {
             FunctionGlobalDir.logSystemFunctionGlobal("appentText", "Message tidak boleh kosong");
             return false;
         }
         FileWriter fw;
         try {
             fw = new FileWriter(FunctionGlobalDir.getStorageCard + path, true);
-            fw.write(msg + "\n");
+            for (String d : msg) {
+                fw.write(d + "\n");
+            }
             fw.close();
             return true;
         } catch (IOException e) {
