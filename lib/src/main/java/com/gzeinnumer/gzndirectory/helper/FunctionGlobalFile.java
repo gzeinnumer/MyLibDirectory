@@ -99,7 +99,7 @@ public class FunctionGlobalFile {
         if (!path.substring(0, 1).equals("/")) {
             path = "/" + path;
         }
-        if (!FunctionGlobalDir.isFileExists(FunctionGlobalDir.appFolder + FunctionGlobalDir.appFolder + path)) {
+        if (!FunctionGlobalDir.isFileExists(path)) {
             FunctionGlobalDir.logSystemFunctionGlobal("appentText", "File tidak ditemukan");
             return false;
         }
