@@ -58,19 +58,19 @@
 
 | Name                            | Return    | Parameter                                                                                                   | Keterangan    | 
 | ------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- | ------------- |
-| `initExternalDirectoryName`     | `void`    | `String appFolder`                                                                                          |               |
-| `initFolder`                    | `boolean` | `String... folderName`                                                                                      |               |
-| `isFileExists`                  | `boolean` | `String path`                                                                                               |               |
+| `initExternalDirectoryName`     | `void`    | `String appFolder`                                                                                          | Function untuk mendeklarasi folder nama yang akan dibuat di external |
+| `initFolder`                    | `boolean` | `String... folderName`                                                                                      | Membuat folder pada direktori yang sudah dideklarasi di atas `initExternalDirectoryName` |
+| `isFileExists`                  | `boolean` | `String path`                                                                                               | untuk mengecek apakah File/Folder sudah ada atau belum |
 
 ### Function Global File
 > Example : FunctionGlobalFile.readFile(valueString);
 
 | Name                            | Return    | Parameter                                                                                                   | Keterangan    | 
 | ------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- | ------------- |
-| `initFile`                      | `boolean` | `String fileName, <br /> String... text`                                                                           |               |
-| `readFile`                      | `boolean` | `String path`                                                                                               |               |
-| `appentText`                    | `boolean` | `String path, String... msg`                                                                                |               |
-| `initFileImageFromInternet`     | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew`                       |               |
+| `initFile`                      | `boolean` | `String fileName, String... text`                                                                           | Untuk membuat file baru lansung dengan text yang akan dimasukan ke file, seperti `MyFile.txt` |
+| `readFile`                      | `boolean` | `String path`                                                                                               | Untuk membaca isi dari file text yang sudah dibuat, pastikan file sudah dibuat terlebih dahulu dengan `initFile` |
+| `appentText`                    | `boolean` | `String path, String... msg`                                                                                | Untuk menambah new line text ke file txt yang sudah dibuat sebelumnya dengan `initFile` |
+| `initFileImageFromInternet`     | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew`                       | Untuk mendownload image dari internet dan menyimpannya ke penyimpanan |
 
 
 ### Function Global Zip
@@ -78,7 +78,7 @@
 
 | Name                            | Return    | Parameter                                                                                                   | Keterangan    | 
 | ------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- | ------------- |
-| `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` |               |
+| `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` | Mendecode String Base64 hingga menjadi file Zip mengekstraknya serta meletakan hasil ektrack ke direktory yang dituju |
 
 
 ---
