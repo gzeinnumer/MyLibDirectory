@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**notes.** pada tutorial ini, variable 'externalFolderName' akan berisi 'MyLibsTesting', semua file dan folder yang akan kita buat di bawah akan ada didalam direktory atau path '/storage/emulated/0/MyLibsTesting'
+**notes.** pada tutorial ini, variable `externalFolderName` akan berisi `MyLibsTesting`, semua file dan folder yang akan kita buat di bawah akan ada didalam direktory atau path `/storage/emulated/0/MyLibsTesting`
 
 #
 **Step 2.** 
@@ -380,7 +380,7 @@ public class MainActivity extends AppCompatActivity {
 Jika sukses maka akan tampil seperti ini :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
 |--|--|--|--|
-|Request Permition |Folder MyLibsTesting sudah dibuat|'folder1' dan 'folder2' sudah terbuat|'folder1_1' yang berada didalam 'folder1' sudah dibuat|
+|Request Permition |Folder MyLibsTesting sudah dibuat|`folder1` dan `folder2` sudah terbuat|`folder1_1` yang berada didalam `folder1` sudah dibuat|
 
 ---
 
@@ -509,7 +509,7 @@ Jika sukses maka akan tampil seperti ini :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|
 |--|--|--|
-|Folder MyLibsTesting sudah dibuat|'MyFile.txt' yang berada didalam MyLibsTesting sudah dibuat|Isi dari 'MyFile.txt'|
+|Folder MyLibsTesting sudah dibuat|`MyFile.txt` yang berada didalam MyLibsTesting sudah dibuat|Isi dari `MyFile.txt`|
 
 #
 **Step 13.**
@@ -578,10 +578,10 @@ public class MainActivity extends AppCompatActivity {
 Pada function "onSuccessCheckPermitions" kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
 disini kita akan mendeklarasikan
 \ 
-1. 'fileName' untuk nama file sebelum diencode dengan Base64. 
-2. 'base64EncodeFromFile' file zip yang sudah diencode jadi Base64,
-3. 'md5EncodeFromFile' file zip yang sudah diencode jadi Md5 untuk memastikan Base64 tidak corrupt
-4. 'zipLocation' file zip yang diextract akan meletakan semua filenya ke direcotry yang dibuat disini
+1. `fileName` untuk nama file sebelum diencode dengan Base64. 
+2. `base64EncodeFromFile` file zip yang sudah diencode jadi Base64,
+3. `md5EncodeFromFile` file zip yang sudah diencode jadi Md5 untuk memastikan Base64 tidak corrupt
+4. `zipLocation` file zip yang diextract akan meletakan semua filenya ke direcotry yang dibuat disini
 \
 jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
 
@@ -661,7 +661,7 @@ Jika sukses maka akan tampil seperti ini :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example7.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example8.jpg)|
 |--|--|--|
-|Folder MyLibsTesting sudah dibuat|'ExternalBase64Md5ToZip.zip' yang berada didalam MyLibsTesting sudah dibuat dari string base64, '/zipLocation' adalah folder yang dibuat untuk file hasil extract dari Zip|'ExernalBase64Md5ToZip.db' adalah file hasil extract dari file 'ExternalBase64Md5ToZip.zip'|
+|Folder MyLibsTesting sudah dibuat|`ExternalBase64Md5ToZip.zip` yang berada didalam MyLibsTesting sudah dibuat dari string base64, `/zipLocation` adalah folder yang dibuat untuk file hasil extract dari Zip|`ExernalBase64Md5ToZip.db` adalah file hasil extract dari file `ExternalBase64Md5ToZip.zip`|
 
 #
 **Step 18.**
@@ -669,9 +669,9 @@ Jika sukses maka akan tampil seperti ini :
 Pada function "onSuccessCheckPermitions" kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText, dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
 disini kita akan mendeklarasikan
 
-1. 'onSuccessCheckPermitions' itu adalah function yang sama dengan yang ada di Step 14, tambahkan function 'onAppentText' untuk menambahkan jumlah text dalam file. 
-2. 'onAppentText'->'path' adalah path dari lokasi file sebelumnya yang sudah kita buat pada point NO 1,
-3. 'messages' pada variable ini kamu bisa masukan text yang mau kamu kirim ke file, text akan ditambahkan sesuai index
+1. `onSuccessCheckPermitions` itu adalah function yang sama dengan yang ada di Step 14, tambahkan function `onAppentText` untuk menambahkan jumlah text dalam file. 
+2. `onAppentText`->`path` adalah path dari lokasi file sebelumnya yang sudah kita buat pada point NO 1,
+3. `messages` pada variable ini kamu bisa masukan text yang mau kamu kirim ke file, text akan ditambahkan sesuai index
 
 jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
 
@@ -732,7 +732,7 @@ Jika sukses maka akan tampil seperti ini :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example9.jpg)|
 |--|--|--|--|
-|Folder MyLibsTesting sudah dibuat|'MyFile.txt' yang berada didalam MyLibsTesting sudah dibuat|'MyFile.txt' file dibuat dengan text yang sudah diset pertama kali|'MyFile.txt' new line ditambah ke file|
+|Folder MyLibsTesting sudah dibuat|`MyFile.txt` yang berada didalam MyLibsTesting sudah dibuat|`MyFile.txt` file dibuat dengan text yang sudah diset pertama kali|`MyFile.txt` new line ditambah ke file|
 
 ---
 
@@ -823,7 +823,7 @@ lalu didalam application tambahkan tag provider untuk memberikan izin pada siste
 </paths>
 ```
 
-**MainActivity** pada function 'onSuccessCheckPermitions' tambahkan kode berikut :
+**MainActivity** pada function `onSuccessCheckPermitions` tambahkan kode berikut :
 
 tambahkan permition CAMERA ke array :
 
@@ -1070,7 +1070,7 @@ Jika sukses maka akan tampil seperti ini :
 |--|--|--|
 |Tampilan awal, tekan Button untuk membuka kamera|Hasil foto yang diambil, tekan oke untuk lanjutkan|Akan muncul Toast untuk memberitahu lokasi foto disimpan|
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example13.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example14.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example16.jpg)|
-|folder 'Foto' otomatis terbuat|File sudah tersimpan pada folder 'Foto'|Detail pada galery|Ukuran foto kecil, tapi resolusi dipertahankan tetap besar|-|
+|folder `Foto` otomatis terbuat|File sudah tersimpan pada folder `Foto`|Detail pada galery|Ukuran foto kecil, tapi resolusi dipertahankan tetap besar|-|
 
 
 #
