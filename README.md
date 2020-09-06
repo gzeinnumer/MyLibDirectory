@@ -522,6 +522,7 @@ Setelah file dibuat, kita bisa membaca file dengan code sebagai berikut :
 ```java
 public class MainActivity extends AppCompatActivity {
 
+    //sama seperti STEP 11. hanya saja isi dari function onSuccessCheckPermitions berbeda
     ...
 
     private void onSuccessCheckPermitions() {
@@ -650,6 +651,7 @@ jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti di
 ```java
 public class MainActivity extends AppCompatActivity {
 
+    //sama seperti STEP 11. hanya saja isi dari function onSuccessCheckPermitions berbeda
     ...
 
     private void onSuccessCheckPermitions() {
@@ -841,7 +843,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-    - Pastikan file sudah dibuat, sesuai Step 10.
+  - Pastikan file sudah dibuat, sesuai Step 10.
 
 
 #
@@ -857,15 +859,25 @@ Jika sukses maka akan tampil seperti ini :
 
 ## Function Global Image Camera
 **Mengambil foto dengan camera.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
+Pertama-tama kamu tambahkan depedensi Glide
+
+```gradle
+dependencies {
+    implementation('com.github.bumptech.glide:glide:4.7.1@aar') {
+        transitive = true
+    }
+}
+```
 
 #
 **Step 21.**
 \
-Pada function `onSuccessCheckPermitions` kita bisa mengatifkan fitur ini agar bisa mengambil gambar dengan jernih, pastikan dulu kalau permition sudah di berikan, ikuti Step 1 - Step 8 : \
+Pada function `onSuccessCheckPermitions` kita bisa mengatifkan fitur ini agar bisa mengambil gambar dengan jernih, pastikan dulu kalau permition sudah di berikan, ikuti Step 1 - Step 8 :
 
-Jika Step 1- Step 8 sudah diselesaikan, lanjut ke tahap berikutnya
+Jika Step 1- Step 8 sudah diselesaikan, lanjut ke tahap berikutnya.
 
-**activity_main.xml** tambahkan kode berikut:
+**activity_main.xml**
+Tambahkan kode berikut:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -894,9 +906,8 @@ Jika Step 1- Step 8 sudah diselesaikan, lanjut ke tahap berikutnya
 </LinearLayout>
 ```
 
-**manifest.xml** tambahkan uses-permission CAMERA lalu uses-feature camera, autofocus, flash pada file manifest, 
-\
-lalu didalam application tambahkan tag provider untuk memberikan izin pada sistem menyimpan image secara temporari untuk proses compress image:
+**manifest.xml** 
+Tambahkan uses-permission CAMERA lalu uses-feature camera, autofocus, flash pada file manifest, lalu didalam application tambahkan tag provider untuk memberikan izin pada sistem menyimpan image secara temporari untuk proses compress image:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -928,7 +939,8 @@ lalu didalam application tambahkan tag provider untuk memberikan izin pada siste
 </manifest>
 ```
 
-**file_provider_paths.xml** pada directory `res` buat folder `xml` dan buat file dengan nama `file_provider_paths.xml`.
+**file_provider_paths.xml** 
+Pada directory `res` buat folder `xml` dan buat file dengan nama `file_provider_paths.xml`.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -951,8 +963,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**MainActivity** pada function `onSuccessCheckPermitions` tambahkan kode berikut :
-
+**MainActivity** 
 Tambahkan permition CAMERA ke array :
 
 ```java
@@ -969,7 +980,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-Tambahkan kode seperti berikut :
+Pada function `onSuccessCheckPermitions` tambahkan kode berikut :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -1207,7 +1218,7 @@ Jika sukses maka akan tampil seperti ini :
 
 
 ## Function Global Image Galery
-**Mengambil foto dari galery.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba mengambil foto dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu mentimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan cepat dan mudah :
+**Mengambil foto dari galery.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba mengambil foto dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu menyimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan cepat dan mudah :
 
 #
 **Step 24.**
