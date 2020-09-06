@@ -52,6 +52,8 @@
 - Mengambil Foto ([docs](https://developer.android.com/training/camera/photobasics?hl=id))
 - Intent Galery ([docs](https://developer.android.com/guide/components/intents-common?hl=id))
 - Android Internet ([docs](https://developer.android.com/training/basics/network-ops/connecting))
+- RxJava/RxAndroid ([docs](https://github.com/ReactiveX/RxJava))
+- Dexter ([docs](https://github.com/Karumi/Dexter))
 
 ### Function Global Directory
 > Example : FunctionGlobalDir.initExternalDirectoryName(valueString);
@@ -924,10 +926,13 @@ Jika sukses maka akan tampil seperti ini :
 ## Function Global Image Camera
 **Mengambil foto dengan camera.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
 \
-Pertama-tama kamu tambahkan dependensi Glide.
+Pertama-tama kamu tambahkan dependensi Glide, RxJava, RxAndroid dan Dexter.
 
 ```gradle
 dependencies {
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'com.karumi:dexter:4.2.0'
     implementation('com.github.bumptech.glide:glide:4.7.1@aar') {
         transitive = true
     }
@@ -1117,7 +1122,6 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 Glide.with(MainActivity.this).load(mPhotoFile).into(imageView);
-                Log.d(TAG, "onActivityResult: " + mPhotoFile.toString());
                 Toast.makeText(this, "Image Path : "+mPhotoFile.toString(), Toast.LENGTH_SHORT).show();
             }
         }
@@ -1248,7 +1252,6 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 Glide.with(MainActivity.this).load(mPhotoFile).into(imageView);
-                Log.d(TAG, "onActivityResult: " + mPhotoFile.toString());
                 Toast.makeText(this, "Image Path : "+mPhotoFile.toString(), Toast.LENGTH_SHORT).show();
             }
         }
