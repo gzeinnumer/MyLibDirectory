@@ -1087,7 +1087,8 @@ public class MainActivity extends AppCompatActivity {
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             File photoFile = null;
             try {
-                photoFile = createImageFile();
+                String fileName = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+                photoFile = FunctionGlobalFile.createImageFile(getApplicationContext(), fileName);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
@@ -1100,18 +1101,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-    //4
-    //simpan data di dalam root folder sebagai temporary
-    private File createImageFile() throws IOException {
-        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-        String mFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_DCIM);
-        File mFile = File.createTempFile(mFileName, ".jpg", storageDir);
-        return mFile;
-    }
     
-    //5
+    //4
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -1228,7 +1219,8 @@ public class MainActivity extends AppCompatActivity {
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             File photoFile = null;
             try {
-                photoFile = createImageFile();
+                String fileName = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+                photoFile = FunctionGlobalFile.createImageFile(getApplicationContext(), fileName);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
@@ -1240,15 +1232,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
             }
         }
-    }
-
-    //simpan data di dalam root folder sebagai temporary
-    private File createImageFile() throws IOException {
-        String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-        String mFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_DCIM);
-        File mFile = File.createTempFile(mFileName, ".jpg", storageDir);
-        return mFile;
     }
     
     @Override
@@ -1332,23 +1315,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //4
-    public String getRealPathFromUri(Uri contentUri) {
-        Cursor cursor = null;
-        try {
-            String[] proj = {MediaStore.Images.Media.DATA};
-            cursor = getContentResolver().query(contentUri, proj, null, null, null);
-            assert cursor != null;
-            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            cursor.moveToFirst();
-            return cursor.getString(column_index);
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-        }
-    }
-
-    //5
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -1356,7 +1322,7 @@ public class MainActivity extends AppCompatActivity {
             if (requestCode == REQUEST_GALLERY_PHOTO) {
                 Uri selectedImage = data.getData();
                 try {
-                    mPhotoFile = mCompressor.compressToFile(new File(getRealPathFromUri(selectedImage)));
+                    mPhotoFile = mCompressor.compressToFile(new File(FunctionGlobalFile.getRealPathFromUri(getApplicationContext(),selectedImage)));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -1462,22 +1428,6 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(pickPhoto, REQUEST_GALLERY_PHOTO);
     }
 
-    public String getRealPathFromUri(Uri contentUri) {
-        Cursor cursor = null;
-        try {
-            String[] proj = {MediaStore.Images.Media.DATA};
-            cursor = getContentResolver().query(contentUri, proj, null, null, null);
-            assert cursor != null;
-            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            cursor.moveToFirst();
-            return cursor.getString(column_index);
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-        }
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -1485,7 +1435,7 @@ public class MainActivity extends AppCompatActivity {
             if (requestCode == REQUEST_GALLERY_PHOTO) {
                 Uri selectedImage = data.getData();
                 try {
-                    mPhotoFile = mCompressor.compressToFile(new File(getRealPathFromUri(selectedImage)));
+                    mPhotoFile = mCompressor.compressToFile(new File(FunctionGlobalFile.getRealPathFromUri(getApplicationContext(),selectedImage)));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

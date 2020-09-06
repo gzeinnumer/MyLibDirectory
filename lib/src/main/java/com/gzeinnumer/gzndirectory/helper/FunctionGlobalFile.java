@@ -1,10 +1,13 @@
 package com.gzeinnumer.gzndirectory.helper;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
@@ -255,12 +258,27 @@ public class FunctionGlobalFile {
         }
     }
 
-    //4
     //simpan data di dalam root folder sebagai temporary
     public static File createImageFile(Context context, String fileName) throws IOException {
         String mFileName = "JPEG_" + fileName + "_";
         File storageDir = context.getExternalFilesDir(Environment.DIRECTORY_DCIM);
         return File.createTempFile(mFileName, ".jpg", storageDir);
+    }
+
+    public static String getRealPathFromUri(Context context, Uri contentUri) {
+        Cursor cursor = null;
+        try {
+            String[] proj = {MediaStore.Images.Media.DATA};
+            cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
+            assert cursor != null;
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
     }
 
 }
