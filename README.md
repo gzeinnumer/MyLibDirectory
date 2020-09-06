@@ -76,7 +76,7 @@ dependencies {
 |--|
 
 #
-**Step 1.** 
+- **Step 1.** 
 \
 Kamu harus mendeklarasi dulu folder name yang akan kamu pakai di external :
 \
