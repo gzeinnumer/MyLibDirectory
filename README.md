@@ -44,6 +44,7 @@
 - [x] Cek file exists
 
 ### Tech stack and 3rd library
+- Androidwave ([docs](https://androidwave.com/))
 - Glide ([docs](https://github.com/bumptech/glide))
 - Picasso ([docs](https://github.com/square/picasso))
 - Permissions ([docs](https://developer.android.com/guide/topics/permissions/overview))
