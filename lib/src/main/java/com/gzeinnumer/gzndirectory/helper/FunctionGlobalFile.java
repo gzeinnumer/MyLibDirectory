@@ -257,7 +257,7 @@ public class FunctionGlobalFile {
 
     //4
     //simpan data di dalam root folder sebagai temporary
-    private File createImageFile(Context context, String fileName) throws IOException {
+    public static File createImageFile(Context context, String fileName) throws IOException {
         String mFileName = "JPEG_" + fileName + "_";
         File storageDir = context.getExternalFilesDir(Environment.DIRECTORY_DCIM);
         return File.createTempFile(mFileName, ".jpg", storageDir);
