@@ -5,7 +5,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
-import com.gzeinnumer.gzndirectory.R;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -173,8 +172,8 @@ public class FunctionGlobalFile {
         if (!myDir.exists() || isNew) { // file tidak ada or isNew : True
             final File finalMyDir = myDir;
             Picasso.get().load(imgUrl)
-                    .placeholder(R.drawable.ic_baseline_sync_24)
-                    .error(R.drawable.ic_baseline_broken_image_24)
+                    .placeholder(com.gzeinnumer.gzndirectory.R.drawable.ic_baseline_sync_24)
+                    .error(com.gzeinnumer.gzndirectory.R.drawable.ic_baseline_broken_image_24)
                     .into(new Target() {
                               @Override
                               public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
