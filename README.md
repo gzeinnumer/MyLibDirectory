@@ -243,7 +243,14 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** Jika kamu mau membuat folder dalam folder, pastikan value variable `folders` di awali dengan folder parent nya dulu.
-  - **example.** kamu mau membuat folder `folder1` yang di isi folder `folder1_1`, pastikan kamu menulis dulu `folder1` baru setelahnya `folder1_1`. seperti di bawah
+  - **example.** kamu mau membuat folder `folder1` yang di isi folder `folder1_1`, pastikan kamu menulis dulu `folder1` baru setelahnya `folder1_1`. seperti di bawah:
+```
+|-- external
+  |-- MyLibsTesting
+    |-- folder1
+      |-- folder1_1
+    |-- folder2
+```
   - ada 3 cara penulisan yang bisa kamu pilih.
 
 ```java
