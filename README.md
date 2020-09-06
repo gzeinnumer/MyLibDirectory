@@ -79,7 +79,6 @@ dependencies {
 **Step 1.** 
 \
 Kamu harus mendeklarasi dulu folder name yang akan kamu pakai di external :
-\
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -108,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 **Step 2.** 
 \
 Tambahkan array permition yang dibutuhkan : \
-**First Activity.** letakan permition pada saat awal activity dimulai, disini Zein meletakannya di MainActivity.
+**First Activity.** letakan permition pada saat awal activity dimulai, disini Zein meletakannya di `MainActivity`.
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -126,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 3.** 
 \
-Tambahkan function untuk mengecek permition apps apakah semua permition sudah diberikan izinkan :
+Tambahkan function untuk mengecek permition apps apakah semua permition sudah diberikan izin, Jika belum diberikan izin maka akan keluar popup. Silahkan berikan izin dengan menekan `allow` :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -159,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 4.**
 \
-Jika belum diberikan izin maka akan keluar popup :
+Jika semua akses sudah diberikan maka aplikasi dapat menjalankan proses untuk membuat directory :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -170,7 +169,10 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == MULTIPLE_PERMISSIONS) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                //aksi setealh semua permition diberikan
+
+                //Do Someting ...
+                //aksi setelah semua permition diberikan
+
             } else {
                 StringBuilder perStr = new StringBuilder();
                 for (String per : permissions) {
@@ -188,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 5.** 
 \
-Jika permition sudah diizinkan, buat dan panggil function "onSuccessCheckPermitions" untuk membuat folder :
+Jika permition sudah diizinkan, buat dan panggil function `onSuccessCheckPermitions` untuk membuat folder :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -199,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == MULTIPLE_PERMISSIONS) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                //tambahkan ini
                 onSuccessCheckPermitions();
             } else {
                 StringBuilder perStr = new StringBuilder();
@@ -217,29 +220,13 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 6.**
 \
-Jika onRequestPermissionsResult sudah mendapat permition yang dibutuhkan, maka kita akan membuat function "onSuccessCheckPermitions":\
-**notes.** Jika kamu mau membuat folder dalam folder, pastikan value variable "folders" di awali dengan folder parent nya dulu.\
-**example.** kamu mau membuat folder "folder1" yang di isi folder "folder1_1", pastikan kamu menulis dulu "folder1" baru setelahnya "folder1_1". seperti di bawah
+Jika `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`:
 
 ```java
 public class MainActivity extends AppCompatActivity {
     
     ...
 
-    //cara penulisan 1
-    private void onSuccessCheckPermitions() {
-        //   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
-        //   /storage/emulated/0/MyLibsTesting/folder2
-        String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
-        if (FunctionGlobalDir.initFolder(folders)){
-            Toast.makeText(this, "Folder sudah dibuat dan ditemukan sudah bisa lanjut", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            Toast.makeText(this, "Permition Required", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    //cara penulisan 2
     private void onSuccessCheckPermitions() {
         //   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
         //   /storage/emulated/0/MyLibsTesting/folder2
@@ -252,22 +239,36 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //cara penulisan 3
-    private void onSuccessCheckPermitions() {
-        //   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
-        //   /storage/emulated/0/MyLibsTesting/folder2
-        String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
-        if (FunctionGlobalDir.initFolder(folders)){
-            Toast.makeText(this, "Folder sudah dibuat dan ditemukan sudah bisa lanjut", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            Toast.makeText(this, "Permition Required", Toast.LENGTH_SHORT).show();
-        }
-    }
 }
 ```
 
-**notes.** ada 3 cara penulisan yang bisa kamu pilih.
+**notes.** Jika kamu mau membuat folder dalam folder, pastikan value variable `folders` di awali dengan folder parent nya dulu.
+  - **example.** kamu mau membuat folder `folder1` yang di isi folder `folder1_1`, pastikan kamu menulis dulu `folder1` baru setelahnya `folder1_1`. seperti di bawah
+  - ada 3 cara penulisan yang bisa kamu pilih.
+
+```java
+public class MainActivity extends AppCompatActivity {
+    
+    ...
+
+    private void onSuccessCheckPermitions() {
+        //   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
+        //   /storage/emulated/0/MyLibsTesting/folder2
+
+        // cara penulisan 1
+        String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
+        FunctionGlobalDir.initFolder(folders);
+
+        // cara penulisan 2
+        String[] folders = new String[]{"/folder1","/folder1/folder1_1","/folder2"};
+        FunctionGlobalDir.initFolder(folders);
+
+        // cara penulisan 3
+        FunctionGlobalDir.initFolder("/folder1","/folder1/folder1_1","/folder2");
+            
+    }
+}
+```
 
 #
 **Step 7.**
