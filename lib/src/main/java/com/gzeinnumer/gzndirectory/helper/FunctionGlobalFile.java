@@ -1,5 +1,13 @@
 package com.gzeinnumer.gzndirectory.helper;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+
+import com.gzeinnumer.gzndirectory.R;
+import com.squareup.picasso.Picasso;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,16 +15,28 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+
+import com.squareup.picasso.Target;
 
 public class FunctionGlobalFile {
 
     //create file
     public static boolean initFile(String fileName,String... text) {
-        if (FunctionGlobalDir.appFolder.length()==0){
+        if (FunctionGlobalDir.appFolder.length() == 0) {
             FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External untuk aplikasi belum di deklarasi");
             return false;
+        }
+        if (!FunctionGlobalDir.isFileExists("")) {
+            FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External untuk aplikasi tidak di temukan");
+            if (FunctionGlobalDir.initFolder("")) {
+                FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External sudah dibuat");
+            } else {
+                FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External gagal dibuat");
+                return false;
+            }
         }
         if (fileName.length() == 0) {
             FunctionGlobalDir.logSystemFunctionGlobal("initFile", "FileName tidak boleh kosong");
@@ -92,6 +112,15 @@ public class FunctionGlobalFile {
             FunctionGlobalDir.logSystemFunctionGlobal("appentText", "Folder External untuk aplikasi belum dideklarasi");
             return false;
         }
+        if (!FunctionGlobalDir.isFileExists("")) {
+            FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External untuk aplikasi tidak di temukan");
+            if (FunctionGlobalDir.initFolder("")) {
+                FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External sudah dibuat");
+            } else {
+                FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External gagal dibuat");
+                return false;
+            }
+        }
         if (path.length() == 0) {
             FunctionGlobalDir.logSystemFunctionGlobal("appentText", "Path tidak boleh kosong");
             return false;
@@ -103,15 +132,13 @@ public class FunctionGlobalFile {
             FunctionGlobalDir.logSystemFunctionGlobal("appentText", "File tidak ditemukan");
             return false;
         }
-        if (msg.length == 0) {
-            FunctionGlobalDir.logSystemFunctionGlobal("appentText", "Message tidak boleh kosong");
-            return false;
-        }
         FileWriter fw;
         try {
             fw = new FileWriter(FunctionGlobalDir.getStorageCard + FunctionGlobalDir.appFolder + path, true);
-            for (String d : msg) {
-                fw.write(d + "\n");
+            if (msg.length > 0) {
+                for (String d : msg) {
+                    fw.write(d + "\n");
+                }
             }
             fw.close();
             return true;
@@ -119,6 +146,73 @@ public class FunctionGlobalFile {
             e.printStackTrace();
             FunctionGlobalDir.logSystemFunctionGlobal("appentText", "Gagal mengapent text ke file " + e.getMessage());
             return false;
+        }
+    }
+
+    public static void initFileImageFromInternet(final String imgUrl, final String saveTo, final String filename, final ImageView sendImageTo, final boolean isNew) {
+        if (FunctionGlobalDir.appFolder.length() == 0) {
+            FunctionGlobalDir.logSystemFunctionGlobal("appentText", "Folder External untuk aplikasi belum dideklarasi");
+        }
+        if (!FunctionGlobalDir.isFileExists("")) {
+            FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External untuk aplikasi tidak di temukan");
+            if (FunctionGlobalDir.initFolder("")) {
+                FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External sudah dibuat");
+            } else {
+                FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External gagal dibuat");
+            }
+        }
+        File myDir = new File(FunctionGlobalDir.getStorageCard + FunctionGlobalDir.appFolder + saveTo);
+        if (!myDir.exists()) {
+            myDir.mkdirs();
+        }
+        if (filename.length() > 0) {
+            myDir = new File(myDir, filename);
+        } else {
+            myDir = new File(myDir, new Date().toString() + ".jpg");
+        }
+        if (!myDir.exists() || isNew) { // file tidak ada or isNew : True
+            final File finalMyDir = myDir;
+            Picasso.get().load(imgUrl)
+                    .placeholder(R.drawable.ic_baseline_sync_24)
+                    .error(R.drawable.ic_baseline_broken_image_24)
+                    .into(new Target() {
+                              @Override
+                              public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                                  try {
+                                      if (!finalMyDir.exists() || isNew) {
+                                          //jika isNew true maka foto lama akan dihapus dan diganti dengan yang baru
+                                          //jika file tidak ditemukan maka file akan dibuat
+                                          FunctionGlobalDir.logSystemFunctionGlobal("initFileImage", "Foto baru disimpan ke penyimpanan");
+                                          FileOutputStream out = new FileOutputStream(finalMyDir);
+                                          bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+
+                                          out.flush();
+                                          out.close();
+                                      } else {
+                                          //jika isNew false maka akan load file lama di penyimpanan
+                                          FunctionGlobalDir.logSystemFunctionGlobal("initFileImage", "Foto lama di load dari penyimpanan");
+                                          bitmap = BitmapFactory.decodeFile(finalMyDir.getAbsolutePath());
+                                      }
+                                      sendImageTo.setImageBitmap(bitmap);
+                                  } catch (Exception e) {
+                                      FunctionGlobalDir.logSystemFunctionGlobal("initFileImage", e.getMessage());
+                                  }
+                              }
+
+                              @Override
+                              public void onBitmapFailed(Exception e, Drawable errorDrawable) {
+                                  FunctionGlobalDir.logSystemFunctionGlobal("initFileImage", e.getMessage());
+                              }
+
+                              @Override
+                              public void onPrepareLoad(Drawable placeHolderDrawable) {
+                              }
+                          }
+                    );
+        } else {
+            FunctionGlobalDir.logSystemFunctionGlobal("initFileImage", "Foto lama di load dari penyimpanan");
+            Bitmap bitmap = BitmapFactory.decodeFile(myDir.getAbsolutePath());
+            sendImageTo.setImageBitmap(bitmap);
         }
     }
 }

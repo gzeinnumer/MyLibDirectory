@@ -23,6 +23,15 @@ public class FunctionGlobalZip {
             FunctionGlobalDir.logSystemFunctionGlobal("initFileFromStringToZipToFile", "Folder External untuk aplikasi belum dideklarasi");
             return false;
         }
+        if (!FunctionGlobalDir.isFileExists("")) {
+            FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External untuk aplikasi tidak di temukan");
+            if (FunctionGlobalDir.initFolder("")) {
+                FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External sudah dibuat");
+            } else {
+                FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External gagal dibuat");
+                return false;
+            }
+        }
         if (fileName.length() == 0) {
             FunctionGlobalDir.logSystemFunctionGlobal("initFileFromStringToZipToFile", "FileName tidak boleh kosong");
             return false;
@@ -30,10 +39,12 @@ public class FunctionGlobalZip {
         if (!fileName.substring(0, 1).equals("/")) {
             fileName = "/" + fileName;
         }
-        if (zipLocation.length() != 0) {
-            if (!zipLocation.substring(0, 1).equals("/")) {
-                zipLocation = "/" + zipLocation;
-            }
+        if (zipLocation.length() == 0) {
+            FunctionGlobalDir.logSystemFunctionGlobal("initFileFromStringToZipToFile", "ZipLocation tidak boleh kosong");
+            return false;
+        }
+        if (!zipLocation.substring(0, 1).equals("/")) {
+            zipLocation = "/" + zipLocation;
         }
         if (base64EncodeFromFile.length() == 0) {
             FunctionGlobalDir.logSystemFunctionGlobal("initFileFromStringToZipToFile", "Base64EncodeFromFile tidak boleh kosong");

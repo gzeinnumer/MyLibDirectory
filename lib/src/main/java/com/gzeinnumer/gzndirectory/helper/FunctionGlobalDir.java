@@ -32,26 +32,29 @@ public class FunctionGlobalDir {
         }
         File folder;
 
-        // create folder
+        // create appFolder
         folder = new File(getStorageCard + appFolder);
         if (!folder.exists()) {
-            if (!creatingFolder(folder)){
+            if (!creatingFolder(folder)) {
                 logSystemFunctionGlobal("initFolder", "Gagal membuat direktory External untuk aplikasi");
                 return false;
             }
         }
-        for (String s : folderName){
-            if (!s.substring(0,1).equals("/")){
-                s = "/"+s;
-            }
-            folder = new File(getStorageCard + appFolder + s);
-            if (!folder.exists()) {
-                if (!creatingFolder(folder)){
-                    logSystemFunctionGlobal("initFolder", "Gagal membuat direktory " + s);
-                    return false;
+        if (folderName.length > 0) {
+            for (String s : folderName) {
+                if (!s.substring(0, 1).equals("/")) {
+                    s = "/" + s;
+                }
+                folder = new File(getStorageCard + appFolder + s);
+                if (!folder.exists()) {
+                    if (!creatingFolder(folder)) {
+                        logSystemFunctionGlobal("initFolder", "Gagal membuat direktory " + s);
+                        return false;
+                    }
                 }
             }
         }
+
         return true;
     }
 

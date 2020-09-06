@@ -551,6 +551,7 @@ Code akan tampak seperti ini :
 
 ```java
 public class MainActivity extends AppCompatActivity {
+
     String[] permissions = new String[]{
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -859,7 +860,8 @@ Jika sukses maka akan tampil seperti ini :
 
 ## Function Global Image Camera
 **Mengambil foto dengan camera.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
-Pertama-tama kamu tambahkan depedensi Glide
+\
+Pertama-tama kamu tambahkan depedensi Glide.
 
 ```gradle
 dependencies {
@@ -877,6 +879,7 @@ Pada function `onSuccessCheckPermitions` kita bisa mengatifkan fitur ini agar bi
 Jika Step 1- Step 8 sudah diselesaikan, lanjut ke tahap berikutnya.
 
 **activity_main.xml**
+\
 Tambahkan kode berikut:
 
 ```xml
@@ -906,7 +909,8 @@ Tambahkan kode berikut:
 </LinearLayout>
 ```
 
-**manifest.xml** 
+**manifest.xml**
+\
 Tambahkan uses-permission CAMERA lalu uses-feature camera, autofocus, flash pada file manifest, lalu didalam application tambahkan tag provider untuk memberikan izin pada sistem menyimpan image secara temporari untuk proses compress image:
 
 ```xml
@@ -939,7 +943,8 @@ Tambahkan uses-permission CAMERA lalu uses-feature camera, autofocus, flash pada
 </manifest>
 ```
 
-**file_provider_paths.xml** 
+**file_provider_paths.xml**
+\
 Pada directory `res` buat folder `xml` dan buat file dengan nama `file_provider_paths.xml`.
 
 ```xml
@@ -1443,6 +1448,57 @@ Jika sukses maka akan tampil seperti ini :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example20.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example13.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example21.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example22.jpg)|
 |Preview foto|Folder foto otomatis terbuat|Foto sudah ada pada directory yang sudah diset|Detail pada galery|
 
+
+#
+**Step 26.**
+\
+Pada function 'onSuccessCheckPermitions' kita bisa mendowload gambar dari internet dan menyimpannya ke direktori yang kita mau, dan jika image sudah didownload, maka image tidak akan didownload lagi. disini kita akan mendeklarasikan :
+1. `imgUrl` adalah link image. 
+2. `saveTo` lokasi foto akan disimpan.
+\
+jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
+**Manifest.** Tambahkan permition Internet ke file manifest untuk mengizinkan file didownload dari Intenet.
+
+```xml
+<manifest >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application >
+        ...
+    </application>
+
+</manifest>
+```
+```java
+public class MainActivity extends AppCompatActivity {
+
+    //sama seperti STEP 11. hanya saja isi dari function onSuccessCheckPermitions berbeda
+    ...
+
+    ImageView imageView;
+    private void onSuccessCheckPermitions() {
+        imageView = findViewById(R.id.img);
+
+        String imgUrl = "https://avatars3.githubusercontent.com/u/45892408?s=460&u=94158c6479290600dcc39bc0a52c74e4971320fc&v=4";
+        String saveTo = "/Foto_Download"; //   /storage/emulated/0/MyLibsTesting/Foto_Download
+        String fileName = "file name.jpg";
+ 
+        // jika file name ada di akhir link seperti dibawah, maka kamu bsa gunakan cara seperti ini
+        // imgUrl = "https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg";
+        // String fileName = imgUrl.substring(url.lastIndexOf('/') + 1, url.length());
+
+        //pilih 1 atau 2
+        //1. jika isNew true maka file lama akan dihapus dan diganti dengan yang baru.
+        FunctionGlobalFile.initFileImageFromInternet(imgUrl, saveTo, fileName, imageView, true);
+        //2. jika isNew false maka akan otomatis load file dan disimpan, tapi jika file belum ada, maka akan tetap didownload.
+        FunctionGlobalFile.initFileImageFromInternet(imgUrl, saveTo, fileName, imageView, false);
+    }
+    
+    ...
+
+}
+```
 
 ---
 
