@@ -53,6 +53,34 @@
 - Intent Galery ([docs](https://developer.android.com/guide/components/intents-common?hl=id))
 - Android Internet ([docs](https://developer.android.com/training/basics/network-ops/connecting))
 
+### Function Global Directory
+> Example : FunctionGlobalDir.initExternalDirectoryName(valueString);
+
+| Name                            | Return    | Parameter                                                                                                   | Keterangan    | 
+| ------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- | ------------- |
+| `initExternalDirectoryName`     | `void`    | `String appFolder`                                                                                          |               |
+| `initFolder`                    | `boolean` | `String... folderName`                                                                                      |               |
+| `isFileExists`                  | `boolean` | `String path`                                                                                               |               |
+
+### Function Global File
+> Example : FunctionGlobalFile.readFile(valueString);
+
+| Name                            | Return    | Parameter                                                                                                   | Keterangan    | 
+| ------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- | ------------- |
+| `initFile`                      | `boolean` | `String fileName, String... text`                                                                           |               |
+| `readFile`                      | `boolean` | `String path`                                                                                               |               |
+| `appentText`                    | `boolean` | `String path, String... msg`                                                                                |               |
+| `initFileImageFromInternet`     | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew`                       |               |
+
+
+### Function Global Zip
+> Example : FunctionGlobalZip.initExternalDirectoryName(valueString);
+
+| Name                            | Return    | Parameter                                                                                                   | Keterangan    | 
+| ------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- | ------------- |
+| `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` |               |
+
+
 ---
 
 ## Download

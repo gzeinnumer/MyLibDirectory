@@ -42,11 +42,11 @@ public class FunctionGlobalZip {
             return false;
         }
         if (!FunctionGlobalDir.isFileExists("")) {
-            FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External untuk aplikasi tidak di temukan");
+            FunctionGlobalDir.logSystemFunctionGlobal("initFileFromStringToZipToFile", "Folder External untuk aplikasi tidak di temukan");
             if (FunctionGlobalDir.initFolder("")) {
-                FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External sudah dibuat");
+                FunctionGlobalDir.logSystemFunctionGlobal("initFileFromStringToZipToFile", "Folder External sudah dibuat");
             } else {
-                FunctionGlobalDir.logSystemFunctionGlobal("initFile", "Folder External gagal dibuat");
+                FunctionGlobalDir.logSystemFunctionGlobal("initFileFromStringToZipToFile", "Folder External gagal dibuat");
                 return false;
             }
         }

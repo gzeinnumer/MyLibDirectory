@@ -27,11 +27,11 @@ public class FunctionGlobalFile {
     //create file
     public static boolean initFile(String fileName,String... text) {
         if (fileName == null) {
-            logSystemFunctionGlobal("isFileExists", "FileName tidak boleh null");
+            logSystemFunctionGlobal("initFile", "FileName tidak boleh null");
             return false;
         }
         if (text == null) {
-            logSystemFunctionGlobal("isFileExists", "Text tidak boleh null");
+            logSystemFunctionGlobal("initFile", "Text tidak boleh null");
             return false;
         }
         if (FunctionGlobalDir.appFolder.length() == 0) {
@@ -134,11 +134,11 @@ public class FunctionGlobalFile {
             return false;
         }
         if (!FunctionGlobalDir.isFileExists("")) {
-            logSystemFunctionGlobal("initFile", "Folder External untuk aplikasi tidak di temukan");
+            logSystemFunctionGlobal("appentText", "Folder External untuk aplikasi tidak di temukan");
             if (FunctionGlobalDir.initFolder("")) {
-                logSystemFunctionGlobal("initFile", "Folder External sudah dibuat");
+                logSystemFunctionGlobal("appentText", "Folder External sudah dibuat");
             } else {
-                logSystemFunctionGlobal("initFile", "Folder External gagal dibuat");
+                logSystemFunctionGlobal("appentText", "Folder External gagal dibuat");
                 return false;
             }
         }
@@ -188,14 +188,14 @@ public class FunctionGlobalFile {
             return;
         }
         if (FunctionGlobalDir.appFolder.length() == 0) {
-            logSystemFunctionGlobal("appentText", "Folder External untuk aplikasi belum dideklarasi");
+            logSystemFunctionGlobal("initFileImageFromInternet", "Folder External untuk aplikasi belum dideklarasi");
         }
         if (!FunctionGlobalDir.isFileExists("")) {
-            logSystemFunctionGlobal("initFile", "Folder External untuk aplikasi tidak di temukan");
+            logSystemFunctionGlobal("initFileImageFromInternet", "Folder External untuk aplikasi tidak di temukan");
             if (FunctionGlobalDir.initFolder("")) {
-                logSystemFunctionGlobal("initFile", "Folder External sudah dibuat");
+                logSystemFunctionGlobal("initFileImageFromInternet", "Folder External sudah dibuat");
             } else {
-                logSystemFunctionGlobal("initFile", "Folder External gagal dibuat");
+                logSystemFunctionGlobal("initFileImageFromInternet", "Folder External gagal dibuat");
             }
         }
         File myDir = new File(FunctionGlobalDir.getStorageCard + FunctionGlobalDir.appFolder + saveTo);
@@ -219,7 +219,7 @@ public class FunctionGlobalFile {
                                       if (!finalMyDir.exists() || isNew) {
                                           //jika isNew true maka foto lama akan dihapus dan diganti dengan yang baru
                                           //jika file tidak ditemukan maka file akan dibuat
-                                          logSystemFunctionGlobal("initFileImage", "Foto baru disimpan ke penyimpanan");
+                                          logSystemFunctionGlobal("initFileImageFromInternet", "Foto baru disimpan ke penyimpanan");
                                           FileOutputStream out = new FileOutputStream(finalMyDir);
                                           bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
 
@@ -227,18 +227,18 @@ public class FunctionGlobalFile {
                                           out.close();
                                       } else {
                                           //jika isNew false maka akan load file lama di penyimpanan
-                                          logSystemFunctionGlobal("initFileImage", "Foto lama di load dari penyimpanan");
+                                          logSystemFunctionGlobal("initFileImageFromInternet", "Foto lama di load dari penyimpanan");
                                           bitmap = BitmapFactory.decodeFile(finalMyDir.getAbsolutePath());
                                       }
                                       sendImageTo.setImageBitmap(bitmap);
                                   } catch (Exception e) {
-                                      logSystemFunctionGlobal("initFileImage", e.getMessage());
+                                      logSystemFunctionGlobal("initFileImageFromInternet", e.getMessage());
                                   }
                               }
 
                               @Override
                               public void onBitmapFailed(Exception e, Drawable errorDrawable) {
-                                  logSystemFunctionGlobal("initFileImage", e.getMessage());
+                                  logSystemFunctionGlobal("initFileImageFromInternet", e.getMessage());
                               }
 
                               @Override
@@ -247,7 +247,7 @@ public class FunctionGlobalFile {
                           }
                     );
         } else {
-            logSystemFunctionGlobal("initFileImage", "Foto lama di load dari penyimpanan");
+            logSystemFunctionGlobal("initFileImageFromInternet", "Foto lama di load dari penyimpanan");
             Bitmap bitmap = BitmapFactory.decodeFile(myDir.getAbsolutePath());
             sendImageTo.setImageBitmap(bitmap);
         }
