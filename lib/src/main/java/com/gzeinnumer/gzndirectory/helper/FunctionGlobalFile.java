@@ -1,8 +1,10 @@
 package com.gzeinnumer.gzndirectory.helper;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.os.Environment;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
@@ -82,7 +84,7 @@ public class FunctionGlobalFile {
     }
 
     public static List<String> readFile(String path) {
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         if (path == null) {
             logSystemFunctionGlobal("readFile", "Path tidak boleh null");
             return list;
@@ -251,6 +253,14 @@ public class FunctionGlobalFile {
             Bitmap bitmap = BitmapFactory.decodeFile(myDir.getAbsolutePath());
             sendImageTo.setImageBitmap(bitmap);
         }
+    }
+
+    //4
+    //simpan data di dalam root folder sebagai temporary
+    private File createImageFile(Context context, String fileName) throws IOException {
+        String mFileName = "JPEG_" + fileName + "_";
+        File storageDir = context.getExternalFilesDir(Environment.DIRECTORY_DCIM);
+        return File.createTempFile(mFileName, ".jpg", storageDir);
     }
 
 }
