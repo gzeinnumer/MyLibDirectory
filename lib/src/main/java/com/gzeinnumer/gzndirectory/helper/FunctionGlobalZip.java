@@ -14,11 +14,29 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
+import static com.gzeinnumer.gzndirectory.helper.FunctionGlobalDir.logSystemFunctionGlobal;
+
 public class FunctionGlobalZip {
 
     //start genFile
     //jika ingin replace file yang sudah ada, maka beri flag true, jika tidak maka false saja
     public static boolean initFileFromStringToZipToFile(String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew) {
+        if (fileName == null) {
+            logSystemFunctionGlobal("initFileFromStringToZipToFile", "FileName tidak boleh null");
+            return false;
+        }
+        if (zipLocation == null) {
+            logSystemFunctionGlobal("initFileFromStringToZipToFile", "ZipLocation tidak boleh null");
+            return false;
+        }
+        if (base64EncodeFromFile == null) {
+            logSystemFunctionGlobal("initFileFromStringToZipToFile", "Base64EncodeFromFile tidak boleh null");
+            return false;
+        }
+        if (md5EncodeFromFile == null) {
+            logSystemFunctionGlobal("initFileFromStringToZipToFile", "Md5EncodeFromFile tidak boleh null");
+            return false;
+        }
         if (FunctionGlobalDir.appFolder.length() == 0) {
             FunctionGlobalDir.logSystemFunctionGlobal("initFileFromStringToZipToFile", "Folder External untuk aplikasi belum dideklarasi");
             return false;

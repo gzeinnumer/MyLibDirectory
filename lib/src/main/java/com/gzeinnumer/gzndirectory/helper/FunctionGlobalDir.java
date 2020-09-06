@@ -19,6 +19,10 @@ public class FunctionGlobalDir {
     }
 
     public static void initExternalDirectoryName(String appFolder) {
+        if (appFolder == null) {
+            logSystemFunctionGlobal("initExternalDirectoryName", "AppFolder tidak boleh null");
+            return;
+        }
         if (!appFolder.substring(0, 1).equals("/")) {
             appFolder = "/" + appFolder;
         }
@@ -26,8 +30,12 @@ public class FunctionGlobalDir {
     }
 
     public static boolean initFolder(String... folderName) {
-        if (appFolder.length()==0){
-            logSystemFunctionGlobal("initFolder", "Folder External untuk aplikasi belum di deklarasi");
+        if (folderName == null) {
+            logSystemFunctionGlobal("initFolder", "FolderName tidak boleh null");
+            return false;
+        }
+        if (appFolder.length() == 0) {
+            logSystemFunctionGlobal("initFolder", "Folder External untuk aplikasi belum dideklarasi");
             return false;
         }
         File folder;
@@ -70,7 +78,11 @@ public class FunctionGlobalDir {
         return true;
     }
 
-    public static boolean isFileExists(String path){
+    public static boolean isFileExists(String path) {
+        if (path == null) {
+            logSystemFunctionGlobal("isFileExists", "Path tidak boleh null");
+            return false;
+        }
         File file = new File(getStorageCard + appFolder + path);
         return file.exists();
     }

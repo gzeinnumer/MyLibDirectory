@@ -44,7 +44,14 @@
 - [x] Cek file exists
 
 ### Tech stack and 3rd library
-- MVVM ([docs](https://developer.android.com/jetpack/guide))
+- Glide ([docs](https://github.com/bumptech/glide))
+- Picasso ([docs](https://github.com/square/picasso))
+- Permissions ([docs](https://developer.android.com/guide/topics/permissions/overview))
+- File ([docs](https://developer.android.com/reference/java/io/File))
+- File Provider ([docs](https://developer.android.com/training/secure-file-sharing/setup-sharing?hl=id))
+- Mengambil Foto ([docs](https://developer.android.com/training/camera/photobasics?hl=id))
+- Intent Galery ([docs](https://developer.android.com/guide/components/intents-common?hl=id))
+- Android Internet ([docs](https://developer.android.com/training/basics/network-ops/connecting))
 
 ---
 
@@ -1506,7 +1513,6 @@ dependencies {
 ```
 
 ## Function Global Image Internet
-#
 **Step 28.** Load Image From Internet and Save
 \
 Membuat function `onSuccessCheckPermitions` disini kita akan mendeklarasikan :
