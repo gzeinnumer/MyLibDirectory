@@ -542,7 +542,7 @@ Code akan tampak seperti ini :
 ```java
 public class MainActivity extends AppCompatActivity {
     
-    //sama seperti STEP 11.
+    //sama seperti STEP 11. hanya saja isi dari function onSuccessCheckPermitions berbeda
     ... 
 
     private void onSuccessCheckPermitions() {
@@ -628,7 +628,7 @@ Code akan tampak seperti ini :
 ```java
 public class MainActivity extends AppCompatActivity {
     
-    //sama seperti STEP 11.
+    //sama seperti STEP 11. hanya saja isi dari function onSuccessCheckPermitions berbeda
     ... 
 
     private void onSuccessCheckPermitions() {
@@ -678,7 +678,7 @@ jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti di
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    //sama seperti STEP 11.
+    //sama seperti STEP 11. hanya saja isi dari function onSuccessCheckPermitions berbeda
     ...
 
     private void onSuccessCheckPermitions() {
@@ -846,7 +846,7 @@ Tambahkan kode seperti berikut :
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    //sama seperti STEP 11.
+    //sama seperti STEP 11. hanya saja isi dari function onSuccessCheckPermitions berbeda
     ...
 
     static final int REQUEST_TAKE_PHOTO = 2;
@@ -1081,7 +1081,7 @@ Tambahkan kode seperti berikut :
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    //sama seperti STEP 11.
+    //sama seperti STEP 11. hanya saja isi dari function onSuccessCheckPermitions berbeda
     ...
 
     static final int REQUEST_GALLERY_PHOTO = 3;
@@ -1159,7 +1159,7 @@ Fullcode akan tampak seperti ini :
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    //sama seperti STEP 11.
+    //sama seperti STEP 11. hanya saja isi dari function onSuccessCheckPermitions berbeda
     ...
 
     static final int REQUEST_GALLERY_PHOTO = 3;
