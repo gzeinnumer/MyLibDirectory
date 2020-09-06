@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-  - Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di onCreate activity yang pertama kali dipanggil contohnya `SplashScreenActivity` atau `MainActivity`
+  - Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di `onCreate` activity yang pertama kali dipanggil contohnya `SplashScreenActivity` atau `MainActivity`
   - Pada tutorial ini, variable `externalFolderName` akan berisi `MyLibsTesting`, semua file dan folder yang akan kita buat di bawah akan ada didalam direktory atau path `/storage/emulated/0/MyLibsTesting`
 
 #
@@ -113,8 +113,8 @@ Tambahkan array permition yang dibutuhkan : \
 public class MainActivity extends AppCompatActivity {
 
     String[] permissions = new String[]{
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
     
     ...
@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 5.** 
 \
-Jika permition sudah diizinkan, buat dan panggil function `onSuccessCheckPermitions` untuk membuat folder :
+Buat dan panggil function `onSuccessCheckPermitions` untuk membuat folder :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -242,7 +242,8 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**notes.** Jika kamu mau membuat folder dalam folder, pastikan value variable `folders` di awali dengan folder parent nya dulu.
+**notes.** 
+  - Jika kamu mau membuat folder dalam folder, pastikan value variable `folders` di awali dengan folder parent nya dulu.
   - **example.** kamu mau membuat folder `folder1` yang di isi folder `folder1_1`, pastikan kamu menulis dulu `folder1` baru setelahnya `folder1_1`. seperti di bawah:
 ```
 |-- external
@@ -268,13 +269,13 @@ FunctionGlobalDir.initFolder(folders);
 
 // cara penulisan 3
 FunctionGlobalDir.initFolder("/folder1","/folder1/folder1_1","/folder2");
-}
+
 ```
 
 #
 **Step 7.**
 \
-Tambahkan function di onCreate agar setiap activity dijalankan maka akan selalu mengecek apakah izin sudah diberikan :
+Tambahkan function `checkPermissions` di `onCreate` agar setiap activity dijalankan maka akan selalu mengecek apakah izin sudah diberikan :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -310,8 +311,8 @@ Fullcode akan tampak seperti ini :
 public class MainActivity extends AppCompatActivity {
 
     String[] permissions = new String[]{
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
 
     @Override
@@ -389,7 +390,7 @@ Jika sukses maka akan tampil seperti ini :
 ---
 
 ## Function Global File
-**CRUD File.** Lanjutan pada step 9 sebelumnya, disini kita akan mencoba membuat file dengan lebih simple dan cepat :
+**CRUD File.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file dengan lebih simple dan cepat :
 
 #
 **Step 10.**
@@ -437,8 +438,8 @@ Fullcode akan tampak seperti ini :
 public class MainActivity extends AppCompatActivity {
 
     String[] permissions = new String[]{
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
 
     @Override
@@ -540,7 +541,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-  - Hasil akan barupa "List<String>", dan kamu bisa ambil datanya sesuai index.
+  - Hasil akan barupa `List<String>`, dan kamu bisa ambil datanya sesuai index.
 
 #
 **Step 14.**
@@ -550,8 +551,8 @@ Code akan tampak seperti ini :
 ```java
 public class MainActivity extends AppCompatActivity {
     String[] permissions = new String[]{
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
     
     @Override
@@ -627,19 +628,18 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-  - Pastikan File sudah dibuat denga perintah `FunctionGlobalFile.initFile(path,data)`.
+  - Pastikan file `MyFile.txt` sudah dibuat denga perintah `FunctionGlobalFile.initFile(path,data)`.
 
 ---
 
 ## Function Global Zip
-**String BASE64 ke ZIP.** Lanjutan pada step 9 sebelumnya, disini kita akan mencoba membuat file zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
+**String Base64 ke Zip.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file Zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
 
 #
 **Step 15.**
 \
-Pada function 'onSuccessCheckPermitions' kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
+Pada function 'onSuccessCheckPermitions' kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti Step 1 - Step 8 : \
 disini kita akan mendeklarasikan
-\ 
 1. `fileName` untuk nama file sebelum diencode dengan Base64. 
 2. `base64EncodeFromFile` file zip yang sudah diencode jadi Base64.
 3. `md5EncodeFromFile` file zip yang sudah diencode jadi Md5 untuk memastikan Base64 tidak corrupt.
@@ -682,7 +682,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-    - Pastikan pada `fileName` adalah nama asli dari file yang sudah diencode dengan Base64 dan Md5, jika berbeda maka akan dapat lemparan error.
+  - Pastikan pada `fileName` adalah nama asli dari file yang sudah diencode dengan Base64 dan Md5, jika berbeda maka akan dapat lemparan error.
 
 #
 **Step 16.**
@@ -693,8 +693,8 @@ Fullcode akan tampak seperti ini :
 public class MainActivity extends AppCompatActivity {
     
     String[] permissions = new String[]{
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
 
     @Override
@@ -781,7 +781,7 @@ Jika sukses maka akan tampil seperti ini :
 #
 **Step 18.**
 \
-Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText, dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
+Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText, dengan memastikan kalau permition sudah di berikan, ikuti Step 1 - Step 8 : \
 disini kita akan mendeklarasikan
 
 1. `onSuccessCheckPermitions` itu adalah function yang sama dengan yang ada di Step 14, tambahkan function `onAppentText` untuk menambahkan jumlah text dalam file. 
@@ -856,12 +856,12 @@ Jika sukses maka akan tampil seperti ini :
 ---
 
 ## Function Global Image Camera
-**Mengambil foto dengan camera.** Lanjutan pada step 9 sebelumnya, disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
+**Mengambil foto dengan camera.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
 
 #
 **Step 21.**
 \
-Pada function `onSuccessCheckPermitions` kita bisa mengatifkan fitur ini agar bisa mengambil gambar dengan jernih, pastikan dulu kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
+Pada function `onSuccessCheckPermitions` kita bisa mengatifkan fitur ini agar bisa mengambil gambar dengan jernih, pastikan dulu kalau permition sudah di berikan, ikuti Step 1 - Step 8 : \
 
 Jika Step 1- Step 8 sudah diselesaikan, lanjut ke tahap berikutnya
 
@@ -959,9 +959,9 @@ Tambahkan permition CAMERA ke array :
 public class MainActivity extends AppCompatActivity {
 
     String[] permissions = new String[]{
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.CAMERA
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.CAMERA
     };
     
     ...
@@ -1067,9 +1067,9 @@ Fullcode akan tampak seperti ini :
 public class MainActivity extends AppCompatActivity {
 
     String[] permissions = new String[]{
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.CAMERA
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.CAMERA
     };
 
     @Override
@@ -1207,7 +1207,7 @@ Jika sukses maka akan tampil seperti ini :
 
 
 ## Function Global Image Galery
-**Mengambil foto dari galery.** Lanjutan pada step 9 sebelumnya, disini kita akan mencoba mengambil foto dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu mentimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan cepat dan mudah :
+**Mengambil foto dari galery.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba mengambil foto dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu mentimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan cepat dan mudah :
 
 #
 **Step 24.**
