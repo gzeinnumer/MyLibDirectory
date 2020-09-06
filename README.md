@@ -246,34 +246,28 @@ public class MainActivity extends AppCompatActivity {
   - **example.** kamu mau membuat folder `folder1` yang di isi folder `folder1_1`, pastikan kamu menulis dulu `folder1` baru setelahnya `folder1_1`. seperti di bawah:
 ```
 |-- external
-  |-- MyLibsTesting
-    |-- folder1
-      |-- folder1_1
-    |-- folder2
+    |-- MyLibsTesting
+        |-- folder1
+            |-- folder1_1
+        |-- folder2
 ```
   - ada 3 cara penulisan yang bisa kamu pilih.
 
 ```java
-public class MainActivity extends AppCompatActivity {
-    
-    ...
+//   /storage/emulated/0/MyLibsTesting/folder1
+//   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
+//   /storage/emulated/0/MyLibsTesting/folder2
 
-    private void onSuccessCheckPermitions() {
-        //   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
-        //   /storage/emulated/0/MyLibsTesting/folder2
+// cara penulisan 1
+String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
+FunctionGlobalDir.initFolder(folders);
 
-        // cara penulisan 1
-        String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
-        FunctionGlobalDir.initFolder(folders);
+// cara penulisan 2
+String[] folders = new String[]{"/folder1","/folder1/folder1_1","/folder2"};
+FunctionGlobalDir.initFolder(folders);
 
-        // cara penulisan 2
-        String[] folders = new String[]{"/folder1","/folder1/folder1_1","/folder2"};
-        FunctionGlobalDir.initFolder(folders);
-
-        // cara penulisan 3
-        FunctionGlobalDir.initFolder("/folder1","/folder1/folder1_1","/folder2");
-            
-    }
+// cara penulisan 3
+FunctionGlobalDir.initFolder("/folder1","/folder1/folder1_1","/folder2");
 }
 ```
 
@@ -370,6 +364,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onSuccessCheckPermitions() {
+        //   /storage/emulated/0/MyLibsTesting/folder1
         //   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
         //   /storage/emulated/0/MyLibsTesting/folder2
         String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
@@ -399,7 +394,7 @@ Jika sukses maka akan tampil seperti ini :
 #
 **Step 10.**
 \
-Pada function "onSuccessCheckPermitions" kita bisa membuat file dengan memastikan kalau permition sudah di berikan, ikuti Step 1 - Step 8 :
+Pada function `onSuccessCheckPermitions` kita bisa membuat file dengan memastikan kalau permition sudah di berikan, ikuti Step 1 - Step 8 :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -408,10 +403,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void onSuccessCheckPermitions() {
         //buat file dalam folder App
-        //cara 1
         String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
-        //cara 2
-        //String[] data = {"Hallo GZeinNumer Again", "File Creating","File Created"};
     
         //   /storage/emulated/0/MyLibsTesting/MyFile.txt
         if(FunctionGlobalFile.initFile("/MyFile.txt",data)){
@@ -426,7 +418,8 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**notes.** pada code dibawah, kamu bisa membuat file baru dengan value yang sudah kamu set, file akan dibuat dan text akan dimasukan ke file dengan urutan sesuai index array di bawah.
+**notes.** 
+  - Pada code dibawah, kamu bisa membuat file baru dengan value yang sudah kamu set, file akan dibuat dan text akan dimasukan ke file dengan urutan sesuai index array di bawah.
 
 ```java
 //cara 1
@@ -528,6 +521,8 @@ Setelah file dibuat, kita bisa membaca file dengan code sebagai berikut :
 ```java
 public class MainActivity extends AppCompatActivity {
 
+    ...
+
     private void onSuccessCheckPermitions() {
         
         ...
@@ -538,10 +533,14 @@ public class MainActivity extends AppCompatActivity {
         ...
 
     }
+    
+    ...
+
 }
 ```
 
-**notes.** hasil akan barupa "List<String>", dan kamu bisa ambil datanya sesuai index.
+**notes.** 
+  - Hasil akan barupa "List<String>", dan kamu bisa ambil datanya sesuai index.
 
 #
 **Step 14.**
@@ -550,13 +549,63 @@ Code akan tampak seperti ini :
 
 ```java
 public class MainActivity extends AppCompatActivity {
+    String[] permissions = new String[]{
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
     
-    //sama seperti STEP 11. hanya saja isi dari function onSuccessCheckPermitions berbeda
-    ... 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        //gunakan function ini cukup satu kali saja pada awal activity
+        String externalFolderName = getApplication().getString(R.string.app_name); //   /storage/emulated/0/MyLibsTesting
+        FunctionGlobalDir.initExternalDirectoryName(externalFolderName);
+
+        if (checkPermissions()) {
+            Toast.makeText(this, "Izin sudah diberikan", Toast.LENGTH_SHORT).show();
+            onSuccessCheckPermitions();
+        } else {
+            Toast.makeText(this, "Berikan izin untuk membuat folder terlebih dahulu", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    int MULTIPLE_PERMISSIONS = 1;
+    private boolean checkPermissions() {
+        int result;
+        List<String> listPermissionsNeeded = new ArrayList<>();
+
+        for (String p : permissions) {
+            result = ContextCompat.checkSelfPermission(getApplicationContext(), p);
+            if (result != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(p);
+            }
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[0]), MULTIPLE_PERMISSIONS);
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MULTIPLE_PERMISSIONS) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                onSuccessCheckPermitions();
+            } else {
+                StringBuilder perStr = new StringBuilder();
+                for (String per : permissions) {
+                    perStr.append("\n").append(per);
+                }
+            }
+        }
+    }
 
     private void onSuccessCheckPermitions() {
         String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
-
+        //Buat File
         //   /storage/emulated/0/MyLibsTesting/MyFile.txt
         if(FunctionGlobalFile.initFile("/MyFile.txt",data)){
             Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
@@ -564,17 +613,21 @@ public class MainActivity extends AppCompatActivity {
             //READ MyFile.txt
             //   /storage/emulated/0/MyLibsTesting/MyFile.txt
             List<String> list = FunctionGlobalFile.readFile("/MyFile.txt");
+            
             String value_0 = list.get(0);
+            
             Toast.makeText(this, "Jumlah baris : "+list.size() , Toast.LENGTH_SHORT).show();
 
         } else {
             Toast.makeText(this, "File gagal dibuat", Toast.LENGTH_SHORT).show();
         }
     }
+
 }
 ```
 
-**notes.** Pastikan File sudah dibuat.
+**notes.** 
+  - Pastikan File sudah dibuat denga perintah `FunctionGlobalFile.initFile(path,data)`.
 
 ---
 
@@ -584,13 +637,13 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 15.**
 \
-Pada function "onSuccessCheckPermitions" kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
+Pada function 'onSuccessCheckPermitions' kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
 disini kita akan mendeklarasikan
 \ 
 1. `fileName` untuk nama file sebelum diencode dengan Base64. 
-2. `base64EncodeFromFile` file zip yang sudah diencode jadi Base64,
-3. `md5EncodeFromFile` file zip yang sudah diencode jadi Md5 untuk memastikan Base64 tidak corrupt
-4. `zipLocation` file zip yang diextract akan meletakan semua filenya ke direcotry yang dibuat disini
+2. `base64EncodeFromFile` file zip yang sudah diencode jadi Base64.
+3. `md5EncodeFromFile` file zip yang sudah diencode jadi Md5 untuk memastikan Base64 tidak corrupt.
+4. `zipLocation` file zip yang diextract akan meletakan semua filenya ke direcotry yang dibuat disini.
 \
 jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
 
@@ -614,6 +667,7 @@ public class MainActivity extends AppCompatActivity {
         //   /storage/emulated/0/MyLibsTesting/zipLocation
         String zipLocation = "/zipLocation";
 
+        //decode string menjadi file dan extrack ke tujuan zipLocation
         //   /storage/emulated/0/MyLibsTesting/zipLocation
         if (FunctionGlobalZip.initFileFromStringToZipToFile(fileName, zipLocation ,base64EncodeFromFile,md5EncodeFromFile, true)){
             Toast.makeText(this, "Success load data", Toast.LENGTH_SHORT).show();
@@ -627,18 +681,70 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**notes.** pastikan pada fileName adalah nama asli dari file yang sudah diencode dengan base64 dan md5, jika berbeda maka akan dapat lemparan error.
+**notes.** 
+    - Pastikan pada `fileName` adalah nama asli dari file yang sudah diencode dengan Base64 dan Md5, jika berbeda maka akan dapat lemparan error.
 
 #
 **Step 16.**
 \
-Code akan tampak seperti ini :
+Fullcode akan tampak seperti ini :
 
 ```java
 public class MainActivity extends AppCompatActivity {
     
-    //sama seperti STEP 11. hanya saja isi dari function onSuccessCheckPermitions berbeda
-    ... 
+    String[] permissions = new String[]{
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        //gunakan function ini cukup satu kali saja pada awal activity
+        String externalFolderName = getApplication().getString(R.string.app_name); //   /storage/emulated/0/MyLibsTesting
+        FunctionGlobalDir.initExternalDirectoryName(externalFolderName);
+
+        if (checkPermissions()) {
+            Toast.makeText(this, "Izin sudah diberikan", Toast.LENGTH_SHORT).show();
+            onSuccessCheckPermitions();
+        } else {
+            Toast.makeText(this, "Berikan izin untuk membuat folder terlebih dahulu", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    int MULTIPLE_PERMISSIONS = 1;
+    private boolean checkPermissions() {
+        int result;
+        List<String> listPermissionsNeeded = new ArrayList<>();
+
+        for (String p : permissions) {
+            result = ContextCompat.checkSelfPermission(getApplicationContext(), p);
+            if (result != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(p);
+            }
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[0]), MULTIPLE_PERMISSIONS);
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MULTIPLE_PERMISSIONS) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                onSuccessCheckPermitions();
+            } else {
+                StringBuilder perStr = new StringBuilder();
+                for (String per : permissions) {
+                    perStr.append("\n").append(per);
+                }
+            }
+        }
+    } 
 
     private void onSuccessCheckPermitions() {
         String fileName = "/ExternalBase64Md5ToZip.zip";
@@ -670,12 +776,12 @@ Jika sukses maka akan tampil seperti ini :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example7.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example8.jpg)|
 |--|--|--|
-|Folder MyLibsTesting sudah dibuat|`ExternalBase64Md5ToZip.zip` yang berada didalam MyLibsTesting sudah dibuat dari string base64, `/zipLocation` adalah folder yang dibuat untuk file hasil extract dari Zip|`ExernalBase64Md5ToZip.db` adalah file hasil extract dari file `ExternalBase64Md5ToZip.zip`|
+|Folder `MyLibsTesting` sudah dibuat|`ExternalBase64Md5ToZip.zip` yang berada didalam `MyLibsTesting` sudah dibuat dari string Base64, `/zipLocation` adalah folder yang dibuat untuk file hasil extract dari Zip|`ExernalBase64Md5ToZip.db` adalah file hasil extract dari file `ExternalBase64Md5ToZip.zip`|
 
 #
 **Step 18.**
 \
-Pada function "onSuccessCheckPermitions" kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText, dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
+Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText, dengan memastikan kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
 disini kita akan mendeklarasikan
 
 1. `onSuccessCheckPermitions` itu adalah function yang sama dengan yang ada di Step 14, tambahkan function `onAppentText` untuk menambahkan jumlah text dalam file. 
@@ -734,6 +840,10 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+**notes.** 
+    - Pastikan file sudah dibuat, sesuai Step 10.
+
+
 #
 **Step 20.**
 \
@@ -741,26 +851,25 @@ Jika sukses maka akan tampil seperti ini :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example9.jpg)|
 |--|--|--|--|
-|Folder MyLibsTesting sudah dibuat|`MyFile.txt` yang berada didalam MyLibsTesting sudah dibuat|`MyFile.txt` file dibuat dengan text yang sudah diset pertama kali|`MyFile.txt` new line ditambah ke file|
+|Folder `MyLibsTesting` sudah dibuat|`MyFile.txt` yang berada didalam `MyLibsTesting` sudah dibuat|`MyFile.txt` file dibuat dengan text yang sudah diset pertama kali|`MyFile.txt` new line ditambah ke file|
 
 ---
 
-## Function Global Image
+## Function Global Image Camera
 **Mengambil foto dengan camera.** Lanjutan pada step 9 sebelumnya, disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
 
 #
 **Step 21.**
 \
-Pada function "onSuccessCheckPermitions" kita bisa mengatifkan fitur ini agar bisa mengambil gambar dengan jernih, pastikan dulu kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
+Pada function `onSuccessCheckPermitions` kita bisa mengatifkan fitur ini agar bisa mengambil gambar dengan jernih, pastikan dulu kalau permition sudah di berikan, ikuti STEP 1 - STEP 8 : \
 
-jika Step 1- Step 8 sudah diselesaikan :
+Jika Step 1- Step 8 sudah diselesaikan, lanjut ke tahap berikutnya
 
 **activity_main.xml** tambahkan kode berikut:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -787,7 +896,7 @@ jika Step 1- Step 8 sudah diselesaikan :
 
 **manifest.xml** tambahkan uses-permission CAMERA lalu uses-feature camera, autofocus, flash pada file manifest, 
 \
-lalu didalam application tambahkan tag provider untuk memberikan izin pada sistem menyimpan image secara temporary untuk proses compress image:
+lalu didalam application tambahkan tag provider untuk memberikan izin pada sistem menyimpan image secara temporari untuk proses compress image:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -819,7 +928,7 @@ lalu didalam application tambahkan tag provider untuk memberikan izin pada siste
 </manifest>
 ```
 
-**file_provider_paths.xml** pada directory res buat folder xml dan buat file dengan nama file_provider_paths.xml.
+**file_provider_paths.xml** pada directory `res` buat folder `xml` dan buat file dengan nama `file_provider_paths.xml`.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -832,9 +941,19 @@ lalu didalam application tambahkan tag provider untuk memberikan izin pada siste
 </paths>
 ```
 
+Cara mengetahui package name project:
+```java
+//ini adalah Package Name Project
+package com.gzeinnumer.mylibstesting;
+
+public class MainActivity extends AppCompatActivity {
+    
+}
+```
+
 **MainActivity** pada function `onSuccessCheckPermitions` tambahkan kode berikut :
 
-tambahkan permition CAMERA ke array :
+Tambahkan permition CAMERA ke array :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -857,7 +976,8 @@ public class MainActivity extends AppCompatActivity {
 
     //sama seperti STEP 11. hanya saja isi dari function onSuccessCheckPermitions berbeda
     ...
-
+    
+    //1
     static final int REQUEST_TAKE_PHOTO = 2;
     File mPhotoFile;
     FileCompressor mCompressor;
@@ -865,6 +985,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
 
     private void onSuccessCheckPermitions() {
+        //2
         btnCamera = findViewById(R.id.btn_camera);
 
         imageView = findViewById(R.id.img);
@@ -882,6 +1003,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //3
     //jalankan intent untuk membuka kamera
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -902,6 +1024,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //4
     //simpan data di dalam root folder sebagai temporary
     private File createImageFile() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
@@ -911,6 +1034,7 @@ public class MainActivity extends AppCompatActivity {
         return mFile;
     }
     
+    //5
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -1082,10 +1206,13 @@ Jika sukses maka akan tampil seperti ini :
 |folder `Foto` otomatis terbuat|File sudah tersimpan pada folder `Foto`|Detail pada galery|Ukuran foto kecil, tapi resolusi dipertahankan tetap besar|-|
 
 
+## Function Global Image Galery
+**Mengambil foto dari galery.** Lanjutan pada step 9 sebelumnya, disini kita akan mencoba mengambil foto dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu mentimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan cepat dan mudah :
+
 #
 **Step 24.**
 \
-Tambahkan kode seperti berikut :
+Hampir sama dengan Step 21, hanya saja berbeda action Intent dan prosess pengcrompressan Image, Tambahkan kode seperti berikut :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -1093,6 +1220,7 @@ public class MainActivity extends AppCompatActivity {
     //sama seperti STEP 11. hanya saja isi dari function onSuccessCheckPermitions berbeda
     ...
 
+    //1
     static final int REQUEST_GALLERY_PHOTO = 3;
     File mPhotoFile;
     FileCompressor mCompressor;
@@ -1100,6 +1228,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
 
     private void onSuccessCheckPermitions() {
+        //2
         btnCamera = findViewById(R.id.btn_camera);
 
         imageView = findViewById(R.id.img);
@@ -1117,12 +1246,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //3
     private void dispatchGalleryIntent() {
         Intent pickPhoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         pickPhoto.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         startActivityForResult(pickPhoto, REQUEST_GALLERY_PHOTO);
     }
 
+    //4
     public String getRealPathFromUri(Uri contentUri) {
         Cursor cursor = null;
         try {
@@ -1139,6 +1270,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //5
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -1168,8 +1300,59 @@ Fullcode akan tampak seperti ini :
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    //sama seperti STEP 11. hanya saja isi dari function onSuccessCheckPermitions berbeda
-    ...
+    String[] permissions = new String[]{
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        //gunakan function ini cukup satu kali saja pada awal activity
+        String externalFolderName = getApplication().getString(R.string.app_name); //   /storage/emulated/0/MyLibsTesting
+        FunctionGlobalDir.initExternalDirectoryName(externalFolderName);
+
+        if (checkPermissions()) {
+            Toast.makeText(this, "Izin sudah diberikan", Toast.LENGTH_SHORT).show();
+            onSuccessCheckPermitions();
+        } else {
+            Toast.makeText(this, "Berikan izin untuk membuat folder terlebih dahulu", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    int MULTIPLE_PERMISSIONS = 1;
+    private boolean checkPermissions() {
+        int result;
+        List<String> listPermissionsNeeded = new ArrayList<>();
+
+        for (String p : permissions) {
+            result = ContextCompat.checkSelfPermission(getApplicationContext(), p);
+            if (result != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(p);
+            }
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[0]), MULTIPLE_PERMISSIONS);
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MULTIPLE_PERMISSIONS) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                onSuccessCheckPermitions();
+            } else {
+                StringBuilder perStr = new StringBuilder();
+                for (String per : permissions) {
+                    perStr.append("\n").append(per);
+                }
+            }
+        }
+    }
 
     static final int REQUEST_GALLERY_PHOTO = 3;
     File mPhotoFile;
