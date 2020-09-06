@@ -76,11 +76,10 @@ dependencies {
 |--|
 
 #
-- **Step 1.** 
+**Step 1.** 
 \
 Kamu harus mendeklarasi dulu folder name yang akan kamu pakai di external :
 \
-**notes.** Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di onCreate activity yang pertama kali dipanggil contohnya "SplashScreenActivity atau MainActivity"  :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -92,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         
         //gunakan function ini cukup satu kali saja pada awal activity
-        String externalFolderName = getApplication().getString(R.string.app_name); //   /storage/emulated/0/MyLibsTesting
+        String externalFolderName = getApplication().getString(R.string.app_name); //MyLibsTesting
         FunctionGlobalDir.initExternalDirectoryName(externalFolderName);
     }
 
@@ -101,7 +100,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**notes.** pada tutorial ini, variable `externalFolderName` akan berisi `MyLibsTesting`, semua file dan folder yang akan kita buat di bawah akan ada didalam direktory atau path `/storage/emulated/0/MyLibsTesting`
+**notes.** 
+    - Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di onCreate activity yang pertama kali dipanggil contohnya `SplashScreenActivity` atau `MainActivity`
+    - Pada tutorial ini, variable `externalFolderName` akan berisi `MyLibsTesting`, semua file dan folder yang akan kita buat di bawah akan ada didalam direktory atau path `/storage/emulated/0/MyLibsTesting`
 
 #
 **Step 2.** 
