@@ -51,6 +51,8 @@ dependencies {
 
 ---
 
+\
+
 ## Function Global Directory
 **Contoh Multi Check Permissions.** Request permition secara bersamaan, Zein sarankan untuk requestnya dijalankan di activity yang pertama aktif, disini Zein masukan ke MainActivity :
 
@@ -228,6 +230,7 @@ public class MainActivity extends AppCompatActivity {
     ...
 
     private void onSuccessCheckPermitions() {
+        //   /storage/emulated/0/MyLibsTesting/folder1
         //   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
         //   /storage/emulated/0/MyLibsTesting/folder2
         String[] folders = new String[]{"/folder1","/folder1/folder1_1","/folder2"};
@@ -243,7 +246,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-  - Jika kamu mau membuat folder dalam folder, pastikan value variable `folders` di awali dengan folder parent nya dulu.
+  - Jika kamu mau membuat folder dalam folder, pastikan value variable `folders` diawali dengan folder parent nya dulu.
   - **example.** kamu mau membuat folder `folder1` yang di isi folder `folder1_1`, pastikan kamu menulis dulu `folder1` baru setelahnya `folder1_1`. seperti di bawah:
 ```
 |-- external
@@ -388,6 +391,8 @@ Jika sukses maka akan tampil seperti ini :
 |Request Permition |Folder MyLibsTesting sudah dibuat|`folder1` dan `folder2` sudah terbuat|`folder1_1` yang berada didalam `folder1` sudah dibuat|
 
 ---
+
+\
 
 ## Function Global File
 **CRUD File.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file dengan lebih simple dan cepat :
@@ -547,7 +552,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 14.**
 \
-Code akan tampak seperti ini :
+FullCode akan tampak seperti ini :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -633,6 +638,8 @@ public class MainActivity extends AppCompatActivity {
   - Pastikan file `MyFile.txt` sudah dibuat denga perintah `FunctionGlobalFile.initFile(path,data)`.
 
 ---
+
+\
 
 ## Function Global Zip
 **String Base64 ke Zip.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file Zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
@@ -857,6 +864,8 @@ Jika sukses maka akan tampil seperti ini :
 |Folder `MyLibsTesting` sudah dibuat|`MyFile.txt` yang berada didalam `MyLibsTesting` sudah dibuat|`MyFile.txt` file dibuat dengan text yang sudah diset pertama kali|`MyFile.txt` new line ditambah ke file|
 
 ---
+
+\
 
 ## Function Global Image Camera
 **Mengambil foto dengan camera.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
@@ -1221,6 +1230,7 @@ Jika sukses maka akan tampil seperti ini :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example13.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example14.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example16.jpg)|
 |folder `Foto` otomatis terbuat|File sudah tersimpan pada folder `Foto`|Detail pada galery|Ukuran foto kecil, tapi resolusi dipertahankan tetap besar|-|
 
+\
 
 ## Function Global Image Galery
 **Mengambil foto dari galery.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba mengambil foto dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu menyimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan cepat dan mudah :
