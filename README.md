@@ -16,14 +16,20 @@
       - Contoh Multi Check Permissions
       - Manifest
       - DEBUG
+      - Step 6. Create Folder
 - [x] Function Global File
-      
+      - Step 10. Create File
+      - Step 13. Read File
 - [x] Function Global Zip
-- [x] Create Folder
+      - Step 15. Encode Base64/Md5 to Zip
+      - Step 18. AppentText
+- [x] Function Global Image Camera
+      - Step 21. Take Image From Camera And Compress
+- [x] Function Global Image Galery
+      - Step 24. Take Image From Galery
+- [x] Function Global Image Internet
+      - Step 28. Load Image From Internet and Save
 - [x] Cek file exists
-- [x] Create file dan menyimpan text
-- [x] Membaca text dalam file
-- [x] Buat file Zip dari Base64 dan MD5
 
 ### Tech stack and 3rd library
 - MVVM ([docs](https://developer.android.com/jetpack/guide))
@@ -47,7 +53,7 @@ allprojects {
 }
 ```
 
-**Step 2.** tambahkan depedensi ke build.gradle (Module) :
+**Step 2.** tambahkan dependensi ke build.gradle (Module) :
 
 ```gradle
 dependencies {
@@ -645,9 +651,9 @@ public class MainActivity extends AppCompatActivity {
 **String Base64 ke Zip.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file Zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
 
 #
-**Step 15.**
+**Step 15.** Encode Base64/Md5 to Zip
 \
-Pada function 'onSuccessCheckPermitions' kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti Step 1 - Step 8 : \
+Pada function `onSuccessCheckPermitions` kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti Step 1 - Step 8 : \
 disini kita akan mendeklarasikan
 1. `fileName` untuk nama file sebelum diencode dengan Base64. 
 2. `base64EncodeFromFile` file zip yang sudah diencode jadi Base64.
@@ -789,7 +795,7 @@ Jika sukses maka akan tampil seperti ini :
 |Folder `MyLibsTesting` sudah dibuat|`ExternalBase64Md5ToZip.zip` yang berada didalam `MyLibsTesting` sudah dibuat dari string Base64, `/zipLocation` adalah folder yang dibuat untuk file hasil extract dari Zip|`ExernalBase64Md5ToZip.db` adalah file hasil extract dari file `ExternalBase64Md5ToZip.zip`|
 
 #
-**Step 18.**
+**Step 18.** AppentText
 \
 Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText, dengan memastikan kalau permition sudah di berikan, ikuti Step 1 - Step 8 : \
 disini kita akan mendeklarasikan
@@ -868,7 +874,7 @@ Jika sukses maka akan tampil seperti ini :
 ## Function Global Image Camera
 **Mengambil foto dengan camera.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
 \
-Pertama-tama kamu tambahkan depedensi Glide.
+Pertama-tama kamu tambahkan dependensi Glide.
 
 ```gradle
 dependencies {
@@ -879,7 +885,7 @@ dependencies {
 ```
 
 #
-**Step 21.**
+**Step 21.**  Take Image From Camera And Compress
 \
 Pada function `onSuccessCheckPermitions` kita bisa mengatifkan fitur ini agar bisa mengambil gambar dengan jernih, pastikan dulu kalau permition sudah di berikan, ikuti Step 1 - Step 8 :
 
@@ -1234,7 +1240,7 @@ Jika sukses maka akan tampil seperti ini :
 **Mengambil foto dari galery.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba mengambil foto dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu menyimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan cepat dan mudah :
 
 #
-**Step 24.**
+**Step 24.**  Take Image From Galery
 \
 Hampir sama dengan Step 21, hanya saja berbeda action Intent dan prosess pengcrompressan Image, Tambahkan kode seperti berikut :
 
@@ -1462,7 +1468,7 @@ Jika sukses maka akan tampil seperti ini :
 \
 Pada function 'onSuccessCheckPermitions' kita bisa mendowload gambar dari internet dan menyimpannya ke direktori yang kita mau, dan jika image sudah didownload, maka image tidak akan didownload lagi. 
 
-Pertama-tama kamu tambahkan depedensi Picasso.
+Pertama-tama kamu tambahkan dependensi Picasso.
 
 ```gradle
 dependencies {
@@ -1487,8 +1493,10 @@ dependencies {
 </manifest>
 ```
 
+## Function Global Image Internet
 #
-**Step 28.**
+**Step 28.** Load Image From Internet and Save
+\
 Membuat function `onSuccessCheckPermitions` disini kita akan mendeklarasikan :
 1. `imgUrl` adalah link image. 
 2. `saveTo` lokasi foto akan disimpan.
