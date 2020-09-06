@@ -12,7 +12,13 @@
 ---
 
 ### Feature List
-- [x] Contoh Multi Check Permissions
+- [x] Function Global Directory
+      - Contoh Multi Check Permissions
+      - Manifest
+      - DEBUG
+- [x] Function Global File
+      
+- [x] Function Global Zip
 - [x] Create Folder
 - [x] Cek file exists
 - [x] Create file dan menyimpan text
@@ -218,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-**Step 6.**
+**Step 6.** Create Folder
 \
 Jika `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`:
 
@@ -394,7 +400,7 @@ Jika sukses maka akan tampil seperti ini :
 **CRUD File.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file dengan lebih simple dan cepat :
 
 #
-**Step 10.**
+**Step 10.** Create File
 \
 Pada function `onSuccessCheckPermitions` kita bisa membuat file dengan memastikan kalau permition sudah di berikan, ikuti Step 1 - Step 8 :
 
@@ -516,7 +522,7 @@ Jika sukses maka akan tampil seperti ini :
 |Folder MyLibsTesting sudah dibuat|`MyFile.txt` yang berada didalam MyLibsTesting sudah dibuat|Isi dari `MyFile.txt`|
 
 #
-**Step 13.**
+**Step 13.** Read File
 \
 Setelah file dibuat, kita bisa membaca file dengan code sebagai berikut :
 
