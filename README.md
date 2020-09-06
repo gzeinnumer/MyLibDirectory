@@ -101,8 +101,8 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-    - Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di onCreate activity yang pertama kali dipanggil contohnya `SplashScreenActivity` atau `MainActivity`
-    - Pada tutorial ini, variable `externalFolderName` akan berisi `MyLibsTesting`, semua file dan folder yang akan kita buat di bawah akan ada didalam direktory atau path `/storage/emulated/0/MyLibsTesting`
+  - Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di onCreate activity yang pertama kali dipanggil contohnya `SplashScreenActivity` atau `MainActivity`
+  - Pada tutorial ini, variable `externalFolderName` akan berisi `MyLibsTesting`, semua file dan folder yang akan kita buat di bawah akan ada didalam direktory atau path `/storage/emulated/0/MyLibsTesting`
 
 #
 **Step 2.** 
