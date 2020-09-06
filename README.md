@@ -51,8 +51,6 @@ dependencies {
 
 ---
 
-\
-
 ## Function Global Directory
 **Contoh Multi Check Permissions.** Request permition secara bersamaan, Zein sarankan untuk requestnya dijalankan di activity yang pertama aktif, disini Zein masukan ke MainActivity :
 
@@ -392,8 +390,6 @@ Jika sukses maka akan tampil seperti ini :
 
 ---
 
-\
-
 ## Function Global File
 **CRUD File.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file dengan lebih simple dan cepat :
 
@@ -639,8 +635,6 @@ public class MainActivity extends AppCompatActivity {
 
 ---
 
-\
-
 ## Function Global Zip
 **String Base64 ke Zip.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file Zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
 
@@ -864,8 +858,6 @@ Jika sukses maka akan tampil seperti ini :
 |Folder `MyLibsTesting` sudah dibuat|`MyFile.txt` yang berada didalam `MyLibsTesting` sudah dibuat|`MyFile.txt` file dibuat dengan text yang sudah diset pertama kali|`MyFile.txt` new line ditambah ke file|
 
 ---
-
-\
 
 ## Function Global Image Camera
 **Mengambil foto dengan camera.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
@@ -1230,7 +1222,7 @@ Jika sukses maka akan tampil seperti ini :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example13.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example14.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example16.jpg)|
 |folder `Foto` otomatis terbuat|File sudah tersimpan pada folder `Foto`|Detail pada galery|Ukuran foto kecil, tapi resolusi dipertahankan tetap besar|-|
 
-\
+---
 
 ## Function Global Image Galery
 **Mengambil foto dari galery.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba mengambil foto dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu menyimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan cepat dan mudah :
