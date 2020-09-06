@@ -102,8 +102,8 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-  - Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di `onCreate` activity yang pertama kali dipanggil contohnya `SplashScreenActivity` atau `MainActivity`
-  - Pada tutorial ini, variable `externalFolderName` akan berisi `MyLibsTesting`, semua file dan folder yang akan kita buat di bawah akan ada didalam direktory atau path `/storage/emulated/0/MyLibsTesting`
+  - Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di `onCreate` activity yang pertama kali dipanggil contohnya `SplashScreenActivity` atau `MainActivity`.
+  - Pada tutorial ini, variable `externalFolderName` akan berisi `MyLibsTesting`, semua file dan folder yang akan kita buat di bawah akan ada didalam direktory atau path `/storage/emulated/0/MyLibsTesting`.
 
 #
 **Step 2.** 
@@ -247,7 +247,7 @@ public class MainActivity extends AppCompatActivity {
 
 **notes.** 
   - Jika kamu mau membuat folder dalam folder, pastikan value variable `folders` diawali dengan folder parent nya dulu.
-  - **example.** kamu mau membuat folder `folder1` yang di isi folder `folder1_1`, pastikan kamu menulis dulu `folder1` baru setelahnya `folder1_1`. seperti di bawah:
+  - **example.** kamu mau membuat folder `folder1` yang di isi folder `folder1_1`, pastikan kamu menulis dulu `folder1` baru setelahnya `folder1_1`. seperti di bawah.
 ```
 |-- external
     |-- MyLibsTesting
@@ -795,8 +795,8 @@ Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menamba
 disini kita akan mendeklarasikan
 
 1. `onSuccessCheckPermitions` itu adalah function yang sama dengan yang ada di Step 14, tambahkan function `onAppentText` untuk menambahkan jumlah text dalam file. 
-2. `onAppentText`->`path` adalah path dari lokasi file sebelumnya yang sudah kita buat pada point NO 1,
-3. `messages` pada variable ini kamu bisa masukan text yang mau kamu kirim ke file, text akan ditambahkan sesuai index
+2. `onAppentText`->`path` adalah path dari lokasi file sebelumnya yang sudah kita buat pada point No 1.
+3. `messages` pada variable ini kamu bisa masukan text yang mau kamu kirim ke file, text akan ditambahkan sesuai index.
 
 jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
 
