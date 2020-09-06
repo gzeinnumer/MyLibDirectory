@@ -67,14 +67,14 @@
 
 | Name                            | Return    | Parameter                                                                                                   | Keterangan    | 
 | ------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- | ------------- |
-| `initFile`                      | `boolean` | `String fileName, String... text`                                                                           |               |
+| `initFile`                      | `boolean` | `String fileName, <br /> String... text`                                                                           |               |
 | `readFile`                      | `boolean` | `String path`                                                                                               |               |
 | `appentText`                    | `boolean` | `String path, String... msg`                                                                                |               |
 | `initFileImageFromInternet`     | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew`                       |               |
 
 
 ### Function Global Zip
-> Example : FunctionGlobalZip.initExternalDirectoryName(valueString);
+> Example : FunctionGlobalZip.initFileFromStringToZipToFile(valueString);
 
 | Name                            | Return    | Parameter                                                                                                   | Keterangan    | 
 | ------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- | ------------- |
