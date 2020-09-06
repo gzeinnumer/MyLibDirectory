@@ -13,21 +13,33 @@
 
 ### Feature List
 - [x] Function Global Directory
+      \
       - Contoh Multi Check Permissions
+      \
       - Manifest
+      \
       - DEBUG
+      \
       - Step 6. Create Folder
 - [x] Function Global File
+      \
       - Step 10. Create File
+      \
       - Step 13. Read File
 - [x] Function Global Zip
+      \
       - Step 15. Encode Base64/Md5 to Zip
+      \
       - Step 18. AppentText
 - [x] Function Global Image Camera
+      \
       - Step 21. Take Image From Camera And Compress
 - [x] Function Global Image Galery
+      \
       - Step 24. Take Image From Galery
+      \
 - [x] Function Global Image Internet
+      \
       - Step 28. Load Image From Internet and Save
 - [x] Cek file exists
 
