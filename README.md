@@ -71,6 +71,8 @@
 | `readFile`                      | `boolean` | `String path`                                                                                               | Untuk membaca isi dari file text yang sudah dibuat, pastikan file sudah dibuat terlebih dahulu dengan `initFile` |
 | `appentText`                    | `boolean` | `String path, String... msg`                                                                                | Untuk menambah new line text ke file txt yang sudah dibuat sebelumnya dengan `initFile` |
 | `initFileImageFromInternet`     | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew`                       | Untuk mendownload image dari internet dan menyimpannya ke penyimpanan |
+| `createImageFile`               | `File`    | `Context context, String fileName`                                                                          | Untuk menyimpan data secara temporary sebelum di copy ke tujuan yang sudah diset |
+| `getRealPathFromUri`            | `String`  | `Context context, Uri contentUri`                                                                           | Untuk mendapatkan nama asli dari file yang dipilih |
 
 
 ### Function Global Zip
