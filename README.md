@@ -1073,6 +1073,174 @@ Jika sukses maka akan tampil seperti ini :
 |folder 'Foto' otomatis terbuat|File sudah tersimpan pada folder 'Foto'|Detail pada galery|Ukuran foto kecil, tapi resolusi dipertahankan tetap besar|-|
 
 
+#
+**Step 24.**
+\
+Tambahkan kode seperti berikut :
+
+```java
+public class MainActivity extends AppCompatActivity {
+
+    //sama seperti STEP 11.
+    ...
+
+    static final int REQUEST_GALLERY_PHOTO = 3;
+    File mPhotoFile;
+    FileCompressor mCompressor;
+    Button btnCamera;
+    ImageView imageView;
+
+    private void onSuccessCheckPermitions() {
+        btnCamera = findViewById(R.id.btn_camera);
+
+        imageView = findViewById(R.id.img);
+
+        mCompressor = new FileCompressor(this);
+        //   /storage/emulated/0/MyLibsTesting/Foto
+        mCompressor.setDestinationDirectoryPath("/Foto");
+        //diretori yang dibutuhkan akan lansung dibuatkan oleh fitur ini 
+
+        btnCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dispatchGalleryIntent();
+            }
+        });
+    }
+
+    private void dispatchGalleryIntent() {
+        Intent pickPhoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        pickPhoto.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivityForResult(pickPhoto, REQUEST_GALLERY_PHOTO);
+    }
+
+    public String getRealPathFromUri(Uri contentUri) {
+        Cursor cursor = null;
+        try {
+            String[] proj = {MediaStore.Images.Media.DATA};
+            cursor = getContentResolver().query(contentUri, proj, null, null, null);
+            assert cursor != null;
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == REQUEST_GALLERY_PHOTO) {
+                Uri selectedImage = data.getData();
+                try {
+                    mPhotoFile = mCompressor.compressToFile(new File(getRealPathFromUri(selectedImage)));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Glide.with(MainActivity.this).load(mPhotoFile).into(imageView);
+            }
+        }
+    }
+    
+    ...
+
+}
+```
+
+#
+**Step 25.**
+\
+Fullcode akan tampak seperti ini :
+
+```java
+public class MainActivity extends AppCompatActivity {
+
+    //sama seperti STEP 11.
+    ...
+
+    static final int REQUEST_GALLERY_PHOTO = 3;
+    File mPhotoFile;
+    FileCompressor mCompressor;
+    Button btnCamera;
+    ImageView imageView;
+
+    private void onSuccessCheckPermitions() {
+        btnCamera = findViewById(R.id.btn_camera);
+
+        imageView = findViewById(R.id.img);
+
+        mCompressor = new FileCompressor(this);
+        //   /storage/emulated/0/MyLibsTesting/Foto
+        mCompressor.setDestinationDirectoryPath("/Foto");
+        //diretori yang dibutuhkan akan lansung dibuatkan oleh fitur ini 
+
+        btnCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dispatchGalleryIntent();
+            }
+        });
+    }
+
+    private void dispatchGalleryIntent() {
+        Intent pickPhoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        pickPhoto.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivityForResult(pickPhoto, REQUEST_GALLERY_PHOTO);
+    }
+
+    public String getRealPathFromUri(Uri contentUri) {
+        Cursor cursor = null;
+        try {
+            String[] proj = {MediaStore.Images.Media.DATA};
+            cursor = getContentResolver().query(contentUri, proj, null, null, null);
+            assert cursor != null;
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == REQUEST_GALLERY_PHOTO) {
+                Uri selectedImage = data.getData();
+                try {
+                    mPhotoFile = mCompressor.compressToFile(new File(getRealPathFromUri(selectedImage)));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Glide.with(MainActivity.this).load(mPhotoFile).into(imageView);
+            }
+        }
+    }
+    
+    ...
+
+}
+```
+
+#
+**Step 25.**
+\
+Jika sukses maka akan tampil seperti ini :
+
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example17.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example18.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example19.jpg)|
+|--|--|--|
+|Tampilan awal, tekan Button untuk membuka galery|Pilih media|Pilih foto|
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example20.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example13.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example21.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example22.jpg)|
+|Preview foto|Folder foto otomatis terbuat|Foto sudah ada pada directory yang sudah diset|Detail pada galery|
+
+
 ---
 
 ```
