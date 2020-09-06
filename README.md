@@ -135,7 +135,8 @@ public class MainActivity extends AppCompatActivity {
   - Pada tutorial ini, variable `externalFolderName` akan berisi `MyLibsTesting`, semua file dan folder yang akan kita buat di bawah akan ada didalam direktory atau path `/storage/emulated/0/MyLibsTesting`.
 
 #
-**Step 2.** 
+> **Step 2.**
+ 
 \
 Tambahkan array permition yang dibutuhkan : \
 **First Activity.** letakan permition pada saat awal activity dimulai, disini Zein meletakannya di `MainActivity`.
