@@ -74,7 +74,7 @@
 
 
 ### Function Global Zip
-> Example : FunctionGlobalZip.initFileFromStringToZipToFile(valueString);
+> Example : FunctionGlobalZip.initFileFromStringToZipToFile(valueString, valueString, valueString, valueString, valueBoolean);
 
 | Name                            | Return    | Parameter                                                                                                   | Keterangan    | 
 | ------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- | ------------- |
