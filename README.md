@@ -926,19 +926,6 @@ Jika sukses maka akan tampil seperti ini :
 
 ## Function Global Image Camera
 **Mengambil foto dengan camera.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
-\
-Pertama-tama kamu tambahkan dependensi Glide, RxJava, RxAndroid dan Dexter.
-
-```gradle
-dependencies {
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    implementation 'com.karumi:dexter:4.2.0'
-    implementation('com.github.bumptech.glide:glide:4.7.1@aar') {
-        transitive = true
-    }
-}
-```
 
 #
 **Step 21.**  Take Image From Camera And Compress
@@ -1470,15 +1457,7 @@ Jika sukses maka akan tampil seperti ini :
 #
 **Step 26.**
 \
-Pada function 'onSuccessCheckPermitions' kita bisa mendowload gambar dari internet dan menyimpannya ke direktori yang kita mau, dan jika image sudah didownload, maka image tidak akan didownload lagi. 
-
-Pertama-tama kamu tambahkan dependensi Picasso.
-
-```gradle
-dependencies {
-    implementation 'com.squareup.picasso:picasso:2.71828'
-}
-```
+Pada function 'onSuccessCheckPermitions' kita bisa mendowload gambar dari internet dan menyimpannya ke direktori yang kita mau, dan jika image sudah didownload, maka image tidak akan didownload lagi.
 
 #
 **Step 27.**
