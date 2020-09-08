@@ -37,13 +37,13 @@
 - [x] Function Global Image Galery
       \
       - Step 14. Take Image From Galery
-      \
 - [x] Function Global Image Internet
       \
       - Step 18. Load Image From Internet and Save
 - [x] Cek file exists
 
 ### Tech stack and 3rd library
+- MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition))
 - Androidwave ([docs](https://androidwave.com/))
 - Glide ([docs](https://github.com/bumptech/glide))
 - Picasso ([docs](https://github.com/square/picasso))
@@ -114,7 +114,8 @@ dependencies {
 ---
 
 ## Function Global Directory
-Librari ini membutuhkan permition terlbih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
+Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
+\
 **Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) :
 
 \
@@ -198,14 +199,16 @@ Jika sukses maka akan tampil seperti ini :
 ---
 
 ## Function Global File
-Librari ini membutuhkan permition terlbih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
+Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
+\
 **Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) :
+\
 **CRUD File.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file dengan lebih simple dan cepat :
 
 #
 **Step 3.** Create File
 \
-Pada function `onSuccessCheckPermitions` kita bisa membuat file dengan memastikan kalau permition sudah di berikan, ikuti Step 1 - Step 8 :
+Pada function `onSuccessCheckPermitions` kita bisa membuat file dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -348,7 +351,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 7.** Encode Base64/Md5 to Zip
 \
-Pada function `onSuccessCheckPermitions` kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti Step 1 - Step 8 : \
+Pada function `onSuccessCheckPermitions` kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) : \
 disini kita akan mendeklarasikan
 1. `fileName` untuk nama file sebelum diencode dengan Base64. 
 2. `base64EncodeFromFile` file zip yang sudah diencode jadi Base64.
@@ -414,7 +417,7 @@ Jika sukses maka akan tampil seperti ini :
 #
 **Step 9.** AppentText
 \
-Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText, dengan memastikan kalau permition sudah di berikan, ikuti Step 1 - Step 8 : \
+Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText, dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) : \
 disini kita akan mendeklarasikan
 
 1. `onSuccessCheckPermitions` itu adalah function yang sama dengan yang ada di Step 14, tambahkan function `onAppentText` untuk menambahkan jumlah text dalam file. 
@@ -495,14 +498,16 @@ Jika sukses maka akan tampil seperti ini :
 ---
 
 ## Function Global Image Camera
-Librari ini membutuhkan permition terlbih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
+Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
+\
 **Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) :
+\
 **Mengambil foto dengan camera.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
 
 #
 **Step 11.**  Take Image From Camera And Compress
 \
-Pada function `onSuccessCheckPermitions` kita bisa mengatifkan fitur ini agar bisa mengambil gambar dengan jernih, pastikan dulu kalau permition sudah di berikan, ikuti Step 1 - Step 8 :
+Pada function `onSuccessCheckPermitions` kita bisa mengatifkan fitur ini agar bisa mengambil gambar dengan jernih, pastikan dulu kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) :
 
 **activity_main.xml**
 \
@@ -616,7 +621,15 @@ Pada function `onSuccessCheckPermitions` tambahkan kode berikut :
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    //sama seperti STEP 11. hanya saja isi dari function onSuccessCheckPermitions berbeda
+    //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    //<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    //<uses-permission android:name="android.permission.CAMERA" />
+    
+    //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
+    //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
+    //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
+    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah saya buat di repo saya yang lain. 
+    // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
     
     //1
@@ -698,6 +711,10 @@ Fullcode akan tampak seperti ini :
 ```java
 public class MainActivity extends AppCompatActivity {
 
+    //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    //<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    //<uses-permission android:name="android.permission.CAMERA" />
+    
     //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
@@ -800,8 +817,10 @@ Jika sukses maka akan tampil seperti ini :
 ---
 
 ## Function Global Image Galery
-Librari ini membutuhkan permition terlbih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
+Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
+\
 **Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) :
+\
 **Mengambil foto dari galery.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba mengambil foto dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu menyimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan cepat dan mudah :
 
 #
@@ -812,6 +831,9 @@ Hampir sama dengan Step 21, hanya saja berbeda action Intent dan prosess pengcro
 ```java
 public class MainActivity extends AppCompatActivity {
 
+    //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    //<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    
     //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
@@ -889,7 +911,8 @@ Jika sukses maka akan tampil seperti ini :
 #
 **Step 16.**
 \
-Librari ini membutuhkan permition terlbih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
+Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
+\
 **Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) :
 Pada function 'onSuccessCheckPermitions' kita bisa mendowload gambar dari internet dan menyimpannya ke direktori yang kita mau, dan jika image sudah didownload, maka image tidak akan didownload lagi.
 
