@@ -126,7 +126,30 @@ Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, at
 #
 **Step 1.** Create Folder
 \
-Jika sudah mengikuti cara MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition))(Ikuti Step 1 - Step 9) dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`:
+Jika sudah mengikuti cara MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`:
+
+Tambahakn 2 baris kode ini ke onCreate 
+Kamu harus mendeklarasi dulu folder name yang akan kamu pakai di external :
+
+```java
+public class MainActivity extends AppCompatActivity {
+    
+    ...
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        //gunakan function ini cukup satu kali saja pada awal activity
+        String externalFolderName = getApplication().getString(R.string.app_name); //MyLibsTesting
+        FunctionGlobalDir.initExternalDirectoryName(externalFolderName);
+    }
+    ...
+}
+```
+
+**notes.** 
+  - Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di `onCreate` activity yang pertama kali dipanggil contohnya `SplashScreenActivity` atau `MainActivity`.
+  - Pada tutorial ini, variable `externalFolderName` akan berisi `MyLibsTesting`, semua file dan folder yang akan kita buat di bawah akan ada didalam direktory atau path `/storage/emulated/0/MyLibsTesting`.
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -420,7 +443,7 @@ Jika sukses maka akan tampil seperti ini :
 Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText, dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) : \
 disini kita akan mendeklarasikan
 
-1. `onSuccessCheckPermitions` itu adalah function yang sama dengan yang ada di Step 14, tambahkan function `onAppentText` untuk menambahkan jumlah text dalam file. 
+1. `onSuccessCheckPermitions` itu adalah function yang sama dengan yang ada di Step 7, tambahkan function `onAppentText` untuk menambahkan jumlah text dalam file. 
 2. `onAppentText`->`path` adalah path dari lokasi file sebelumnya yang sudah kita buat pada point No 1.
 3. `messages` pada variable ini kamu bisa masukan text yang mau kamu kirim ke file, text akan ditambahkan sesuai index.
 
@@ -542,7 +565,7 @@ Tambahkan kode berikut:
 
 **manifest.xml**
 \
-Tambahkan uses-permission CAMERA lalu uses-feature camera, autofocus, flash pada file manifest, lalu didalam application tambahkan tag provider untuk memberikan izin pada sistem menyimpan image secara temporari untuk proses compress image:
+Tambahkan uses-permission CAMERA lalu `uses-feature camera, autofocus, flash` pada file `manifest`, lalu didalam `application` tambahkan tag `provider` untuk memberikan izin pada sistem menyimpan image secara temporari untuk proses compress image:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -721,23 +744,13 @@ public class MainActivity extends AppCompatActivity {
     //untuk bagian diatas ini kamu bisa ukuti cara yang sudah saya buat di repo saya yang lain. 
     // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
-
+    
+    //pada contoh yang sudah zein siapkan di https://github.com/gzeinnumer/MultiPermition, tambahkan 1 permition lagi yaitu CAMERA.
     String[] permissions = new String[]{
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
         Manifest.permission.CAMERA
     };
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        
-        //gunakan function ini cukup satu kali saja pada awal activity
-        String externalFolderName = getApplication().getString(R.string.app_name); //   /storage/emulated/0/MyLibsTesting
-        FunctionGlobalDir.initExternalDirectoryName(externalFolderName);
-
-    }
 
     static final int REQUEST_TAKE_PHOTO = 2;
     File mPhotoFile;
@@ -826,7 +839,7 @@ Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, at
 #
 **Step 14.**  Take Image From Galery
 \
-Hampir sama dengan Step 21, hanya saja berbeda action Intent dan prosess pengcrompressan Image, Tambahkan kode seperti berikut :
+Hampir sama dengan Step 12, hanya saja berbeda action Intent dan prosess pengcrompressan Image, Tambahkan kode seperti berikut :
 
 ```java
 public class MainActivity extends AppCompatActivity {
