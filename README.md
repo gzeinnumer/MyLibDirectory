@@ -126,7 +126,7 @@ Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, at
 #
 **Step 1.** Create Folder
 \
-Jika `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`:
+Jika sudah mengikuti cara MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition))(Ikuti Step 1 - Step 9) dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`:
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -201,14 +201,14 @@ Jika sukses maka akan tampil seperti ini :
 ## Function Global File
 Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
 \
-**Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) :
+**Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
 \
 **CRUD File.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file dengan lebih simple dan cepat :
 
 #
 **Step 3.** Create File
 \
-Pada function `onSuccessCheckPermitions` kita bisa membuat file dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) :
+Pada function `onSuccessCheckPermitions` kita bisa membuat file dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -351,7 +351,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 7.** Encode Base64/Md5 to Zip
 \
-Pada function `onSuccessCheckPermitions` kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) : \
+Pada function `onSuccessCheckPermitions` kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) : \
 disini kita akan mendeklarasikan
 1. `fileName` untuk nama file sebelum diencode dengan Base64. 
 2. `base64EncodeFromFile` file zip yang sudah diencode jadi Base64.
@@ -417,7 +417,7 @@ Jika sukses maka akan tampil seperti ini :
 #
 **Step 9.** AppentText
 \
-Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText, dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) : \
+Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText, dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) : \
 disini kita akan mendeklarasikan
 
 1. `onSuccessCheckPermitions` itu adalah function yang sama dengan yang ada di Step 14, tambahkan function `onAppentText` untuk menambahkan jumlah text dalam file. 
@@ -500,14 +500,14 @@ Jika sukses maka akan tampil seperti ini :
 ## Function Global Image Camera
 Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
 \
-**Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) :
+**Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
 \
 **Mengambil foto dengan camera.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
 
 #
 **Step 11.**  Take Image From Camera And Compress
 \
-Pada function `onSuccessCheckPermitions` kita bisa mengatifkan fitur ini agar bisa mengambil gambar dengan jernih, pastikan dulu kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) :
+Pada function `onSuccessCheckPermitions` kita bisa mengatifkan fitur ini agar bisa mengambil gambar dengan jernih, pastikan dulu kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
 
 **activity_main.xml**
 \
@@ -819,7 +819,7 @@ Jika sukses maka akan tampil seperti ini :
 ## Function Global Image Galery
 Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
 \
-**Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) :
+**Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
 \
 **Mengambil foto dari galery.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba mengambil foto dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu menyimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan cepat dan mudah :
 
@@ -913,7 +913,7 @@ Jika sukses maka akan tampil seperti ini :
 \
 Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
 \
-**Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) :
+**Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
 Pada function 'onSuccessCheckPermitions' kita bisa mendowload gambar dari internet dan menyimpannya ke direktori yang kita mau, dan jika image sudah didownload, maka image tidak akan didownload lagi.
 
 #
