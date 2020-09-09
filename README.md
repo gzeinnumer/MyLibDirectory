@@ -36,10 +36,10 @@
       - Step 11. Take Image From Camera And Compress
 - [x] Function Global Image Galery
       \
-      - Step 14. Take Image From Galery
+      - Step 13. Take Image From Galery
 - [x] Function Global Image Internet
       \
-      - Step 18. Load Image From Internet and Save
+      - Step 17. Load Image From Internet and Save
 - [x] Cek file exists
 
 ### Tech stack and 3rd library
@@ -628,6 +628,7 @@ Tambahkan permition CAMERA ke array :
 ```java
 public class MainActivity extends AppCompatActivity {
 
+    //pada contoh yang sudah zein siapkan di https://github.com/gzeinnumer/MultiPermition, tambahkan 1 permition lagi yaitu CAMERA.
     String[] permissions = new String[]{
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -729,96 +730,6 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 12.**
 \
-Fullcode akan tampak seperti ini :
-
-```java
-public class MainActivity extends AppCompatActivity {
-
-    //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    //<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    //<uses-permission android:name="android.permission.CAMERA" />
-    
-    //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
-    //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
-    //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah saya buat di repo saya yang lain. 
-    // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
-    ...
-    
-    //pada contoh yang sudah zein siapkan di https://github.com/gzeinnumer/MultiPermition, tambahkan 1 permition lagi yaitu CAMERA.
-    String[] permissions = new String[]{
-        Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-        Manifest.permission.CAMERA
-    };
-
-    static final int REQUEST_TAKE_PHOTO = 2;
-    File mPhotoFile;
-    FileCompressor mCompressor;
-    Button btnCamera;
-    ImageView imageView;
-
-    private void onSuccessCheckPermitions() {
-        btnCamera = findViewById(R.id.btn_camera);
-
-        imageView = findViewById(R.id.img);
-
-        mCompressor = new FileCompressor(this);
-        //   /storage/emulated/0/MyLibsTesting/Foto
-        mCompressor.setDestinationDirectoryPath("/Foto");
-        //diretori yang dibutuhkan akan lansung dibuatkan oleh fitur ini 
-
-        btnCamera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dispatchTakePictureIntent();
-            }
-        });
-    }
-
-    //jalankan intent untuk membuka kamera
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            File photoFile = null;
-            try {
-                String fileName = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-                photoFile = FunctionGlobalFile.createImageFile(getApplicationContext(), fileName);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID + ".provider", photoFile);
-
-                mPhotoFile = photoFile;
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-            }
-        }
-    }
-    
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            if (requestCode == REQUEST_TAKE_PHOTO) {
-                try {
-                    //setelah foto diambil, dan tampil di preview maka akan lansung disimpan ke folder yang di sudah diset sebelumnya
-                    mPhotoFile = mCompressor.compressToFile(mPhotoFile);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                Glide.with(MainActivity.this).load(mPhotoFile).into(imageView);
-                Toast.makeText(this, "Image Path : "+mPhotoFile.toString(), Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-}
-```
-
-#
-**Step 13.**
-\
 Jika sukses maka akan tampil seperti ini :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example10.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example11.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example12.jpg)|
@@ -837,9 +748,9 @@ Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, at
 **Mengambil foto dari galery.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba mengambil foto dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu menyimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan cepat dan mudah :
 
 #
-**Step 14.**  Take Image From Galery
+**Step 13.**  Take Image From Galery
 \
-Hampir sama dengan Step 12, hanya saja berbeda action Intent dan prosess pengcrompressan Image, Tambahkan kode seperti berikut :
+Hampir sama dengan Step 11, hanya saja berbeda action Intent dan prosess pengcrompressan Image, Tambahkan kode seperti berikut :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -910,7 +821,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-**Step 15.**
+**Step 14.**
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -922,7 +833,7 @@ Jika sukses maka akan tampil seperti ini :
 
 ## Function Global Image Internet
 #
-**Step 16.**
+**Step 15.**
 \
 Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
 \
@@ -930,7 +841,7 @@ Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, at
 Pada function 'onSuccessCheckPermitions' kita bisa mendowload gambar dari internet dan menyimpannya ke direktori yang kita mau, dan jika image sudah didownload, maka image tidak akan didownload lagi.
 
 #
-**Step 17.**
+**Step 16.**
 \
 **Manifest.** Tambahkan permition Internet ke file manifest untuk mengizinkan file didownload dari Intenet.
 
@@ -946,7 +857,7 @@ Pada function 'onSuccessCheckPermitions' kita bisa mendowload gambar dari intern
 </manifest>
 ```
 
-**Step 18.** Load Image From Internet and Save
+**Step 17.** Load Image From Internet and Save
 \
 Membuat function `onSuccessCheckPermitions` disini kita akan mendeklarasikan :
 1. `imgUrl` adalah link image. 
@@ -992,7 +903,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-**Step 20.**
+**Step 18.**
 \
 Jika sukses maka akan tampil seperti ini :
 
