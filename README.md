@@ -146,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
         ...
 
     }
+
     ...
 }
 ```
@@ -176,6 +177,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Permition Required", Toast.LENGTH_SHORT).show();
         }
     }
+
+    ...
 
 }
 ```
@@ -345,6 +348,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    ...
+
 }
 ```
 
@@ -470,6 +475,9 @@ public class MainActivity extends AppCompatActivity {
         
         //   /storage/emulated/0/MyLibsTesting/zipLocation
         String zipLocation = "/zipLocation";
+        //atau
+        //   /storage/emulated/0/MyLibsTesting/
+        //String zipLocation = "/"; // jika tidak mau diletakan dalam folder
 
         //decode string menjadi file dan extrack ke tujuan zipLocation
         //   /storage/emulated/0/MyLibsTesting/zipLocation
@@ -617,6 +625,8 @@ Tambahkan permition yang dibutuhkan ke array :
 ```java
 public class MainActivity extends AppCompatActivity {
 
+    ...
+
     //pada contoh yang sudah zein siapkan di https://github.com/gzeinnumer/MultiPermition, tambahkan 1 permition lagi yaitu CAMERA.
     String[] permissions = new String[]{
         Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -732,8 +742,7 @@ Jika sukses maka akan tampil seperti ini :
 **Mengambil foto dari galery.** Disini kita akan mencoba mengambil foto dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu menyimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan cepat dan mudah :
 
 #
-**Step 19. Take Image From Galery**  
-\
+**Step 19. Take Image From Galery**
 Hampir sama dengan **Step 17**, hanya saja berbeda action Intent dan prosess pengcrompressan Image, Tambahkan kode seperti berikut :
 
 ```java
@@ -817,6 +826,8 @@ Jika sukses maka akan tampil seperti ini :
 **Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai**.
 \
 **Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
+\
+**Download and Save** Disini kita akan membuat function yang akan mendownload gambar dan menyimpannya ke folder tujuan.
 
 #
 **Step 22.**
@@ -841,9 +852,9 @@ Membuat function `onSuccessCheckPermitions` disini kita akan mendeklarasikan :
 1. `imgUrl` adalah link image. 
 2. `saveTo` lokasi foto akan disimpan.
 
-Jika 2 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
+Jika 2 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah.
 \
-Pada function 'onSuccessCheckPermitions' kita bisa mendowload gambar dari internet dan menyimpannya ke direktori yang kita mau, dan jika image sudah didownload, maka image tidak akan didownload lagi.
+Pada function `onSuccessCheckPermitions` kita bisa mendowload gambar dari internet dan menyimpannya ke direktori yang kita mau, dan jika image sudah didownload, maka image tidak akan di download lagi.
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -856,6 +867,7 @@ public class MainActivity extends AppCompatActivity {
 
         String imgUrl = "https://avatars3.githubusercontent.com/u/45892408?s=460&u=94158c6479290600dcc39bc0a52c74e4971320fc&v=4";
         String saveTo = "/Foto_Download"; //   /storage/emulated/0/MyLibsTesting/Foto_Download
+//        String saveTo = "/"; //   /storage/emulated/0/MyLibsTesting/     //Jika tidak mau diletakan dalam folder
         String fileName = "file name.jpg";
  
         // jika file name ada di akhir link seperti dibawah, maka kamu bsa gunakan cara seperti ini

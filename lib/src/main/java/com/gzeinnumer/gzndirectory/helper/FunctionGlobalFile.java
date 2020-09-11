@@ -30,9 +30,13 @@ import static com.gzeinnumer.gzndirectory.helper.FunctionGlobalDir.logSystemFunc
 public class FunctionGlobalFile {
 
     //create file
-    public static boolean initFile(String fileName,String... text) {
+    public static boolean initFile(String fileName, String saveTo, String... text) {
         if (fileName == null) {
             logSystemFunctionGlobal("initFile", "FileName tidak boleh null");
+            return false;
+        }
+        if (saveTo == null) {
+            logSystemFunctionGlobal("initFile", "SaveTo tidak boleh null");
             return false;
         }
         if (text == null) {
@@ -50,6 +54,24 @@ public class FunctionGlobalFile {
             } else {
                 logSystemFunctionGlobal("initFile", "Folder External gagal dibuat");
                 return false;
+            }
+        }
+        if (!saveTo.substring(0, 1).equals("/")) {
+            saveTo = "/" + saveTo;
+        }
+        if (!FunctionGlobalDir.isFileExists(saveTo)) {
+            logSystemFunctionGlobal("initFile", "Folder External untuk aplikasi tidak di temukan");
+            String[] subFolder = saveTo.split("/");
+            for (String d : subFolder) {
+                if (!d.substring(0, 1).equals("/")) {
+                    d = "/" + d;
+                }
+                if (FunctionGlobalDir.initFolder(d)) {
+                    logSystemFunctionGlobal("initFile", "Folder External sudah dibuat");
+                } else {
+                    logSystemFunctionGlobal("initFile", "Folder External gagal dibuat");
+                    return false;
+                }
             }
         }
         if (fileName.length() == 0) {
