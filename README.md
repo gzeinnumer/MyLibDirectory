@@ -444,7 +444,7 @@ disini kita akan menggunakan :
 2. `onAppentText`->`String path` adalah path dari lokasi file sebelumnya yang sudah kita buat pada point No 1.
 3. `messages` pada variable ini kamu bisa masukan text yang mau kamu kirim ke file, text akan ditambahkan sesuai index.
 
-jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
+Jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -529,7 +529,6 @@ Jika sukses maka akan tampil seperti ini :
 ---
 
 ## Function Global Zip
-\
 **Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai**.
 \
 **Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
@@ -548,7 +547,7 @@ disini kita akan mendeklarasikan :
 2. `base64EncodeFromFile` file zip yang sudah diencode jadi Base64.
 3. `md5EncodeFromFile` file zip yang sudah diencode jadi Md5 untuk memastikan Base64 tidak corrupt.
 4. `zipLocation` file zip yang diextract akan meletakan semua filenya ke direcotry yang dibuat disini.
-\
+
 Jika 4 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
 
 ```java
@@ -617,7 +616,7 @@ Jika sukses maka akan tampil seperti ini :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example7.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example8.jpg)|
 |--|--|--|
-|Folder `MyLibsTesting` sudah dibuat|`ExternalBase64Md5ToZip.zip` yang berada didalam `MyLibsTesting` sudah dibuat dari string Base64, `/zipLocation` adalah folder yang dibuat untuk file hasil extract dari Zip|`ExernalBase64Md5ToZip.db` adalah file hasil extract dari file `ExternalBase64Md5ToZip.zip`|
+|Folder `MyLibsTesting` sudah dibuat|`ExternalBase64Md5ToZip.zip` yang berada didalam `MyLibsTesting` sudah dibuat dari string Base64|`ExernalBase64Md5ToZip.db` adalah file hasil extract dari file `ExternalBase64Md5ToZip.zip`|
 
 ---
 
@@ -629,7 +628,10 @@ Jika sukses maka akan tampil seperti ini :
 **Mengambil foto dengan camera.** Disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
 
 #
-**Step 11.**  Take Image From Camera And Compress
+**Step 12. Take Image From Camera And Compress**
+\
+Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions` di dalam `onRequestPermissionsResult`. **Cukup 1 kali penggunaan saja di FirstActivity(Activity yang pertama berjalan)**:
+
 \
 Pada function `onSuccessCheckPermitions` kita bisa mengatifkan fitur ini agar bisa mengambil gambar dengan jernih, pastikan dulu kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
 
@@ -963,8 +965,8 @@ Pada function 'onSuccessCheckPermitions' kita bisa mendowload gambar dari intern
 Membuat function `onSuccessCheckPermitions` disini kita akan mendeklarasikan :
 1. `imgUrl` adalah link image. 
 2. `saveTo` lokasi foto akan disimpan.
-\
-jika 2 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
+
+Jika 2 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
 
 ```java
 public class MainActivity extends AppCompatActivity {
