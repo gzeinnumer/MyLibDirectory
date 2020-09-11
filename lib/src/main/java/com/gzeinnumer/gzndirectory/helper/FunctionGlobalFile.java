@@ -71,11 +71,13 @@ public class FunctionGlobalFile {
             }
             if (count > 0) {
                 String[] subFolder = saveTo.substring(1).split("/");
+                String currentPath = "";
                 for (String d : subFolder) {
                     if (!d.substring(0, 1).equals("/")) {
                         d = "/" + d;
                     }
-                    if (FunctionGlobalDir.initFolder(d)) {
+                    currentPath = currentPath + d;
+                    if (FunctionGlobalDir.initFolder(currentPath)) {
                         logSystemFunctionGlobal("initFile", "Folder External sudah dibuat");
                     } else {
                         logSystemFunctionGlobal("initFile", "Folder External gagal dibuat");
