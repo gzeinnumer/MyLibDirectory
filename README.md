@@ -161,14 +161,6 @@ Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    //<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    
-    //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
-    //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
-    //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
     @Override
@@ -258,14 +250,6 @@ Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    //<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    
-    //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
-    //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
-    //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
     @Override
@@ -328,14 +312,6 @@ Setelah file dibuat(Lanjutan dari **Step 4**), kita bisa membaca file dengan men
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    //<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    
-    //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
-    //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
-    //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
     @Override
@@ -388,14 +364,6 @@ Code akan tampak seperti ini :
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    //<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    
-    //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
-    //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
-    //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
     @Override
@@ -457,14 +425,6 @@ Jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti di
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    //<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    
-    //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
-    //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
-    //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
     @Override
@@ -563,14 +523,6 @@ Jika 4 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti di
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    //<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    
-    //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
-    //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
-    //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
     @Override
@@ -767,15 +719,6 @@ Pada function `onSuccessCheckPermitions` kita bisa mengatifkan fitur ini agar bi
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    //<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    //<uses-permission android:name="android.permission.CAMERA" />
-    
-    //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
-    //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
-    //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
     
     //1
@@ -879,14 +822,6 @@ Hampir sama dengan **Step 17**, hanya saja berbeda action Intent dan prosess pen
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    //<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    
-    //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
-    //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
-    //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
     //1
@@ -996,15 +931,6 @@ Pada function 'onSuccessCheckPermitions' kita bisa mendowload gambar dari intern
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    //<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    //<uses-permission android:name="android.permission.INTERNET" />
-    
-    //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
-    //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
-    //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
     ImageView imageView;
