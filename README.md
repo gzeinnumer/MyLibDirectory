@@ -319,7 +319,7 @@ Jika sukses maka akan tampil seperti ini :
 #
 **Step 6. Read File**
 \
-Setelah file dibuat(Lanjutan dari Step 4), kita bisa membaca file dengan menambahkan code sebagai berikut :
+Setelah file dibuat(Lanjutan dari **Step 4**), kita bisa membaca file dengan menambahkan code sebagai berikut :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -436,11 +436,12 @@ public class MainActivity extends AppCompatActivity {
 \
 Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`:
 \
+\
 Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText : 
 \
 disini kita akan mendeklarasikan
 
-1. `onSuccessCheckPermitions` itu adalah function yang sama dengan yang ada di Step 7, tambahkan function `onAppentText` untuk menambahkan jumlah text dalam file. 
+1. `onSuccessCheckPermitions` itu adalah function yang sama dengan yang ada di **Step 7**, tambahkan function `onAppentText` untuk menambahkan jumlah text dalam file. 
 2. `onAppentText`->`path` adalah path dari lokasi file sebelumnya yang sudah kita buat pada point No 1.
 3. `messages` pada variable ini kamu bisa masukan text yang mau kamu kirim ke file, text akan ditambahkan sesuai index.
 
@@ -458,6 +459,20 @@ public class MainActivity extends AppCompatActivity {
     //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
     // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MULTIPLE_PERMISSIONS) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                onSuccessCheckPermitions();
+            } else {
+                StringBuilder perStr = new StringBuilder();
+                for (String per : permissions) {
+                    perStr.append("\n").append(per);
+                }
+            }
+        }
+    }
 
     private void onSuccessCheckPermitions() {
         //buat file dalam folder App
@@ -504,10 +519,10 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-  - Pastikan file sudah dibuat, sesuai Step 3.
+  - Pastikan file sudah dibuat, sesuai **Step 4**.
 
 ## Function Global Zip
-**String Base64 ke Zip.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file Zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
+**String Base64 ke Zip.** Lanjutan pada **Step 9** sebelumnya, disini kita akan mencoba membuat file Zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
 
 #
 **Step 7.** Encode Base64/Md5 to Zip
@@ -591,7 +606,7 @@ Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, at
 \
 **Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
 \
-**Mengambil foto dengan camera.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
+**Mengambil foto dengan camera.** Lanjutan pada **Step 9** sebelumnya, disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
 
 #
 **Step 11.**  Take Image From Camera And Compress
@@ -816,7 +831,7 @@ Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, at
 #
 **Step 13.**  Take Image From Galery
 \
-Hampir sama dengan Step 11, hanya saja berbeda action Intent dan prosess pengcrompressan Image, Tambahkan kode seperti berikut :
+Hampir sama dengan **Step 11**, hanya saja berbeda action Intent dan prosess pengcrompressan Image, Tambahkan kode seperti berikut :
 
 ```java
 public class MainActivity extends AppCompatActivity {
