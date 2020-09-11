@@ -526,19 +526,22 @@ Jika sukses maka akan tampil seperti ini :
 |--|--|--|--|
 |Folder `MyLibsTesting` sudah dibuat|`MyFile.txt` yang berada didalam `MyLibsTesting` sudah dibuat|`MyFile.txt` file dibuat dengan text yang sudah diset pertama kali|`MyFile.txt` new line ditambah ke file|
 
+---
 
 ## Function Global Zip
-**String Base64 ke Zip.** Disini kita akan mencoba membuat file Zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
-
-#
-**Step 10. Encode Base64/Md5 to Zip**
 \
 **Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai**.
 \
 **Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
 \
+**String Base64 ke Zip.** Disini kita akan mencoba membuat file Zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
+
+#
+**Step 10. Encode Base64/Md5 to Zip**
+\
 Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`.
-Pada function `onSuccessCheckPermitions` kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) : 
+\
+Pada function `onSuccessCheckPermitions` kita bisa membuat file zip dengan memastikan kalau permition sudah diberikan. 
 \
 disini kita akan mendeklarasikan :
 1. `fileName` untuk nama file sebelum diencode dengan Base64. 
