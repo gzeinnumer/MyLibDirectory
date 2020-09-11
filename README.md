@@ -630,11 +630,10 @@ Jika sukses maka akan tampil seperti ini :
 #
 **Step 12. Take Image From Camera And Compress**
 \
-Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions` di dalam `onRequestPermissionsResult`. **Cukup 1 kali penggunaan saja di FirstActivity(Activity yang pertama berjalan)**:
+Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions` di dalam `onRequestPermissionsResult`.
 
+**Step 13.**
 \
-Pada function `onSuccessCheckPermitions` kita bisa mengatifkan fitur ini agar bisa mengambil gambar dengan jernih, pastikan dulu kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
-
 **activity_main.xml**
 \
 Tambahkan kode berikut:
@@ -666,9 +665,11 @@ Tambahkan kode berikut:
 </LinearLayout>
 ```
 
+**Step 14.**
+\
 **manifest.xml**
 \
-Tambahkan uses-permission CAMERA lalu `uses-feature camera, autofocus, flash` pada file `manifest`, lalu didalam `application` tambahkan tag `provider` untuk memberikan izin pada sistem menyimpan image secara temporari untuk proses compress image:
+Tambahkan Permition, lalu didalam `application` tambahkan tag `provider` untuk memberikan izin pada sistem menyimpan image secara temporary untuk proses compress image :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -700,6 +701,8 @@ Tambahkan uses-permission CAMERA lalu `uses-feature camera, autofocus, flash` pa
 </manifest>
 ```
 
+**Step 15.**
+\
 **file_provider_paths.xml**
 \
 Pada directory `res` buat folder `xml` dan buat file dengan nama `file_provider_paths.xml`.
@@ -725,8 +728,10 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**MainActivity** 
-Tambahkan permition CAMERA ke array :
+**Step 16.**
+\
+**MainActivity.java** 
+Tambahkan permition yang dibutuhkan ke array :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -743,7 +748,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-Pada function `onSuccessCheckPermitions` tambahkan kode berikut :
+**Step 17.**
+\
+Pada function `onSuccessCheckPermitions` kita bisa mengatifkan fitur ini agar bisa mengambil gambar dengan jernih, tambahkan kode berikut :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -831,7 +838,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-**Step 12.**
+**Step 18.**
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -844,16 +851,16 @@ Jika sukses maka akan tampil seperti ini :
 ---
 
 ## Function Global Image Galery
-Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai.
+**Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai**.
 \
-**Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
+**Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
 \
-**Mengambil foto dari galery.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba mengambil foto dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu menyimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan cepat dan mudah :
+**Mengambil foto dari galery.** Disini kita akan mencoba mengambil foto dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu menyimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan cepat dan mudah :
 
 #
-**Step 13.**  Take Image From Galery
+**Step 19. Take Image From Galery**  
 \
-Hampir sama dengan **Step 11**, hanya saja berbeda action Intent dan prosess pengcrompressan Image, Tambahkan kode seperti berikut :
+Hampir sama dengan **Step 17**, hanya saja berbeda action Intent dan prosess pengcrompressan Image, Tambahkan kode seperti berikut :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -924,7 +931,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-**Step 14.**
+**Step 20.**
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -936,15 +943,14 @@ Jika sukses maka akan tampil seperti ini :
 
 ## Function Global Image Internet
 #
-**Step 15.**
+**Step 21.**
 \
-Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai.
+**Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai**.
 \
-**Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
-Pada function 'onSuccessCheckPermitions' kita bisa mendowload gambar dari internet dan menyimpannya ke direktori yang kita mau, dan jika image sudah didownload, maka image tidak akan didownload lagi.
+**Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
 
 #
-**Step 16.**
+**Step 22.**
 \
 **Manifest.** Tambahkan permition Internet ke file manifest untuk mengizinkan file didownload dari Intenet.
 
@@ -960,19 +966,22 @@ Pada function 'onSuccessCheckPermitions' kita bisa mendowload gambar dari intern
 </manifest>
 ```
 
-**Step 17.** Load Image From Internet and Save
+**Step 23. Load Image From Internet and Save**
 \
 Membuat function `onSuccessCheckPermitions` disini kita akan mendeklarasikan :
 1. `imgUrl` adalah link image. 
 2. `saveTo` lokasi foto akan disimpan.
 
 Jika 2 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
+\
+Pada function 'onSuccessCheckPermitions' kita bisa mendowload gambar dari internet dan menyimpannya ke direktori yang kita mau, dan jika image sudah didownload, maka image tidak akan didownload lagi.
 
 ```java
 public class MainActivity extends AppCompatActivity {
 
     //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     //<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    //<uses-permission android:name="android.permission.INTERNET" />
     
     //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
@@ -1006,7 +1015,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-**Step 18.**
+**Step 24.**
 \
 Jika sukses maka akan tampil seperti ini :
 
