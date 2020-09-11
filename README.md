@@ -3,7 +3,7 @@
 </h1>
 
 <div align="center">
-    <a><img src="https://img.shields.io/badge/Version-1.3.4-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.3.9-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a href="https://github.com/gzeinnumer"><img src="https://img.shields.io/github/followers/gzeinnumer?label=follow&style=social"></a>
     <p>Kumpulan function untuk membuat folder dan file yang sering dipakai dalam development program android, dokumen ini dibuat berdasarkan pengalaman Zein, kasih masukan kalau ada yang kurang. terimakasih karna sudah berkunjung</p>
@@ -23,23 +23,23 @@
       - Step 1. Create Folder
 - [x] Function Global File
       \
-      - Step 3. Create File
+      - Step 4. Create File
       \
-      - Step 5. Read File
+      - Step 6. Read File
+      \
+      - Step 8. AppentText
 - [x] Function Global Zip
       \
-      - Step 7. Encode Base64/Md5 to Zip
-      \
-      - Step 9. AppentText
+      - Step 10. Encode Base64/Md5 to Zip
 - [x] Function Global Image Camera
       \
-      - Step 11. Take Image From Camera And Compress
+      - Step 12. Take Image From Camera And Compress
 - [x] Function Global Image Galery
       \
-      - Step 13. Take Image From Galery
+      - Step 19. Take Image From Galery
 - [x] Function Global Image Internet
       \
-      - Step 17. Load Image From Internet and Save
+      - Step 23. Load Image From Internet and Save
 - [x] Cek file exists
 
 ### Tech stack and 3rd library
@@ -909,6 +909,10 @@ Jika sukses maka akan tampil seperti ini :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example23.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example24.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example25.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example26.jpg)|
 |--|--|--|--|
 |Request Permition|Gambar berhasil didownload|Folder `Foto_Download` sudah dibuat|Folder `file name.jpg` sudah didownload dan disimpan|
+
+---
+
+FullCode dari Step 1 - Step 24 dapat dilihat disini ([example](https://github.com/gzeinnumer/MyLibDirectoryExample)).
 
 ---
 
