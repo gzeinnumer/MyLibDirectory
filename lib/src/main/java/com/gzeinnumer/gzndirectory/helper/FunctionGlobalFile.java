@@ -98,7 +98,7 @@ public class FunctionGlobalFile {
         if (!fileName.substring(0, 1).equals("/")) {
             fileName = "/" + fileName;
         }
-        File file = new File(FunctionGlobalDir.getStorageCard + FunctionGlobalDir.appFolder + fileName);
+        File file = new File(FunctionGlobalDir.getStorageCard + FunctionGlobalDir.appFolder + saveTo + fileName);
 
         return processFile(file, text);
     }
