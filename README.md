@@ -125,10 +125,10 @@ dependencies {
 #
 **Step 1. Create Folder** 
 \
-Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`. **Cukup 1 kali penggunaan saja di FirstActivity(Activity yang pertama berjalan)**:
+Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)**
 
-Tambahakn 2 baris kode ini ke onCreate 
-Kamu harus mendeklarasi dulu folder name yang akan kamu pakai di external :
+Tambahakn 2 baris kode ini ke `onCreate` 
+Kamu harus mendeklarasi dulu `Folder Name` yang akan kamu pakai di external disini `Folder Name` Zein adalah `MyLibsTesting`:
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -150,8 +150,12 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-  - Zein sarankan untuk mendeklarasi dulu Folder Name, cukup 1 kali saja di `onCreate` activity yang pertama kali dipanggil contohnya `SplashScreenActivity` atau `MainActivity`.
-  - Pada tutorial ini, variable `externalFolderName` akan berisi `MyLibsTesting`, semua file dan folder yang akan kita buat di bawah akan ada didalam direktory atau path `/storage/emulated/0/MyLibsTesting`.
+  - Zein sarankan untuk mendeklarasi dulu `Folder Name`, cukup 1 kali saja di `onCreate` activity yang pertama kali dipanggil contohnya `SplashScreenActivity` atau `MainActivity`.
+  - Pada tutorial ini, variable `externalFolderName` akan berisi `MyLibsTesting`, semua file dan folder yang akan kita buat di bawah akan ada di dalam di rektory atau path `/storage/emulated/0/MyLibsTesting`.
+
+**Step 2.** 
+\
+Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`. **Cukup 1 kali penggunaan saja di FirstActivity(Activity yang pertama berjalan)**:
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -164,8 +168,21 @@ public class MainActivity extends AppCompatActivity {
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
     //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
     // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
-    
     ...
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MULTIPLE_PERMISSIONS) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                onSuccessCheckPermitions();
+            } else {
+                StringBuilder perStr = new StringBuilder();
+                for (String per : permissions) {
+                    perStr.append("\n").append(per);
+                }
+            }
+        }
+    }
 
     private void onSuccessCheckPermitions() {
         //   /storage/emulated/0/MyLibsTesting/folder1
@@ -214,7 +231,7 @@ FunctionGlobalDir.initFolder("/folder1","/folder1/folder1_1","/folder2");
 ```
 
 #
-**Step 2.**
+**Step 3.**
 \
 Jika sukses maka akan tampil seperti ini :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
@@ -224,16 +241,16 @@ Jika sukses maka akan tampil seperti ini :
 ---
 
 ## Function Global File
-Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai.
+**Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai**.
 \
-**Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
+**Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
 \
 **CRUD File.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file dengan lebih simple dan cepat :
 
 #
-**Step 3.** Create File
+**Step 4.** Create File
 \
-Pada function `onSuccessCheckPermitions` kita bisa membuat file dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
+Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`. **Cukup 1 kali penggunaan saja di FirstActivity(Activity yang pertama berjalan)**:
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -246,8 +263,21 @@ public class MainActivity extends AppCompatActivity {
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
     //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
     // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
-
     ...
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MULTIPLE_PERMISSIONS) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                onSuccessCheckPermitions();
+            } else {
+                StringBuilder perStr = new StringBuilder();
+                for (String per : permissions) {
+                    perStr.append("\n").append(per);
+                }
+            }
+        }
+    }
 
     private void onSuccessCheckPermitions() {
         //buat file dalam folder App
@@ -277,7 +307,7 @@ String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Cre
 ```
 
 #
-**Step 4.** 
+**Step 5.** 
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -286,9 +316,9 @@ Jika sukses maka akan tampil seperti ini :
 |Folder MyLibsTesting sudah dibuat|`MyFile.txt` yang berada didalam MyLibsTesting sudah dibuat|Isi dari `MyFile.txt`|
 
 #
-**Step 5.** Read File
+**Step 6. Read File**
 \
-Setelah file dibuat, kita bisa membaca file dengan code sebagai berikut :
+Setelah file dibuat(Lanjutan dari Step 4), kita bisa membaca file dengan menambahkan code sebagai berikut :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -306,12 +336,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void onSuccessCheckPermitions() {
         
-        ...
+        //   /storage/emulated/0/MyLibsTesting/MyFile.txt
+        if(FunctionGlobalFile.initFile("/MyFile.txt",data)){
+
             //   /storage/emulated/0/MyLibsTesting/MyFile.txt
             List<String> list = FunctionGlobalFile.readFile("/MyFile.txt");
             String value_0 = list.get(0);
             Toast.makeText(this, "Jumlah baris : "+list.size() , Toast.LENGTH_SHORT).show();
-        ...
+
+        } else {
+            Toast.makeText(this, "File gagal dibuat", Toast.LENGTH_SHORT).show();
+        }
 
     }
     
@@ -324,7 +359,7 @@ public class MainActivity extends AppCompatActivity {
   - Hasil akan barupa `List<String>`, dan kamu bisa ambil datanya sesuai index.
 
 #
-**Step 6.**
+**Step 7.**
 \
 FullCode akan tampak seperti ini :
 
@@ -339,8 +374,21 @@ public class MainActivity extends AppCompatActivity {
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
     //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
     // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
-    
     ...
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MULTIPLE_PERMISSIONS) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                onSuccessCheckPermitions();
+            } else {
+                StringBuilder perStr = new StringBuilder();
+                for (String per : permissions) {
+                    perStr.append("\n").append(per);
+                }
+            }
+        }
+    }
 
     private void onSuccessCheckPermitions() {
         String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
@@ -369,78 +417,8 @@ public class MainActivity extends AppCompatActivity {
   - Pastikan file `MyFile.txt` sudah dibuat denga perintah `FunctionGlobalFile.initFile(path,data)`.
 
 ---
-
-## Function Global Zip
-**String Base64 ke Zip.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file Zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
-
 #
-**Step 7.** Encode Base64/Md5 to Zip
-\
-Pada function `onSuccessCheckPermitions` kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) : \
-disini kita akan mendeklarasikan
-1. `fileName` untuk nama file sebelum diencode dengan Base64. 
-2. `base64EncodeFromFile` file zip yang sudah diencode jadi Base64.
-3. `md5EncodeFromFile` file zip yang sudah diencode jadi Md5 untuk memastikan Base64 tidak corrupt.
-4. `zipLocation` file zip yang diextract akan meletakan semua filenya ke direcotry yang dibuat disini.
-\
-jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
-
-```java
-public class MainActivity extends AppCompatActivity {
-
-    //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    //<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    
-    //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
-    //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
-    //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
-    ...
-
-    private void onSuccessCheckPermitions() {
-        //   /storage/emulated/0/MyLibsTesting/ExternalBase64Md5ToZip.zip
-        String fileName = "/ExternalBase64Md5ToZip.zip";
-
-        //dari file zip diubah jadi base64
-        //https://base64.guru/converter/encode/file
-        String base64EncodeFromFile = "UEsDBBQAAAAIAJK6+FDfGqHQdAEAAABAAAAZAAAARXh0ZXJuYWxCYXNlNjRNZDVUb1ppcC5kYu3aQU7CQBQG4BlKgJJgWZh042JsQgIBTNQLiKYhRCgIJYqbZqRj0tgWgXIAbuQJvIk3MC516xRMhLowLiX/l2nmvXnpm25f0sFV24sEu5/MAh6xU1IklJIzxgghqnzS5Fs6kVPyO5UcHTwVZKDsPRPN03S5AQAAAAAAAPzRtZLR63U6jvidL3joziae6wQi4i6PeDJPX/TNhm0yu3HeNlmyysr+ZMx9wWzzxq70Uhm9WqWjVeP51JczsjMX04UIx8lU2WqbKJZDHoiazCrLfZrVSyW6fFj35MGjL5wfcWqrm7FZMlg5rxqea6gtyzabZp9ZXZtZw3a7Js/jiww1/vjN416/1Wn0R+zSHJXjV1ljaHdblrykY1p2JV9ZzebaC9HetVe5AQAAAAAAAMB/U1AUcti8FV5oLQIxy6UUosfZSY5+Rcfx/E+1NyIXAAAAAAAAAOyEIlVKdPOfAmU9/38QuQAAAAAAAABgt2RpShehMxx8AlBLAQI/ABQAAAAIAJK6+FDfGqHQdAEAAABAAAAZACQAAAAAAAAAgAAAAAAAAABFeHRlcm5hbEJhc2U2NE1kNVRvWmlwLmRiCgAgAAAAAAABABgAgEsYXNZh1gH+eSEy1mHWASKHEDLWYdYBUEsFBgAAAAABAAEAawAAAKsBAAAAAA==";
-
-        //dari file zip diubah jadi md5
-        //https://emn178.github.io/online-tools/md5_checksum.html
-        String md5EncodeFromFile = "966af03a49f85b0df0afd3d9a42d0264";
-        
-        //   /storage/emulated/0/MyLibsTesting/zipLocation
-        String zipLocation = "/zipLocation";
-
-        //decode string menjadi file dan extrack ke tujuan zipLocation
-        //   /storage/emulated/0/MyLibsTesting/zipLocation
-        if (FunctionGlobalZip.initFileFromStringToZipToFile(fileName, zipLocation ,base64EncodeFromFile,md5EncodeFromFile, true)){
-            Toast.makeText(this, "Success load data", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Gagal load data", Toast.LENGTH_SHORT).show();
-        }
-    }
-    
-    ...
-
-}
-```
-
-**notes.** 
-  - Pastikan pada `fileName` adalah nama asli dari file yang sudah diencode dengan Base64 dan Md5, jika berbeda maka akan dapat lemparan error.
-
-#
-**Step 8.**
-\
-Jika sukses maka akan tampil seperti ini :
-
-|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example7.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example8.jpg)|
-|--|--|--|
-|Folder `MyLibsTesting` sudah dibuat|`ExternalBase64Md5ToZip.zip` yang berada didalam `MyLibsTesting` sudah dibuat dari string Base64, `/zipLocation` adalah folder yang dibuat untuk file hasil extract dari Zip|`ExernalBase64Md5ToZip.db` adalah file hasil extract dari file `ExternalBase64Md5ToZip.zip`|
-
-#
-**Step 9.** AppentText
+**Step 9. AppentText**
 \
 Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText, dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) : \
 disini kita akan mendeklarasikan
@@ -510,6 +488,76 @@ public class MainActivity extends AppCompatActivity {
 
 **notes.** 
   - Pastikan file sudah dibuat, sesuai Step 3.
+
+
+## Function Global Zip
+**String Base64 ke Zip.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file Zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
+
+#
+**Step 7.** Encode Base64/Md5 to Zip
+\
+Pada function `onSuccessCheckPermitions` kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) : \
+disini kita akan mendeklarasikan
+1. `fileName` untuk nama file sebelum diencode dengan Base64. 
+2. `base64EncodeFromFile` file zip yang sudah diencode jadi Base64.
+3. `md5EncodeFromFile` file zip yang sudah diencode jadi Md5 untuk memastikan Base64 tidak corrupt.
+4. `zipLocation` file zip yang diextract akan meletakan semua filenya ke direcotry yang dibuat disini.
+\
+jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
+
+```java
+public class MainActivity extends AppCompatActivity {
+
+    //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    //<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    
+    //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
+    //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
+    //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
+    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
+    // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
+    ...
+
+    private void onSuccessCheckPermitions() {
+        //   /storage/emulated/0/MyLibsTesting/ExternalBase64Md5ToZip.zip
+        String fileName = "/ExternalBase64Md5ToZip.zip";
+
+        //dari file zip diubah jadi base64
+        //https://base64.guru/converter/encode/file
+        String base64EncodeFromFile = "UEsDBBQAAAAIAJK6+FDfGqHQdAEAAABAAAAZAAAARXh0ZXJuYWxCYXNlNjRNZDVUb1ppcC5kYu3aQU7CQBQG4BlKgJJgWZh042JsQgIBTNQLiKYhRCgIJYqbZqRj0tgWgXIAbuQJvIk3MC516xRMhLowLiX/l2nmvXnpm25f0sFV24sEu5/MAh6xU1IklJIzxgghqnzS5Fs6kVPyO5UcHTwVZKDsPRPN03S5AQAAAAAAAPzRtZLR63U6jvidL3joziae6wQi4i6PeDJPX/TNhm0yu3HeNlmyysr+ZMx9wWzzxq70Uhm9WqWjVeP51JczsjMX04UIx8lU2WqbKJZDHoiazCrLfZrVSyW6fFj35MGjL5wfcWqrm7FZMlg5rxqea6gtyzabZp9ZXZtZw3a7Js/jiww1/vjN416/1Wn0R+zSHJXjV1ljaHdblrykY1p2JV9ZzebaC9HetVe5AQAAAAAAAMB/U1AUcti8FV5oLQIxy6UUosfZSY5+Rcfx/E+1NyIXAAAAAAAAAOyEIlVKdPOfAmU9/38QuQAAAAAAAABgt2RpShehMxx8AlBLAQI/ABQAAAAIAJK6+FDfGqHQdAEAAABAAAAZACQAAAAAAAAAgAAAAAAAAABFeHRlcm5hbEJhc2U2NE1kNVRvWmlwLmRiCgAgAAAAAAABABgAgEsYXNZh1gH+eSEy1mHWASKHEDLWYdYBUEsFBgAAAAABAAEAawAAAKsBAAAAAA==";
+
+        //dari file zip diubah jadi md5
+        //https://emn178.github.io/online-tools/md5_checksum.html
+        String md5EncodeFromFile = "966af03a49f85b0df0afd3d9a42d0264";
+        
+        //   /storage/emulated/0/MyLibsTesting/zipLocation
+        String zipLocation = "/zipLocation";
+
+        //decode string menjadi file dan extrack ke tujuan zipLocation
+        //   /storage/emulated/0/MyLibsTesting/zipLocation
+        if (FunctionGlobalZip.initFileFromStringToZipToFile(fileName, zipLocation ,base64EncodeFromFile,md5EncodeFromFile, true)){
+            Toast.makeText(this, "Success load data", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Gagal load data", Toast.LENGTH_SHORT).show();
+        }
+    }
+    
+    ...
+
+}
+```
+
+**notes.** 
+  - Pastikan pada `fileName` adalah nama asli dari file yang sudah diencode dengan Base64 dan Md5, jika berbeda maka akan dapat lemparan error.
+
+#
+**Step 8.**
+\
+Jika sukses maka akan tampil seperti ini :
+
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example7.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example8.jpg)|
+|--|--|--|
+|Folder `MyLibsTesting` sudah dibuat|`ExternalBase64Md5ToZip.zip` yang berada didalam `MyLibsTesting` sudah dibuat dari string Base64, `/zipLocation` adalah folder yang dibuat untuk file hasil extract dari Zip|`ExernalBase64Md5ToZip.db` adalah file hasil extract dari file `ExternalBase64Md5ToZip.zip`|
 
 #
 **Step 10.**
