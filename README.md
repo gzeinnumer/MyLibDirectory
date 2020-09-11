@@ -381,6 +381,8 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 7.**
 \
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/ReadFile/MainActivity.java)).
+\
 Code akan tampak seperti ini :
 
 ```java
