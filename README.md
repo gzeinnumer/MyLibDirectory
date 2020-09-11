@@ -234,7 +234,7 @@ FunctionGlobalDir.initFolder("/folder1","/folder1/folder1_1","/folder2");
 #
 **Step 3.**
 \
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition))
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition)).
 \
 Jika sukses maka akan tampil seperti ini :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
@@ -283,9 +283,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onSuccessCheckPermitions() {
-        //buat file dalam folder App
         String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
     
+        //buat file dalam folder App
         //   /storage/emulated/0/MyLibsTesting/MyFile.txt
         if(FunctionGlobalFile.initFile("/MyFile.txt",data)){
             Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
@@ -312,7 +312,7 @@ String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Cre
 #
 **Step 5.** 
 \
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition))
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition)).
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -353,7 +353,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onSuccessCheckPermitions() {
-        
+        String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
+
+        //membaca file dalam folder App
         //   /storage/emulated/0/MyLibsTesting/MyFile.txt
         if(FunctionGlobalFile.initFile("/MyFile.txt",data)){
 
@@ -524,7 +526,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 9.**
 \
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition))
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition)).
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -618,7 +620,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 11.**
 \
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition))
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition)).
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -848,7 +850,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 18.**
 \
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition))
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition)).
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -943,7 +945,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 20.**
 \
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition))
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition)).
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -1029,7 +1031,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 24.**
 \
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition))
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition)).
 \
 Jika sukses maka akan tampil seperti ini :
 
