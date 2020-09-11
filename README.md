@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
   - Zein sarankan untuk mendeklarasi dulu `Folder Name`, cukup 1 kali saja di `onCreate` activity yang pertama kali dipanggil contohnya `SplashScreenActivity` atau `MainActivity`.
   - Pada tutorial ini, variable `externalFolderName` akan berisi `MyLibsTesting`, semua file dan folder yang akan kita buat di bawah akan ada di dalam di rektory atau path `/storage/emulated/0/MyLibsTesting`.
 
+#
 **Step 2.** 
 \
 Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`. **Cukup 1 kali penggunaan saja di FirstActivity(Activity yang pertama berjalan)**:
@@ -245,12 +246,12 @@ Jika sukses maka akan tampil seperti ini :
 \
 **Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
 \
-**CRUD File.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file dengan lebih simple dan cepat :
+**CRUD File.** Disini kita akan mencoba membuat file dengan lebih simple dan cepat :
 
 #
-**Step 4.** Create File
+**Step 4. Create File** 
 \
-Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`. **Cukup 1 kali penggunaan saja di FirstActivity(Activity yang pertama berjalan)**:
+Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult` :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -331,8 +332,21 @@ public class MainActivity extends AppCompatActivity {
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
     //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
     // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
-
     ...
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MULTIPLE_PERMISSIONS) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                onSuccessCheckPermitions();
+            } else {
+                StringBuilder perStr = new StringBuilder();
+                for (String per : permissions) {
+                    perStr.append("\n").append(per);
+                }
+            }
+        }
+    }
 
     private void onSuccessCheckPermitions() {
         
@@ -361,7 +375,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 7.**
 \
-FullCode akan tampak seperti ini :
+Code akan tampak seperti ini :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -418,9 +432,12 @@ public class MainActivity extends AppCompatActivity {
 
 ---
 #
-**Step 9. AppentText**
+**Step 8. AppentText**
 \
-Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText, dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) : \
+Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`:
+\
+Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText : 
+\
 disini kita akan mendeklarasikan
 
 1. `onSuccessCheckPermitions` itu adalah function yang sama dengan yang ada di Step 7, tambahkan function `onAppentText` untuk menambahkan jumlah text dalam file. 
@@ -488,7 +505,6 @@ public class MainActivity extends AppCompatActivity {
 
 **notes.** 
   - Pastikan file sudah dibuat, sesuai Step 3.
-
 
 ## Function Global Zip
 **String Base64 ke Zip.** Lanjutan pada Step 9 sebelumnya, disini kita akan mencoba membuat file Zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
