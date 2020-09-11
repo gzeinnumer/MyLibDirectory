@@ -234,6 +234,8 @@ FunctionGlobalDir.initFolder("/folder1","/folder1/folder1_1","/folder2");
 #
 **Step 3.**
 \
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition))
+\
 Jika sukses maka akan tampil seperti ini :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
 |--|--|--|--|
@@ -309,6 +311,8 @@ String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Cre
 
 #
 **Step 5.** 
+\
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition))
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -520,6 +524,8 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 9.**
 \
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition))
+\
 Jika sukses maka akan tampil seperti ini :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example9.jpg)|
@@ -611,6 +617,8 @@ public class MainActivity extends AppCompatActivity {
 
 #
 **Step 11.**
+\
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition))
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -840,6 +848,8 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 18.**
 \
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition))
+\
 Jika sukses maka akan tampil seperti ini :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example10.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example11.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example12.jpg)|
@@ -933,6 +943,8 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 20.**
 \
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition))
+\
 Jika sukses maka akan tampil seperti ini :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example17.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example18.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example19.jpg)|
@@ -1016,6 +1028,8 @@ public class MainActivity extends AppCompatActivity {
 
 #
 **Step 24.**
+\
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition))
 \
 Jika sukses maka akan tampil seperti ini :
 
