@@ -118,7 +118,8 @@ dependencies {
 \
 **Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
 \
-**DEBUG.** Jika kamu menemukan masalah pada sistem, kamu bisa debug dengan cara sperti ini.
+\
+**DEBUG.** Jika kamu menemukan masalah pada sistem, kamu bisa debug dengan cara seperti ini.
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/debug.jpg)|
 |--|
 
@@ -127,13 +128,13 @@ dependencies {
 \
 Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)**
 
-Tambahakn 2 baris kode ini ke `onCreate` 
-Kamu harus mendeklarasi dulu `Folder Name` yang akan kamu pakai di external disini `Folder Name` Zein adalah `MyLibsTesting`:
+Tambahkan 2 baris kode ini ke `onCreate`. Kamu harus mendeklarasi dulu `Folder Name` yang akan kamu pakai di external disini `Folder Name` Zein adalah `MyLibsTesting`:
 
 ```java
 public class MainActivity extends AppCompatActivity {
     
     ...
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -150,8 +151,8 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-  - Zein sarankan untuk mendeklarasi dulu `Folder Name`, cukup 1 kali saja di `onCreate` activity yang pertama kali dipanggil contohnya `SplashScreenActivity` atau `MainActivity`.
-  - Pada tutorial ini, variable `externalFolderName` akan berisi `MyLibsTesting`, semua file dan folder yang akan kita buat di bawah akan ada di dalam di rektory atau path `/storage/emulated/0/MyLibsTesting`.
+  - Zein sarankan untuk mendeklarasikan dulu `Folder Name`, cukup 1 kali saja di `onCreate` activity yang pertama kali dipanggil contohnya `SplashScreenActivity` atau `MainActivity`.
+  - Pada tutorial ini, variable `externalFolderName` akan berisi `MyLibsTesting`, semua file dan folder yang akan kita buat di bawah akan ada di dalam direktory atau path `/storage/emulated/0/MyLibsTesting`.
 
 #
 **Step 2.** 
@@ -162,20 +163,6 @@ Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer
 public class MainActivity extends AppCompatActivity {
 
     ...
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == MULTIPLE_PERMISSIONS) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                onSuccessCheckPermitions();
-            } else {
-                StringBuilder perStr = new StringBuilder();
-                for (String per : permissions) {
-                    perStr.append("\n").append(per);
-                }
-            }
-        }
-    }
 
     private void onSuccessCheckPermitions() {
         //   /storage/emulated/0/MyLibsTesting/folder1
@@ -238,7 +225,7 @@ Jika sukses maka akan tampil seperti ini :
 ## Function Global File
 **Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai**.
 \
-**Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
+**Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)**.
 \
 **CRUD File.** Disini kita akan mencoba membuat file dengan lebih simple dan cepat :
 
@@ -251,20 +238,6 @@ Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer
 public class MainActivity extends AppCompatActivity {
 
     ...
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == MULTIPLE_PERMISSIONS) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                onSuccessCheckPermitions();
-            } else {
-                StringBuilder perStr = new StringBuilder();
-                for (String per : permissions) {
-                    perStr.append("\n").append(per);
-                }
-            }
-        }
-    }
 
     private void onSuccessCheckPermitions() {
         String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
@@ -314,20 +287,6 @@ public class MainActivity extends AppCompatActivity {
 
     ...
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == MULTIPLE_PERMISSIONS) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                onSuccessCheckPermitions();
-            } else {
-                StringBuilder perStr = new StringBuilder();
-                for (String per : permissions) {
-                    perStr.append("\n").append(per);
-                }
-            }
-        }
-    }
-
     private void onSuccessCheckPermitions() {
         String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
 
@@ -365,20 +324,6 @@ Code akan tampak seperti ini :
 public class MainActivity extends AppCompatActivity {
 
     ...
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == MULTIPLE_PERMISSIONS) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                onSuccessCheckPermitions();
-            } else {
-                StringBuilder perStr = new StringBuilder();
-                for (String per : permissions) {
-                    perStr.append("\n").append(per);
-                }
-            }
-        }
-    }
 
     private void onSuccessCheckPermitions() {
         String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
@@ -426,20 +371,6 @@ Jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti di
 public class MainActivity extends AppCompatActivity {
 
     ...
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == MULTIPLE_PERMISSIONS) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                onSuccessCheckPermitions();
-            } else {
-                StringBuilder perStr = new StringBuilder();
-                for (String per : permissions) {
-                    perStr.append("\n").append(per);
-                }
-            }
-        }
-    }
 
     private void onSuccessCheckPermitions() {
         //buat file dalam folder App
@@ -524,20 +455,6 @@ Jika 4 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti di
 public class MainActivity extends AppCompatActivity {
 
     ...
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == MULTIPLE_PERMISSIONS) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                onSuccessCheckPermitions();
-            } else {
-                StringBuilder perStr = new StringBuilder();
-                for (String per : permissions) {
-                    perStr.append("\n").append(per);
-                }
-            }
-        }
-    }
 
     private void onSuccessCheckPermitions() {
         //   /storage/emulated/0/MyLibsTesting/ExternalBase64Md5ToZip.zip
