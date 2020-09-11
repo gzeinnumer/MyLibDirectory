@@ -234,7 +234,7 @@ FunctionGlobalDir.initFolder("/folder1","/folder1/folder1_1","/folder2");
 #
 **Step 3.**
 \
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition)).
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFolder/MainActivity.java)).
 \
 Jika sukses maka akan tampil seperti ini :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
@@ -312,7 +312,7 @@ String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Cre
 #
 **Step 5.** 
 \
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition)).
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFile/MainActivity.java)).
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -526,7 +526,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 9.**
 \
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition)).
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/AppentText/MainActivity.java)).
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -620,7 +620,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 11.**
 \
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition)).
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/EncodeBase64Md5toZip/MainActivity.java)).
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -850,7 +850,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 18.**
 \
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition)).
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromCameraAndCompress/MainActivity.java)).
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -945,7 +945,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 20.**
 \
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition)).
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromGalery/MainActivity.java)).
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -1031,7 +1031,7 @@ public class MainActivity extends AppCompatActivity {
 #
 **Step 24.**
 \
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MultiPermition)).
+FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/LoadImageFromInternetandSave/MainActivity.java)).
 \
 Jika sukses maka akan tampil seperti ini :
 
