@@ -114,7 +114,7 @@ dependencies {
 ---
 
 ## Function Global Directory
-**Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai**.
+**Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai**.
 \
 **Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
 \
@@ -123,9 +123,9 @@ dependencies {
 |--|
 
 #
-**Step 1.** Create Folder
+**Step 1. Create Folder** 
 \
-Jika sudah mengikuti cara MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`:
+Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`. **Cukup 1 kali penggunaan saja di FirstActivity(Activity yang pertama berjalan)**:
 
 Tambahakn 2 baris kode ini ke onCreate 
 Kamu harus mendeklarasi dulu folder name yang akan kamu pakai di external :
@@ -141,6 +141,9 @@ public class MainActivity extends AppCompatActivity {
         //gunakan function ini cukup satu kali saja pada awal activity
         String externalFolderName = getApplication().getString(R.string.app_name); //MyLibsTesting
         FunctionGlobalDir.initExternalDirectoryName(externalFolderName);
+        
+        ...
+
     }
     ...
 }
@@ -159,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
     //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah saya buat di repo saya yang lain. 
+    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
     // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     
     ...
@@ -221,7 +224,7 @@ Jika sukses maka akan tampil seperti ini :
 ---
 
 ## Function Global File
-Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
+Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai.
 \
 **Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
 \
@@ -241,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
     //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah saya buat di repo saya yang lain. 
+    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
     // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
 
     ...
@@ -296,7 +299,7 @@ public class MainActivity extends AppCompatActivity {
     //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah saya buat di repo saya yang lain. 
+    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
     // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
 
     ...
@@ -334,7 +337,7 @@ public class MainActivity extends AppCompatActivity {
     //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah saya buat di repo saya yang lain. 
+    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
     // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     
     ...
@@ -391,7 +394,7 @@ public class MainActivity extends AppCompatActivity {
     //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah saya buat di repo saya yang lain. 
+    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
     // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
@@ -457,7 +460,7 @@ public class MainActivity extends AppCompatActivity {
     //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah saya buat di repo saya yang lain. 
+    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
     // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
@@ -520,7 +523,7 @@ Jika sukses maka akan tampil seperti ini :
 ---
 
 ## Function Global Image Camera
-Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
+Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai.
 \
 **Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
 \
@@ -651,7 +654,7 @@ public class MainActivity extends AppCompatActivity {
     //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah saya buat di repo saya yang lain. 
+    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
     // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
     
@@ -740,7 +743,7 @@ Jika sukses maka akan tampil seperti ini :
 ---
 
 ## Function Global Image Galery
-Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
+Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai.
 \
 **Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
 \
@@ -760,7 +763,7 @@ public class MainActivity extends AppCompatActivity {
     //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah saya buat di repo saya yang lain. 
+    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
     // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
@@ -834,7 +837,7 @@ Jika sukses maka akan tampil seperti ini :
 #
 **Step 15.**
 \
-Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu saya pakai.
+Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai.
 \
 **Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
 Pada function 'onSuccessCheckPermitions' kita bisa mendowload gambar dari internet dan menyimpannya ke direktori yang kita mau, dan jika image sudah didownload, maka image tidak akan didownload lagi.
@@ -873,7 +876,7 @@ public class MainActivity extends AppCompatActivity {
     //berikan izin diatas agar function bisa berjalan, pastikan kamu menggunakan 
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
-    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah saya buat di repo saya yang lain. 
+    //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
     // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
