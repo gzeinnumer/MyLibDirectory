@@ -70,7 +70,7 @@
 
 | Name                            | Return    | Parameter                                                                                                   | Keterangan    | 
 | ------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- | ------------- |
-| `initFile`                      | `boolean` | `String fileName, String... text`                                                                           | Untuk membuat file baru lansung dengan text yang akan dimasukan ke file, seperti `MyFile.txt` |
+| `initFile`                      | `boolean` | `String fileName, String saveTo, String... text`                                                            | Untuk membuat file baru lansung dengan text yang akan dimasukan ke file, seperti `MyFile.txt` |
 | `readFile`                      | `boolean` | `String path`                                                                                               | Untuk membaca isi dari file text yang sudah dibuat, pastikan file sudah dibuat terlebih dahulu dengan `initFile` |
 | `appentText`                    | `boolean` | `String path, String... msg`                                                                                | Untuk menambah new line text ke file txt yang sudah dibuat sebelumnya dengan `initFile` |
 | `initFileImageFromInternet`     | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew`                       | Untuk mendownload image dari internet dan menyimpannya ke penyimpanan |
@@ -244,10 +244,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void onSuccessCheckPermitions() {
         String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
-    
+   
         //buat file dalam folder App
-        //   /storage/emulated/0/MyLibsTesting/MyFile.txt
-        if(FunctionGlobalFile.initFile("/MyFile.txt",data)){
+        //   /storage/emulated/0/MyLibsTesting/MyFile.txt 
+        String fileName = "/MyFile.txt";
+        String saveTo = "/";
+        if(FunctionGlobalFile.initFile(fileName, saveTo,data)){
             Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "File gagal dibuat", Toast.LENGTH_SHORT).show();
@@ -295,7 +297,9 @@ public class MainActivity extends AppCompatActivity {
 
         //membaca file dalam folder App
         //   /storage/emulated/0/MyLibsTesting/MyFile.txt
-        if(FunctionGlobalFile.initFile("/MyFile.txt",data)){
+        String fileName = "/MyFile.txt";
+        String saveTo = "/";
+        if(FunctionGlobalFile.initFile(fileName, saveTo,data)){
 
             //   /storage/emulated/0/MyLibsTesting/MyFile.txt
             List<String> list = FunctionGlobalFile.readFile("/MyFile.txt");
@@ -332,7 +336,9 @@ public class MainActivity extends AppCompatActivity {
         String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
         //Buat File
         //   /storage/emulated/0/MyLibsTesting/MyFile.txt
-        if(FunctionGlobalFile.initFile("/MyFile.txt",data)){
+        String fileName = "/MyFile.txt";
+        String saveTo = "/";
+        if(FunctionGlobalFile.initFile(fileName, saveTo,data)){
             Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
            
             //READ MyFile.txt
@@ -354,7 +360,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-  - Pastikan file `MyFile.txt` sudah dibuat dengan perintah `FunctionGlobalFile.initFile(path,data)`.
+  - Pastikan file `MyFile.txt` sudah dibuat dengan perintah `FunctionGlobalFile.initFile(path,saveTo,data)`.
 
 #
 **Step 8. AppentText**
@@ -381,9 +387,15 @@ public class MainActivity extends AppCompatActivity {
         //buat file dalam folder App
         String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
 
-        if(FunctionGlobalFile.initFile("/MyFile.txt",data)){
+        //Buat File
+        //   /storage/emulated/0/MyLibsTesting/MyFile.txt
+        String fileName = "/MyFile.txt";
+        String saveTo = "/";
+        if(FunctionGlobalFile.initFile(fileName, saveTo,data)){
             Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
-            List<String> list = FunctionGlobalFile.readFile("/MyFile.txt");
+
+            String path = "/MyFile.txt";
+            List<String> list = FunctionGlobalFile.readFile(path);
             Toast.makeText(this, "Jumlah baris sebelum ditambahkan: "+list.size() , Toast.LENGTH_SHORT).show();
             
             //tambahkan fuction ini untuk menambahkan text pada file yang sudah dibuat
@@ -403,7 +415,8 @@ public class MainActivity extends AppCompatActivity {
             //function untuk menambah text ke file yang sudah dibuat sebelumnya
             if(FunctionGlobalFile.appentText(path, messages)){
                 Toast.makeText(this, "Line baru ditambah ke file", Toast.LENGTH_SHORT).show();
-                List<String> list = FunctionGlobalFile.readFile("/MyFile.txt");
+
+                List<String> list = FunctionGlobalFile.readFile(path);
                 Toast.makeText(this, "Jumlah baris setelah ditambahkan: "+list.size() , Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Ada error ketika add pesan", Toast.LENGTH_SHORT).show();
