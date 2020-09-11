@@ -61,11 +61,11 @@ public class FunctionGlobalFile {
         }
         if (!FunctionGlobalDir.isFileExists(saveTo)) {
             logSystemFunctionGlobal("initFile", "Folder External untuk aplikasi tidak di temukan");
-            String someString = saveTo.substring(1);
+            String path = saveTo.substring(1);
             char someChar = '/';
             int count = 0;
-            for (int i = 0; i < someString.length(); i++) {
-                if (someString.charAt(i) == someChar) {
+            for (int i = 0; i < path.length(); i++) {
+                if (path.charAt(i) == someChar) {
                     count++;
                 }
             }
@@ -81,6 +81,13 @@ public class FunctionGlobalFile {
                         logSystemFunctionGlobal("initFile", "Folder External gagal dibuat");
                         return false;
                     }
+                }
+            } else {
+                if (FunctionGlobalDir.initFolder(path)) {
+                    logSystemFunctionGlobal("initFile", "Folder External sudah dibuat");
+                } else {
+                    logSystemFunctionGlobal("initFile", "Folder External gagal dibuat");
+                    return false;
                 }
             }
         }
