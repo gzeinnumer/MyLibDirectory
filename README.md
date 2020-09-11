@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
     //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
+    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
     @Override
@@ -263,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
     //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
+    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
     @Override
@@ -331,7 +331,7 @@ public class MainActivity extends AppCompatActivity {
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
     //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
+    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
     @Override
@@ -387,7 +387,7 @@ public class MainActivity extends AppCompatActivity {
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
     //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
+    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
     @Override
@@ -428,21 +428,20 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-  - Pastikan file `MyFile.txt` sudah dibuat denga perintah `FunctionGlobalFile.initFile(path,data)`.
+  - Pastikan file `MyFile.txt` sudah dibuat dengan perintah `FunctionGlobalFile.initFile(path,data)`.
 
----
 #
 **Step 8. AppentText**
 \
 Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`:
 \
 \
-Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut appentText : 
+Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut `appentText` : 
 \
-disini kita akan mendeklarasikan
+disini kita akan menggunakan :
 
 1. `onSuccessCheckPermitions` itu adalah function yang sama dengan yang ada di **Step 7**, tambahkan function `onAppentText` untuk menambahkan jumlah text dalam file. 
-2. `onAppentText`->`path` adalah path dari lokasi file sebelumnya yang sudah kita buat pada point No 1.
+2. `onAppentText`->`String path` adalah path dari lokasi file sebelumnya yang sudah kita buat pada point No 1.
 3. `messages` pada variable ini kamu bisa masukan text yang mau kamu kirim ke file, text akan ditambahkan sesuai index.
 
 jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
@@ -457,7 +456,7 @@ public class MainActivity extends AppCompatActivity {
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
     //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
+    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
     @Override
@@ -480,9 +479,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(FunctionGlobalFile.initFile("/MyFile.txt",data)){
             Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
-
             List<String> list = FunctionGlobalFile.readFile("/MyFile.txt");
-
             Toast.makeText(this, "Jumlah baris sebelum ditambahkan: "+list.size() , Toast.LENGTH_SHORT).show();
             
             //tambahkan fuction ini untuk menambahkan text pada file yang sudah dibuat
@@ -498,12 +495,11 @@ public class MainActivity extends AppCompatActivity {
         String path = "/MyFile.txt";
         if (FunctionGlobalDir.isFileExists(path)){
             String[] messages = {"Pesan ini akan ditambahkan ke file di line baru 1","Pesan ini akan ditambahkan ke file di line baru 2"};
+
             //function untuk menambah text ke file yang sudah dibuat sebelumnya
             if(FunctionGlobalFile.appentText(path, messages)){
                 Toast.makeText(this, "Line baru ditambah ke file", Toast.LENGTH_SHORT).show();
-
                 List<String> list = FunctionGlobalFile.readFile("/MyFile.txt");
-
                 Toast.makeText(this, "Jumlah baris setelah ditambahkan: "+list.size() , Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Ada error ketika add pesan", Toast.LENGTH_SHORT).show();
@@ -520,21 +516,37 @@ public class MainActivity extends AppCompatActivity {
 
 **notes.** 
   - Pastikan file sudah dibuat, sesuai **Step 4**.
+  
+#
+**Step 9.**
+\
+Jika sukses maka akan tampil seperti ini :
+
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example9.jpg)|
+|--|--|--|--|
+|Folder `MyLibsTesting` sudah dibuat|`MyFile.txt` yang berada didalam `MyLibsTesting` sudah dibuat|`MyFile.txt` file dibuat dengan text yang sudah diset pertama kali|`MyFile.txt` new line ditambah ke file|
+
 
 ## Function Global Zip
-**String Base64 ke Zip.** Lanjutan pada **Step 9** sebelumnya, disini kita akan mencoba membuat file Zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
+**String Base64 ke Zip.** Disini kita akan mencoba membuat file Zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
 
 #
-**Step 7.** Encode Base64/Md5 to Zip
+**Step 10. Encode Base64/Md5 to Zip**
 \
-Pada function `onSuccessCheckPermitions` kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) : \
-disini kita akan mendeklarasikan
+**Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai**.
+\
+**Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
+\
+Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`.
+Pada function `onSuccessCheckPermitions` kita bisa membuat file zip dengan memastikan kalau permition sudah di berikan, ikuti MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) : 
+\
+disini kita akan mendeklarasikan :
 1. `fileName` untuk nama file sebelum diencode dengan Base64. 
 2. `base64EncodeFromFile` file zip yang sudah diencode jadi Base64.
 3. `md5EncodeFromFile` file zip yang sudah diencode jadi Md5 untuk memastikan Base64 tidak corrupt.
 4. `zipLocation` file zip yang diextract akan meletakan semua filenya ke direcotry yang dibuat disini.
 \
-jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
+Jika 4 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -546,8 +558,22 @@ public class MainActivity extends AppCompatActivity {
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
     //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
+    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MULTIPLE_PERMISSIONS) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                onSuccessCheckPermitions();
+            } else {
+                StringBuilder perStr = new StringBuilder();
+                for (String per : permissions) {
+                    perStr.append("\n").append(per);
+                }
+            }
+        }
+    }
 
     private void onSuccessCheckPermitions() {
         //   /storage/emulated/0/MyLibsTesting/ExternalBase64Md5ToZip.zip
@@ -582,7 +608,7 @@ public class MainActivity extends AppCompatActivity {
   - Pastikan pada `fileName` adalah nama asli dari file yang sudah diencode dengan Base64 dan Md5, jika berbeda maka akan dapat lemparan error.
 
 #
-**Step 8.**
+**Step 11.**
 \
 Jika sukses maka akan tampil seperti ini :
 
@@ -590,23 +616,14 @@ Jika sukses maka akan tampil seperti ini :
 |--|--|--|
 |Folder `MyLibsTesting` sudah dibuat|`ExternalBase64Md5ToZip.zip` yang berada didalam `MyLibsTesting` sudah dibuat dari string Base64, `/zipLocation` adalah folder yang dibuat untuk file hasil extract dari Zip|`ExernalBase64Md5ToZip.db` adalah file hasil extract dari file `ExternalBase64Md5ToZip.zip`|
 
-#
-**Step 10.**
-\
-Jika sukses maka akan tampil seperti ini :
-
-|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example9.jpg)|
-|--|--|--|--|
-|Folder `MyLibsTesting` sudah dibuat|`MyFile.txt` yang berada didalam `MyLibsTesting` sudah dibuat|`MyFile.txt` file dibuat dengan text yang sudah diset pertama kali|`MyFile.txt` new line ditambah ke file|
-
 ---
 
 ## Function Global Image Camera
-Librari ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai.
+**Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai**.
 \
-**Contoh Multi Check Permissions.** Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9) :
+**Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
 \
-**Mengambil foto dengan camera.** Lanjutan pada **Step 9** sebelumnya, disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
+**Mengambil foto dengan camera.** Disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
 
 #
 **Step 11.**  Take Image From Camera And Compress
@@ -734,7 +751,7 @@ public class MainActivity extends AppCompatActivity {
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
     //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
+    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
     
     //1
@@ -843,7 +860,7 @@ public class MainActivity extends AppCompatActivity {
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
     //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
+    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
     //1
@@ -956,7 +973,7 @@ public class MainActivity extends AppCompatActivity {
     //`onRequestPermissionsResult`, jika sudah diberikan izin yang diperlukan 
     //maka panggil function `onSuccessCheckPermitions` didalam `onRequestPermissionsResult` 
     //untuk bagian diatas ini kamu bisa ukuti cara yang sudah Zein buat di repo Zein yang lain. 
-    // cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
+    //cari `Contoh Multi Check Permition` diatas : https://github.com/gzeinnumer/MultiPermition
     ...
 
     ImageView imageView;
