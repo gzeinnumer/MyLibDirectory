@@ -42,22 +42,22 @@ dependencies {
 ---
 
 ### Feature List
-- [x] [Function Global Directory](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md)
+- [x] [Function Global Directory](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_1.md)
   - Contoh Multi Check Permissions
   - Manifest
   - DEBUG
   - Step 1. Create Folder
-- [x] [Function Global File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md)
+- [x] [Function Global File](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_2.md)
   - Step 4. Create File
   - Step 6. Read File
   - Step 8. AppentText
-- [x] [Function Global Zip](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_3.md)
+- [x] [Function Global Zip](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_3.md)
   - Step 10. Encode Base64/Md5 to Zip
-- [x] [Function Global Image Camera](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_4.md)
+- [x] [Function Global Image Camera](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_4.md)
   - Step 12. Take Image From Camera And Compress
-- [x] [Function Global Image Galery](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_5.md)
+- [x] [Function Global Image Galery](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_5.md)
   - Step 19. Take Image From Galery
-- [x] [Function Global Image Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_6.md)
+- [x] [Function Global Image Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_6.md)
   - Step 23. Load Image From Internet and Save
 - [x] Cek file exists
 
@@ -89,6 +89,7 @@ dependencies {
 |:--------------------------------|:----------|:------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|
 | `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` | Mendecode String Base64 hingga menjadi file Zip mengekstraknya serta meletakan hasil ektrack ke direktory yang dituju |
 
+---
 
 ### Tech stack and 3rd library
 - MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition))
