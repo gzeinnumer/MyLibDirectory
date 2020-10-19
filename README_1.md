@@ -13,7 +13,7 @@
 
 #
 ### Create Folder
-#### Step 1. Enable Fitur
+#### Step 1. Enable Fitur.
 Add 2 code on your `onCreate`. you need to declaration `Folder Name` that you will use as you Folder Name in external. Now i am ussing `MyLibsTesting`.
 
 ```java
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
 #
-#### Step 2. Make Folder
+#### Step 2. Create Folder.
 If you have granted your permission, Run function `onSuccessCheckPermitions` inside `onRequestPermissionsResult`. **Only Need 1 Time in FirstActivity**:
 
 ```java

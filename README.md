@@ -45,7 +45,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 
 ### Feature List
 - [x] [Function Global Directory](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_1.md)
-  - Step 1. Create Folder
+  - [Create Folder](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_1.md#create-folder)
 - [x] [Function Global File](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_2.md)
   - Step 4. Create File
   - Step 6. Read File
