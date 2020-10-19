@@ -42,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
 #
 #### Step 2. Create Folder.
-If you have granted your permission, Run function `onSuccessCheckPermitions` inside `onRequestPermissionsResult`. **Only Need 1 Time in FirstActivity**:
+If you have granted your permission, Run function
+`onSuccessCheckPermitions` inside `onRequestPermissionsResult`. **Only
+Need 1 Time in FirstActivity** :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -81,7 +83,7 @@ Result will be like this
 
 #
 #### Step 3.
-[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFolder/MainActivity.java).
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFolder/MainActivity.java)
 
 Preview :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|

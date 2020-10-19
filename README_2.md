@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
 #
 #### Step 3.
-([FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFile/MainActivity.java)).
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFile/MainActivity.java)
 
 Preview :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|
@@ -85,7 +85,7 @@ Preview :
 |Folder `MyLibsTesting` created|`MyFile.txt` inside `MyLibsTesting` created|`MyFile.txt`|
 
 #
-#### Step 6. Read File
+#### Step 4. Read File
 You can read the file that you created, here is the code.
 
 ```java
@@ -113,16 +113,18 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-#### Step 7.
-([FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/ReadFile/MainActivity.java)).
+#### Step 5.
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/ReadFile/MainActivity.java)
 
 #
-#### Step 8. AppentText
-Run function `onSuccessCheckPermitions` inside `onRequestPermissionsResult` to add new line string in file or `appent text`, parameters that you need to declaration:
+#### Step 6. AppentText
+Run function `onSuccessCheckPermitions` inside
+`onRequestPermissionsResult` to add new line string in file or `appent
+text`, parameters that you need to declaration:
 
 1. `onSuccessCheckPermitions` same like **Step 7**, add function `onAppentText` to excecute the process.
 2. `onAppentText`->`String path` path file that you want to add new value in new line.
-3. `messages` put your value here, .
+3. `messages` put your value here.
 
 Now execute the code :
 
@@ -132,7 +134,13 @@ public class MainActivity extends AppCompatActivity {
     ...
 
     private void onSuccessCheckPermitions() {
+        
+        ...
+        
         if(FGFile.initFile(fileName, saveTo,data)){
+            
+            ...
+            
             //tambahkan fuction ini untuk menambahkan text pada file yang sudah dibuat
             onAppentText();
             
@@ -166,12 +174,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**notes.**
-  - Make sure you craeted file in **Step 4**.
-
 #
-#### Step 9.
-([FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/AppentText/MainActivity.java)).
+#### Step 7.
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/AppentText/MainActivity.java)
 
 Preview :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example9.jpg)|
