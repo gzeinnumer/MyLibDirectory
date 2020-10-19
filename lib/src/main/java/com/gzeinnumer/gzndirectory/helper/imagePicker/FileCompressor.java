@@ -3,7 +3,7 @@ package com.gzeinnumer.gzndirectory.helper.imagePicker;
 import android.content.Context;
 import android.graphics.Bitmap;
 
-import com.gzeinnumer.gzndirectory.helper.FunctionGlobalDir;
+import com.gzeinnumer.gzndirectory.helper.FGDir;
 
 import java.io.File;
 import java.io.IOException;
@@ -49,7 +49,7 @@ public class FileCompressor {
     }
 
     public FileCompressor setDestinationDirectoryPath(String destinationDirectoryPath) {
-        this.destinationDirectoryPath = FunctionGlobalDir.getStorageCard + FunctionGlobalDir.appFolder + destinationDirectoryPath;
+        this.destinationDirectoryPath = FGDir.getStorageCard + FGDir.appFolder + destinationDirectoryPath;
         return this;
     }
 

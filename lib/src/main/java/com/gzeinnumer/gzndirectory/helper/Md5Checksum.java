@@ -30,7 +30,7 @@ public class Md5Checksum {
             md5 = sb.toString();
         } catch (Exception e) {
             e.printStackTrace();
-            FunctionGlobalDir.logSystemFunctionGlobal("md5", "Gagal Md5Checksum Exception " + e.getMessage());
+            FGDir.logSystemFunctionGlobal("md5", "Gagal Md5Checksum Exception " + e.getMessage());
         }
 
         return md5;
