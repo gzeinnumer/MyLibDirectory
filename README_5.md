@@ -1,29 +1,78 @@
 <h1 align="center">
-    MyLibDirectory - Function Global Directory
+    MyLibDirectory - Function Global Image Galery
 </h1>
 
-### Function Global Directory
-> Example : FGDir.initExternalDirectoryName(valueString);
+### Image Galery
+**Mengambil foto dari galery.** Disini kita akan mencoba mengambil foto
+dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu
+menyimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan
+cepat dan mudah :
 
-| Name                        | Return    | Parameter              | Keterangan                                                                               |
-|:----------------------------|:----------|:-----------------------|:-----------------------------------------------------------------------------------------|
-| `initExternalDirectoryName` | `void`    | `String appFolder`     | Function untuk mendeklarasi folder nama yang akan dibuat di external                     |
-| `initFolder`                | `boolean` | `String... folderName` | Membuat folder pada direktori yang sudah dideklarasi di atas `initExternalDirectoryName` |
-| `isFileExists`              | `boolean` | `String path`          | untuk mengecek apakah File/Folder sudah ada atau belum                                   |
+#### Step 1. Enable Fitur.
+Add 2 code on your `onCreate`. you need to declaration `Folder Name`
+that you will use as you Folder Name in external. Now i am ussing
+`MyLibsTesting`.
 
----
+```java
+public class MainActivity extends AppCompatActivity {
+    
+    ...
 
-## Function Global Image Galery
-**Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai**.
-\
-**Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
-\
-**Mengambil foto dari galery.** Disini kita akan mencoba mengambil foto dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu menyimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan cepat dan mudah :
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        //gunakan function ini cukup satu kali saja pada awal activity
+        String externalFolderName = getApplication().getString(R.string.app_name); //MyLibsTesting
+        FGDir.initExternalDirectoryName(externalFolderName);
+        
+        ...
+
+    }
+
+    ...
+}
+```
+**notes.**
+  - I suggest you to declaration `Folder Name` first, just **One Time** in your first activity inside function `onCreate`. example `SplashScreenActivity` or `MainActivity`.
+  - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
 #
-**Step 19. Take Image From Galery**
-Hampir sama dengan **Step 17**, hanya saja berbeda action Intent dan prosess pengcrompressan Image, Tambahkan kode seperti berikut :
+#### Step 2. Take Image From Camera And Compress
+Make View on `xml`
 
+**activity_main.xml**
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Take Foto From Camera" />
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/ic_launcher" />
+</LinearLayout>
+```
+
+
+#### Step 3. Take Image From Galery
+
+**MainActivity.java**
 ```java
 public class MainActivity extends AppCompatActivity {
 
@@ -84,17 +133,15 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-#
-**Step 20.**
-\
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromGalery/MainActivity.java)).
-\
-Jika sukses maka akan tampil seperti ini :
+#### Step 4.
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromGalery/MainActivity.java)
 
-|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example17.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example18.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example19.jpg)|
-|--|--|--|
-|Tampilan awal, tekan Button untuk membuka galery|Pilih media|Pilih foto|
-|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example20.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example13.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example21.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example22.jpg)|
-|Preview foto|Folder foto otomatis terbuat|Foto sudah ada pada directory yang sudah diset|Detail pada galery|
+Preview :
 
----
+| ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example17.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example18.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example19.jpg) |
+|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
+| Tampilan awal, tekan Button untuk membuka galery                                   | Pilih media                                                                        | Pilih foto                                                                         |
+
+| ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example20.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example13.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example21.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example22.jpg) |
+|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
+| Preview foto                                                                       | Folder foto otomatis terbuat                                                       | Foto sudah ada pada directory yang sudah diset                                     | Detail pada galery                                                                 |

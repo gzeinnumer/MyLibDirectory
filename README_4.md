@@ -3,9 +3,10 @@
 </h1>
 
 ### Image Camera
-**Mengambil foto dengan camera.** Disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
+**Mengambil foto dengan camera.** Disini kita akan mencoba membuat file
+image yang kita ambil dari camera dengan mempertahankan kualitas gambar
+dan menyimpannya lansung ke external, dengan cepat dan mudah :
 
-#
 #### Step 1. Enable Fitur.
 Add 2 code on your `onCreate`. you need to declaration `Folder Name`
 that you will use as you Folder Name in external. Now i am ussing
