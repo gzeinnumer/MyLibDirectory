@@ -2,19 +2,10 @@
     MyLibDirectory - Function Global Image Camera
 </h1>
 
-###
-> Example : FGDir.initExternalDirectoryName(valueString);
-
-| Name                        | Return    | Parameter              | Keterangan                                                                               |
-|:----------------------------|:----------|:-----------------------|:-----------------------------------------------------------------------------------------|
-| `initExternalDirectoryName` | `void`    | `String appFolder`     | Function untuk mendeklarasi folder nama yang akan dibuat di external                     |
-| `initFolder`                | `boolean` | `String... folderName` | Membuat folder pada direktori yang sudah dideklarasi di atas `initExternalDirectoryName` |
-| `isFileExists`              | `boolean` | `String path`          | untuk mengecek apakah File/Folder sudah ada atau belum                                   |
-
----
-###Image Camera
+### Image Camera
 **Mengambil foto dengan camera.** Disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
 
+#
 #### Step 1. Enable Fitur.
 Add 2 code on your `onCreate`. you need to declaration `Folder Name`
 that you will use as you Folder Name in external. Now i am ussing
@@ -76,6 +67,7 @@ Make View on `xml`
 </LinearLayout>
 ```
 
+#
 #### Step 3. Add Permission
 **manifest.xml**
 ```xml
@@ -108,6 +100,7 @@ Make View on `xml`
 </manifest>
 ```
 
+#
 #### Step 4. Temp File
 In directory `res` make folder `xml` and make file
 `file_provider_paths.xml`.
@@ -131,6 +124,7 @@ package com.gzeinnumer.mylibstesting;
 public class MainActivity extends AppCompatActivity { }
 ```
 
+#
 #### Step 5.
 **MainActivity.java** Add permission `CAMERA` :
 
@@ -151,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+#
 #### Step 6.
 In function `dispatchTakePictureIntent` start your request to open
 camera, call that function in `onClick`:
