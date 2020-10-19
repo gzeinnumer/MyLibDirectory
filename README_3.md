@@ -1,26 +1,49 @@
 <h1 align="center">
-    MyLibDirectory - Function Global Directory
+    MyLibDirectory - Function Global Zip
 </h1>
 
-### Function Global Directory
-> Example : FGDir.initExternalDirectoryName(valueString);
+### Function Global Zip
+> Example : FGZip.initFileFromStringToZipToFile(valueString, valueString, valueString, valueString, valueBoolean);
 
-| Name                        | Return    | Parameter              | Keterangan                                                                               |
-|:----------------------------|:----------|:-----------------------|:-----------------------------------------------------------------------------------------|
-| `initExternalDirectoryName` | `void`    | `String appFolder`     | Function untuk mendeklarasi folder nama yang akan dibuat di external                     |
-| `initFolder`                | `boolean` | `String... folderName` | Membuat folder pada direktori yang sudah dideklarasi di atas `initExternalDirectoryName` |
-| `isFileExists`              | `boolean` | `String path`          | untuk mengecek apakah File/Folder sudah ada atau belum                                   |
-
----
-
-## Function Global Zip
-This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition) or use your own.
-
-**String Base64 ke Zip.** we will make file zip from Base64 dan extract it to your folder fast and simple :
+| Name                            | Return    | Parameter                                                                                                   | Keterangan                                                                                                            |
+|:--------------------------------|:----------|:------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|
+| `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` | Mendecode String Base64 hingga menjadi file Zip mengekstraknya serta meletakan hasil ektrack ke direktory yang dituju |
 
 #
-**Step 10. Encode Base64/Md5 to Zip**
-Run function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`, make sure you have grant permission,
+### Base64 To Zip
+#### Step 1. Enable Fitur.
+Add 2 code on your `onCreate`. you need to declaration `Folder Name` that you will use as you Folder Name in external. Now i am ussing `MyLibsTesting`.
+
+```java
+public class MainActivity extends AppCompatActivity {
+    
+    ...
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        //gunakan function ini cukup satu kali saja pada awal activity
+        String externalFolderName = getApplication().getString(R.string.app_name); //MyLibsTesting
+        FGDir.initExternalDirectoryName(externalFolderName);
+        
+        ...
+
+    }
+
+    ...
+}
+```
+**notes.**
+  - I suggest you to declaration `Folder Name` first, just **One Time** in your first activity inside function `onCreate`. example `SplashScreenActivity` or `MainActivity`.
+  - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
+
+#### Step 2. Make Zip
+**String Base64 ke Zip.** we will make file zip from Base64 dan extract
+it to your folder fast and simple :
+
+**Encode Base64/Md5 to Zip** Run function `onSuccessCheckPermitions` di
+dalam `onRequestPermissionsResult`, make sure you have grant permission,
 declaration variable :
 1. `fileName` real file ZIP name.
 2. `base64EncodeFromFile` from ZIP to Base64.
@@ -65,19 +88,16 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
-
 **notes.**
   - Make sure `fileName` is real name from file zip that you decode to Base64 and Md5.
 
 #
-**Step 11.**
-\
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/EncodeBase64Md5toZip/MainActivity.java)).
-\
-Jika sukses maka akan tampil seperti ini :
+#### Step 3.
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/EncodeBase64Md5toZip/MainActivity.java)
 
+Preview :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example7.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example8.jpg)|
-|--|--|--|
-|Folder `MyLibsTesting` sudah dibuat|`ExternalBase64Md5ToZip.zip` yang berada didalam `MyLibsTesting` sudah dibuat dari string Base64|`ExernalBase64Md5ToZip.db` adalah file hasil extract dari file `ExternalBase64Md5ToZip.zip`|
-
----
+|--|--|--| |Folder `MyLibsTesting` sudah
+dibuat|`ExternalBase64Md5ToZip.zip` yang berada didalam `MyLibsTesting`
+sudah dibuat dari string Base64|`ExernalBase64Md5ToZip.db` adalah file
+hasil extract dari file `ExternalBase64Md5ToZip.zip`|
