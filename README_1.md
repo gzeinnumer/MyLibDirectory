@@ -11,18 +11,10 @@
 | `initFolder`                | `boolean` | `String... folderName` | Membuat folder pada direktori yang sudah dideklarasi di atas `initExternalDirectoryName` |
 | `isFileExists`              | `boolean` | `String path`          | untuk mengecek apakah File/Folder sudah ada atau belum                                   |
 
----
-
-This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition) or use your own.
-
-**DEBUG.** If you find some trouble you can trace with this step.
-|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/debug.jpg)|
-|--|
-
 #
-**Step 1. Create Folder** 
-\
-If you have grand your permission, add 2 code on your `onCreate`. you need to declaration `Folder Name` that you will use as you Folder Name in external. Now i am ussing `MyLibsTesting`.
+### Create Folder
+- Enable fitur
+Add 2 code on your `onCreate`. you need to declaration `Folder Name` that you will use as you Folder Name in external. Now i am ussing `MyLibsTesting`.
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -44,14 +36,13 @@ public class MainActivity extends AppCompatActivity {
     ...
 }
 ```
-
 **notes.** 
   - I suggest you to declaration `Folder Name` first, just **One Time** in your first activity inside function `onCreate`. example `SplashScreenActivity` or `MainActivity`.
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
 #
-**Step 2.**
-Run function `onSuccessCheckPermitions`  inside `onRequestPermissionsResult`. **Only Need 1 Time in FirstActivity**:
+- Make foldet
+If you have granted your permission, Run function `onSuccessCheckPermitions` inside `onRequestPermissionsResult`. **Only Need 1 Time in FirstActivity**:
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -84,8 +75,8 @@ Result will be like this
             |-- folder1_1
         |-- folder2
 ```
-3 way that you can use.
 
+3 way that you can use.
 ```java
 //   /storage/emulated/0/MyLibsTesting/folder1
 //   /storage/emulated/0/MyLibsTesting/folder1/folder1_1

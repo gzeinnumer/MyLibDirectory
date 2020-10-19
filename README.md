@@ -41,11 +41,10 @@ dependencies {
 
 ---
 
+This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition) or use your own.
+
 ### Feature List
 - [x] [Function Global Directory](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_1.md)
-  - Contoh Multi Check Permissions
-  - Manifest
-  - DEBUG
   - Step 1. Create Folder
 - [x] [Function Global File](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_2.md)
   - Step 4. Create File
@@ -88,6 +87,12 @@ dependencies {
 | Name                            | Return    | Parameter                                                                                                   | Keterangan                                                                                                            |
 |:--------------------------------|:----------|:------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|
 | `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` | Mendecode String Base64 hingga menjadi file Zip mengekstraknya serta meletakan hasil ektrack ke direktory yang dituju |
+
+---
+
+**DEBUG.** If you find some trouble you can trace with this step.
+|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/debug.jpg)|
+|--|
 
 ---
 
