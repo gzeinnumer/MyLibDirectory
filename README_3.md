@@ -94,9 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
 #
 #### Step 3.
-[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/EncodeBase64Md5toZip/MainActivity.java)
-
-Preview :
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/EncodeBase64Md5toZip/MainActivity.java) Preview :
 
 | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example7.jpg)                | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example8.jpg)          |
 |:----------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------|

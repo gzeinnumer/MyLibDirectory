@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
 #
 #### Step 2. Create File
-If you has grand your permission, now run function
+If you has granted your permission, now run function
 `onSuccessCheckPermitions` inside `onRequestPermissionsResult` :
 
 ```java
@@ -77,9 +77,8 @@ public class MainActivity extends AppCompatActivity {
 
 #
 #### Step 3.
-[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFile/MainActivity.java)
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFile/MainActivity.java) Preview :
 
-Preview :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|
 |--|--|--|
 |Folder `MyLibsTesting` created|`MyFile.txt` inside `MyLibsTesting` created|`MyFile.txt`|

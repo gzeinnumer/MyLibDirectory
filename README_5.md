@@ -134,9 +134,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #### Step 4.
-[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromGalery/MainActivity.java)
-
-Preview :
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromGalery/MainActivity.java) Preview :
 
 | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example17.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example18.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example19.jpg) |
 |:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|

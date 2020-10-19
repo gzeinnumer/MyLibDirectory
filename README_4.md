@@ -229,9 +229,8 @@ public class MainActivity extends AppCompatActivity {
 
 #
 #### Step 7.
-[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromCameraAndCompress/MainActivity.java)
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromCameraAndCompress/MainActivity.java) Preview :
 
-Preview :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example10.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example11.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example12.jpg)|
 |--|--|--|
 |Tampilan awal, tekan Button untuk membuka kamera|Hasil foto yang diambil, tekan oke untuk lanjutkan|Akan muncul Toast untuk memberitahu lokasi foto disimpan|
