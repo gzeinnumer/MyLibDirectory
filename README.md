@@ -15,7 +15,7 @@
 ---
 
 ### Feature List
-- [x] Function Global Directory
+- [x] [Function Global Directory](#function-global-directory)
       \
       - Contoh Multi Check Permissions
       \
@@ -24,7 +24,7 @@
       - DEBUG
       \
       - Step 1. Create Folder
-- [x] Function Global File
+- [x] [Function Global File](#function-global-directory)
       \
       - Step 4. Create File
       \
@@ -60,31 +60,31 @@
 - Dexter ([docs](https://github.com/Karumi/Dexter))
 
 ### Function Global Directory
-> Example : FunctionGlobalDir.initExternalDirectoryName(valueString);
+> Example : FGDir.initExternalDirectoryName(valueString);
 
-| Name                            | Return    | Parameter                                                                                                   | Keterangan    | 
-| ------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- | ------------- |
-| `initExternalDirectoryName`     | `void`    | `String appFolder`                                                                                          | Function untuk mendeklarasi folder nama yang akan dibuat di external |
-| `initFolder`                    | `boolean` | `String... folderName`                                                                                      | Membuat folder pada direktori yang sudah dideklarasi di atas `initExternalDirectoryName` |
-| `isFileExists`                  | `boolean` | `String path`                                                                                               | untuk mengecek apakah File/Folder sudah ada atau belum |
+| Name                        | Return    | Parameter              | Keterangan                                                                               |
+|:----------------------------|:----------|:-----------------------|:-----------------------------------------------------------------------------------------|
+| `initExternalDirectoryName` | `void`    | `String appFolder`     | Function untuk mendeklarasi folder nama yang akan dibuat di external                     |
+| `initFolder`                | `boolean` | `String... folderName` | Membuat folder pada direktori yang sudah dideklarasi di atas `initExternalDirectoryName` |
+| `isFileExists`              | `boolean` | `String path`          | untuk mengecek apakah File/Folder sudah ada atau belum                                   |
 
 ### Function Global File
-> Example : FunctionGlobalFile.readFile(valueString);
+> Example : FGFile.readFile(valueString);
 
-| Name                            | Return    | Parameter                                                                                                   | Keterangan    | 
-| ------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- | ------------- |
-| `initFile`                      | `boolean` | `String fileName, String saveTo, String... text`                                                            | Untuk membuat file baru lansung dengan text yang akan dimasukan ke file, seperti `MyFile.txt` |
-| `readFile`                      | `boolean` | `String path`                                                                                               | Untuk membaca isi dari file text yang sudah dibuat, pastikan file sudah dibuat terlebih dahulu dengan `initFile` |
-| `appentText`                    | `boolean` | `String path, String... msg`                                                                                | Untuk menambah new line text ke file txt yang sudah dibuat sebelumnya dengan `initFile` |
-| `initFileImageFromInternet`     | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew`                       | Untuk mendownload image dari internet dan menyimpannya ke penyimpanan |
-| `createImageFile`               | `File`    | `Context context, String fileName`                                                                          | Untuk menyimpan data secara temporary sebelum di copy ke tujuan yang sudah diset |
-| `getRealPathFromUri`            | `String`  | `Context context, Uri contentUri`                                                                           | Untuk mendapatkan nama asli dari file yang dipilih |
+| Name                        | Return    | Parameter                                                                             | Keterangan                                                                                                       |
+|:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|
+| `initFile`                  | `boolean` | `String fileName, String saveTo, String... text`                                      | Untuk membuat file baru lansung dengan text yang akan dimasukan ke file, seperti `MyFile.txt`                    |
+| `readFile`                  | `boolean` | `String path`                                                                         | Untuk membaca isi dari file text yang sudah dibuat, pastikan file sudah dibuat terlebih dahulu dengan `initFile` |
+| `appentText`                | `boolean` | `String path, String... msg`                                                          | Untuk menambah new line text ke file txt yang sudah dibuat sebelumnya dengan `initFile`                          |
+| `initFileImageFromInternet` | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | Untuk mendownload image dari internet dan menyimpannya ke penyimpanan                                            |
+| `createImageFile`           | `File`    | `Context context, String fileName`                                                    | Untuk menyimpan data secara temporary sebelum di copy ke tujuan yang sudah diset                                 |
+| `getRealPathFromUri`        | `String`  | `Context context, Uri contentUri`                                                     | Untuk mendapatkan nama asli dari file yang dipilih                                                               |
 
 ### Function Global Zip
-> Example : FunctionGlobalZip.initFileFromStringToZipToFile(valueString, valueString, valueString, valueString, valueBoolean);
+> Example : FGZip.initFileFromStringToZipToFile(valueString, valueString, valueString, valueString, valueBoolean);
 
-| Name                            | Return    | Parameter                                                                                                   | Keterangan    | 
-| ------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- | ------------- |
+| Name                            | Return    | Parameter                                                                                                   | Keterangan                                                                                                            |
+|:--------------------------------|:----------|:------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|
 | `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` | Mendecode String Base64 hingga menjadi file Zip mengekstraknya serta meletakan hasil ektrack ke direktory yang dituju |
 
 ---
@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         
         //gunakan function ini cukup satu kali saja pada awal activity
         String externalFolderName = getApplication().getString(R.string.app_name); //MyLibsTesting
-        FunctionGlobalDir.initExternalDirectoryName(externalFolderName);
+        FGDir.initExternalDirectoryName(externalFolderName);
         
         ...
 
@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
         //   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
         //   /storage/emulated/0/MyLibsTesting/folder2
         String[] folders = new String[]{"/folder1","/folder1/folder1_1","/folder2"};
-        if (FunctionGlobalDir.initFolder(folders)){
+        if (FGDir.initFolder(folders)){
             Toast.makeText(this, "Folder sudah dibuat dan ditemukan sudah bisa lanjut", Toast.LENGTH_SHORT).show();
         }
         else {
@@ -205,14 +205,14 @@ public class MainActivity extends AppCompatActivity {
 
 // cara penulisan 1
 String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
-FunctionGlobalDir.initFolder(folders);
+FGDir.initFolder(folders);
 
 // cara penulisan 2
 String[] folders = new String[]{"/folder1","/folder1/folder1_1","/folder2"};
-FunctionGlobalDir.initFolder(folders);
+FGDir.initFolder(folders);
 
 // cara penulisan 3
-FunctionGlobalDir.initFolder("/folder1","/folder1/folder1_1","/folder2");
+FGDir.initFolder("/folder1","/folder1/folder1_1","/folder2");
 
 ```
 
@@ -252,7 +252,7 @@ public class MainActivity extends AppCompatActivity {
         //   /storage/emulated/0/MyLibsTesting/MyFile.txt 
         String fileName = "/MyFile.txt";
         String saveTo = "/";
-        if(FunctionGlobalFile.initFile(fileName, saveTo,data)){
+        if(FGFile.initFile(fileName, saveTo,data)){
             Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "File gagal dibuat", Toast.LENGTH_SHORT).show();
@@ -302,10 +302,10 @@ public class MainActivity extends AppCompatActivity {
         //   /storage/emulated/0/MyLibsTesting/MyFile.txt
         String fileName = "/MyFile.txt";
         String saveTo = "/";
-        if(FunctionGlobalFile.initFile(fileName, saveTo,data)){
+        if(FGFile.initFile(fileName, saveTo,data)){
 
             //   /storage/emulated/0/MyLibsTesting/MyFile.txt
-            List<String> list = FunctionGlobalFile.readFile("/MyFile.txt");
+            List<String> list = FGFile.readFile("/MyFile.txt");
             String value_0 = list.get(0);
             Toast.makeText(this, "Jumlah baris : "+list.size() , Toast.LENGTH_SHORT).show();
 
@@ -341,12 +341,12 @@ public class MainActivity extends AppCompatActivity {
         //   /storage/emulated/0/MyLibsTesting/MyFile.txt
         String fileName = "/MyFile.txt";
         String saveTo = "/";
-        if(FunctionGlobalFile.initFile(fileName, saveTo,data)){
+        if(FGFile.initFile(fileName, saveTo,data)){
             Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
            
             //READ MyFile.txt
             //   /storage/emulated/0/MyLibsTesting/MyFile.txt
-            List<String> list = FunctionGlobalFile.readFile("/MyFile.txt");
+            List<String> list = FGFile.readFile("/MyFile.txt");
             
             String value_0 = list.get(0);
             
@@ -363,7 +363,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-  - Pastikan file `MyFile.txt` sudah dibuat dengan perintah `FunctionGlobalFile.initFile(path,saveTo,data)`.
+  - Pastikan file `MyFile.txt` sudah dibuat dengan perintah `FGFile.initFile(path,saveTo,data)`.
 
 #
 **Step 8. AppentText**
@@ -394,11 +394,11 @@ public class MainActivity extends AppCompatActivity {
         //   /storage/emulated/0/MyLibsTesting/MyFile.txt
         String fileName = "/MyFile.txt";
         String saveTo = "/";
-        if(FunctionGlobalFile.initFile(fileName, saveTo,data)){
+        if(FGFile.initFile(fileName, saveTo,data)){
             Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
 
             String path = "/MyFile.txt";
-            List<String> list = FunctionGlobalFile.readFile(path);
+            List<String> list = FGFile.readFile(path);
             Toast.makeText(this, "Jumlah baris sebelum ditambahkan: "+list.size() , Toast.LENGTH_SHORT).show();
             
             //tambahkan fuction ini untuk menambahkan text pada file yang sudah dibuat
@@ -412,14 +412,14 @@ public class MainActivity extends AppCompatActivity {
     private void onAppentText() {
         //   /storage/emulated/0/MyLibsTesting/MyFile.txt
         String path = "/MyFile.txt";
-        if (FunctionGlobalDir.isFileExists(path)){
+        if (FGDir.isFileExists(path)){
             String[] messages = {"Pesan ini akan ditambahkan ke file di line baru 1","Pesan ini akan ditambahkan ke file di line baru 2"};
 
             //function untuk menambah text ke file yang sudah dibuat sebelumnya
-            if(FunctionGlobalFile.appentText(path, messages)){
+            if(FGFile.appentText(path, messages)){
                 Toast.makeText(this, "Line baru ditambah ke file", Toast.LENGTH_SHORT).show();
 
-                List<String> list = FunctionGlobalFile.readFile(path);
+                List<String> list = FGFile.readFile(path);
                 Toast.makeText(this, "Jumlah baris setelah ditambahkan: "+list.size() , Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Ada error ketika add pesan", Toast.LENGTH_SHORT).show();
@@ -497,7 +497,7 @@ public class MainActivity extends AppCompatActivity {
 
         //decode string menjadi file dan extrack ke tujuan zipLocation
         //   /storage/emulated/0/MyLibsTesting/zipLocation
-        if (FunctionGlobalZip.initFileFromStringToZipToFile(fileName, zipLocation ,base64EncodeFromFile,md5EncodeFromFile, true)){
+        if (FGZip.initFileFromStringToZipToFile(fileName, zipLocation ,base64EncodeFromFile,md5EncodeFromFile, true)){
             Toast.makeText(this, "Success load data", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Gagal load data", Toast.LENGTH_SHORT).show();
@@ -698,7 +698,7 @@ public class MainActivity extends AppCompatActivity {
             File photoFile = null;
             try {
                 String fileName = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-                photoFile = FunctionGlobalFile.createImageFile(getApplicationContext(), fileName);
+                photoFile = FGFile.createImageFile(getApplicationContext(), fileName);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
@@ -807,7 +807,7 @@ public class MainActivity extends AppCompatActivity {
             if (requestCode == REQUEST_GALLERY_PHOTO) {
                 Uri selectedImage = data.getData();
                 try {
-                    mPhotoFile = mCompressor.compressToFile(new File(FunctionGlobalFile.getRealPathFromUri(getApplicationContext(),selectedImage)));
+                    mPhotoFile = mCompressor.compressToFile(new File(FGFile.getRealPathFromUri(getApplicationContext(),selectedImage)));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -892,9 +892,9 @@ public class MainActivity extends AppCompatActivity {
 
         //pilih 1 atau 2
         //1. jika isNew true maka file lama akan dihapus dan diganti dengan yang baru.
-        FunctionGlobalFile.initFileImageFromInternet(imgUrl, saveTo, fileName, imageView, true);
+        FGFile.initFileImageFromInternet(imgUrl, saveTo, fileName, imageView, true);
         //2. jika isNew false maka akan otomatis load file dan disimpan, tapi jika file belum ada, maka akan tetap didownload.
-        FunctionGlobalFile.initFileImageFromInternet(imgUrl, saveTo, fileName, imageView, false);
+        FGFile.initFileImageFromInternet(imgUrl, saveTo, fileName, imageView, false);
     }
     
     ...

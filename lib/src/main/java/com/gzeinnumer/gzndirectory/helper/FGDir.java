@@ -5,7 +5,7 @@ import android.util.Log;
 
 import java.io.File;
 
-public class FunctionGlobalDir {
+public class FGDir {
 
     public final static String getStorageCard = Environment.getExternalStorageDirectory().toString();
     public static String appFolder = "";
@@ -26,7 +26,7 @@ public class FunctionGlobalDir {
         if (!appFolder.substring(0, 1).equals("/")) {
             appFolder = "/" + appFolder;
         }
-        FunctionGlobalDir.appFolder = appFolder;
+        FGDir.appFolder = appFolder;
     }
 
     public static boolean initFolder(String... folderName) {
