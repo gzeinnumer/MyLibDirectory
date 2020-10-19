@@ -14,39 +14,52 @@
 
 ---
 
+## Download
+
+Minimum Android SDK Version 16
+
+#### Gradle
+**Step 1.** tambahkan maven jitpack.io ke build.gradle (Project) :
+
+```gradle
+allprojects {
+  repositories {
+    google()
+    jcenter()
+    maven { url 'https://jitpack.io' }
+  }
+}
+```
+
+**Step 2.** tambahkan dependensi ke build.gradle (Module) :
+
+```gradle
+dependencies {
+  implementation 'com.github.gzeinnumer:MyLibDirectory:versi'
+}
+```
+
+---
+
 ### Feature List
-- [x] [Function Global Directory](#function-global-directory)
+- [x] [Function Global Directory](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md)
   - Contoh Multi Check Permissions
   - Manifest
   - DEBUG
   - Step 1. Create Folder
-- [x] [Function Global File](#function-global-directory)
+- [x] [Function Global File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md)
   - Step 4. Create File
   - Step 6. Read File
   - Step 8. AppentText
-- [x] [Function Global Zip](#function-global-zip)
+- [x] [Function Global Zip](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_3.md)
   - Step 10. Encode Base64/Md5 to Zip
-- [x] [Function Global Image Camera](#function-global-image-camera)
+- [x] [Function Global Image Camera](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_4.md)
   - Step 12. Take Image From Camera And Compress
-- [x] [Function Global Image Galery](#function-global-image-galery)
+- [x] [Function Global Image Galery](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_5.md)
   - Step 19. Take Image From Galery
-- [x] [Function Global Image Internet](#function-global-image-internet)
+- [x] [Function Global Image Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_6.md)
   - Step 23. Load Image From Internet and Save
 - [x] Cek file exists
-
-### Tech stack and 3rd library
-- MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition))
-- Androidwave ([docs](https://androidwave.com/))
-- Glide ([docs](https://github.com/bumptech/glide))
-- Picasso ([docs](https://github.com/square/picasso))
-- Permissions ([docs](https://developer.android.com/guide/topics/permissions/overview))
-- File ([docs](https://developer.android.com/reference/java/io/File))
-- File Provider ([docs](https://developer.android.com/training/secure-file-sharing/setup-sharing?hl=id))
-- Mengambil Foto ([docs](https://developer.android.com/training/camera/photobasics?hl=id))
-- Intent Galery ([docs](https://developer.android.com/guide/components/intents-common?hl=id))
-- Android Internet ([docs](https://developer.android.com/training/basics/network-ops/connecting))
-- RxJava/RxAndroid ([docs](https://github.com/ReactiveX/RxJava))
-- Dexter ([docs](https://github.com/Karumi/Dexter))
 
 ### Function Global Directory
 > Example : FGDir.initExternalDirectoryName(valueString);
@@ -76,41 +89,20 @@
 |:--------------------------------|:----------|:------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|
 | `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` | Mendecode String Base64 hingga menjadi file Zip mengekstraknya serta meletakan hasil ektrack ke direktory yang dituju |
 
----
 
-## Download
-
-Minimum Android SDK Version 16
-
-#### Gradle
-**Step 1.** tambahkan maven jitpack.io ke build.gradle (Project) :
-
-```gradle
-allprojects {
-  repositories {
-    google()
-    jcenter()
-    maven { url 'https://jitpack.io' }
-  }
-}
-```
-
-**Step 2.** tambahkan dependensi ke build.gradle (Module) :
-
-```gradle
-dependencies {
-  implementation 'com.github.gzeinnumer:MyLibDirectory:versi'
-}
-```
-
----
-
-[**Function Global Directory**](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md)
-[**Function Global File**](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md)
-[**Function Global Zip**](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_3.md)
-[**Function Global Image Camera**](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_4.md)
-[**Function Global Image Galery**](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_5.md)
-[**Function Global Image Internet**](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_6.md)
+### Tech stack and 3rd library
+- MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition))
+- Androidwave ([docs](https://androidwave.com/))
+- Glide ([docs](https://github.com/bumptech/glide))
+- Picasso ([docs](https://github.com/square/picasso))
+- Permissions ([docs](https://developer.android.com/guide/topics/permissions/overview))
+- File ([docs](https://developer.android.com/reference/java/io/File))
+- File Provider ([docs](https://developer.android.com/training/secure-file-sharing/setup-sharing?hl=id))
+- Mengambil Foto ([docs](https://developer.android.com/training/camera/photobasics?hl=id))
+- Intent Galery ([docs](https://developer.android.com/guide/components/intents-common?hl=id))
+- Android Internet ([docs](https://developer.android.com/training/basics/network-ops/connecting))
+- RxJava/RxAndroid ([docs](https://github.com/ReactiveX/RxJava))
+- Dexter ([docs](https://github.com/Karumi/Dexter))
 
 ---
 
