@@ -97,9 +97,7 @@ public class MainActivity extends AppCompatActivity {
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/EncodeBase64Md5toZip/MainActivity.java)
 
 Preview :
-|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example7.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example8.jpg)|
-|--|--|--|  
-|Folder `MyLibsTesting` sudah dibuat|`ExternalBase64Md5ToZip.zip` yang
-berada didalam `MyLibsTesting` sudah dibuat dari string
-Base64|`ExernalBase64Md5ToZip.db` adalah file hasil extract dari file
-`ExternalBase64Md5ToZip.zip`|
+
+| ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example7.jpg)                | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example8.jpg)          |
+|:----------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------|
+| Folder `MyLibsTesting` sudah dibuat                                               | `ExternalBase64Md5ToZip.zip` yang berada didalam `MyLibsTesting` sudah dibuat dari string Base64 | `ExernalBase64Md5ToZip.db` adalah file hasilextract dari file `ExternalBase64Md5ToZip.zip` |
