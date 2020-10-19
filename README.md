@@ -5,11 +5,11 @@
 <div align="center">
     <a><img src="https://img.shields.io/badge/Version-1.3.9-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
-    <a href="https://github.com/gzeinnumer"><img src="https://img.shields.io/github/followers/gzeinnumer?label=follow&style=social"></a>
-    <br>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
-    <p>Kumpulan function untuk membuat folder dan file yang sering dipakai dalam development program android, dokumen ini dibuat berdasarkan pengalaman Zein, kasih masukan kalau ada yang kurang. terimakasih karna sudah berkunjung</p>
+    <a href="https://github.com/gzeinnumer"><img src="https://img.shields.io/github/followers/gzeinnumer?label=follow&style=social"></a>
+    <br>
+    <p>Simple way to make `Directory`, `File`, and `Zip`.</p>
 </div>
 
 ---
@@ -45,19 +45,19 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 
 ### Feature List
 - [x] [Function Global Directory](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_1.md)
-  - [Create Folder](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_1.md#create-folder)
+  - Create Folder
 - [x] [Function Global File](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_2.md)
-  - Step 4. Create File
-  - Step 6. Read File
-  - Step 8. AppentText
+  - Create File
+  - Read File
+  - AppentText
 - [x] [Function Global Zip](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_3.md)
-  - Step 10. Encode Base64/Md5 to Zip
+  - Encode Base64/Md5 to Zip
 - [x] [Function Global Image Camera](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_4.md)
-  - Step 12. Take Image From Camera And Compress
+  - Take Image From Camera And Compress
 - [x] [Function Global Image Galery](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_5.md)
-  - Step 19. Take Image From Galery
+  - Take Image From Galery
 - [x] [Function Global Image Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_6.md)
-  - Step 23. Load Image From Internet and Save
+  - Load Image From Internet and Save
 - [x] Cek file exists
 
 ### Function Global Directory
