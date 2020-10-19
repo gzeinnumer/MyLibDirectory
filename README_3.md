@@ -9,7 +9,7 @@
 |:--------------------------------|:----------|:------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|
 | `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` | Mendecode String Base64 hingga menjadi file Zip mengekstraknya serta meletakan hasil ektrack ke direktory yang dituju |
 
-#
+---
 ### Base64 To Zip
 #### Step 1. Enable Fitur.
 Add 2 code on your `onCreate`. you need to declaration `Folder Name` that you will use as you Folder Name in external. Now i am ussing `MyLibsTesting`.
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
   - I suggest you to declaration `Folder Name` first, just **One Time** in your first activity inside function `onCreate`. example `SplashScreenActivity` or `MainActivity`.
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
+#
 #### Step 2. Make Zip
 **String Base64 ke Zip.** we will make file zip from Base64 dan extract
 it to your folder fast and simple :

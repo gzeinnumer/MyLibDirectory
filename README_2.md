@@ -14,7 +14,7 @@
 | `createImageFile`           | `File`    | `Context context, String fileName`                                                    | Untuk menyimpan data secara temporary sebelum di copy ke tujuan yang sudah diset                                 |
 | `getRealPathFromUri`        | `String`  | `Context context, Uri contentUri`                                                     | Untuk mendapatkan nama asli dari file yang dipilih                                                               |
 
-#
+---
 ### Create File
 **CRUD File.** now we will make `Directory` and `File` with simple and fast :
 
@@ -84,7 +84,7 @@ Preview :
 |--|--|--|
 |Folder `MyLibsTesting` created|`MyFile.txt` inside `MyLibsTesting` created|`MyFile.txt`|
 
-#
+---
 #### Step 4. Read File
 You can read the file that you created, here is the code.
 
@@ -116,13 +116,14 @@ public class MainActivity extends AppCompatActivity {
 #### Step 5.
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/ReadFile/MainActivity.java)
 
-#
+---
 #### Step 6. AppentText
 Run function `onSuccessCheckPermitions` inside
 `onRequestPermissionsResult` to add new line string in file or `appent
 text`, parameters that you need to declaration:
 
-1. `onSuccessCheckPermitions` same like **Step 7**, add function `onAppentText` to excecute the process.
+1. `onSuccessCheckPermitions` same like **Step 2**, add function
+   `onAppentText` to excecute the process.
 2. `onAppentText`->`String path` path file that you want to add new value in new line.
 3. `messages` put your value here.
 
