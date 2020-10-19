@@ -50,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
     ...
 
     private void onSuccessCheckPermitions() {
-        //   /storage/emulated/0/MyLibsTesting/folder1
-        //   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
-        //   /storage/emulated/0/MyLibsTesting/folder2
+        // /storage/emulated/0/MyLibsTesting/folder1
+        // /storage/emulated/0/MyLibsTesting/folder1/folder1_1
+        // /storage/emulated/0/MyLibsTesting/folder2
         
-//        String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
+        // String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
         String[] folders = new String[]{"/folder1","/folder1/folder1_1","/folder2"};
         
         if (FGDir.initFolder(folders)){
@@ -81,7 +81,7 @@ Result will be like this
 
 #
 #### Step 3.
-([FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFolder/MainActivity.java)).
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFolder/MainActivity.java).
 
 Preview :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
