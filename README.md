@@ -19,7 +19,7 @@
 Minimum Android SDK Version 16
 
 #### Gradle
-**Step 1.** tambahkan maven jitpack.io ke build.gradle (Project) :
+**Step 1.** add maven `jitpack.io` to `build.gradle` (Project) :
 
 ```gradle
 allprojects {
@@ -31,7 +31,7 @@ allprojects {
 }
 ```
 
-**Step 2.** tambahkan dependensi ke build.gradle (Module) :
+**Step 2.** add dependensi to `build.gradle` (Module) :
 
 ```gradle
 dependencies {
@@ -63,30 +63,30 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 ### Function Global Directory
 > Example : FGDir.initExternalDirectoryName(valueString);
 
-| Name                        | Return    | Parameter              | Keterangan                                                                               |
-|:----------------------------|:----------|:-----------------------|:-----------------------------------------------------------------------------------------|
-| `initExternalDirectoryName` | `void`    | `String appFolder`     | Function untuk mendeklarasi folder nama yang akan dibuat di external                     |
-| `initFolder`                | `boolean` | `String... folderName` | Membuat folder pada direktori yang sudah dideklarasi di atas `initExternalDirectoryName` |
-| `isFileExists`              | `boolean` | `String path`          | untuk mengecek apakah File/Folder sudah ada atau belum                                   |
+| Name                        | Return    | Parameter              | Keterangan                                           |
+|:----------------------------|:----------|:-----------------------|:-----------------------------------------------------|
+| `initExternalDirectoryName` | `void`    | `String appFolder`     | Function to declare your own app folder on external  |
+| `initFolder`                | `boolean` | `String... folderName` | Make folder in own app folder in external            |
+| `isFileExists`              | `boolean` | `String path`          | To check is `directory` or `file` has created or not |
 
 ### Function Global File
 > Example : FGFile.readFile(valueString);
 
-| Name                        | Return    | Parameter                                                                             | Keterangan                                                                                                       |
-|:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|
-| `initFile`                  | `boolean` | `String fileName, String saveTo, String... text`                                      | Untuk membuat file baru lansung dengan text yang akan dimasukan ke file, seperti `MyFile.txt`                    |
-| `readFile`                  | `boolean` | `String path`                                                                         | Untuk membaca isi dari file text yang sudah dibuat, pastikan file sudah dibuat terlebih dahulu dengan `initFile` |
-| `appentText`                | `boolean` | `String path, String... msg`                                                          | Untuk menambah new line text ke file txt yang sudah dibuat sebelumnya dengan `initFile`                          |
-| `initFileImageFromInternet` | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | Untuk mendownload image dari internet dan menyimpannya ke penyimpanan                                            |
-| `createImageFile`           | `File`    | `Context context, String fileName`                                                    | Untuk menyimpan data secara temporary sebelum di copy ke tujuan yang sudah diset                                 |
-| `getRealPathFromUri`        | `String`  | `Context context, Uri contentUri`                                                     | Untuk mendapatkan nama asli dari file yang dipilih                                                               |
+| Name                        | Return    | Parameter                                                                             | Keterangan                                                               |
+|:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| `initFile`                  | `boolean` | `String fileName, String saveTo, String... text`                                      | To make file `MyFile.txt` and put value to it                            |
+| `readFile`                  | `boolean` | `String path`                                                                         | To read value from file txt                                              |
+| `appentText`                | `boolean` | `String path, String... msg`                                                          | Add new line to existing file                                            |
+| `initFileImageFromInternet` | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | To download image and save to external                                   |
+| `createImageFile`           | `File`    | `Context context, String fileName`                                                    | To save file image as temporary file before save to your external folder |
+| `getRealPathFromUri`        | `String`  | `Context context, Uri contentUri`                                                     | Get name of file from path/url                                           |
 
 ### Function Global Zip
 > Example : FGZip.initFileFromStringToZipToFile(valueString, valueString, valueString, valueString, valueBoolean);
 
-| Name                            | Return    | Parameter                                                                                                   | Keterangan                                                                                                            |
-|:--------------------------------|:----------|:------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|
-| `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` | Mendecode String Base64 hingga menjadi file Zip mengekstraknya serta meletakan hasil ektrack ke direktory yang dituju |
+| Name                            | Return    | Parameter                                                                                                   | Keterangan                                                          |
+|:--------------------------------|:----------|:------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------|
+| `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` | Make file ZIP from Base64 and extract it to your destination folder |
 
 ---
 
@@ -109,6 +109,10 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 - Android Internet ([docs](https://developer.android.com/training/basics/network-ops/connecting))
 - RxJava/RxAndroid ([docs](https://github.com/ReactiveX/RxJava))
 - Dexter ([docs](https://github.com/Karumi/Dexter))
+
+---
+
+FullCode from all fitur ([example](https://github.com/gzeinnumer/MyLibDirectoryExample)).
 
 ---
 

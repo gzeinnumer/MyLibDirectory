@@ -2,12 +2,14 @@
     MyLibDirectory - Function Global Zip
 </h1>
 
+**String Base64 ke Zip.** we will make file zip from Base64 dan extract it to your folder fast and simple.
+#
 ### Function Global Zip
 > Example : FGZip.initFileFromStringToZipToFile(valueString, valueString, valueString, valueString, valueBoolean);
 
-| Name                            | Return    | Parameter                                                                                                   | Keterangan                                                                                                            |
-|:--------------------------------|:----------|:------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|
-| `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` | Mendecode String Base64 hingga menjadi file Zip mengekstraknya serta meletakan hasil ektrack ke direktory yang dituju |
+| Name                            | Return    | Parameter                                                                                                   | Keterangan                                                          |
+|:--------------------------------|:----------|:------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------|
+| `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` | Make file ZIP from Base64 and extract it to your destination folder |
 
 ---
 ### Base64 To Zip
@@ -40,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
 #
 #### Step 2. Make Zip
-**String Base64 ke Zip.** we will make file zip from Base64 dan extract
-it to your folder fast and simple.
 
 **Encode Base64/Md5 to Zip** Run function `onSuccessCheckPermitions` di
 dalam `onRequestPermissionsResult`, make sure you have grant permission,
@@ -51,7 +51,7 @@ declaration variable :
 3. `md5EncodeFromFile` ZIP to Md5 to validate Base64 not corrupt.
 4. `zipLocation` you extract will be in this folder.
 
-now excecure the code :
+Now execute the code :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -96,6 +96,6 @@ public class MainActivity extends AppCompatActivity {
 #### Step 3.
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/EncodeBase64Md5toZip/MainActivity.java) Preview :
 
-| ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example7.jpg)                | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example8.jpg)          |
-|:----------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------|
-| Folder `MyLibsTesting` sudah dibuat                                               | `ExternalBase64Md5ToZip.zip` yang berada didalam `MyLibsTesting` sudah dibuat dari string Base64 | `ExernalBase64Md5ToZip.db` adalah file hasilextract dari file `ExternalBase64Md5ToZip.zip` |
+| ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example7.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example8.jpg)          |
+|:----------------------------------------------------------------------------------|:----------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------|
+| Folder `MyLibsTesting` created                                                    | `ExternalBase64Md5ToZip.zip` inside `MyLibsTesting` created from String Base64    | `ExernalBase64Md5ToZip.db` is the result of extract from file `ExternalBase64Md5ToZip.zip` |

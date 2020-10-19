@@ -2,9 +2,20 @@
     MyLibDirectory - Function Global Image Internet
 </h1>
 
-## Function Global Image Internet
-**Download and Save** Disini kita akan membuat function yang akan mendownload gambar dan menyimpannya ke folder tujuan.
+**Download and Save** download image and save it to directory that you want.
 
+#
+### Function Global File
+> Example : FGFile.readFile(valueString);
+
+| Name                        | Return    | Parameter                                                                             | Keterangan                                                               |
+|:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| `initFileImageFromInternet` | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | To download image and save to external                                   |
+| `createImageFile`           | `File`    | `Context context, String fileName`                                                    | To save file image as temporary file before save to your external folder |
+| `getRealPathFromUri`        | `String`  | `Context context, Uri contentUri`                                                     | Get name of file from path/url                                           |
+
+---
+## Function Global Image Internet
 #### Step 1. Enable Fitur.
 Add 2 code on your `onCreate`. you need to declaration `Folder Name`
 that you will use as you Folder Name in external. Now i am ussing
@@ -33,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
 **notes.**
   - I suggest you to declaration `Folder Name` first, just **One Time** in your first activity inside function `onCreate`. example `SplashScreenActivity` or `MainActivity`.
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
-
 
 #
 #### Step 2. Take Image From Camera And Compress
@@ -84,15 +94,12 @@ Make View on `xml`
 
 #
 #### Step 4. Load Image From Internet and Save
-Membuat function `onSuccessCheckPermitions` disini kita akan mendeklarasikan :
-1. `imgUrl` adalah link image.
-2. `saveTo` lokasi foto akan disimpan.
+Make function `onSuccessCheckPermitions` you need to declare :
 
-Jika 2 hal tersebut sudah dideklarasi, maka silahkan gunakan function
-seperti dibawah. Pada function `onSuccessCheckPermitions` kita bisa
-mendowload gambar dari internet dan menyimpannya ke direktori yang kita
-mau, dan jika image sudah didownload, maka image tidak akan di download
-lagi.
+1. `imgUrl` is link image.
+2. `saveTo` your foto will save in this folder.
+
+Now execute the code :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -130,10 +137,5 @@ public class MainActivity extends AppCompatActivity {
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example23.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example24.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example25.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example26.jpg)|
 |--|--|--|--|
-|Request Permition|Gambar berhasil didownload|Folder `Foto_Download` sudah dibuat|Folder `file name.jpg` sudah didownload dan disimpan|
+|Request Permision|Success download image|Folder `Foto_Download` created|Folder `file name.jpg` has downloaded and save|
 
----
-
-FullCode dari Step 1 - Step 24 dapat dilihat disini ([example](https://github.com/gzeinnumer/MyLibDirectoryExample)).
-
----

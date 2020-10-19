@@ -2,12 +2,20 @@
     MyLibDirectory - Function Global Image Galery
 </h1>
 
-### Image Galery
-**Mengambil foto dari galery.** Disini kita akan mencoba mengambil foto
-dari galery, lalu mengcomress dengan mempertahankan kualitasnya lalu
-menyimpannya ke folder aplikasi yang sudah kita buar sebelumnya , dengan
-cepat dan mudah :
+**Take foto from galery.** Take foto from galery and save it with small size and keep it HD.
 
+#
+### Function Global File
+> Example : FGFile.readFile(valueString);
+
+| Name                        | Return    | Parameter                                                                             | Keterangan                                                               |
+|:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| `initFileImageFromInternet` | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | To download image and save to external                                   |
+| `createImageFile`           | `File`    | `Context context, String fileName`                                                    | To save file image as temporary file before save to your external folder |
+| `getRealPathFromUri`        | `String`  | `Context context, Uri contentUri`                                                     | Get name of file from path/url                                           |
+
+---
+### Image Galery
 #### Step 1. Enable Fitur.
 Add 2 code on your `onCreate`. you need to declaration `Folder Name`
 that you will use as you Folder Name in external. Now i am ussing
@@ -68,8 +76,7 @@ Make View on `xml`
         android:src="@mipmap/ic_launcher" />
 </LinearLayout>
 ```
-
-
+#
 #### Step 3. Take Image From Galery
 
 **MainActivity.java**
@@ -133,13 +140,14 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+#
 #### Step 4.
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromGalery/MainActivity.java) Preview :
 
 | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example17.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example18.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example19.jpg) |
 |:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
-| Tampilan awal, tekan Button untuk membuka galery                                   | Pilih media                                                                        | Pilih foto                                                                         |
+| First Preview                                                                      | Choise media                                                                       | Pick foto                                                                          |
 
 | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example20.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example13.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example21.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example22.jpg) |
 |:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
-| Preview foto                                                                       | Folder foto otomatis terbuat                                                       | Foto sudah ada pada directory yang sudah diset                                     | Detail pada galery                                                                 |
+| Preview foto                                                                       | Folder `foto` has created                                                          | Foto inside directory that you set before                                          | Detail image on galery                                                             |

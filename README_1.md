@@ -2,21 +2,21 @@
     MyLibDirectory - Function Global Directory
 </h1>
 
-**CRUD File.** now we will make `Directory` and `File` with simple and fast.
+**CRUD Directory.** now we will make `Directory` with simple and fast.
 #
 ### Function Global Directory
 > Example : FGDir.initExternalDirectoryName(valueString);
 
-| Name                        | Return    | Parameter              | Keterangan                                                                               |
-|:----------------------------|:----------|:-----------------------|:-----------------------------------------------------------------------------------------|
-| `initExternalDirectoryName` | `void`    | `String appFolder`     | Function untuk mendeklarasi folder nama yang akan dibuat di external                     |
-| `initFolder`                | `boolean` | `String... folderName` | Membuat folder pada direktori yang sudah dideklarasi di atas `initExternalDirectoryName` |
-| `isFileExists`              | `boolean` | `String path`          | untuk mengecek apakah File/Folder sudah ada atau belum                                   |
+| Name                        | Return    | Parameter              | Keterangan                                           |
+|:----------------------------|:----------|:-----------------------|:-----------------------------------------------------|
+| `initExternalDirectoryName` | `void`    | `String appFolder`     | Function to declare your own app folder on external  |
+| `initFolder`                | `boolean` | `String... folderName` | Make folder in own app folder in external            |
+| `isFileExists`              | `boolean` | `String path`          | To check is `directory` or `file` has created or not |
 
 ---
 ### Create Folder
 #### Step 1. Enable Fitur.
-Add 2 code on your `onCreate`. you need to declaration `Folder Name` that you will use as you Folder Name in external. Now i am ussing `MyLibsTesting`.
+Add 2 code on your `onCreate`. you need to declaration `Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
 
 ```java
 public class MainActivity extends AppCompatActivity {

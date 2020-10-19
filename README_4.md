@@ -2,14 +2,23 @@
     MyLibDirectory - Function Global Image Camera
 </h1>
 
-### Image Camera
-**Mengambil foto dengan camera.** Disini kita akan mencoba membuat file
-image yang kita ambil dari camera dengan mempertahankan kualitas gambar
-dan menyimpannya lansung ke external, dengan cepat dan mudah :
+**Take Foto with Camera.** Take foto with camera and save it with small size and keep it HD.
 
+#
+### Function Global File
+> Example : FGFile.readFile(valueString);
+
+| Name                        | Return    | Parameter                                                                             | Keterangan                                                               |
+|:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| `initFileImageFromInternet` | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | To download image and save to external                                   |
+| `createImageFile`           | `File`    | `Context context, String fileName`                                                    | To save file image as temporary file before save to your external folder |
+| `getRealPathFromUri`        | `String`  | `Context context, Uri contentUri`                                                     | Get name of file from path/url                                           |
+
+---
+### Image Camera
 #### Step 1. Enable Fitur.
 Add 2 code on your `onCreate`. you need to declaration `Folder Name`
-that you will use as you Folder Name in external. Now i am ussing
+that you will use as you Folder Name in external. Now i am using
 `MyLibsTesting`.
 
 ```java
@@ -233,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example10.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example11.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example12.jpg)|
 |--|--|--|
-|Tampilan awal, tekan Button untuk membuka kamera|Hasil foto yang diambil, tekan oke untuk lanjutkan|Akan muncul Toast untuk memberitahu lokasi foto disimpan|
+|First Preview|Foto Captured|Foto location on Toast|
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example13.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example14.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example16.jpg)|
-|folder `Foto` otomatis terbuat|File sudah tersimpan pada folder `Foto`|Detail pada galery|Ukuran foto kecil, tapi resolusi dipertahankan tetap besar|-|
+|folder `Foto` automatically created|Photo saved in folder `Foto`|Detail on galery|Small size but ke resolution|-|
 
