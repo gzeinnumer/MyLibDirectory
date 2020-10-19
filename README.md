@@ -3,13 +3,13 @@
 </h1>
 
 <div align="center">
-    <a><img src="https://img.shields.io/badge/Version-1.3.9-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.4.0-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
     <a href="https://github.com/gzeinnumer"><img src="https://img.shields.io/github/followers/gzeinnumer?label=follow&style=social"></a>
     <br>
-    <p>Simple way to make `Directory`, `File`, and `Zip`.</p>
+    <p>Simple way to make <b>Directory</b>, <b>File</b>, and <b>Zip</b>.</p>
 </div>
 
 ---
