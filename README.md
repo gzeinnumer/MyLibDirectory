@@ -106,16 +106,16 @@ dependencies {
 ---
 
 ## Function Global Directory
-This library need Permission you can use this step [MultiPermission](https://github.com/gzeinnumer/MultiPermition) or use your own.
+This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition) or use your own.
 
-**DEBUG.** If you find some troble you can trace with this step.
+**DEBUG.** If you find some trouble you can trace with this step.
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/debug.jpg)|
 |--|
 
 #
 **Step 1. Create Folder** 
 \
-If you have grand your permission, add 2 code on your `onCreate`. you need to declare `Folder Name` that you will use as you Folder Name in external. Now i am ussing 'MyLibsTesting'.
+If you have grand your permission, add 2 code on your `onCreate`. you need to declaration `Folder Name` that you will use as you Folder Name in external. Now i am ussing `MyLibsTesting`.
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -139,8 +139,9 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-  - I sugest you to decalre `Folder Name` first, just **One Time** in your first activity inside function `onCreate`. example `SplashScreenActivity` or `MainActivity`.
-  - In this tutorial, i wil put every file and folder in `/storage/emulated/0/MyLibsTesting`.
+  - I suggest you to decalre `Folder Name` first, just **One Time** in your first activity inside function `onCreate`. example `SplashScreenActivity` or `MainActivity`.
+  - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
+
 #
 **Step 2.**
 Run function `onSuccessCheckPermitions`  inside `onRequestPermissionsResult`. **Only Need 1 Time in FirstActivity**:
@@ -208,11 +209,10 @@ Preview :
 ---
 
 ## Function Global File
-This library need Permission you can use this step [MultiPermission](https://github.com/gzeinnumer/MultiPermition) or use your own.
+This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition) or use your own.
 
 **CRUD File.** now we will make `Directory` and `File` with simple and fast :
 
-#
 **Step 4. Create File**  
 If you has grand your permission, now run function `onSuccessCheckPermitions` inside `onRequestPermissionsResult` :
 
@@ -293,7 +293,7 @@ FullCode will be like this ([example](https://github.com/gzeinnumer/MyLibDirecto
 
 #
 **Step 8. AppentText**
-Run function `onSuccessCheckPermitions` inside `onRequestPermissionsResult` to add new line string in file or `appent text`, parameters that you need to declare:
+Run function `onSuccessCheckPermitions` inside `onRequestPermissionsResult` to add new line string in file or `appent text`, parameters that you need to declaration:
 
 1. `onSuccessCheckPermitions` same like **Step 7**, add function `onAppentText` to excecute the process.
 2. `onAppentText`->`String path` path file that you want to add new value in new line.
@@ -370,15 +370,14 @@ Preview :
 ---
 
 ## Function Global Zip
-This library need Permission you can use this step [MultiPermission](https://github.com/gzeinnumer/MultiPermition) or use your own.
+This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition) or use your own.
 
-**String Base64 ke Zip.** Disini kita akan mencoba membuat file Zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
 **String Base64 ke Zip.** we will make file zip from Base64 dan extract it to your folder fast and simple :
 
 #
 **Step 10. Encode Base64/Md5 to Zip**
 Run function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`, make sure you have grant permission,
-declare variable :
+declaration variable :
 1. `fileName` real file ZIP name.
 2. `base64EncodeFromFile` from ZIP to Base64.
 3. `md5EncodeFromFile` ZIP to Md5 to validate Base64 not corrupt.
