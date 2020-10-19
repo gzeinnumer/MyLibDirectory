@@ -2,6 +2,8 @@
     MyLibDirectory - Function Global File
 </h1>
 
+**CRUD File.** now we will make `Directory` and `File` with simple and fast.
+#
 ### Function Global File
 > Example : FGFile.readFile(valueString);
 
@@ -16,10 +18,8 @@
 
 ---
 ### Create File
-**CRUD File.** now we will make `Directory` and `File` with simple and fast :
-
 #### Step 1. Enable Fitur.
-Add 2 code on your `onCreate`. you need to declaration `Folder Name` that you will use as you Folder Name in external. Now i am ussing `MyLibsTesting`.
+Add 2 code on your `onCreate`. you need to declaration `Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -84,7 +84,7 @@ Preview :
 |--|--|--|
 |Folder `MyLibsTesting` created|`MyFile.txt` inside `MyLibsTesting` created|`MyFile.txt`|
 
----
+#
 #### Step 4. Read File
 You can read the file that you created, here is the code.
 
@@ -177,9 +177,8 @@ public class MainActivity extends AppCompatActivity {
 
 #
 #### Step 7.
-[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/AppentText/MainActivity.java)
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/AppentText/MainActivity.java) Preview :
 
-Preview :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example9.jpg)|
 |--|--|--|--|
 |Folder `MyLibsTesting` created|`MyFile.txt` inside `MyLibsTesting` has created|`MyFile.txt` before `appent text`|`MyFile.txt` after `appent text`|

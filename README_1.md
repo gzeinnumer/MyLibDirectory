@@ -2,6 +2,8 @@
     MyLibDirectory - Function Global Directory
 </h1>
 
+**CRUD File.** now we will make `Directory` and `File` with simple and fast.
+#
 ### Function Global Directory
 > Example : FGDir.initExternalDirectoryName(valueString);
 
@@ -83,9 +85,8 @@ Result will be like this
 
 #
 #### Step 3.
-[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFolder/MainActivity.java)
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFolder/MainActivity.java) Preview :
 
-Preview :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
 |--|--|--|--|
 |Request Permition |Folder MyLibsTesting created|`folder1` dan `folder2` created|`folder1_1` inside `folder1` has created|
