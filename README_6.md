@@ -1,32 +1,75 @@
 <h1 align="center">
-    MyLibDirectory - Function Global Directory
+    MyLibDirectory - Function Global Image Internet
 </h1>
 
-### Function Global Directory
-> Example : FGDir.initExternalDirectoryName(valueString);
-
-| Name                        | Return    | Parameter              | Keterangan                                                                               |
-|:----------------------------|:----------|:-----------------------|:-----------------------------------------------------------------------------------------|
-| `initExternalDirectoryName` | `void`    | `String appFolder`     | Function untuk mendeklarasi folder nama yang akan dibuat di external                     |
-| `initFolder`                | `boolean` | `String... folderName` | Membuat folder pada direktori yang sudah dideklarasi di atas `initExternalDirectoryName` |
-| `isFileExists`              | `boolean` | `String path`          | untuk mengecek apakah File/Folder sudah ada atau belum                                   |
-
----
-
 ## Function Global Image Internet
-**Step 21.**
-\
-**Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai**.
-\
-**Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
-\
 **Download and Save** Disini kita akan membuat function yang akan mendownload gambar dan menyimpannya ke folder tujuan.
 
-#
-**Step 22.**
-\
-**Manifest.** Tambahkan permition Internet ke file manifest untuk mengizinkan file didownload dari Intenet.
+#### Step 1. Enable Fitur.
+Add 2 code on your `onCreate`. you need to declaration `Folder Name`
+that you will use as you Folder Name in external. Now i am ussing
+`MyLibsTesting`.
 
+```java
+public class MainActivity extends AppCompatActivity {
+    
+    ...
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        //gunakan function ini cukup satu kali saja pada awal activity
+        String externalFolderName = getApplication().getString(R.string.app_name); //MyLibsTesting
+        FGDir.initExternalDirectoryName(externalFolderName);
+        
+        ...
+
+    }
+
+    ...
+}
+```
+**notes.**
+  - I suggest you to declaration `Folder Name` first, just **One Time** in your first activity inside function `onCreate`. example `SplashScreenActivity` or `MainActivity`.
+  - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
+
+
+#
+#### Step 2. Take Image From Camera And Compress
+Make View on `xml`
+
+**activity_main.xml**
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Take Foto From Camera" />
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/ic_launcher" />
+</LinearLayout>
+```
+
+#
+#### Step 3. Add Permission
+**manifest.xml**
 ```xml
 <manifest >
 
@@ -39,15 +82,17 @@
 </manifest>
 ```
 
-**Step 23. Load Image From Internet and Save**
-\
+#
+#### Step 4. Load Image From Internet and Save
 Membuat function `onSuccessCheckPermitions` disini kita akan mendeklarasikan :
 1. `imgUrl` adalah link image.
 2. `saveTo` lokasi foto akan disimpan.
 
-Jika 2 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah.
-\
-Pada function `onSuccessCheckPermitions` kita bisa mendowload gambar dari internet dan menyimpannya ke direktori yang kita mau, dan jika image sudah didownload, maka image tidak akan di download lagi.
+Jika 2 hal tersebut sudah dideklarasi, maka silahkan gunakan function
+seperti dibawah. Pada function `onSuccessCheckPermitions` kita bisa
+mendowload gambar dari internet dan menyimpannya ke direktori yang kita
+mau, dan jika image sudah didownload, maka image tidak akan di download
+lagi.
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -80,11 +125,10 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-**Step 24.**
-\
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/LoadImageFromInternetandSave/MainActivity.java)).
-\
-Jika sukses maka akan tampil seperti ini :
+#### Step 5. Load Image From Internet and Save
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/LoadImageFromInternetandSave/MainActivity.java)
+
+Preview :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example23.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example24.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example25.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example26.jpg)|
 |--|--|--|--|
