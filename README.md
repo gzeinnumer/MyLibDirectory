@@ -16,33 +16,22 @@
 
 ### Feature List
 - [x] [Function Global Directory](#function-global-directory)
-      \
-      - Contoh Multi Check Permissions
-      \
-      - Manifest
-      \
-      - DEBUG
-      \
-      - Step 1. Create Folder
+  - Contoh Multi Check Permissions
+  - Manifest
+  - DEBUG
+  - Step 1. Create Folder
 - [x] [Function Global File](#function-global-directory)
-      \
-      - Step 4. Create File
-      \
-      - Step 6. Read File
-      \
-      - Step 8. AppentText
-- [x] Function Global Zip
-      \
-      - Step 10. Encode Base64/Md5 to Zip
-- [x] Function Global Image Camera
-      \
-      - Step 12. Take Image From Camera And Compress
-- [x] Function Global Image Galery
-      \
-      - Step 19. Take Image From Galery
-- [x] Function Global Image Internet
-      \
-      - Step 23. Load Image From Internet and Save
+  - Step 4. Create File
+  - Step 6. Read File
+  - Step 8. AppentText
+- [x] [Function Global Zip](#function-global-zip)
+  - Step 10. Encode Base64/Md5 to Zip
+- [x] [Function Global Image Camera](#function-global-image-camera)
+  - Step 12. Take Image From Camera And Compress
+- [x] [Function Global Image Galery](#function-global-image-galery)
+  - Step 19. Take Image From Galery
+- [x] [Function Global Image Internet](#function-global-image-internet)
+  - Step 23. Load Image From Internet and Save
 - [x] Cek file exists
 
 ### Tech stack and 3rd library
@@ -117,21 +106,16 @@ dependencies {
 ---
 
 ## Function Global Directory
-**Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai**.
-\
-**Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
-\
-\
-**DEBUG.** Jika kamu menemukan masalah pada sistem, kamu bisa debug dengan cara seperti ini.
+This library need Permission you can use this step [MultiPermission](https://github.com/gzeinnumer/MultiPermition) or use your own.
+
+**DEBUG.** If you find some troble you can trace with this step.
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/debug.jpg)|
 |--|
 
 #
 **Step 1. Create Folder** 
 \
-Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)**
-
-Tambahkan 2 baris kode ini ke `onCreate`. Kamu harus mendeklarasi dulu `Folder Name` yang akan kamu pakai di external disini `Folder Name` Zein adalah `MyLibsTesting`:
+If you have grand your permission, add 2 code on your `onCreate`. you need to declare `Folder Name` that you will use as you Folder Name in external. Now i am ussing 'MyLibsTesting'.
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -155,13 +139,11 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-  - Zein sarankan untuk mendeklarasikan dulu `Folder Name`, cukup 1 kali saja di `onCreate` activity yang pertama kali dipanggil contohnya `SplashScreenActivity` atau `MainActivity`.
-  - Pada tutorial ini, variable `externalFolderName` akan berisi `MyLibsTesting`, semua file dan folder yang akan kita buat di bawah akan ada di dalam direktory atau path `/storage/emulated/0/MyLibsTesting`.
-
+  - I sugest you to decalre `Folder Name` first, just **One Time** in your first activity inside function `onCreate`. example `SplashScreenActivity` or `MainActivity`.
+  - In this tutorial, i wil put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 #
-**Step 2.** 
-\
-Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`. **Cukup 1 kali penggunaan saja di FirstActivity(Activity yang pertama berjalan)**:
+**Step 2.**
+Run function `onSuccessCheckPermitions`  inside `onRequestPermissionsResult`. **Only Need 1 Time in FirstActivity**:
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -186,9 +168,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**notes.** 
-  - Jika kamu mau membuat folder dalam folder, pastikan value variable `folders` diawali dengan folder parent nya dulu.
-  - **example.** kamu mau membuat folder `folder1` yang di isi folder `folder1_1`, pastikan kamu menulis dulu `folder1` baru setelahnya `folder1_1`. seperti di bawah.
+Result will be like this
 ```
 |-- external
     |-- MyLibsTesting
@@ -196,49 +176,45 @@ public class MainActivity extends AppCompatActivity {
             |-- folder1_1
         |-- folder2
 ```
-  - ada 3 cara penulisan yang bisa kamu pilih.
+3 way that you can use.
 
 ```java
 //   /storage/emulated/0/MyLibsTesting/folder1
 //   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
 //   /storage/emulated/0/MyLibsTesting/folder2
 
-// cara penulisan 1
+// 1
 String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
 FGDir.initFolder(folders);
 
-// cara penulisan 2
+// 2
 String[] folders = new String[]{"/folder1","/folder1/folder1_1","/folder2"};
 FGDir.initFolder(folders);
 
-// cara penulisan 3
+// 3
 FGDir.initFolder("/folder1","/folder1/folder1_1","/folder2");
 
 ```
 
 #
 **Step 3.**
-\
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFolder/MainActivity.java)).
-\
-Jika sukses maka akan tampil seperti ini :
+FullCode will be like this ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFolder/MainActivity.java)).
+
+Preview :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
 |--|--|--|--|
-|Request Permition |Folder MyLibsTesting sudah dibuat|`folder1` dan `folder2` sudah terbuat|`folder1_1` yang berada didalam `folder1` sudah dibuat|
+|Request Permition |Folder MyLibsTesting created|`folder1` dan `folder2` created|`folder1_1` inside `folder1` has created|
 
 ---
 
 ## Function Global File
-**Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai**.
-\
-**Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)**.
-\
-**CRUD File.** Disini kita akan mencoba membuat file dengan lebih simple dan cepat :
+This library need Permission you can use this step [MultiPermission](https://github.com/gzeinnumer/MultiPermition) or use your own.
+
+**CRUD File.** now we will make `Directory` and `File` with simple and fast :
 
 #
-**Step 4. Create File** 
-\
-Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult` :
+**Step 4. Create File**  
+If you has grand your permission, now run function `onSuccessCheckPermitions` inside `onRequestPermissionsResult` :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -246,6 +222,7 @@ public class MainActivity extends AppCompatActivity {
     ...
 
     private void onSuccessCheckPermitions() {
+        //String[] data = {"Hallo GZeinNumer Again", "File Creating","File Created"};
         String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
    
         //buat file dalam folder App
@@ -264,31 +241,20 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**notes.** 
-  - Pada code dibawah, kamu bisa membuat file baru dengan value yang sudah kamu set, file akan dibuat dan text akan dimasukan ke file dengan urutan sesuai index array di bawah.
-
-```java
-//cara 1
-String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
-//cara 2
-//String[] data = {"Hallo GZeinNumer Again", "File Creating","File Created"};
-```
-
 #
 **Step 5.** 
-\
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFile/MainActivity.java)).
-\
-Jika sukses maka akan tampil seperti ini :
+
+FullCode will be like this ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFile/MainActivity.java)).
+
+Preview :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|
 |--|--|--|
-|Folder MyLibsTesting sudah dibuat|`MyFile.txt` yang berada didalam MyLibsTesting sudah dibuat|Isi dari `MyFile.txt`|
+|Folder `MyLibsTesting` created|`MyFile.txt` inside `MyLibsTesting` created|`MyFile.txt`|
 
 #
 **Step 6. Read File**
-\
-Setelah file dibuat(Lanjutan dari **Step 4**), kita bisa membaca file dengan menambahkan code sebagai berikut :
+You can read the file that you created, here is the code.
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -320,66 +286,20 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**notes.** 
-  - Hasil akan barupa `List<String>`, dan kamu bisa ambil datanya sesuai index.
-
 #
 **Step 7.**
 \
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/ReadFile/MainActivity.java)).
-\
-Code akan tampak seperti ini :
-
-```java
-public class MainActivity extends AppCompatActivity {
-
-    ...
-
-    private void onSuccessCheckPermitions() {
-        String[] data = new String[]{"Hallo GZeinNumer Again", "File Creating","File Created"};
-        //Buat File
-        //   /storage/emulated/0/MyLibsTesting/MyFile.txt
-        String fileName = "/MyFile.txt";
-        String saveTo = "/";
-        if(FGFile.initFile(fileName, saveTo,data)){
-            Toast.makeText(this, "File berhasil dibuat", Toast.LENGTH_SHORT).show();
-           
-            //READ MyFile.txt
-            //   /storage/emulated/0/MyLibsTesting/MyFile.txt
-            List<String> list = FGFile.readFile("/MyFile.txt");
-            
-            String value_0 = list.get(0);
-            
-            Toast.makeText(this, "Jumlah baris : "+list.size() , Toast.LENGTH_SHORT).show();
-
-        } else {
-            Toast.makeText(this, "File gagal dibuat", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    ...
-
-}
-```
-
-**notes.** 
-  - Pastikan file `MyFile.txt` sudah dibuat dengan perintah `FGFile.initFile(path,saveTo,data)`.
+FullCode will be like this ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/ReadFile/MainActivity.java)).
 
 #
 **Step 8. AppentText**
-\
-Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`:
-\
-\
-Pada function `onSuccessCheckPermitions` kita bisa membuat file text dan menambahkan text setelah file itu dibuat, atau bisa disebut `appentText` : 
-\
-disini kita akan menggunakan :
+Run function `onSuccessCheckPermitions` inside `onRequestPermissionsResult` to add new line string in file or `appent text`, parameters that you need to declare:
 
-1. `onSuccessCheckPermitions` itu adalah function yang sama dengan yang ada di **Step 7**, tambahkan function `onAppentText` untuk menambahkan jumlah text dalam file. 
-2. `onAppentText`->`String path` adalah path dari lokasi file sebelumnya yang sudah kita buat pada point No 1.
-3. `messages` pada variable ini kamu bisa masukan text yang mau kamu kirim ke file, text akan ditambahkan sesuai index.
+1. `onSuccessCheckPermitions` same like **Step 7**, add function `onAppentText` to excecute the process.
+2. `onAppentText`->`String path` path file that you want to add new value in new line.
+3. `messages` put your value here, .
 
-Jika 3 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
+Now execute the code :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -435,42 +355,36 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 **notes.** 
-  - Pastikan file sudah dibuat, sesuai **Step 4**.
+  - Make sure you craeted file in **Step 4**.
   
 #
 **Step 9.**
-\
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/AppentText/MainActivity.java)).
-\
-Jika sukses maka akan tampil seperti ini :
+FullCode will be like this ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/AppentText/MainActivity.java)).
+
+Preview :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example9.jpg)|
 |--|--|--|--|
-|Folder `MyLibsTesting` sudah dibuat|`MyFile.txt` yang berada didalam `MyLibsTesting` sudah dibuat|`MyFile.txt` file dibuat dengan text yang sudah diset pertama kali|`MyFile.txt` new line ditambah ke file|
+|Folder `MyLibsTesting` created|`MyFile.txt` inside `MyLibsTesting` has created|`MyFile.txt` before `appent text`|`MyFile.txt` after `appent text`|
 
 ---
 
 ## Function Global Zip
-**Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai**.
-\
-**Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
-\
+This library need Permission you can use this step [MultiPermission](https://github.com/gzeinnumer/MultiPermition) or use your own.
+
 **String Base64 ke Zip.** Disini kita akan mencoba membuat file Zip dan lansung diextrack ke folder yang kira mau dengan cepat dan mudah :
+**String Base64 ke Zip.** we will make file zip from Base64 dan extract it to your folder fast and simple :
 
 #
 **Step 10. Encode Base64/Md5 to Zip**
-\
-Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`.
-\
-Pada function `onSuccessCheckPermitions` kita bisa membuat file zip dengan memastikan kalau permition sudah diberikan. 
-\
-disini kita akan mendeklarasikan :
-1. `fileName` untuk nama file sebelum diencode dengan Base64. 
-2. `base64EncodeFromFile` file zip yang sudah diencode jadi Base64.
-3. `md5EncodeFromFile` file zip yang sudah diencode jadi Md5 untuk memastikan Base64 tidak corrupt.
-4. `zipLocation` file zip yang diextract akan meletakan semua filenya ke direcotry yang dibuat disini.
+Run function `onSuccessCheckPermitions`  di dalam `onRequestPermissionsResult`, make sure you have grant permission,
+declare variable :
+1. `fileName` real file ZIP name.
+2. `base64EncodeFromFile` from ZIP to Base64.
+3. `md5EncodeFromFile` ZIP to Md5 to validate Base64 not corrupt.
+4. `zipLocation` you extract will be in this folder.
 
-Jika 4 hal tersebut sudah dideklarasi, maka silahkan gunakan function seperti dibawah :
+now excecure the code :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -509,8 +423,8 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**notes.** 
-  - Pastikan pada `fileName` adalah nama asli dari file yang sudah diencode dengan Base64 dan Md5, jika berbeda maka akan dapat lemparan error.
+**notes.**
+  - Make sure `fileName` is real name from file zip that you decode to Base64 and Md5.
 
 #
 **Step 11.**
