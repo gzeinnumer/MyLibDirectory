@@ -13,7 +13,7 @@
 
 #
 ### Create Folder
-- Enable fitur
+#### Step 1. Enable Fitur
 Add 2 code on your `onCreate`. you need to declaration `Folder Name` that you will use as you Folder Name in external. Now i am ussing `MyLibsTesting`.
 
 ```java
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
 #
-- Make foldet
+#### Step 2. Make Folder
 If you have granted your permission, Run function `onSuccessCheckPermitions` inside `onRequestPermissionsResult`. **Only Need 1 Time in FirstActivity**:
 
 ```java
@@ -53,7 +53,10 @@ public class MainActivity extends AppCompatActivity {
         //   /storage/emulated/0/MyLibsTesting/folder1
         //   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
         //   /storage/emulated/0/MyLibsTesting/folder2
+        
+//        String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
         String[] folders = new String[]{"/folder1","/folder1/folder1_1","/folder2"};
+        
         if (FGDir.initFolder(folders)){
             Toast.makeText(this, "Folder sudah dibuat dan ditemukan sudah bisa lanjut", Toast.LENGTH_SHORT).show();
         }
@@ -76,28 +79,9 @@ Result will be like this
         |-- folder2
 ```
 
-3 way that you can use.
-```java
-//   /storage/emulated/0/MyLibsTesting/folder1
-//   /storage/emulated/0/MyLibsTesting/folder1/folder1_1
-//   /storage/emulated/0/MyLibsTesting/folder2
-
-// 1
-String[] folders = {"/folder1","/folder1/folder1_1","/folder2"};
-FGDir.initFolder(folders);
-
-// 2
-String[] folders = new String[]{"/folder1","/folder1/folder1_1","/folder2"};
-FGDir.initFolder(folders);
-
-// 3
-FGDir.initFolder("/folder1","/folder1/folder1_1","/folder2");
-
-```
-
 #
-**Step 3.**
-FullCode will be like this ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFolder/MainActivity.java)).
+#### Step 3.
+([FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFolder/MainActivity.java)).
 
 Preview :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
