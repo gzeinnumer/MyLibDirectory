@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 #
 #### Step 2. Make Zip
 **String Base64 ke Zip.** we will make file zip from Base64 dan extract
-it to your folder fast and simple :
+it to your folder fast and simple.
 
 **Encode Base64/Md5 to Zip** Run function `onSuccessCheckPermitions` di
 dalam `onRequestPermissionsResult`, make sure you have grant permission,

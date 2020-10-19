@@ -1,8 +1,8 @@
 <h1 align="center">
-    MyLibDirectory - Function Global Directory
+    MyLibDirectory - Function Global Image Camera
 </h1>
 
-### Function Global Directory
+###
 > Example : FGDir.initExternalDirectoryName(valueString);
 
 | Name                        | Return    | Parameter              | Keterangan                                                                               |
@@ -12,25 +12,43 @@
 | `isFileExists`              | `boolean` | `String path`          | untuk mengecek apakah File/Folder sudah ada atau belum                                   |
 
 ---
-
-## Function Global Image Camera
-**Library ini membutuhkan permition terlebih dahulu. kamu bisa pakai cara kamu, atau kamu bisa pakai cara yang selalu Zein pakai**.
-\
-**Contoh Multi Check Permissions. Kamu bisa lihat contohnya disini MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** :
-\
+###Image Camera
 **Mengambil foto dengan camera.** Disini kita akan mencoba membuat file image yang kita ambil dari camera dengan mempertahankan kualitas gambar dan menyimpannya lansung ke external, dengan cepat dan mudah :
 
+#### Step 1. Enable Fitur.
+Add 2 code on your `onCreate`. you need to declaration `Folder Name`
+that you will use as you Folder Name in external. Now i am ussing
+`MyLibsTesting`.
+
+```java
+public class MainActivity extends AppCompatActivity {
+    
+    ...
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        //gunakan function ini cukup satu kali saja pada awal activity
+        String externalFolderName = getApplication().getString(R.string.app_name); //MyLibsTesting
+        FGDir.initExternalDirectoryName(externalFolderName);
+        
+        ...
+
+    }
+
+    ...
+}
+```
+**notes.**
+  - I suggest you to declaration `Folder Name` first, just **One Time** in your first activity inside function `onCreate`. example `SplashScreenActivity` or `MainActivity`.
+  - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
+
 #
-**Step 12. Take Image From Camera And Compress**
-\
-Jika sudah mengikuti cara **MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition)) (Ikuti Step 1 - Step 9)** dan `onRequestPermissionsResult` sudah mendapat permition yang dibutuhkan, maka kita akan membuat dan menjalankan function `onSuccessCheckPermitions` di dalam `onRequestPermissionsResult`.
+#### Step 2. Take Image From Camera And Compress
+Make View on `xml`
 
-**Step 13.**
-\
 **activity_main.xml**
-\
-Tambahkan kode berikut:
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -58,12 +76,8 @@ Tambahkan kode berikut:
 </LinearLayout>
 ```
 
-**Step 14.**
-\
+#### Step 3. Add Permission
 **manifest.xml**
-\
-Tambahkan Permition, lalu didalam `application` tambahkan tag `provider` untuk memberikan izin pada sistem menyimpan image secara temporary untuk proses compress image :
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -94,12 +108,11 @@ Tambahkan Permition, lalu didalam `application` tambahkan tag `provider` untuk m
 </manifest>
 ```
 
-**Step 15.**
-\
-**file_provider_paths.xml**
-\
-Pada directory `res` buat folder `xml` dan buat file dengan nama `file_provider_paths.xml`.
+#### Step 4. Temp File
+In directory `res` make folder `xml` and make file
+`file_provider_paths.xml`.
 
+**file_provider_paths.xml**
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
@@ -110,21 +123,16 @@ Pada directory `res` buat folder `xml` dan buat file dengan nama `file_provider_
         <!-- ganti com.gzeinnumer.mylibstesting dengan package name project kamu-->
 </paths>
 ```
-
-Cara mengetahui package name project:
+Here is your project name:
 ```java
 //ini adalah Package Name Project
 package com.gzeinnumer.mylibstesting;
 
-public class MainActivity extends AppCompatActivity {
-    
-}
+public class MainActivity extends AppCompatActivity { }
 ```
 
-**Step 16.**
-\
-**MainActivity.java**
-Tambahkan permition yang dibutuhkan ke array :
+#### Step 5.
+**MainActivity.java** Add permission `CAMERA` :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -143,9 +151,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-**Step 17.**
-\
-Pada function `onSuccessCheckPermitions` kita bisa mengatifkan fitur ini agar bisa mengambil gambar dengan jernih, tambahkan kode berikut :
+#### Step 6.
+In function `dispatchTakePictureIntent` start your request to open
+camera, call that function in `onClick`:
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -224,16 +232,13 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-**Step 18.**
-\
-FullCode akan tampak seperti ini ([example](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromCameraAndCompress/MainActivity.java)).
-\
-Jika sukses maka akan tampil seperti ini :
+#### Step 7.
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromCameraAndCompress/MainActivity.java)
 
+Preview :
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example10.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example11.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example12.jpg)|
 |--|--|--|
 |Tampilan awal, tekan Button untuk membuka kamera|Hasil foto yang diambil, tekan oke untuk lanjutkan|Akan muncul Toast untuk memberitahu lokasi foto disimpan|
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example13.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example14.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example16.jpg)|
 |folder `Foto` otomatis terbuat|File sudah tersimpan pada folder `Foto`|Detail pada galery|Ukuran foto kecil, tapi resolusi dipertahankan tetap besar|-|
 
----
