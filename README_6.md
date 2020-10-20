@@ -5,17 +5,15 @@
 **Download and Save** download image and save it to directory that you want.
 
 #
-### Function Global File
-> Example : FGFile.readFile(valueString);
+### Function Global Image Internet
+> Example : FGFile.initFileImageFromInternet(stringValue, stringValue, stringValue, ImageView, booleanValue);
 
-| Name                        | Return    | Parameter                                                                             | Keterangan                                                               |
-|:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
-| `initFileImageFromInternet` | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | To download image and save to external                                   |
-| `createImageFile`           | `File`    | `Context context, String fileName`                                                    | To save file image as temporary file before save to your external folder |
-| `getRealPathFromUri`        | `String`  | `Context context, Uri contentUri`                                                     | Get name of file from path/url                                           |
+| Name                        | Return        | Parameter                                                                             | Description                                                               |
+|:----------------------------|:--------------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| `initFileImageFromInternet` | `boolean`     | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | To download image and save to external                                   |
 
 ---
-## Function Global Image Internet
+## Image Internet
 #### Step 1. Enable Fitur.
 Add 2 code on your `onCreate`. you need to declaration `Folder Name`
 that you will use as you Folder Name in external. Now i am ussing
@@ -84,6 +82,8 @@ Make View on `xml`
 <manifest >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application >
         ...

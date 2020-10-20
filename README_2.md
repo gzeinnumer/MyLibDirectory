@@ -7,14 +7,11 @@
 ### Function Global File
 > Example : FGFile.readFile(valueString);
 
-| Name                        | Return    | Parameter                                                                             | Keterangan                                                               |
+| Name                        | Return    | Parameter                                                                             | Description                                                               |
 |:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
 | `initFile`                  | `boolean` | `String fileName, String saveTo, String... text`                                      | To make file `MyFile.txt` and put value to it                            |
 | `readFile`                  | `boolean` | `String path`                                                                         | To read value from file txt                                              |
 | `appentText`                | `boolean` | `String path, String... msg`                                                          | Add new line to existing file                                            |
-| `initFileImageFromInternet` | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | To download image and save to external                                   |
-| `createImageFile`           | `File`    | `Context context, String fileName`                                                    | To save file image as temporary file before save to your external folder |
-| `getRealPathFromUri`        | `String`  | `Context context, Uri contentUri`                                                     | Get name of file from path/url                                           |
 
 ---
 ### Create File

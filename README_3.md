@@ -7,7 +7,7 @@
 ### Function Global Zip
 > Example : FGZip.initFileFromStringToZipToFile(valueString, valueString, valueString, valueString, valueBoolean);
 
-| Name                            | Return    | Parameter                                                                                                   | Keterangan                                                          |
+| Name                            | Return    | Parameter                                                                                                   | Description                                                          |
 |:--------------------------------|:----------|:------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------|
 | `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` | Make file ZIP from Base64 and extract it to your destination folder |
 

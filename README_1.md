@@ -7,7 +7,7 @@
 ### Function Global Directory
 > Example : FGDir.initExternalDirectoryName(valueString);
 
-| Name                        | Return    | Parameter              | Keterangan                                           |
+| Name                        | Return    | Parameter              | Description                                           |
 |:----------------------------|:----------|:-----------------------|:-----------------------------------------------------|
 | `initExternalDirectoryName` | `void`    | `String appFolder`     | Function to declare your own app folder on external  |
 | `initFolder`                | `boolean` | `String... folderName` | Make folder in own app folder in external            |

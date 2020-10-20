@@ -28,6 +28,11 @@ public class FileCompressor {
         destinationDirectoryPath = context.getCacheDir().getPath() + File.separator + "images";
     }
 
+    public FileCompressor(Context context, int quality) {
+        destinationDirectoryPath = context.getCacheDir().getPath() + File.separator + "images";
+        this.quality = quality;
+    }
+
     public FileCompressor setMaxWidth(int maxWidth) {
         this.maxWidth = maxWidth;
         return this;
