@@ -7,7 +7,7 @@
 ### Function Global File
 > Example : FGFile.readFile(valueString);
 
-| Name                        | Return    | Parameter                                                                             | Keterangan                                                               |
+| Name                        | Return    | Parameter                                                                             | Description                                                               |
 |:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
 | `initFile`                  | `boolean` | `String fileName, String saveTo, String... text`                                      | To make file `MyFile.txt` and put value to it                            |
 | `readFile`                  | `boolean` | `String path`                                                                         | To read value from file txt                                              |

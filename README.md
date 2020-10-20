@@ -63,7 +63,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 ### Function Global Directory
 > Example : FGDir.initExternalDirectoryName(valueString);
 
-| Name                        | Return    | Parameter              | Keterangan                                           |
+| Name                        | Return    | Parameter              | Description                                           |
 |:----------------------------|:----------|:-----------------------|:-----------------------------------------------------|
 | `initExternalDirectoryName` | `void`    | `String appFolder`     | Function to declare your own app folder on external  |
 | `initFolder`                | `boolean` | `String... folderName` | Make folder in own app folder in external            |
@@ -72,21 +72,49 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 ### Function Global File
 > Example : FGFile.readFile(valueString);
 
-| Name                        | Return    | Parameter                                                                             | Keterangan                                                               |
-|:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
-| `initFile`                  | `boolean` | `String fileName, String saveTo, String... text`                                      | To make file `MyFile.txt` and put value to it                            |
-| `readFile`                  | `boolean` | `String path`                                                                         | To read value from file txt                                              |
-| `appentText`                | `boolean` | `String path, String... msg`                                                          | Add new line to existing file                                            |
-| `initFileImageFromInternet` | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | To download image and save to external                                   |
-| `createImageFile`           | `File`    | `Context context, String fileName`                                                    | To save file image as temporary file before save to your external folder |
-| `getRealPathFromUri`        | `String`  | `Context context, Uri contentUri`                                                     | Get name of file from path/url                                           |
+| Name         | Return    | Parameter                                        | Description                                   |
+|:-------------|:----------|:-------------------------------------------------|:----------------------------------------------|
+| `initFile`   | `boolean` | `String fileName, String saveTo, String... text` | To make file `MyFile.txt` and put value to it |
+| `readFile`   | `boolean` | `String path`                                    | To read value from file txt                   |
+| `appentText` | `boolean` | `String path, String... msg`                     | Add new line to existing file                 |
 
 ### Function Global Zip
 > Example : FGZip.initFileFromStringToZipToFile(valueString, valueString, valueString, valueString, valueBoolean);
 
-| Name                            | Return    | Parameter                                                                                                   | Keterangan                                                          |
+| Name                            | Return    | Parameter                                                                                                   | Description                                                          |
 |:--------------------------------|:----------|:------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------|
 | `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` | Make file ZIP from Base64 and extract it to your destination folder |
+
+#
+### Function Global Image Camera
+> Example : FGFile.createImageFile(context,valueString);
+
+| Name                          | Return        | Parameter                          | Description                                                               |
+|:------------------------------|:--------------|:-----------------------------------|:-------------------------------------------------------------------------|
+| `FileCompressor`              | `Constructor` | `Context context`                  | Constructor default                                                      |
+| `FileCompressor`              | `Constructor` | `Context context, int quality`     | Constructor with custom quality compress                                 |
+| `setDestinationDirectoryPath` | `void`        | `String location`                  | Set location for your image file                                         |
+| `createImageFile`             | `File`        | `Context context, String fileName` | To save file image as temporary file before save to your external folder |
+| `compressToFile`              | `File`        | `File file`                        | To compress from realsize to compressed size                             |
+
+#
+### Function Global Image Galery
+> Example : FGFile.readFile(valueString);
+
+| Name                 | Return        | Parameter                          | Description                                                              |
+|:---------------------|:--------------|:-----------------------------------|:-------------------------------------------------------------------------|
+| `FileCompressor`     | `Constructor` | `Context context`                  | Constructor default                                                      |
+| `FileCompressor`     | `Constructor` | `Context context, int quality`     | Constructor with custom quality compress                                 |
+| `createImageFile`    | `File`        | `Context context, String fileName` | To save file image as temporary file before save to your external folder |
+| `getRealPathFromUri` | `String`      | `Context context, Uri contentUri`  | Get name of file from path/url                                           |
+
+#
+### Function Global Image Internet
+> Example : FGFile.readFile(valueString);
+
+| Name                        | Return        | Parameter                                                                             | Description                                                               |
+|:----------------------------|:--------------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| `initFileImageFromInternet` | `boolean`     | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | To download image and save to external                                   |
 
 ---
 

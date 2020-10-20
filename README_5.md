@@ -5,14 +5,15 @@
 **Take foto from galery.** Take foto from galery and save it with small size and keep it HD.
 
 #
-### Function Global File
+### Function Global Image Galery
 > Example : FGFile.readFile(valueString);
 
-| Name                        | Return    | Parameter                                                                             | Keterangan                                                               |
-|:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
-| `initFileImageFromInternet` | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | To download image and save to external                                   |
-| `createImageFile`           | `File`    | `Context context, String fileName`                                                    | To save file image as temporary file before save to your external folder |
-| `getRealPathFromUri`        | `String`  | `Context context, Uri contentUri`                                                     | Get name of file from path/url                                           |
+| Name                 | Return        | Parameter                           | Description                                                              |
+|:---------------------|:--------------|:------------------------------------|:-------------------------------------------------------------------------|
+| `FileCompressor`     | `Constructor` | `Context context`                   | Constructor default                                                      |
+| `FileCompressor`     | `Constructor` | `Context context, int quality`      | Constructor with custom quality compress                                 |
+| `createImageFile`    | `File`        | `Context context, String fileName`  | To save file image as temporary file before save to your external folder |
+| `getRealPathFromUri` | `String`      | `Context context, Uri contentUri`   | Get name of file from path/url                                           |
 
 ---
 ### Image Galery
@@ -99,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.img);
 
         mCompressor = new FileCompressor(this);
+        // int quality = 50;
+        // mCompressor = new FileCompressor(this, quality);
         //   /storage/emulated/0/MyLibsTesting/Foto
         mCompressor.setDestinationDirectoryPath("/Foto");
         //diretori yang dibutuhkan akan lansung dibuatkan oleh fitur ini 

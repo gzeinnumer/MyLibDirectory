@@ -5,14 +5,16 @@
 **Take Foto with Camera.** Take foto with camera and save it with small size and keep it HD.
 
 #
-### Function Global File
-> Example : FGFile.readFile(valueString);
+### Function Global Image Camera
+> Example : FGFile.createImageFile(context,valueString);
 
-| Name                        | Return    | Parameter                                                                             | Keterangan                                                               |
-|:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
-| `initFileImageFromInternet` | `boolean` | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | To download image and save to external                                   |
-| `createImageFile`           | `File`    | `Context context, String fileName`                                                    | To save file image as temporary file before save to your external folder |
-| `getRealPathFromUri`        | `String`  | `Context context, Uri contentUri`                                                     | Get name of file from path/url                                           |
+| Name                          | Return        | Parameter                          | Description                                                               |
+|:------------------------------|:--------------|:-----------------------------------|:-------------------------------------------------------------------------|
+| `FileCompressor`              | `Constructor` | `Context context`                  | Constructor default                                                      |
+| `FileCompressor`              | `Constructor` | `Context context, int quality`     | Constructor with custom quality compress                                 |
+| `setDestinationDirectoryPath` | `void`        | `String location`                  | Set location for your image file                                         |
+| `createImageFile`             | `File`        | `Context context, String fileName` | To save file image as temporary file before save to your external folder |
+| `compressToFile`              | `File`        | `File file`                        | To compress from realsize to compressed size                             |
 
 ---
 ### Image Camera
