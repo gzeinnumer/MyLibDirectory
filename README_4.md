@@ -179,6 +179,8 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.img);
 
         mCompressor = new FileCompressor(this);
+        // int quality = 50;
+        // mCompressor = new FileCompressor(this, quality);
         //   /storage/emulated/0/MyLibsTesting/Foto
         mCompressor.setDestinationDirectoryPath("/Foto");
         //diretori yang dibutuhkan akan lansung dibuatkan oleh fitur ini 

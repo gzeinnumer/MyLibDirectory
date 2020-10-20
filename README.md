@@ -3,7 +3,7 @@
 </h1>
 
 <div align="center">
-    <a><img src="https://img.shields.io/badge/Version-1.4.0-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.4.1-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
@@ -45,20 +45,20 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 
 ### Feature List
 - [x] [Function Global Directory](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_1.md)
-  - Create Folder
+  - [Create Folder](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_1.md#create-folder)
 - [x] [Function Global File](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_2.md)
-  - Create File
-  - Read File
-  - AppentText
+  - [Create File](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_2.md#create-file)
+  - [Read File](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_2.md#step-4-read-file)
+  - [AppentText](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_2.md#step-6-appenttext)
 - [x] [Function Global Zip](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_3.md)
-  - Encode Base64/Md5 to Zip
+  - [Encode Base64/Md5 to Zip](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_3.md#base64-to-zip)
 - [x] [Function Global Image Camera](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_4.md)
-  - Take Image From Camera And Compress
+  - [Take Image From Camera And Compress](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_4.md#image-camera)
 - [x] [Function Global Image Galery](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_5.md)
-  - Take Image From Galery
+  - [Take Image From Galery And Compress](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_5.md#image-galery)
 - [x] [Function Global Image Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_6.md)
-  - Load Image From Internet and Save
-- [x] Cek file exists
+  - [Load Image From Internet and Save](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-1/README_6.md#image-internet)
+- [x] Cek File Exists
 
 ### Function Global Directory
 > Example : FGDir.initExternalDirectoryName(valueString);
@@ -87,12 +87,6 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 | Name                            | Return    | Parameter                                                                                                   | Keterangan                                                          |
 |:--------------------------------|:----------|:------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------|
 | `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` | Make file ZIP from Base64 and extract it to your destination folder |
-
----
-
-**DEBUG.** If you find some trouble you can trace with this step.
-|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/debug.jpg)|
-|--|
 
 ---
 

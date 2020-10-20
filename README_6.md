@@ -15,7 +15,7 @@
 | `getRealPathFromUri`        | `String`  | `Context context, Uri contentUri`                                                     | Get name of file from path/url                                           |
 
 ---
-## Function Global Image Internet
+## Image Internet
 #### Step 1. Enable Fitur.
 Add 2 code on your `onCreate`. you need to declaration `Folder Name`
 that you will use as you Folder Name in external. Now i am ussing
