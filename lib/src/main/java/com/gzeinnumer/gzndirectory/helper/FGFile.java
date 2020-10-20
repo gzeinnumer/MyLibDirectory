@@ -301,7 +301,7 @@ public class FGFile {
 
     //simpan data di dalam root folder sebagai temporary
     public static File createImageFile(Context context, String fileName) throws IOException {
-        String mFileName = "JPEG_" + fileName + "_";
+        String mFileName = fileName;
         File storageDir = context.getExternalFilesDir(Environment.DIRECTORY_DCIM);
         return File.createTempFile(mFileName, ".jpg", storageDir);
     }
