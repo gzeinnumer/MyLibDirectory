@@ -6,7 +6,7 @@
 
 #
 ### Function Global Image Internet
-> Example : FGFile.readFile(valueString);
+> Example : FGFile.initFileImageFromInternet(stringValue, stringValue, stringValue, ImageView, booleanValue);
 
 | Name                        | Return        | Parameter                                                                             | Description                                                               |
 |:----------------------------|:--------------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|

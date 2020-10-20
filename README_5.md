@@ -6,7 +6,7 @@
 
 #
 ### Function Global Image Galery
-> Example : FGFile.readFile(valueString);
+> Example : FGFile.createImageFile(context, valueString);
 
 | Name                 | Return        | Parameter                           | Description                                                              |
 |:---------------------|:--------------|:------------------------------------|:-------------------------------------------------------------------------|
@@ -100,10 +100,10 @@ public class MainActivity extends AppCompatActivity {
         imageView = findViewById(R.id.img);
 
         mCompressor = new FileCompressor(this);
-        // int quality = 50;
-        // mCompressor = new FileCompressor(this, quality);
         //   /storage/emulated/0/MyLibsTesting/Foto
         mCompressor.setDestinationDirectoryPath("/Foto");
+        // int quality = 50;
+        // mCompressor = new FileCompressor(this, quality);
         //diretori yang dibutuhkan akan lansung dibuatkan oleh fitur ini 
 
         btnCamera.setOnClickListener(new View.OnClickListener() {
