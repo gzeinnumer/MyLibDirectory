@@ -50,14 +50,16 @@ public class FGDir {
         }
         if (folderName.length > 0) {
             for (String s : folderName) {
-                if (!s.substring(0, 1).equals("/")) {
-                    s = "/" + s;
-                }
-                folder = new File(getStorageCard + appFolder + s);
-                if (!folder.exists()) {
-                    if (!creatingFolder(folder)) {
-                        logSystemFunctionGlobal("initFolder", "Gagal membuat direktory " + s);
-                        return false;
+                if (s.length() > 0) {
+                    if (!s.substring(0, 1).equals("/")) {
+                        s = "/" + s;
+                    }
+                    folder = new File(getStorageCard + appFolder + s);
+                    if (!folder.exists()) {
+                        if (!creatingFolder(folder)) {
+                            logSystemFunctionGlobal("initFolder", "Gagal membuat direktory " + s);
+                            return false;
+                        }
                     }
                 }
             }

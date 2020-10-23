@@ -216,6 +216,10 @@ public class FGFile {
         }
     }
 
+    /**
+     * @deprecated "There is abug in here, recommend to use initFileImageFromInternet(imgUrl, saveTo, filename, isNew, imageLoadCallBack)
+     */
+    @Deprecated
     public static void initFileImageFromInternet(final String imgUrl, final String saveTo, final String filename, final ImageView sendImageTo, final boolean isNew) {
         if (imgUrl == null) {
             logSystemFunctionGlobal("initFileImageFromInternet", "ImgUrl tidak boleh null");
@@ -299,6 +303,91 @@ public class FGFile {
         }
     }
 
+    public static void initFileImageFromInternet(final String imgUrl, final String saveTo, final String filename, final boolean isNew, final ImageLoadCallBack imageLoadCallBack) {
+        if (imgUrl == null) {
+            logSystemFunctionGlobal("initFileImageFromInternet", "ImgUrl tidak boleh null");
+            return;
+        }
+        if (saveTo == null) {
+            logSystemFunctionGlobal("initFileImageFromInternet", "SaveTo tidak boleh null");
+            return;
+        }
+        if (filename == null) {
+            logSystemFunctionGlobal("initFileImageFromInternet", "Filename tidak boleh null");
+            return;
+        }
+        if (imageLoadCallBack == null) {
+            logSystemFunctionGlobal("initFileImageFromInternet", "ImageLoadCallBack tidak boleh null");
+            return;
+        }
+        if (FGDir.appFolder.length() == 0) {
+            logSystemFunctionGlobal("initFileImageFromInternet", "Folder External untuk aplikasi belum dideklarasi");
+        }
+        if (!FGDir.isFileExists("")) {
+            logSystemFunctionGlobal("initFileImageFromInternet", "Folder External untuk aplikasi tidak di temukan");
+            if (FGDir.initFolder("")) {
+                logSystemFunctionGlobal("initFileImageFromInternet", "Folder External sudah dibuat");
+            } else {
+                logSystemFunctionGlobal("initFileImageFromInternet", "Folder External gagal dibuat");
+            }
+        }
+        File myDir = new File(FGDir.getStorageCard + FGDir.appFolder + saveTo);
+        if (!myDir.exists()) {
+            myDir.mkdirs();
+        }
+        if (filename.length() > 0) {
+            myDir = new File(myDir, filename);
+        } else {
+            myDir = new File(myDir, new Date().toString() + ".jpg");
+        }
+        if (!myDir.exists() || isNew) { // file tidak ada or isNew : True
+            final File finalMyDir = myDir;
+            Picasso.get().load(imgUrl)
+                    .placeholder(com.gzeinnumer.gzndirectory.R.drawable.ic_baseline_sync_24)
+                    .error(com.gzeinnumer.gzndirectory.R.drawable.ic_baseline_broken_image_24)
+                    .into(new Target() {
+                              @Override
+                              public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                                  try {
+                                      if (!finalMyDir.exists() || isNew) {
+                                          //jika isNew true maka foto lama akan dihapus dan diganti dengan yang baru
+                                          //jika file tidak ditemukan maka file akan dibuat
+                                          logSystemFunctionGlobal("initFileImageFromInternet", "Foto baru disimpan ke penyimpanan");
+                                          FileOutputStream out = new FileOutputStream(finalMyDir);
+                                          bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+
+                                          out.flush();
+                                          out.close();
+
+                                      } else {
+                                          //jika isNew false maka akan load file lama di penyimpanan
+                                          logSystemFunctionGlobal("initFileImageFromInternet", "Foto lama di load dari penyimpanan");
+                                          bitmap = BitmapFactory.decodeFile(finalMyDir.getAbsolutePath());
+                                      }
+
+                                      imageLoadCallBack.onBitmapReturn(bitmap);
+                                  } catch (Exception e) {
+                                      logSystemFunctionGlobal("initFileImageFromInternet", e.getMessage());
+                                  }
+                              }
+
+                              @Override
+                              public void onBitmapFailed(Exception e, Drawable errorDrawable) {
+                                  logSystemFunctionGlobal("initFileImageFromInternet", e.getMessage());
+                              }
+
+                              @Override
+                              public void onPrepareLoad(Drawable placeHolderDrawable) {
+                              }
+                          }
+                    );
+        } else {
+            logSystemFunctionGlobal("initFileImageFromInternet", "Foto lama di load dari penyimpanan");
+            Bitmap bitmap = BitmapFactory.decodeFile(myDir.getAbsolutePath());
+            imageLoadCallBack.onBitmapReturn(bitmap);
+        }
+    }
+
     //simpan data di dalam root folder sebagai temporary
     public static File createImageFile(Context context, String fileName) throws IOException {
         File storageDir = context.getExternalFilesDir(Environment.DIRECTORY_DCIM);
@@ -319,6 +408,12 @@ public class FGFile {
                 cursor.close();
             }
         }
+    }
+
+    ImageLoadCallBack imageLoadCallBack;
+
+    public interface ImageLoadCallBack {
+        void onBitmapReturn(Bitmap bitmap);
     }
 
 }
