@@ -138,6 +138,14 @@ FullCode from all fitur ([example](https://github.com/gzeinnumer/MyLibDirectoryE
 
 ---
 
+**Debug** if you find trouble and function doesn't work you can trace with this
+
+| ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/debug.jpg) |
+|:-------------------------------------------------------------------------------|
+| Example `Logcat`                                                               |
+
+---
+
 ```
 Copyright 2020 M. Fadli Zein
 ```
