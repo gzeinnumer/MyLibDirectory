@@ -8,9 +8,10 @@
 ### Function Global Image Internet
 > Example : FGFile.initFileImageFromInternet(stringValue, stringValue, stringValue, ImageView, booleanValue);
 
-| Name                        | Return        | Parameter                                                                             | Description                                                               |
-|:----------------------------|:--------------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
-| `initFileImageFromInternet` | `boolean`     | `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | To download image and save to external                                   |
+| Name                        | Return    | Parameter                                                                             | Description                            |
+|:----------------------------|:----------|:--------------------------------------------------------------------------------------|:---------------------------------------|
+| `initFileImageFromInternet` | `boolean` | `Deprecated` `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | To download image and save to external |
+| `initFileImageFromInternet` | `boolean` | `String imgUrl, String saveTo, String filename, boolean isNew, CallBack callBack`     | To download image and save to external |
 
 ---
 ## Image Internet
@@ -121,9 +122,19 @@ public class MainActivity extends AppCompatActivity {
 
         //pilih 1 atau 2
         //1. jika isNew true maka file lama akan dihapus dan diganti dengan yang baru.
-        FGFile.initFileImageFromInternet(imgUrl, saveTo, fileName, imageView, true);
+        FGFile.initFileImageFromInternet(imgUrl, saveTo, fileName, true, new FGFile.ImageLoadCallBack() {
+            @Override
+            public void onBitmapReturn(Bitmap bitmap) {
+                imageView.setImageBitmap(bitmap);
+            }
+        });
         //2. jika isNew false maka akan otomatis load file dan disimpan, tapi jika file belum ada, maka akan tetap didownload.
-        FGFile.initFileImageFromInternet(imgUrl, saveTo, fileName, imageView, false);
+        FGFile.initFileImageFromInternet(imgUrl, saveTo, fileName, false, new FGFile.ImageLoadCallBack() {
+            @Override
+            public void onBitmapReturn(Bitmap bitmap) {
+                imageView.setImageBitmap(bitmap);
+            }
+        });
     }
     
     ...
