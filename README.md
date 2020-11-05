@@ -15,27 +15,20 @@
 ---
 
 ## Download
-
-Minimum Android SDK Version 16
-
-#### Gradle
-**Step 1.** add maven `jitpack.io` to `build.gradle` (Project) :
-
+Add maven `jitpack.io` and `dependencies` in `build.gradle (Project)` :
 ```gradle
+// build.gradle project
 allprojects {
   repositories {
-    google()
-    jcenter()
+    ...
     maven { url 'https://jitpack.io' }
   }
 }
-```
 
-**Step 2.** add dependensi to `build.gradle` (Module) :
-
-```gradle
+// build.gradle app/module
 dependencies {
-  implementation 'com.github.gzeinnumer:MyLibDirectory:versi'
+  ...
+  implementation 'com.github.gzeinnumer:MyLibDirectory:version'
 }
 ```
 
@@ -43,7 +36,7 @@ dependencies {
 
 This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition) or use your own.
 
-### Feature List
+## Feature List
 - [x] [Function Global Directory](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md)
   - [Create Folder](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md#create-folder)
 - [x] [Function Global File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md)
@@ -119,7 +112,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 
 ---
 
-### Tech stack and 3rd library
+## Tech stack and 3rd library
 - MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition))
 - Androidwave ([docs](https://androidwave.com/))
 - Glide ([docs](https://github.com/bumptech/glide))
