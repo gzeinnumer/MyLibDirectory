@@ -16,8 +16,7 @@
 | `getRealPathFromUri` | `String`      | `Context context, Uri contentUri`   | Get name of file from path/url                                           |
 
 ---
-### Image Galery
-#### Step 1. Enable Fitur.
+### Step 1. Enable Fitur.
 Make Class `MyApp`, add 2 code on your `onCreate`. you need to declaration `External Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
 
 ```java
@@ -54,10 +53,9 @@ Add `MyApp` to manifest `android:name=".MyApp"`.
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
 #
-#### Step 2. Take Image From Camera And Compress
-Make View on `xml`
-
-**activity_main.xml**
+### Step 2. USE
+#### Take Image From Camera And Compress
+* Make View on `xml` **activity_main.xml**.
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
