@@ -42,36 +42,41 @@ This library need Permission you can use this step [**MultiPermission**](https:/
   - [Is File Exists](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md#is-file-exists)
   - [Delete Folder](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md#delete-folder)
 - [x] [Function Global File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md)
+  - [Is File Exists](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_2.md#is-file-exists)
+  - [Delete File](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_2.md#delete-file)
   - [Create File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#create-file)
-  - [Read File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#step-4-read-file)
-  - [AppentText](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#step-6-appenttext)
+  - [Read File](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_2.md#read-file)
+  - [AppentText](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_2.md#appenttext)
 - [x] [Function Global Zip](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_3.md)
-  - [Encode Base64/Md5 to Zip](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_3.md#base64-to-zip)
+  - [Encode Base64/Md5 to Zip](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_3.md#base64-to-zip)
 - [x] [Function Global Image Camera](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_4.md)
-  - [Take Image From Camera And Compress](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_4.md#image-camera)
+  - [Take Image From Camera And Compress](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_4.md#take-image-from-camera-and-compress)
 - [x] [Function Global Image Galery](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_5.md)
-  - [Take Image From Galery And Compress](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_5.md#image-galery)
+  - [Take Image From Galery And Compress](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_5.md#take-image-from-galery-and-compress)
 - [x] [Function Global Image Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_6.md)
-  - [Load Image From Internet and Save](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_6.md#image-internet)
+  - [Download Image From Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_6.md#download-image-from-internet)
 - [x] Cek File Exists
 
 ### Function Global Directory
 > Example : FGDir.initExternalDirectoryName(valueString);
 
-| Name                        | Return    | Parameter              | Description                                           |
+| Name                        | Return    | Parameter              | Description                                          |
 |:----------------------------|:----------|:-----------------------|:-----------------------------------------------------|
 | `initExternalDirectoryName` | `void`    | `String appFolder`     | Function to declare your own app folder on external  |
 | `initFolder`                | `boolean` | `String... folderName` | Make folder in own app folder in external            |
 | `isFileExists`              | `boolean` | `String path`          | To check is `directory` or `file` has created or not |
+| `deleteDir`                 | `boolean` | `String path`          | To Delete directory` or `file`                       |
 
 ### Function Global File
 > Example : FGFile.readFile(valueString);
 
-| Name         | Return    | Parameter                                        | Description                                   |
-|:-------------|:----------|:-------------------------------------------------|:----------------------------------------------|
-| `initFile`   | `boolean` | `String fileName, String saveTo, String... text` | To make file `MyFile.txt` and put value to it |
-| `readFile`   | `boolean` | `String path`                                    | To read value from file txt                   |
-| `appentText` | `boolean` | `String path, String... msg`                     | Add new line to existing file                 |
+| Name                        | Return    | Parameter                                                                             | Description                                                               |
+|:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
+| `initFile`                  | `boolean` | `String fileName, String saveTo, String... text`                                      | To make file `MyFile.txt` and put value to it                            |
+| `isFileExists`              | `boolean` | `String path`                                                                         | To check is `directory` or `file` has created or not |
+| `deleteDir`                 | `boolean` | `String path`                                                                         | To Delete directory` or `file`                       |
+| `readFile`                  | `boolean` | `String path`                                                                         | To read value from file txt                                              |
+| `appentText`                | `boolean` | `String path, String... msg`                                                          | Add new line to existing file                                            |
 
 ### Function Global Zip
 > Example : FGZip.initFileFromStringToZipToFile(valueString, valueString, valueString, valueString, valueBoolean);
@@ -126,7 +131,6 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 - Intent Galery ([docs](https://developer.android.com/guide/components/intents-common?hl=id))
 - Android Internet ([docs](https://developer.android.com/training/basics/network-ops/connecting))
 - RxJava/RxAndroid ([docs](https://github.com/ReactiveX/RxJava))
-- Dexter ([docs](https://github.com/Karumi/Dexter))
 
 ---
 
