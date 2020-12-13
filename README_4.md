@@ -19,32 +19,39 @@
 ---
 ### Image Camera
 #### Step 1. Enable Fitur.
-Add 2 code on your `onCreate`. you need to declaration `Folder Name`
-that you will use as you Folder Name in external. Now i am using
-`MyLibsTesting`.
+Add 2 code on your `onCreate`. you need to declaration `External Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
 
 ```java
-public class MainActivity extends AppCompatActivity {
-    
-    ...
+public class MyApp extends Application {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        
-        //gunakan function ini cukup satu kali saja pada awal activity
+    public void onCreate() {
+        super.onCreate();
+
         String externalFolderName = getApplication().getString(R.string.app_name); //MyLibsTesting
         FGDir.initExternalDirectoryName(externalFolderName);
-        
-        ...
-
     }
-
-    ...
 }
 ```
+Add `MyApp` to manifest `android:name=".MyApp"`.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest >
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".MyApp"
+        ...>
+
+        ...
+
+    </application>
+
+</manifest>
+```
 **notes.**
-  - I suggest you to declaration `Folder Name` first, just **One Time** in your first activity inside function `onCreate`. example `SplashScreenActivity` or `MainActivity`.
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
 #
