@@ -16,7 +16,6 @@
 | `deleteDir`                 | `boolean` | `String path`          | To Delete directory` or `file`                       |
 
 ---
-### Create File
 #### Step 1. Enable Fitur.
 Make Class `MyApp`, add 2 code on your `onCreate`. you need to declaration `External Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
 
@@ -54,7 +53,8 @@ Add `MyApp` to manifest `android:name=".MyApp"`.
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
 #
-#### Step 2. Create File
+#### Step 2. USE.
+### Create File
 If you has granted your permission, now run function
 `onSuccessCheckPermitions` inside `onRequestPermissionsResult` :
 

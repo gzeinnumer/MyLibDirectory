@@ -15,7 +15,6 @@
 | `deleteDir`                 | `boolean` | `String path`          | To Delete directory` or `file`                       |
 
 ---
-### Create Folder
 #### Step 1. Enable Fitur.
 Make Class `MyApp`, add 2 code on your `onCreate`. you need to declaration `External Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
 
@@ -53,7 +52,8 @@ Add `MyApp` to manifest `android:name=".MyApp"`.
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
 #
-#### Step 2. Create Folder.
+#### Step 2. USE.
+### Create Folder
 If you have granted your permission, Run function
 `onSuccessCheckPermitions` inside `onRequestPermissionsResult`. **Only
 Need 1 Time in FirstActivity** :
@@ -73,8 +73,7 @@ public class MainActivity extends AppCompatActivity {
         
         if (FGDir.initFolder(folders)){
             Toast.makeText(this, "Folder sudah dibuat dan ditemukan sudah bisa lanjut", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
             Toast.makeText(this, "Permition Required", Toast.LENGTH_SHORT).show();
         }
     }
