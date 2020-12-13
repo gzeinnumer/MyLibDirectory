@@ -51,7 +51,7 @@ Add `MyApp` to manifest `android:name=".MyApp"`.
 **notes.** 
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
-#
+---
 ### Step 2. USE.
 ### Create Folder
 If you have granted your permission, Run function

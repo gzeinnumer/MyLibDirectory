@@ -82,6 +82,19 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
+#
+### is File Exists.
+
+```java
+boolean isExists = FGFile.isFileExists("/folder1");
+```
+
+#
+### Delete Folder.
+
+```java
+boolean isDeleted = FGFile.deleteDir("/folder1");
+```
 
 #
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFile/MainActivity.java) Preview :
