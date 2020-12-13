@@ -410,6 +410,19 @@ public class FGFile {
         }
     }
 
+    public static boolean deleteDir(String path){
+        return new File(FGDir.getStorageCard+FGDir.appFolder+path).delete();
+    }
+
+    public static boolean isFileExists(String path) {
+        if (path == null) {
+            logSystemFunctionGlobal("isFileExists", "Path tidak boleh null");
+            return false;
+        }
+        File file = new File(FGDir.getStorageCard + FGDir.appFolder + path);
+        return file.exists();
+    }
+
     ImageLoadCallBack imageLoadCallBack;
 
     public interface ImageLoadCallBack {

@@ -88,4 +88,8 @@ public class FGDir {
         File file = new File(getStorageCard + appFolder + path);
         return file.exists();
     }
+
+    public static boolean deleteDir(String path){
+        return new File(FGDir.getStorageCard+FGDir.appFolder+path).delete();
+    }
 }
