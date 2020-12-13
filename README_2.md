@@ -16,7 +16,7 @@
 | `deleteDir`                 | `boolean` | `String path`          | To Delete directory` or `file`                       |
 
 ---
-#### Step 1. Enable Fitur.
+### Step 1. Enable Fitur.
 Make Class `MyApp`, add 2 code on your `onCreate`. you need to declaration `External Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
 
 ```java
@@ -53,7 +53,7 @@ Add `MyApp` to manifest `android:name=".MyApp"`.
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
 #
-#### Step 2. USE.
+### Step 2. USE.
 ### Create File
 If you has granted your permission, now run function
 `onSuccessCheckPermitions` inside `onRequestPermissionsResult` :
@@ -81,19 +81,6 @@ public class MainActivity extends AppCompatActivity {
     ...
 
 }
-```
-#
-### is File Exists.
-
-```java
-boolean isExists = FGFile.isFileExists("/folder1");
-```
-
-#
-### Delete Folder.
-
-```java
-boolean isDeleted = FGFile.deleteDir("/folder1");
 ```
 
 #
