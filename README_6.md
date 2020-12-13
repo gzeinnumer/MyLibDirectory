@@ -14,8 +14,7 @@
 | `initFileImageFromInternet` | `boolean` | `String imgUrl, String saveTo, String filename, boolean isNew, CallBack callBack`     | To download image and save to external |
 
 ---
-## Image Internet
-#### Step 1. Enable Fitur.
+### Step 1. Enable Fitur.
 Make Class `MyApp`, add 2 code on your `onCreate`. you need to declaration `External Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
 
 ```java
@@ -51,11 +50,10 @@ Add `MyApp` to manifest `android:name=".MyApp"`.
 **notes.**
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
-#
-#### Step 2. Take Image From Camera And Compress
-Make View on `xml`
-
-**activity_main.xml**
+---
+### Step 2. USE
+#### Download Image From Internet
+* Design XML. Make View on `xml` **activity_main.xml**
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -84,8 +82,7 @@ Make View on `xml`
 ```
 
 #
-#### Step 3. Add Permission
-**manifest.xml**
+* Add Permission on **manifest.xml**
 ```xml
 <manifest >
 
@@ -101,7 +98,7 @@ Make View on `xml`
 ```
 
 #
-#### Step 4. Load Image From Internet and Save
+* Load Image From Internet and Save
 Make function `onSuccessCheckPermitions` you need to declare :
 
 1. `imgUrl` is link image.
@@ -150,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-#### Step 5. Load Image From Internet and Save
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/LoadImageFromInternetandSave/MainActivity.java) Preview :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example23.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example24.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example25.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example26.jpg)|

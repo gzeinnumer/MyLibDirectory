@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity { }
 ```
 
 #
-* Intent To Galery
+* Intent To **Galery**
 
 In function `dispatchGalleryIntent` start your request to open camera, call that function in `onClick`:
 
