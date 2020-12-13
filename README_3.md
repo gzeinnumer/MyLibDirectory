@@ -14,7 +14,7 @@
 ---
 ### Base64 To Zip
 #### Step 1. Enable Fitur.
-Add 2 code on your `onCreate`. you need to declaration `External Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
+Make Class `MyApp`, add 2 code on your `onCreate`. you need to declaration `External Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
 
 ```java
 public class MyApp extends Application {

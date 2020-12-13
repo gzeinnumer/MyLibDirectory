@@ -12,11 +12,12 @@
 | `initExternalDirectoryName` | `void`    | `String appFolder`     | Function to declare your own app folder on external  |
 | `initFolder`                | `boolean` | `String... folderName` | Make folder in own app folder in external            |
 | `isFileExists`              | `boolean` | `String path`          | To check is `directory` or `file` has created or not |
+| `deleteDir`                 | `boolean` | `String path`          | To Delete Folder Or File                             |
 
 ---
 ### Create Folder
 #### Step 1. Enable Fitur.
-Add 2 code on your `onCreate`. you need to declaration `External Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
+Make Class `MyApp`, add 2 code on your `onCreate`. you need to declaration `External Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
 
 ```java
 public class MyApp extends Application {
@@ -82,14 +83,18 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
+#
+### is File Exists.
 
-Result will be like this
+```java
+boolean isExists = FGDir.isFileExists("/folder1");
 ```
-|-- external
-    |-- MyLibsTesting
-        |-- folder1
-            |-- folder1_1
-        |-- folder2
+
+#
+### Delete Folder.
+
+```java
+boolean isExists = FGDir.deleteDir("/folder1");
 ```
 
 #

@@ -39,6 +39,8 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 ## Feature List
 - [x] [Function Global Directory](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md)
   - [Create Folder](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md#create-folder)
+  - [Is File Exists](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md#is-file-exists)
+  - [Delete Folder](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md#delete-folder)
 - [x] [Function Global File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md)
   - [Create File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#create-file)
   - [Read File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#step-4-read-file)
