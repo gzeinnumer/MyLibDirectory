@@ -56,10 +56,7 @@ Add `MyApp` to manifest `android:name=".MyApp"`.
 ---
 ### Step 2. USE
 #### Take Image From Camera And Compress
-* Design XML
-Make View on `xml`
-
-**activity_main.xml**
+* Design XML. Make View on `xml` **activity_main.xml**
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -88,8 +85,7 @@ Make View on `xml`
 ```
 
 #
-* Add Permission
-**manifest.xml**
+* Add Permission on **manifest.xml**
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -122,10 +118,8 @@ Make View on `xml`
 
 #
 * Temp File
-In directory `res` make folder `xml` and make file
-`file_provider_paths.xml`.
 
-**file_provider_paths.xml**
+In directory `res` make folder `xml` and make file **file_provider_paths.xml**.
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
