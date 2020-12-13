@@ -17,8 +17,7 @@
 | `compressToFile`              | `File`        | `File file`                        | To compress from realsize to compressed size                             |
 
 ---
-### Image Camera
-#### Step 1. Enable Fitur.
+### Step 1. Enable Fitur.
 Make Class `MyApp`, add 2 code on your `onCreate`. you need to declaration `External Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
 
 ```java
@@ -54,8 +53,10 @@ Add `MyApp` to manifest `android:name=".MyApp"`.
 **notes.**
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
-#
-#### Step 2. Take Image From Camera And Compress
+---
+### Step 2. USE
+#### Take Image From Camera And Compress
+* Design XML
 Make View on `xml`
 
 **activity_main.xml**
@@ -87,7 +88,7 @@ Make View on `xml`
 ```
 
 #
-#### Step 3. Add Permission
+* Add Permission
 **manifest.xml**
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -120,7 +121,7 @@ Make View on `xml`
 ```
 
 #
-#### Step 4. Temp File
+* Temp File
 In directory `res` make folder `xml` and make file
 `file_provider_paths.xml`.
 
@@ -144,8 +145,7 @@ public class MainActivity extends AppCompatActivity { }
 ```
 
 #
-#### Step 5.
-**MainActivity.java** Add permission `CAMERA` :
+* **MainActivity.java** Add permission `CAMERA` :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -165,7 +165,8 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-#### Step 6.
+* Intent To Camera
+
 In function `dispatchTakePictureIntent` start your request to open
 camera, call that function in `onClick`:
 
@@ -248,7 +249,6 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-#### Step 7.
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromCameraAndCompress/MainActivity.java) Preview :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example10.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example11.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example12.jpg)|
