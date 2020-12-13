@@ -53,7 +53,7 @@ Add `MyApp` to manifest `android:name=".MyApp"`.
 
 ---
 ### Step 2. USE.
-### Create Folder
+#### Create Folder
 If you have granted your permission, Run function
 `onSuccessCheckPermitions` inside `onRequestPermissionsResult`. **Only
 Need 1 Time in FirstActivity** :
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-### is File Exists.
+#### is File Exists.
 
 ```java
 boolean isExists = FGDir.isFileExists("/folder1");
