@@ -140,7 +140,7 @@ Run function `onSuccessCheckPermitions` inside
 `onRequestPermissionsResult` to add new line string in file or `appent
 text`, parameters that you need to declaration:
 
-1. `onSuccessCheckPermitions` same like **Step 2**, add function
+1. `onSuccessCheckPermitions` same like [**Create File**](#create-file), add function
    `onAppentText` to excecute the process.
 2. `onAppentText`->`String path` path file that you want to add new value in new line.
 3. `messages` put your value here.
