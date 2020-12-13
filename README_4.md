@@ -17,41 +17,46 @@
 | `compressToFile`              | `File`        | `File file`                        | To compress from realsize to compressed size                             |
 
 ---
-### Image Camera
-#### Step 1. Enable Fitur.
-Add 2 code on your `onCreate`. you need to declaration `Folder Name`
-that you will use as you Folder Name in external. Now i am using
-`MyLibsTesting`.
+### Step 1. Enable Fitur.
+Make Class `MyApp`, add 2 code on your `onCreate`. you need to declaration `External Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
 
 ```java
-public class MainActivity extends AppCompatActivity {
-    
-    ...
+public class MyApp extends Application {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        
-        //gunakan function ini cukup satu kali saja pada awal activity
+    public void onCreate() {
+        super.onCreate();
+
         String externalFolderName = getApplication().getString(R.string.app_name); //MyLibsTesting
         FGDir.initExternalDirectoryName(externalFolderName);
-        
-        ...
-
     }
-
-    ...
 }
 ```
+Add `MyApp` to manifest `android:name=".MyApp"`.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest >
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".MyApp"
+        ...>
+
+        ...
+
+    </application>
+
+</manifest>
+```
 **notes.**
-  - I suggest you to declaration `Folder Name` first, just **One Time** in your first activity inside function `onCreate`. example `SplashScreenActivity` or `MainActivity`.
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
-#
-#### Step 2. Take Image From Camera And Compress
-Make View on `xml`
-
-**activity_main.xml**
+---
+### Step 2. USE
+#### Take Image From Camera And Compress
+* Design XML. Make View on `xml` **activity_main.xml**
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -80,8 +85,7 @@ Make View on `xml`
 ```
 
 #
-#### Step 3. Add Permission
-**manifest.xml**
+* Add Permission on **manifest.xml**
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -113,11 +117,9 @@ Make View on `xml`
 ```
 
 #
-#### Step 4. Temp File
-In directory `res` make folder `xml` and make file
-`file_provider_paths.xml`.
+* Temp File
 
-**file_provider_paths.xml**
+In directory `res` make folder `xml` and make file **file_provider_paths.xml**.
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
@@ -137,8 +139,7 @@ public class MainActivity extends AppCompatActivity { }
 ```
 
 #
-#### Step 5.
-**MainActivity.java** Add permission `CAMERA` :
+* **MainActivity.java** Add permission `CAMERA` :
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -158,9 +159,9 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-#### Step 6.
-In function `dispatchTakePictureIntent` start your request to open
-camera, call that function in `onClick`:
+* Intent To **Camera**
+
+In function `dispatchTakePictureIntent` start your request to open camera, call that function in `onClick`:
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -241,7 +242,6 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-#### Step 7.
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromCameraAndCompress/MainActivity.java) Preview :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example10.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example11.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example12.jpg)|

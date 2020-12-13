@@ -16,41 +16,56 @@
 | `getRealPathFromUri` | `String`      | `Context context, Uri contentUri`   | Get name of file from path/url                                           |
 
 ---
-### Image Galery
-#### Step 1. Enable Fitur.
-Add 2 code on your `onCreate`. you need to declaration `Folder Name`
-that you will use as you Folder Name in external. Now i am ussing
-`MyLibsTesting`.
+### Step 1. Enable Fitur.
+Make Class `MyApp`, add 2 code on your `onCreate`. you need to declaration `External Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
 
 ```java
-public class MainActivity extends AppCompatActivity {
-    
-    ...
+public class MyApp extends Application {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        
-        //gunakan function ini cukup satu kali saja pada awal activity
+    public void onCreate() {
+        super.onCreate();
+
         String externalFolderName = getApplication().getString(R.string.app_name); //MyLibsTesting
         FGDir.initExternalDirectoryName(externalFolderName);
-        
-        ...
-
     }
-
-    ...
 }
 ```
+Add `MyApp` to manifest `android:name=".MyApp"`.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest >
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".MyApp"
+        ...>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
+
+        ...
+
+    </application>
+
+</manifest>
+```
 **notes.**
-  - I suggest you to declaration `Folder Name` first, just **One Time** in your first activity inside function `onCreate`. example `SplashScreenActivity` or `MainActivity`.
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
-#
-#### Step 2. Take Image From Camera And Compress
-Make View on `xml`
-
-**activity_main.xml**
+---
+### Step 2. USE
+#### Take Image From Galery And Compress
+* Design XML. Make View on `xml` **activity_main.xml**
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -77,10 +92,34 @@ Make View on `xml`
         android:src="@mipmap/ic_launcher" />
 </LinearLayout>
 ```
-#
-#### Step 3. Take Image From Galery
 
-**MainActivity.java**
+#
+* Temp File
+
+In directory `res` make folder `xml` and make file **file_provider_paths.xml**.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path
+        name="my_images"
+        path="Android/data/com.gzeinnumer.mylibstesting/files/DCIM" />
+
+        <!-- ganti com.gzeinnumer.mylibstesting dengan package name project kamu-->
+</paths>
+```
+Here is your project name:
+```java
+//ini adalah Package Name Project
+package com.gzeinnumer.mylibstesting;
+
+public class MainActivity extends AppCompatActivity { }
+```
+
+#
+* Intent To **Galery**
+
+In function `dispatchGalleryIntent` start your request to open camera, call that function in `onClick`:
+
 ```java
 public class MainActivity extends AppCompatActivity {
 
@@ -144,7 +183,6 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-#### Step 4.
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromGalery/MainActivity.java) Preview :
 
 | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example17.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example18.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example19.jpg) |

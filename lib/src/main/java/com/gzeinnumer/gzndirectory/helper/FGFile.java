@@ -25,6 +25,13 @@ import java.util.Scanner;
 
 import com.squareup.picasso.Target;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+
 import static com.gzeinnumer.gzndirectory.helper.FGDir.logSystemFunctionGlobal;
 
 public class FGFile {
@@ -337,7 +344,8 @@ public class FGFile {
         }
         if (filename.length() > 0) {
             myDir = new File(myDir, filename);
-        } else {
+        }
+        else {
             myDir = new File(myDir, new Date().toString() + ".jpg");
         }
         if (!myDir.exists() || isNew) { // file tidak ada or isNew : True
@@ -381,7 +389,8 @@ public class FGFile {
                               }
                           }
                     );
-        } else {
+        }
+        else {
             logSystemFunctionGlobal("initFileImageFromInternet", "Foto lama di load dari penyimpanan");
             Bitmap bitmap = BitmapFactory.decodeFile(myDir.getAbsolutePath());
             imageLoadCallBack.onBitmapReturn(bitmap);
@@ -408,6 +417,19 @@ public class FGFile {
                 cursor.close();
             }
         }
+    }
+
+    public static boolean deleteDir(String path){
+        return new File(FGDir.getStorageCard+FGDir.appFolder+path).delete();
+    }
+
+    public static boolean isFileExists(String path) {
+        if (path == null) {
+            logSystemFunctionGlobal("isFileExists", "Path tidak boleh null");
+            return false;
+        }
+        File file = new File(FGDir.getStorageCard + FGDir.appFolder + path);
+        return file.exists();
     }
 
     ImageLoadCallBack imageLoadCallBack;

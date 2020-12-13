@@ -14,41 +14,46 @@
 | `initFileImageFromInternet` | `boolean` | `String imgUrl, String saveTo, String filename, boolean isNew, CallBack callBack`     | To download image and save to external |
 
 ---
-## Image Internet
-#### Step 1. Enable Fitur.
-Add 2 code on your `onCreate`. you need to declaration `Folder Name`
-that you will use as you Folder Name in external. Now i am ussing
-`MyLibsTesting`.
+### Step 1. Enable Fitur.
+Make Class `MyApp`, add 2 code on your `onCreate`. you need to declaration `External Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
 
 ```java
-public class MainActivity extends AppCompatActivity {
-    
-    ...
+public class MyApp extends Application {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        
-        //gunakan function ini cukup satu kali saja pada awal activity
+    public void onCreate() {
+        super.onCreate();
+
         String externalFolderName = getApplication().getString(R.string.app_name); //MyLibsTesting
         FGDir.initExternalDirectoryName(externalFolderName);
-        
-        ...
-
     }
-
-    ...
 }
 ```
+Add `MyApp` to manifest `android:name=".MyApp"`.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest >
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".MyApp"
+        ...>
+
+        ...
+
+    </application>
+
+</manifest>
+```
 **notes.**
-  - I suggest you to declaration `Folder Name` first, just **One Time** in your first activity inside function `onCreate`. example `SplashScreenActivity` or `MainActivity`.
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
-#
-#### Step 2. Take Image From Camera And Compress
-Make View on `xml`
-
-**activity_main.xml**
+---
+### Step 2. USE
+#### Download Image From Internet
+* Design XML. Make View on `xml` **activity_main.xml**
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -77,8 +82,7 @@ Make View on `xml`
 ```
 
 #
-#### Step 3. Add Permission
-**manifest.xml**
+* Add Permission on **manifest.xml**
 ```xml
 <manifest >
 
@@ -94,7 +98,7 @@ Make View on `xml`
 ```
 
 #
-#### Step 4. Load Image From Internet and Save
+* Load Image From Internet and Save
 Make function `onSuccessCheckPermitions` you need to declare :
 
 1. `imgUrl` is link image.
@@ -143,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-#### Step 5. Load Image From Internet and Save
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/LoadImageFromInternetandSave/MainActivity.java) Preview :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example23.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example24.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example25.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example26.jpg)|
