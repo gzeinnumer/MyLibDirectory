@@ -52,10 +52,10 @@ Add `MyApp` to manifest `android:name=".MyApp"`.
 **notes.**
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
-#
+---
 ### Step 2. USE
-#### Take Image From Camera And Compress
-* Make View on `xml` **activity_main.xml**.
+#### Take Image From Galery And Compress
+* Design XML. Make View on `xml` **activity_main.xml**
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -82,10 +82,34 @@ Add `MyApp` to manifest `android:name=".MyApp"`.
         android:src="@mipmap/ic_launcher" />
 </LinearLayout>
 ```
-#
-#### Step 3. Take Image From Galery
 
-**MainActivity.java**
+#
+* Temp File
+
+In directory `res` make folder `xml` and make file **file_provider_paths.xml**.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path
+        name="my_images"
+        path="Android/data/com.gzeinnumer.mylibstesting/files/DCIM" />
+
+        <!-- ganti com.gzeinnumer.mylibstesting dengan package name project kamu-->
+</paths>
+```
+Here is your project name:
+```java
+//ini adalah Package Name Project
+package com.gzeinnumer.mylibstesting;
+
+public class MainActivity extends AppCompatActivity { }
+```
+
+#
+* Intent To Galery
+
+In function `dispatchGalleryIntent` start your request to open camera, call that function in `onClick`:
+
 ```java
 public class MainActivity extends AppCompatActivity {
 
@@ -149,7 +173,6 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-#### Step 4.
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromGalery/MainActivity.java) Preview :
 
 | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example17.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example18.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example19.jpg) |

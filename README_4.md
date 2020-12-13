@@ -161,8 +161,7 @@ public class MainActivity extends AppCompatActivity {
 #
 * Intent To Camera
 
-In function `dispatchTakePictureIntent` start your request to open
-camera, call that function in `onClick`:
+In function `dispatchTakePictureIntent` start your request to open camera, call that function in `onClick`:
 
 ```java
 public class MainActivity extends AppCompatActivity {
