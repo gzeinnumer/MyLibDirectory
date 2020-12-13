@@ -10,40 +10,51 @@
 | Name                        | Return    | Parameter                                                                             | Description                                                               |
 |:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
 | `initFile`                  | `boolean` | `String fileName, String saveTo, String... text`                                      | To make file `MyFile.txt` and put value to it                            |
+| `isFileExists`              | `boolean` | `String path`                                                                         | To check is `directory` or `file` has created or not |
+| `deleteDir`                 | `boolean` | `String path`                                                                         | To Delete directory` or `file`                       |
 | `readFile`                  | `boolean` | `String path`                                                                         | To read value from file txt                                              |
 | `appentText`                | `boolean` | `String path, String... msg`                                                          | Add new line to existing file                                            |
 
 ---
-### Create File
-#### Step 1. Enable Fitur.
-Add 2 code on your `onCreate`. you need to declaration `Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
+### Step 1. Enable Fitur.
+Make Class `MyApp`, add 2 code on your `onCreate`. you need to declaration `External Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
 
 ```java
-public class MainActivity extends AppCompatActivity {
-    
-    ...
+public class MyApp extends Application {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        
-        //gunakan function ini cukup satu kali saja pada awal activity
+    public void onCreate() {
+        super.onCreate();
+
         String externalFolderName = getApplication().getString(R.string.app_name); //MyLibsTesting
         FGDir.initExternalDirectoryName(externalFolderName);
-        
-        ...
-
     }
-
-    ...
 }
 ```
+Add `MyApp` to manifest `android:name=".MyApp"`.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest >
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".MyApp"
+        ...>
+
+        ...
+
+    </application>
+
+</manifest>
+```
 **notes.**
-  - I suggest you to declaration `Folder Name` first, just **One Time** in your first activity inside function `onCreate`. example `SplashScreenActivity` or `MainActivity`.
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
-#
-#### Step 2. Create File
+---
+### Step 2. USE.
+#### Create File
 If you has granted your permission, now run function
 `onSuccessCheckPermitions` inside `onRequestPermissionsResult` :
 
@@ -71,9 +82,21 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
+#
+#### is File Exists.
+
+```java
+boolean isExists = FGFile.isFileExists("/MyFile.txt");
+```
 
 #
-#### Step 3.
+#### Delete File.
+
+```java
+boolean isDeleted = FGFile.deleteDir("/MyFile.txt");
+```
+
+#
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFile/MainActivity.java) Preview :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|
@@ -81,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 |Folder `MyLibsTesting` created|`MyFile.txt` inside `MyLibsTesting` created|`MyFile.txt`|
 
 ---
-#### Step 4. Read File
+#### Read File
 You can read the file that you created, here is the code.
 
 ```java
@@ -109,16 +132,15 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-#### Step 5.
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/ReadFile/MainActivity.java)
 
 ---
-#### Step 6. AppentText
+#### AppentText
 Run function `onSuccessCheckPermitions` inside
 `onRequestPermissionsResult` to add new line string in file or `appent
 text`, parameters that you need to declaration:
 
-1. `onSuccessCheckPermitions` same like **Step 2**, add function
+1. `onSuccessCheckPermitions` same like [**Create File**](#create-file), add function
    `onAppentText` to excecute the process.
 2. `onAppentText`->`String path` path file that you want to add new value in new line.
 3. `messages` put your value here.
@@ -172,7 +194,6 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-#### Step 7.
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/AppentText/MainActivity.java) Preview :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example9.jpg)|
