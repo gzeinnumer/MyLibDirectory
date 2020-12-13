@@ -12,6 +12,8 @@
 | `initFile`                  | `boolean` | `String fileName, String saveTo, String... text`                                      | To make file `MyFile.txt` and put value to it                            |
 | `readFile`                  | `boolean` | `String path`                                                                         | To read value from file txt                                              |
 | `appentText`                | `boolean` | `String path, String... msg`                                                          | Add new line to existing file                                            |
+| `isFileExists`              | `boolean` | `String path`          | To check is `directory` or `file` has created or not |
+| `deleteDir`                 | `boolean` | `String path`          | To Delete directory` or `file`                       |
 
 ---
 ### Create File
@@ -80,9 +82,21 @@ public class MainActivity extends AppCompatActivity {
 
 }
 ```
+#
+### is File Exists.
+
+```java
+boolean isExists = FGFile.isFileExists("/folder1");
+```
 
 #
-#### Step 3.
+### Delete Folder.
+
+```java
+boolean isDeleted = FGFile.deleteDir("/folder1");
+```
+
+#
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFile/MainActivity.java) Preview :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|
