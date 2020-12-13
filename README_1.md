@@ -91,7 +91,7 @@ boolean isExists = FGDir.isFileExists("/folder1");
 ```
 
 #
-### Delete Folder.
+#### Delete Folder.
 
 ```java
 boolean isDeleted = FGDir.deleteDir("/folder1");

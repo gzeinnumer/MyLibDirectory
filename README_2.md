@@ -10,10 +10,10 @@
 | Name                        | Return    | Parameter                                                                             | Description                                                               |
 |:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
 | `initFile`                  | `boolean` | `String fileName, String saveTo, String... text`                                      | To make file `MyFile.txt` and put value to it                            |
+| `isFileExists`              | `boolean` | `String path`                                                                         | To check is `directory` or `file` has created or not |
+| `deleteDir`                 | `boolean` | `String path`                                                                         | To Delete directory` or `file`                       |
 | `readFile`                  | `boolean` | `String path`                                                                         | To read value from file txt                                              |
 | `appentText`                | `boolean` | `String path, String... msg`                                                          | Add new line to existing file                                            |
-| `isFileExists`              | `boolean` | `String path`          | To check is `directory` or `file` has created or not |
-| `deleteDir`                 | `boolean` | `String path`          | To Delete directory` or `file`                       |
 
 ---
 ### Step 1. Enable Fitur.
@@ -52,9 +52,9 @@ Add `MyApp` to manifest `android:name=".MyApp"`.
 **notes.**
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
-#
+---
 ### Step 2. USE.
-### Create File
+#### Create File
 If you has granted your permission, now run function
 `onSuccessCheckPermitions` inside `onRequestPermissionsResult` :
 
@@ -83,17 +83,17 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 #
-### is File Exists.
+#### is File Exists.
 
 ```java
-boolean isExists = FGFile.isFileExists("/folder1");
+boolean isExists = FGFile.isFileExists("/MyFile.txt");
 ```
 
 #
-### Delete Folder.
+#### Delete File.
 
 ```java
-boolean isDeleted = FGFile.deleteDir("/folder1");
+boolean isDeleted = FGFile.deleteDir("/MyFile.txt");
 ```
 
 #
@@ -104,7 +104,7 @@ boolean isDeleted = FGFile.deleteDir("/folder1");
 |Folder `MyLibsTesting` created|`MyFile.txt` inside `MyLibsTesting` created|`MyFile.txt`|
 
 ---
-#### Step 4. Read File
+#### Read File
 You can read the file that you created, here is the code.
 
 ```java
@@ -132,11 +132,10 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-#### Step 5.
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/ReadFile/MainActivity.java)
 
 ---
-#### Step 6. AppentText
+#### AppentText
 Run function `onSuccessCheckPermitions` inside
 `onRequestPermissionsResult` to add new line string in file or `appent
 text`, parameters that you need to declaration:
@@ -195,7 +194,6 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-#### Step 7.
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/AppentText/MainActivity.java) Preview :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example9.jpg)|

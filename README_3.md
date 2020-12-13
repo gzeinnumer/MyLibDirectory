@@ -12,7 +12,6 @@
 | `initFileFromStringToZipToFile` | `boolean` | `String fileName, String zipLocation, String base64EncodeFromFile, String md5EncodeFromFile, boolean isNew` | Make file ZIP from Base64 and extract it to your destination folder |
 
 ---
-### Base64 To Zip
 #### Step 1. Enable Fitur.
 Make Class `MyApp`, add 2 code on your `onCreate`. you need to declaration `External Folder Name` that you will use as you Folder Name in external. Now i am using `MyLibsTesting`.
 
@@ -49,8 +48,11 @@ Add `MyApp` to manifest `android:name=".MyApp"`.
 **notes.**
   - In this tutorial, i will put every file and folder in `/storage/emulated/0/MyLibsTesting`.
 
-#
-#### Step 2. Make Zip
+---
+### Step 2. USE.
+#### Base64 To Zip
+
+Make Zip
 
 **Encode Base64/Md5 to Zip** Run function `onSuccessCheckPermitions` di
 dalam `onRequestPermissionsResult`, make sure you have grant permission,
@@ -102,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
   - Make sure `fileName` is real name from file zip that you decode to Base64 and Md5.
 
 #
-#### Step 3.
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/EncodeBase64Md5toZip/MainActivity.java) Preview :
 
 | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example7.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example8.jpg)          |
