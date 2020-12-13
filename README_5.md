@@ -43,6 +43,16 @@ Add `MyApp` to manifest `android:name=".MyApp"`.
         android:name=".MyApp"
         ...>
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
+
         ...
 
     </application>
