@@ -42,9 +42,9 @@ This library need Permission you can use this step [**MultiPermission**](https:/
   - [Is File Exists](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md#is-file-exists)
   - [Delete Folder](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md#delete-folder)
 - [x] [Function Global File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md)
+  - [Create File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#create-file)
   - [Is File Exists](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_2.md#is-file-exists)
   - [Delete File](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_2.md#delete-file)
-  - [Create File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#create-file)
   - [Read File](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_2.md#read-file)
   - [AppentText](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_2.md#appenttext)
 - [x] [Function Global Zip](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_3.md)
@@ -55,7 +55,6 @@ This library need Permission you can use this step [**MultiPermission**](https:/
   - [Take Image From Galery And Compress](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_5.md#take-image-from-galery-and-compress)
 - [x] [Function Global Image Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_6.md)
   - [Download Image From Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_6.md#download-image-from-internet)
-- [x] Cek File Exists
 
 ### Function Global Directory
 > Example : FGDir.initExternalDirectoryName(valueString);
