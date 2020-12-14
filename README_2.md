@@ -11,7 +11,7 @@
 |:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
 | `initFile`                  | `boolean` | `String fileName, String saveTo, String... text`                                      | To make file `MyFile.txt` and put value to it                            |
 | `isFileExists`              | `boolean` | `String path`                                                                         | To check is `directory` or `file` has created or not |
-| `deleteDir`                 | `boolean` | `String path`                                                                         | To Delete directory` or `file`                       |
+| `deleteDir`                 | `boolean` | `String path`                                                                         | To Delete `directory` or `file`                       |
 | `readFile`                  | `boolean` | `String path`                                                                         | To read value from file txt                                              |
 | `appentText`                | `boolean` | `String path, String... msg`                                                          | Add new line to existing file                                            |
 
