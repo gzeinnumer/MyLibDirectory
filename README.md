@@ -64,7 +64,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 | `initExternalDirectoryName` | `void`    | `String appFolder`     | Function to declare your own app folder on external  |
 | `initFolder`                | `boolean` | `String... folderName` | Make folder in own app folder in external            |
 | `isFileExists`              | `boolean` | `String path`          | To check is `directory` or `file` has created or not |
-| `deleteDir`                 | `boolean` | `String path`          | To Delete directory` or `file`                       |
+| `deleteDir`                 | `boolean` | `String path`          | To Delete `directory` or `file`                       |
 
 ### Function Global File
 > Example : FGFile.readFile(valueString);
@@ -73,7 +73,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 |:----------------------------|:----------|:--------------------------------------------------------------------------------------|:-------------------------------------------------------------------------|
 | `initFile`                  | `boolean` | `String fileName, String saveTo, String... text`                                      | To make file `MyFile.txt` and put value to it                            |
 | `isFileExists`              | `boolean` | `String path`                                                                         | To check is `directory` or `file` has created or not |
-| `deleteDir`                 | `boolean` | `String path`                                                                         | To Delete directory` or `file`                       |
+| `deleteDir`                 | `boolean` | `String path`                                                                         | To Delete `directory` or `file`                       |
 | `readFile`                  | `boolean` | `String path`                                                                         | To read value from file txt                                              |
 | `appentText`                | `boolean` | `String path, String... msg`                                                          | Add new line to existing file                                            |
 
