@@ -138,13 +138,6 @@ public class MainActivity extends AppCompatActivity {
 
         imageView = findViewById(R.id.img);
 
-        mCompressor = new FileCompressor(this);
-        //   /storage/emulated/0/MyLibsTesting/Foto
-        mCompressor.setDestinationDirectoryPath("/Foto");
-        // int quality = 50;
-        // mCompressor = new FileCompressor(this, quality);
-        //diretori yang dibutuhkan akan lansung dibuatkan oleh fitur ini 
-
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,6 +148,13 @@ public class MainActivity extends AppCompatActivity {
 
     //3
     private void dispatchGalleryIntent() {
+        mCompressor = new FileCompressor(this);
+        //   /storage/emulated/0/MyLibsTesting/Foto
+        mCompressor.setDestinationDirectoryPath("/Foto");
+        // int quality = 50;
+        // mCompressor = new FileCompressor(this, quality);
+        //diretori yang dibutuhkan akan lansung dibuatkan oleh fitur ini
+
         Intent pickPhoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         pickPhoto.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         startActivityForResult(pickPhoto, REQUEST_GALLERY_PHOTO);
@@ -168,11 +168,11 @@ public class MainActivity extends AppCompatActivity {
             if (requestCode == REQUEST_GALLERY_PHOTO) {
                 Uri selectedImage = data.getData();
                 try {
-                    mPhotoFile = mCompressor.compressToFile(new File(FGFile.getRealPathFromUri(getApplicationContext(),selectedImage)));
+                    mPhotoFile = mCompressor.compressToFile(selectedImage);
+                    Glide.with(MainActivity.this).load(mPhotoFile).into(imageView);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Glide.with(MainActivity.this).load(mPhotoFile).into(imageView);
             }
         }
     }

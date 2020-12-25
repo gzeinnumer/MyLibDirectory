@@ -3,7 +3,7 @@
 </h1>
 
 <div align="center">
-    <a><img src="https://img.shields.io/badge/Version-1.5.0-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.5.1-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
@@ -43,18 +43,18 @@ This library need Permission you can use this step [**MultiPermission**](https:/
   - [Delete Folder](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md#delete-folder)
 - [x] [Function Global File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md)
   - [Create File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#create-file)
-  - [Is File Exists](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_2.md#is-file-exists)
-  - [Delete File](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_2.md#delete-file)
-  - [Read File](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_2.md#read-file)
-  - [AppentText](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_2.md#appenttext)
+  - [Is File Exists](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#is-file-exists)
+  - [Delete File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#delete-file)
+  - [Read File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#read-file)
+  - [AppentText](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#appenttext)
 - [x] [Function Global Zip](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_3.md)
-  - [Encode Base64/Md5 to Zip](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_3.md#base64-to-zip)
+  - [Encode Base64/Md5 to Zip](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_3.md#base64-to-zip)
 - [x] [Function Global Image Camera](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_4.md)
-  - [Take Image From Camera And Compress](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_4.md#take-image-from-camera-and-compress)
+  - [Take Image From Camera And Compress](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_4.md#take-image-from-camera-and-compress)
 - [x] [Function Global Image Galery](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_5.md)
-  - [Take Image From Galery And Compress](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_5.md#take-image-from-galery-and-compress)
+  - [Take Image From Galery And Compress](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_5.md#take-image-from-galery-and-compress)
 - [x] [Function Global Image Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_6.md)
-  - [Download Image From Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/dev-delete/README_6.md#download-image-from-internet)
+  - [Download Image From Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_6.md#download-image-from-internet)
 
 ### Function Global Directory
 > Example : FGDir.initExternalDirectoryName(valueString);
@@ -150,6 +150,8 @@ FullCode from all fitur ([example](https://github.com/gzeinnumer/MyLibDirectoryE
   - First Release
 - **1.5.0**
   - Add Feature Delete Dir or File
+- **1.5.1**
+  - More simple on take image galery
 
 ---
 

@@ -2,8 +2,10 @@ package com.gzeinnumer.gzndirectory.helper.imagePicker;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.net.Uri;
 
 import com.gzeinnumer.gzndirectory.helper.FGDir;
+import com.gzeinnumer.gzndirectory.helper.FGFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,8 +25,10 @@ public class FileCompressor {
     private Bitmap.CompressFormat compressFormat = Bitmap.CompressFormat.JPEG;
     private int quality = 80;
     private String destinationDirectoryPath;
+    private Context context;
 
     public FileCompressor(Context context) {
+        this.context = context;
         destinationDirectoryPath = context.getCacheDir().getPath() + File.separator + "images";
     }
 
@@ -60,6 +64,11 @@ public class FileCompressor {
 
     public File compressToFile(File imageFile) throws IOException {
         return compressToFile(imageFile, imageFile.getName());
+    }
+
+    public File compressToFile(Uri imageFile) throws IOException {
+        File temp = new File(FGFile.getRealPathFromUri(context, imageFile));
+        return compressToFile(temp, temp.getName());
     }
 
     public File compressToFile(File imageFile, String compressedFileName) throws IOException {

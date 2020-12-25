@@ -400,7 +400,7 @@ public class FGFile {
     //simpan data di dalam root folder sebagai temporary
     public static File createImageFile(Context context, String fileName) throws IOException {
         File storageDir = context.getExternalFilesDir(Environment.DIRECTORY_DCIM);
-        return File.createTempFile(fileName, ".jpg", storageDir);
+        return File.createTempFile(fileName+"_", ".jpg", storageDir);
     }
 
     public static String getRealPathFromUri(Context context, Uri contentUri) {
