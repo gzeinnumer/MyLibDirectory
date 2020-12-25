@@ -181,13 +181,6 @@ public class MainActivity extends AppCompatActivity {
 
         imageView = findViewById(R.id.img);
 
-        mCompressor = new FileCompressor(this);
-        // int quality = 50;
-        // mCompressor = new FileCompressor(this, quality);
-        //   /storage/emulated/0/MyLibsTesting/Foto
-        mCompressor.setDestinationDirectoryPath("/Foto");
-        //diretori yang dibutuhkan akan lansung dibuatkan oleh fitur ini 
-
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -199,7 +192,15 @@ public class MainActivity extends AppCompatActivity {
     //3
     //jalankan intent untuk membuka kamera
     private void dispatchTakePictureIntent() {
+        mCompressor = new FileCompressor(this);
+        // int quality = 50;
+        // mCompressor = new FileCompressor(this, quality);
+        //   /storage/emulated/0/MyLibsTesting/Foto
+        mCompressor.setDestinationDirectoryPath("/Foto");
+        //diretori yang dibutuhkan akan lansung dibuatkan oleh fitur ini
+
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             File photoFile = null;
             try {
@@ -227,11 +228,11 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     //setelah foto diambil, dan tampil di preview maka akan lansung disimpan ke folder yang di sudah diset sebelumnya
                     mPhotoFile = mCompressor.compressToFile(mPhotoFile);
+                    Glide.with(MainActivity.this).load(mPhotoFile).into(imageView);
+                    Toast.makeText(this, "Image Path : "+mPhotoFile.toString(), Toast.LENGTH_SHORT).show();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Glide.with(MainActivity.this).load(mPhotoFile).into(imageView);
-                Toast.makeText(this, "Image Path : "+mPhotoFile.toString(), Toast.LENGTH_SHORT).show();
             }
         }
     }
