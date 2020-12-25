@@ -3,7 +3,7 @@
 </h1>
 
 <div align="center">
-    <a><img src="https://img.shields.io/badge/Version-1.5.0-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.5.1-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
@@ -150,6 +150,8 @@ FullCode from all fitur ([example](https://github.com/gzeinnumer/MyLibDirectoryE
   - First Release
 - **1.5.0**
   - Add Feature Delete Dir or File
+- **1.5.1**
+  - More simple on take image galery
 
 ---
 
