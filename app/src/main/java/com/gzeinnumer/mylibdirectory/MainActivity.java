@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     private void onSuccessCheckPermitions() {
         Toast.makeText(this, "All Granted", Toast.LENGTH_SHORT).show();
         //letakan action kamu disini

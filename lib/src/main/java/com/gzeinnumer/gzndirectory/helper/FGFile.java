@@ -420,12 +420,41 @@ public class FGFile {
     }
 
     public static boolean deleteDir(String path){
+        if (FGDir.appFolder.length() == 0) {
+            logSystemFunctionGlobal("deleteDir", "Folder External untuk aplikasi belum dideklarasi");
+            return false;
+        }
         return new File(FGDir.getStorageCard+FGDir.appFolder+path).delete();
+    }
+
+    public static void deleteAllFile(String path){
+        if (FGDir.appFolder.length() == 0) {
+            logSystemFunctionGlobal("deleteAllFile", "Folder External untuk aplikasi belum dideklarasi");
+            return;
+        }
+        deleteAllFileProcess(new File(FGDir.getStorageCard+FGDir.appFolder+path));
+        new File(FGDir.getStorageCard+FGDir.appFolder+path).mkdirs();
+    }
+
+    private static void deleteAllFileProcess(File dir) {
+        if (dir.isDirectory()) {
+            File[] files = dir.listFiles();
+            if (files != null && files.length > 0) {
+                for (File aFile : files) {
+                    deleteAllFileProcess(aFile);
+                }
+            }
+        }
+        dir.delete();
     }
 
     public static boolean isFileExists(String path) {
         if (path == null) {
             logSystemFunctionGlobal("isFileExists", "Path tidak boleh null");
+            return false;
+        }
+        if (FGDir.appFolder.length() == 0) {
+            logSystemFunctionGlobal("deleteAllFile", "Folder External untuk aplikasi belum dideklarasi");
             return false;
         }
         File file = new File(FGDir.getStorageCard + FGDir.appFolder + path);
