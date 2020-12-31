@@ -79,6 +79,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 | `readFile`                  | `boolean` | `String path`                                                                         | To read value from file txt                                              |
 | `appentText`                | `boolean` | `String path, String... msg`                                                          | Add new line to existing file                                            |
 
+#
 ### Function Global Zip
 > Example : FGZip.initFileFromStringToZipToFile(valueString, valueString, valueString, valueString, valueBoolean);
 
