@@ -3,7 +3,7 @@
 </h1>
 
 <div align="center">
-    <a><img src="https://img.shields.io/badge/Version-1.5.2-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.5.3-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
@@ -34,7 +34,7 @@ dependencies {
 
 ---
 
-This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition) or use your own.
+This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition2) or use your own.
 
 ## Feature List
 - [x] [Function Global Directory](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md)
@@ -56,6 +56,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 - [x] [Function Global Image Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_6.md)
   - [Download Image From Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_6.md#download-image-from-internet)
 
+#
 ### Function Global Directory
 > Example : FGDir.initExternalDirectoryName(valueString);
 
@@ -66,6 +67,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 | `isFileExists`              | `boolean` | `String path`          | To check is `directory` or `file` has created or not |
 | `deleteDir`                 | `boolean` | `String path`          | To Delete `directory` or `file`                       |
 
+#
 ### Function Global File
 > Example : FGFile.readFile(valueString);
 
@@ -77,6 +79,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 | `readFile`                  | `boolean` | `String path`                                                                         | To read value from file txt                                              |
 | `appentText`                | `boolean` | `String path, String... msg`                                                          | Add new line to existing file                                            |
 
+#
 ### Function Global Zip
 > Example : FGZip.initFileFromStringToZipToFile(valueString, valueString, valueString, valueString, valueBoolean);
 
@@ -119,17 +122,18 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 ---
 
 ## Tech stack and 3rd library
-- MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition))
+- MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition2))
 - Androidwave ([docs](https://androidwave.com/))
 - Glide ([docs](https://github.com/bumptech/glide))
 - Picasso ([docs](https://github.com/square/picasso))
 - Permissions ([docs](https://developer.android.com/guide/topics/permissions/overview))
 - File ([docs](https://developer.android.com/reference/java/io/File))
 - File Provider ([docs](https://developer.android.com/training/secure-file-sharing/setup-sharing?hl=id))
-- Mengambil Foto ([docs](https://developer.android.com/training/camera/photobasics?hl=id))
+- Take Foto ([docs](https://developer.android.com/training/camera/photobasics?hl=id))
 - Intent Galery ([docs](https://developer.android.com/guide/components/intents-common?hl=id))
 - Android Internet ([docs](https://developer.android.com/training/basics/network-ops/connecting))
 - RxJava/RxAndroid ([docs](https://github.com/ReactiveX/RxJava))
+- Taphaelbussa PermissionUtils ([docs](https://github.com/raphaelbussa/PermissionUtils)) thanks to Rebus.
 
 ---
 
@@ -153,6 +157,8 @@ FullCode from all fitur ([example](https://github.com/gzeinnumer/MyLibDirectoryE
 - **1.5.1**
   - More simple on take image galery
 - **1.5.2**
+  - Bug Fixing
+- **1.5.3**
   - Bug Fixing
 
 ---

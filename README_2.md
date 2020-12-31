@@ -3,6 +3,9 @@
 </h1>
 
 **CRUD File.** now we will make `Directory` and `File` with simple and fast.
+
+This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition2) or use your own.
+
 #
 ### Function Global File
 > Example : FGFile.readFile(valueString);

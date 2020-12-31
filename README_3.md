@@ -3,6 +3,9 @@
 </h1>
 
 **String Base64 ke Zip.** we will make file zip from Base64 dan extract it to your folder fast and simple.
+
+This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition2) or use your own.
+
 #
 ### Function Global Zip
 > Example : FGZip.initFileFromStringToZipToFile(valueString, valueString, valueString, valueString, valueBoolean);
