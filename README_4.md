@@ -4,6 +4,8 @@
 
 **Take Foto with Camera.** Take foto with camera and save it with small size and keep it HD.
 
+This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition2) or use your own.
+
 #
 ### Function Global Image Camera
 > Example : FGFile.createImageFile(context,valueString);
@@ -146,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
     ...
 
-    //pada contoh yang sudah zein siapkan di https://github.com/gzeinnumer/MultiPermition, tambahkan 1 permition lagi yaitu CAMERA.
+    //pada contoh yang sudah zein siapkan di https://github.com/gzeinnumer/MultiPermition2, tambahkan 1 permition lagi yaitu CAMERA.
     String[] permissions = new String[]{
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.WRITE_EXTERNAL_STORAGE,

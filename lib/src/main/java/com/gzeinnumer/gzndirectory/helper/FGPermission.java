@@ -104,6 +104,6 @@ public class FGPermission {
     }
 
     public interface CallBackPermission{
-        void result(boolean isAllGranted, List<PermissionsResult> list);
+        void result(boolean isAllGranted, List<PermissionsResult> listPermissions);
     }
 }

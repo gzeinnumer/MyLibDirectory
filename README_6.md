@@ -4,6 +4,8 @@
 
 **Download and Save** download image and save it to directory that you want.
 
+This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition2) or use your own.
+
 #
 ### Function Global Image Internet
 > Example : FGFile.initFileImageFromInternet(stringValue, stringValue, stringValue, ImageView, booleanValue);

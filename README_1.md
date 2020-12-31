@@ -3,6 +3,9 @@
 </h1>
 
 **CRUD Directory.** now we will make `Directory` with simple and fast.
+
+This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition2) or use your own.
+
 #
 ### Function Global Directory
 > Example : FGDir.initExternalDirectoryName(valueString);

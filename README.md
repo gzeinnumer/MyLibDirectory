@@ -34,7 +34,7 @@ dependencies {
 
 ---
 
-This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition) or use your own.
+This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition2) or use your own.
 
 ## Feature List
 - [x] [Function Global Directory](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md)
@@ -119,7 +119,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 ---
 
 ## Tech stack and 3rd library
-- MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition))
+- MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition2))
 - Androidwave ([docs](https://androidwave.com/))
 - Glide ([docs](https://github.com/bumptech/glide))
 - Picasso ([docs](https://github.com/square/picasso))
