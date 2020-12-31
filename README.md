@@ -56,6 +56,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 - [x] [Function Global Image Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_6.md)
   - [Download Image From Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_6.md#download-image-from-internet)
 
+#
 ### Function Global Directory
 > Example : FGDir.initExternalDirectoryName(valueString);
 
@@ -66,6 +67,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 | `isFileExists`              | `boolean` | `String path`          | To check is `directory` or `file` has created or not |
 | `deleteDir`                 | `boolean` | `String path`          | To Delete `directory` or `file`                       |
 
+#
 ### Function Global File
 > Example : FGFile.readFile(valueString);
 
