@@ -4,6 +4,8 @@
 
 **Take foto from galery.** Take foto from galery and save it with small size and keep it HD.
 
+This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition2) or use your own.
+
 #
 ### Function Global Image Galery
 > Example : FGFile.createImageFile(context, valueString);
