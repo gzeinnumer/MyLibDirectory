@@ -107,6 +107,8 @@ public class MainActivity extends AppCompatActivity {
   - Make sure `fileName` is real name from file zip that you decode to Base64 and Md5.
 
 #
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/EncodeBase64Md5toZip/MainActivity.java) Preview :
+
 [Example Project](https://github.com/gzeinnumer/SimpleZipMyLibDirectory)
 
 Preview :
