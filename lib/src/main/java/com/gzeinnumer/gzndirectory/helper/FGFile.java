@@ -4,13 +4,18 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.widget.ImageView;
 
+import androidx.core.content.ContextCompat;
+
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,15 +27,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-
-import com.squareup.picasso.Target;
-
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
 
 import static com.gzeinnumer.gzndirectory.helper.FGDir.logSystemFunctionGlobal;
 
@@ -63,7 +59,7 @@ public class FGFile {
                 return false;
             }
         }
-        if (!saveTo.substring(0, 1).equals("/")) {
+        if (!saveTo.startsWith("/")) {
             saveTo = "/" + saveTo;
         }
         if (!FGDir.isFileExists(saveTo)) {
@@ -80,7 +76,7 @@ public class FGFile {
                 String[] subFolder = saveTo.substring(1).split("/");
                 String currentPath = "";
                 for (String d : subFolder) {
-                    if (!d.substring(0, 1).equals("/")) {
+                    if (!d.startsWith("/")) {
                         d = "/" + d;
                     }
                     currentPath = currentPath + d;
@@ -104,7 +100,7 @@ public class FGFile {
             logSystemFunctionGlobal("initFile", "FileName tidak boleh kosong");
             return false;
         }
-        if (!fileName.substring(0, 1).equals("/")) {
+        if (!fileName.startsWith("/")) {
             fileName = "/" + fileName;
         }
         File file = new File(FGDir.getStorageCard + FGDir.appFolder + saveTo + fileName);
@@ -148,7 +144,7 @@ public class FGFile {
             logSystemFunctionGlobal("readFile", "Path tidak boleh kosong");
             return list;
         }
-        if (!path.substring(0, 1).equals("/")) {
+        if (!path.startsWith("/")) {
             path = "/" + path;
         }
         if (!FGDir.isFileExists(path)) {
@@ -199,7 +195,7 @@ public class FGFile {
             logSystemFunctionGlobal("appentText", "Path tidak boleh kosong");
             return false;
         }
-        if (!path.substring(0, 1).equals("/")) {
+        if (!path.startsWith("/")) {
             path = "/" + path;
         }
         if (!FGDir.isFileExists(path)) {
@@ -310,7 +306,7 @@ public class FGFile {
         }
     }
 
-    public static void initFileImageFromInternet(final String imgUrl, final String saveTo, final String filename, final boolean isNew, final ImageLoadCallBack imageLoadCallBack) {
+    public static void initFileImageFromInternet(final Context context, final String imgUrl, final String saveTo, final String filename, final boolean isNew, final ImageLoadCallBack imageLoadCallBack) {
         if (imgUrl == null) {
             logSystemFunctionGlobal("initFileImageFromInternet", "ImgUrl tidak boleh null");
             return;
@@ -344,8 +340,7 @@ public class FGFile {
         }
         if (filename.length() > 0) {
             myDir = new File(myDir, filename);
-        }
-        else {
+        } else {
             myDir = new File(myDir, new Date().toString() + ".jpg");
         }
         if (!myDir.exists() || isNew) { // file tidak ada or isNew : True
@@ -357,12 +352,15 @@ public class FGFile {
                               @Override
                               public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                                   try {
+                                      String msg;
                                       if (!finalMyDir.exists() || isNew) {
                                           //jika isNew true maka foto lama akan dihapus dan diganti dengan yang baru
                                           //jika file tidak ditemukan maka file akan dibuat
                                           logSystemFunctionGlobal("initFileImageFromInternet", "Foto baru disimpan ke penyimpanan");
                                           FileOutputStream out = new FileOutputStream(finalMyDir);
                                           bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+
+                                          msg = "Save New Foto";
 
                                           out.flush();
                                           out.close();
@@ -371,9 +369,11 @@ public class FGFile {
                                           //jika isNew false maka akan load file lama di penyimpanan
                                           logSystemFunctionGlobal("initFileImageFromInternet", "Foto lama di load dari penyimpanan");
                                           bitmap = BitmapFactory.decodeFile(finalMyDir.getAbsolutePath());
+
+                                          msg = "Load Old Foto";
                                       }
 
-                                      imageLoadCallBack.onBitmapReturn(bitmap);
+                                      imageLoadCallBack.onBitmapReturn(bitmap, finalMyDir.toString(), msg);
                                   } catch (Exception e) {
                                       logSystemFunctionGlobal("initFileImageFromInternet", e.getMessage());
                                   }
@@ -382,25 +382,49 @@ public class FGFile {
                               @Override
                               public void onBitmapFailed(Exception e, Drawable errorDrawable) {
                                   logSystemFunctionGlobal("initFileImageFromInternet", e.getMessage());
+
+                                  imageLoadCallBack.onBitmapReturn(drawableToBitmap(ContextCompat.getDrawable(context, com.gzeinnumer.gzndirectory.R.drawable.ic_baseline_broken_image_24)), finalMyDir.toString(), e.getMessage());
                               }
 
                               @Override
                               public void onPrepareLoad(Drawable placeHolderDrawable) {
+                                  imageLoadCallBack.onBitmapReturn(drawableToBitmap(ContextCompat.getDrawable(context, com.gzeinnumer.gzndirectory.R.drawable.ic_baseline_sync_24)), finalMyDir.toString(), "onPrepareLoad");
                               }
                           }
                     );
-        }
-        else {
+        } else {
             logSystemFunctionGlobal("initFileImageFromInternet", "Foto lama di load dari penyimpanan");
             Bitmap bitmap = BitmapFactory.decodeFile(myDir.getAbsolutePath());
-            imageLoadCallBack.onBitmapReturn(bitmap);
+            imageLoadCallBack.onBitmapReturn(bitmap, myDir.toString(), "Load Old Foto");
         }
+    }
+
+    public static Bitmap drawableToBitmap(Drawable drawable) {
+        Bitmap bitmap = null;
+
+        if (drawable instanceof BitmapDrawable) {
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+            if (bitmapDrawable.getBitmap() != null) {
+                return bitmapDrawable.getBitmap();
+            }
+        }
+
+        if (drawable.getIntrinsicWidth() <= 0 || drawable.getIntrinsicHeight() <= 0) {
+            bitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888); // Single color bitmap will be created of 1x1 pixel
+        } else {
+            bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+        }
+
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        drawable.draw(canvas);
+        return bitmap;
     }
 
     //simpan data di dalam root folder sebagai temporary
     public static File createImageFile(Context context, String fileName) throws IOException {
         File storageDir = context.getExternalFilesDir(Environment.DIRECTORY_DCIM);
-        return File.createTempFile(fileName+"_", ".jpg", storageDir);
+        return File.createTempFile(fileName + "_", ".jpg", storageDir);
     }
 
     public static String getRealPathFromUri(Context context, Uri contentUri) {
@@ -464,7 +488,7 @@ public class FGFile {
     ImageLoadCallBack imageLoadCallBack;
 
     public interface ImageLoadCallBack {
-        void onBitmapReturn(Bitmap bitmap);
+        void onBitmapReturn(Bitmap bitmap, String path, String msg);
     }
 
 }
