@@ -12,8 +12,8 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 
 | Name                        | Return    | Parameter                                                                             | Description                            |
 |:----------------------------|:----------|:--------------------------------------------------------------------------------------|:---------------------------------------|
-| `initFileImageFromInternet` | `boolean` | `Deprecated` `String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | To download image and save to external |
-| `initFileImageFromInternet` | `boolean` | `String imgUrl, String saveTo, String filename, boolean isNew, CallBack callBack`     | To download image and save to external |
+| `initFileImageFromInternet` | `boolean` | `Context context, String imgUrl, String saveTo, String filename, ImageView sendImageTo, boolean isNew` | To download image and save to external |
+| `initFileImageFromInternet` | `boolean` | `Context context, String imgUrl, String saveTo, String filename, boolean isNew, CallBack callBack`     | To download image and save to external |
 
 ---
 ### Step 1. Enable Fitur.
@@ -126,19 +126,18 @@ public class MainActivity extends AppCompatActivity {
         // imgUrl = "https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg";
         // String fileName = imgUrl.substring(url.lastIndexOf('/') + 1, url.length());
 
-
          boolean overwriteExistingFiles =  true;
 
         //pilih 1 atau 2
         //1. jika isNew true maka file lama akan dihapus dan diganti dengan yang baru.
-        FGFile.initFileImageFromInternet(imgUrl, saveTo, fileName, overwriteExistingFiles, new FGFile.ImageLoadCallBack() {
+        FGFile.initFileImageFromInternet(getApplicationContext(), imgUrl, saveTo, fileName, overwriteExistingFiles, new FGFile.ImageLoadCallBack() {
             @Override
             public void onBitmapReturn(Bitmap bitmap) {
                 imageView.setImageBitmap(bitmap);
             }
         });
         //2. jika isNew false maka akan otomatis load file dan disimpan, tapi jika file belum ada, maka akan tetap didownload.
-        FGFile.initFileImageFromInternet(imgUrl, saveTo, fileName, overwriteExistingFiles, new FGFile.ImageLoadCallBack() {
+        FGFile.initFileImageFromInternet(getApplicationContext(), imgUrl, saveTo, fileName, overwriteExistingFiles, new FGFile.ImageLoadCallBack() {
             @Override
             public void onBitmapReturn(Bitmap bitmap) {
                 imageView.setImageBitmap(bitmap);
