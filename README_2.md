@@ -100,7 +100,9 @@ boolean isDeleted = FGFile.deleteDir("/MyFile.txt");
 ```
 
 #
-[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFile/MainActivity.java) Preview :
+[Example Project](https://github.com/gzeinnumer/SimpleFileMyLibDirectory)
+
+Preview :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example5.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example6.jpg)|
 |--|--|--|
@@ -135,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/ReadFile/MainActivity.java)
+[Example Project](https://github.com/gzeinnumer/SimpleFileMyLibDirectory)
 
 ---
 #### AppentText
