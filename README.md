@@ -3,7 +3,7 @@
 </h1>
 
 <div align="center">
-    <a><img src="https://img.shields.io/badge/Version-1.5.3-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.5.4-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
@@ -102,6 +102,8 @@ FullCode from all fitur ([example](https://github.com/gzeinnumer/MyLibDirectoryE
   - Bug Fixing
 - **1.5.3**
   - Bug Fixing
+- **1.5.4**
+  - All Callback Preload, Error and Message Status
 
 ---
 
