@@ -88,9 +88,11 @@ public class MainActivity extends AppCompatActivity {
         //   /storage/emulated/0/MyLibsTesting/
         //String zipLocation = "/"; // jika tidak mau diletakan dalam folder
 
+        boolean overwriteExistingFiles =  true;
+
         //decode string menjadi file dan extrack ke tujuan zipLocation
         //   /storage/emulated/0/MyLibsTesting/zipLocation
-        if (FGZip.initFileFromStringToZipToFile(fileName, zipLocation ,base64EncodeFromFile,md5EncodeFromFile, true)){
+        if (FGZip.initFileFromStringToZipToFile(fileName, zipLocation ,base64EncodeFromFile,md5EncodeFromFile, overwriteExistingFiles)){
             Toast.makeText(this, "Success load data", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Gagal load data", Toast.LENGTH_SHORT).show();
@@ -105,7 +107,9 @@ public class MainActivity extends AppCompatActivity {
   - Make sure `fileName` is real name from file zip that you decode to Base64 and Md5.
 
 #
-[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/EncodeBase64Md5toZip/MainActivity.java) Preview :
+[Example Project](https://github.com/gzeinnumer/SimpleZipMyLibDirectory)
+
+Preview :
 
 | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example7.jpg) | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example8.jpg)          |
 |:----------------------------------------------------------------------------------|:----------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------|
