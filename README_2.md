@@ -100,7 +100,7 @@ boolean isDeleted = FGFile.deleteDir("/MyFile.txt");
 ```
 
 #
-[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFile/MainActivity.java) Preview :
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFile/MainActivity.java)
 
 [Example Project](https://github.com/gzeinnumer/SimpleFileMyLibDirectory)
 
