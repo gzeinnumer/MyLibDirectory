@@ -132,15 +132,19 @@ public class MainActivity extends AppCompatActivity {
         //1. jika isNew true maka file lama akan dihapus dan diganti dengan yang baru.
         FGFile.initFileImageFromInternet(getApplicationContext(), imgUrl, saveTo, fileName, overwriteExistingFiles, new FGFile.ImageLoadCallBack() {
             @Override
-            public void onBitmapReturn(Bitmap bitmap) {
+            public void onBitmapReturn(Bitmap bitmap, String path, String msg) {
                 imageView.setImageBitmap(bitmap);
+                Log.d(TAG, "onBitmapReturn: "+path);
+                Log.d(TAG, "onBitmapReturn: "+msg);
             }
         });
         //2. jika isNew false maka akan otomatis load file dan disimpan, tapi jika file belum ada, maka akan tetap didownload.
         FGFile.initFileImageFromInternet(getApplicationContext(), imgUrl, saveTo, fileName, overwriteExistingFiles, new FGFile.ImageLoadCallBack() {
             @Override
-            public void onBitmapReturn(Bitmap bitmap) {
+            public void onBitmapReturn(Bitmap bitmap, String path, String msg) {
                 imageView.setImageBitmap(bitmap);
+                Log.d(TAG, "onBitmapReturn: "+path);
+                Log.d(TAG, "onBitmapReturn: "+msg);
             }
         });
     }
