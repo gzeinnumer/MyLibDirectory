@@ -128,7 +128,7 @@ In directory `res` make folder `xml` and make file **file_provider_paths.xml**.
     <external-path
         name="my_images"
         path="Android/data/com.gzeinnumer.mylibstesting/files/DCIM" />
-    
+
         <!-- ganti com.gzeinnumer.mylibstesting dengan package name project kamu-->
 </paths>
 ```
@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
         Manifest.permission.CAMERA
     };
-    
+
     ...
 
 }
@@ -169,7 +169,7 @@ In function `dispatchTakePictureIntent` start your request to open camera, call 
 public class MainActivity extends AppCompatActivity {
 
     ...
-    
+
     //1
     static final int REQUEST_TAKE_PHOTO = 2;
     File mPhotoFile;
@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-    
+
     //4
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -238,14 +238,16 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-    
+
     ...
 
 }
 ```
 
 #
-[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromCameraAndCompress/MainActivity.java) Preview :
+[Example Project](https://github.com/gzeinnumer/SimpleTakeFotoHDMyLibDirectory)
+
+Preview :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example10.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example11.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example12.jpg)|
 |--|--|--|

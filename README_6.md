@@ -126,16 +126,19 @@ public class MainActivity extends AppCompatActivity {
         // imgUrl = "https://helpx.adobe.com/content/dam/help/en/stock/how-to/visual-reverse-image-search/jcr_content/main-pars/image/visual-reverse-image-search-v2_intro.jpg";
         // String fileName = imgUrl.substring(url.lastIndexOf('/') + 1, url.length());
 
+
+         boolean overwriteExistingFiles =  true;
+
         //pilih 1 atau 2
         //1. jika isNew true maka file lama akan dihapus dan diganti dengan yang baru.
-        FGFile.initFileImageFromInternet(imgUrl, saveTo, fileName, true, new FGFile.ImageLoadCallBack() {
+        FGFile.initFileImageFromInternet(imgUrl, saveTo, fileName, overwriteExistingFiles, new FGFile.ImageLoadCallBack() {
             @Override
             public void onBitmapReturn(Bitmap bitmap) {
                 imageView.setImageBitmap(bitmap);
             }
         });
         //2. jika isNew false maka akan otomatis load file dan disimpan, tapi jika file belum ada, maka akan tetap didownload.
-        FGFile.initFileImageFromInternet(imgUrl, saveTo, fileName, false, new FGFile.ImageLoadCallBack() {
+        FGFile.initFileImageFromInternet(imgUrl, saveTo, fileName, overwriteExistingFiles, new FGFile.ImageLoadCallBack() {
             @Override
             public void onBitmapReturn(Bitmap bitmap) {
                 imageView.setImageBitmap(bitmap);
@@ -149,7 +152,9 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
-[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/LoadImageFromInternetandSave/MainActivity.java) Preview :
+[Example Project](https://github.com/gzeinnumer/SimpleDownloadImageMyLibDirectory)
+
+Preview :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example23.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example24.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example25.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example26.jpg)|
 |--|--|--|--|

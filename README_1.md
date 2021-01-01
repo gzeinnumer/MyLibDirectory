@@ -15,7 +15,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 | `initExternalDirectoryName` | `void`    | `String appFolder`     | Function to declare your own app folder on external  |
 | `initFolder`                | `boolean` | `String... folderName` | Make folder in own app folder in external            |
 | `isFileExists`              | `boolean` | `String path`          | To check is `directory` or `file` has created or not |
-| `deleteDir`                 | `boolean` | `String path`          | To Delete directory` or `file`                       |
+| `deleteDir`                 | `boolean` | `String path`          | To Delete `directory` or `file`                      |
 
 ---
 ### Step 1. Enable Fitur.
@@ -101,7 +101,9 @@ boolean isDeleted = FGDir.deleteDir("/folder1");
 ```
 
 #
-[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFolder/MainActivity.java) Preview :
+[Example Project](https://github.com/gzeinnumer/SimpleFolderMyLibDirectory)
+
+Preview :
 
 |![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example1.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example2.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example3.jpg)|![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/example4.jpg)|
 |--|--|--|--|
