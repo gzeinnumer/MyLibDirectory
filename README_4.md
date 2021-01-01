@@ -245,6 +245,8 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 #
+[FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/TakeImageFromCameraAndCompress/MainActivity.java) Preview :
+
 [Example Project](https://github.com/gzeinnumer/SimpleTakeFotoHDMyLibDirectory)
 
 Preview :
