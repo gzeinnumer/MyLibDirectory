@@ -352,12 +352,15 @@ public class FGFile {
                               @Override
                               public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                                   try {
+                                      String msg;
                                       if (!finalMyDir.exists() || isNew) {
                                           //jika isNew true maka foto lama akan dihapus dan diganti dengan yang baru
                                           //jika file tidak ditemukan maka file akan dibuat
                                           logSystemFunctionGlobal("initFileImageFromInternet", "Foto baru disimpan ke penyimpanan");
                                           FileOutputStream out = new FileOutputStream(finalMyDir);
                                           bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+
+                                          msg = "Save New Foto";
 
                                           out.flush();
                                           out.close();
@@ -366,9 +369,11 @@ public class FGFile {
                                           //jika isNew false maka akan load file lama di penyimpanan
                                           logSystemFunctionGlobal("initFileImageFromInternet", "Foto lama di load dari penyimpanan");
                                           bitmap = BitmapFactory.decodeFile(finalMyDir.getAbsolutePath());
+
+                                          msg = "Load Old Foto";
                                       }
 
-                                      imageLoadCallBack.onBitmapReturn(bitmap, finalMyDir.toString());
+                                      imageLoadCallBack.onBitmapReturn(bitmap, finalMyDir.toString(), msg);
                                   } catch (Exception e) {
                                       logSystemFunctionGlobal("initFileImageFromInternet", e.getMessage());
                                   }
@@ -378,19 +383,19 @@ public class FGFile {
                               public void onBitmapFailed(Exception e, Drawable errorDrawable) {
                                   logSystemFunctionGlobal("initFileImageFromInternet", e.getMessage());
 
-                                  imageLoadCallBack.onBitmapReturn(drawableToBitmap(ContextCompat.getDrawable(context, com.gzeinnumer.gzndirectory.R.drawable.ic_baseline_broken_image_24)), finalMyDir.toString());
+                                  imageLoadCallBack.onBitmapReturn(drawableToBitmap(ContextCompat.getDrawable(context, com.gzeinnumer.gzndirectory.R.drawable.ic_baseline_broken_image_24)), finalMyDir.toString(), e.getMessage());
                               }
 
                               @Override
                               public void onPrepareLoad(Drawable placeHolderDrawable) {
-                                  imageLoadCallBack.onBitmapReturn(drawableToBitmap(ContextCompat.getDrawable(context, com.gzeinnumer.gzndirectory.R.drawable.ic_baseline_sync_24)), finalMyDir.toString());
+                                  imageLoadCallBack.onBitmapReturn(drawableToBitmap(ContextCompat.getDrawable(context, com.gzeinnumer.gzndirectory.R.drawable.ic_baseline_sync_24)), finalMyDir.toString(), "onPrepareLoad");
                               }
                           }
                     );
         } else {
             logSystemFunctionGlobal("initFileImageFromInternet", "Foto lama di load dari penyimpanan");
             Bitmap bitmap = BitmapFactory.decodeFile(myDir.getAbsolutePath());
-            imageLoadCallBack.onBitmapReturn(bitmap, myDir.toString());
+            imageLoadCallBack.onBitmapReturn(bitmap, myDir.toString(), "Load Old Foto");
         }
     }
 
@@ -483,7 +488,7 @@ public class FGFile {
     ImageLoadCallBack imageLoadCallBack;
 
     public interface ImageLoadCallBack {
-        void onBitmapReturn(Bitmap bitmap, String path);
+        void onBitmapReturn(Bitmap bitmap, String path, String msg);
     }
 
 }
