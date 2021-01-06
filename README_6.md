@@ -26,7 +26,7 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-        String externalFolderName = getApplication().getString(R.string.app_name); //MyLibsTesting
+        String externalFolderName = getApplicationContext().getString(R.string.app_name); //MyLibsTesting
         FGDir.initExternalDirectoryName(externalFolderName);
     }
 }
