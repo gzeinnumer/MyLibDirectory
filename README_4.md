@@ -29,7 +29,7 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-        String externalFolderName = getApplication().getString(R.string.app_name); //MyLibsTesting
+        String externalFolderName = getApplicationContext().getString(R.string.app_name); //MyLibsTesting
         FGDir.initExternalDirectoryName(externalFolderName);
     }
 }
@@ -149,10 +149,10 @@ public class MainActivity extends AppCompatActivity {
     ...
 
     //pada contoh yang sudah zein siapkan di https://github.com/gzeinnumer/MultiPermition2, tambahkan 1 permition lagi yaitu CAMERA.
-    String[] permissions = new String[]{
-        Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-        Manifest.permission.CAMERA
+    private PermissionEnum[] permissions = new String[]{
+        PermissionEnum.READ_EXTERNAL_STORAGE,
+        PermissionEnum.WRITE_EXTERNAL_STORAGE,
+        PermissionEnum.CAMERA
     };
 
     ...
