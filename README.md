@@ -46,6 +46,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 - [Create File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#create-file)
 - [Is File Exists](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#is-file-exists)
 - [Delete File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#delete-file)
+- [Delete All File Inside Folder](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#delete-all-file-inside-folder)
 - [Read File](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#read-file)
 - [AppentText](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_2.md#appenttext)
 
