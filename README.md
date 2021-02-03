@@ -6,15 +6,23 @@
     <a><img src="https://img.shields.io/badge/Version-1.5.4-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
-    <a><img src="https://img.shields.io/badge/Koltin-Suport-green?logo=kotlin&style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Kotlin-Suport-green?logo=kotlin&style=flat"></a>
     <a href="https://github.com/gzeinnumer"><img src="https://img.shields.io/github/followers/gzeinnumer?label=follow&style=social"></a>
     <br>
     <p>Simple way to make <b>Directory</b>, <b>File</b>, and <b>Zip</b>.</p>
 </div>
 
 ---
+# Content List
+* [Download](#download)
+* [Feature List](#feature-list)
+* [Tech stack and 3rd library](#tech-stack-and-3rd-library)
+* [Example Code/App](#example-codeapp)
+* [Version](#version)
+* [Contribution](#contribution)
 
-## Download
+---
+# Download
 Add maven `jitpack.io` and `dependencies` in `build.gradle (Project)` :
 ```gradle
 // build.gradle project
@@ -33,10 +41,10 @@ dependencies {
 ```
 
 ---
+# Feature List
 
 This library need Permission you can use this step [**MultiPermission**](https://github.com/gzeinnumer/MultiPermition2) or use your own.
 
-## Feature List
 #### [Function Global Directory](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md)
 - [Create Folder](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md#create-folder)
 - [Is File Exists](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_1.md#is-file-exists)
@@ -63,8 +71,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 - [Download Image From Internet](https://github.com/gzeinnumer/MyLibDirectory/blob/master/README_6.md#download-image-from-internet)
 
 ---
-
-## Tech stack and 3rd library
+# Tech stack and 3rd library
 - MultiPermition ([docs](https://github.com/gzeinnumer/MultiPermition2))
 - Androidwave ([docs](https://androidwave.com/))
 - Glide ([docs](https://github.com/bumptech/glide))
@@ -80,10 +87,6 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 
 ---
 
-FullCode from all fitur ([example](https://github.com/gzeinnumer/MyLibDirectoryExample)).
-
----
-
 **Debug** if you find trouble and function doesn't work you can trace with this
 
 | ![](https://github.com/gzeinnumer/MyLibDirectory/blob/master/assets/debug.jpg) |
@@ -91,8 +94,12 @@ FullCode from all fitur ([example](https://github.com/gzeinnumer/MyLibDirectoryE
 | Example `Logcat`                                                               |
 
 ---
+# Example Code/App
 
-### Version
+FullCode from all fitur ([example](https://github.com/gzeinnumer/MyLibDirectoryExample)).
+
+---
+# Version
 - **1.4.3**
   - First Release
 - **1.5.0**
@@ -107,9 +114,8 @@ FullCode from all fitur ([example](https://github.com/gzeinnumer/MyLibDirectoryE
   - All Callback Preload, Error and Message Status
 
 ---
-
-### Contribution
-You can sent your constibution to `branche` `open-pull`.
+# Contribution
+You can sent your constibution to `branch` `open-pull`.
 
 ---
 
