@@ -17,7 +17,6 @@
 * [Download](#download)
 * [Feature List](#feature-list)
 * [Tech stack and 3rd library](#tech-stack-and-3rd-library)
-* [Usage](#usage)
 * [Example Code/App](#example-codeapp)
 * [Version](#version)
 * [Contribution](#contribution)
@@ -95,7 +94,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 | Example `Logcat`                                                               |
 
 ---
-# Example App/Code
+# Example Code/App
 
 FullCode from all fitur ([example](https://github.com/gzeinnumer/MyLibDirectoryExample)).
 
