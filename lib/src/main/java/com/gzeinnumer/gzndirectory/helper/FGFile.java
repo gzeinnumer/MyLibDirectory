@@ -460,7 +460,7 @@ public class FGFile {
         new File(FGDir.getStorageCard+FGDir.appFolder+path).mkdirs();
     }
 
-    private static void deleteAllFileProcess(File dir) {
+    private static boolean deleteAllFileProcess(File dir) {
         if (dir.isDirectory()) {
             File[] files = dir.listFiles();
             if (files != null && files.length > 0) {
@@ -469,7 +469,7 @@ public class FGFile {
                 }
             }
         }
-        dir.delete();
+        return dir.delete();
     }
 
     public static boolean isFileExists(String path) {
