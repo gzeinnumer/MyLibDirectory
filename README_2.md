@@ -211,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
 #
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/AppentText/MainActivity.java)
 
-[Example Project](https://github.com/gzeinnumer/SimpleFileMyLibDirectory)
+[Sample Code And App](https://github.com/gzeinnumer/MyLibDirectoryExample)
 
 Preview :
 

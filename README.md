@@ -96,7 +96,7 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 ---
 # Example Code/App
 
-FullCode from all fitur ([example](https://github.com/gzeinnumer/MyLibDirectoryExample)).
+[Sample Code And App](https://github.com/gzeinnumer/MyLibDirectoryExample)
 
 ---
 # Version

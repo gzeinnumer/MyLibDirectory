@@ -103,7 +103,7 @@ boolean isDeleted = FGDir.deleteDir("/folder1");
 #
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/CreateFolder/MainActivity.java)
 
-[Example Project](https://github.com/gzeinnumer/SimpleFolderMyLibDirectory)
+[Sample Code And App](https://github.com/gzeinnumer/MyLibDirectoryExample)
 
 Preview :
 
