@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
 #
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/LoadImageFromInternetandSave/MainActivity.java)
 
-[Example Project](https://github.com/gzeinnumer/SimpleDownloadImageMyLibDirectory)
+[Sample Code And App](https://github.com/gzeinnumer/MyLibDirectoryExample)
 
 Preview :
 

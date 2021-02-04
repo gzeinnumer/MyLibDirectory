@@ -30,7 +30,6 @@
                 android:resource="@xml/file_provider_paths" />
         </provider>
 
-        <activity android:name=".SecondActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

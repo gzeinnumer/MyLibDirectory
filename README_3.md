@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 #
 [FullCode](https://github.com/gzeinnumer/MyLibDirectory/blob/master/example/EncodeBase64Md5toZip/MainActivity.java)
 
-[Example Project](https://github.com/gzeinnumer/SimpleZipMyLibDirectory)
+[Sample Code And App](https://github.com/gzeinnumer/MyLibDirectoryExample)
 
 Preview :
 
