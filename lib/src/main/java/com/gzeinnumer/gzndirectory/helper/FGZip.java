@@ -146,6 +146,14 @@ public class FGZip {
     private static boolean unzip(String fileName, String zipLocation) throws IOException {
         String zipFile = FGDir.getStorageCard + FGDir.appFolder + fileName;
         String unzipLocation = FGDir.getStorageCard + FGDir.appFolder + zipLocation;
+
+        //delete file
+        if (new File(zipFile).exists())
+            new File(zipFile).delete();
+        if (new File(unzipLocation).exists())
+            new File(unzipLocation).delete();
+        //
+
         ZipFile archive = new ZipFile(zipFile);
         Enumeration<? extends ZipEntry> e = archive.entries();
         while (e.hasMoreElements()) {
