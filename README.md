@@ -3,7 +3,7 @@
 </h1>
 
 <div align="center">
-    <a><img src="https://img.shields.io/badge/Version-1.5.5-brightgreen.svg?style=flat"></a>
+    <a><img src="https://img.shields.io/badge/Version-1.5.6-brightgreen.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/ID-gzeinnumer-blue.svg?style=flat"></a>
     <a><img src="https://img.shields.io/badge/Java-Suport-green?logo=java&style=flat"></a>
     <a><img src="https://img.shields.io/badge/Kotlin-Suport-green?logo=kotlin&style=flat"></a>
@@ -113,6 +113,8 @@ This library need Permission you can use this step [**MultiPermission**](https:/
 - **1.5.4**
   - All Callback Preload, Error and Message Status
 - **1.5.5**
+  - Bug Fixing
+- **1.5.6**
   - Bug Fixing
 
 ---
