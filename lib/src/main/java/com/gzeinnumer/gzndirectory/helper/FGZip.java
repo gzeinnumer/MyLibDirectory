@@ -148,10 +148,8 @@ public class FGZip {
         String unzipLocation = FGDir.getStorageCard + FGDir.appFolder + zipLocation;
 
         //delete file
-        if (new File(zipFile).exists())
-            new File(zipFile).delete();
         if (new File(unzipLocation).exists())
-            new File(unzipLocation).delete();
+            deleteRecursive(new File(unzipLocation));
         //
 
         ZipFile archive = new ZipFile(zipFile);
@@ -183,4 +181,12 @@ public class FGZip {
         return false;
     }
     //end genFile
+
+    private static void deleteRecursive(File fileOrDirectory) {
+        if (fileOrDirectory.isDirectory())
+            for (File child : fileOrDirectory.listFiles())
+                deleteRecursive(child);
+
+        fileOrDirectory.delete();
+    }
 }
